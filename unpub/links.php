@@ -6,34 +6,24 @@
 
 Steppe West Links
 
-Links Page
-	https://links.steppewest.com
+Links Page	https://links.steppewest.com
 
-Facebook
-	https://www.facebook.com/SteppeWest/
-Instagram
-	https://www.instagram.com/Steppe.West/
-Pinterest
-	https://www.pinterest.com.au/SteppeWest/
-Substack
-	https://steppewest.substack.com
-Threads
-	https://www.threads.net/@steppe.west
-TikTok
-	https://www.tiktok.com/@steppewest
-Twitter
-	https://twitter.com/SteppeWest
-YouTube
-	https://www.youtube.com/@SteppeWest
 
-WhatsApp
-	https://wa.me/61400473376?text=About%20Steppe%20West
-	https://is.gd/WkGAJO
-Telegram
-	https://t.me/steppewest
-Viber
-	viber://add?number=61400473376
-	https://is.gd/kGCt1C
+Substack	substack	https://steppewest.substack.com
+Facebook	facebook	https://www.facebook.com/SteppeWest/
+Instagram	instagram	https://www.instagram.com/Steppe.West/
+Twitter	twitter	https://twitter.com/SteppeWest
+YouTube	youtube	https://www.youtube.com/@SteppeWest
+TikTok	tiktok	https://www.tiktok.com/@steppewest
+Pinterest	pinterest	https://www.pinterest.com.au/SteppeWest/
+Threads	threads	https://www.threads.net/@steppe.west
+WhatsApp	whatsapp	https://wa.me/61400473376?text=About%20Steppe%20West
+Telegram	telegram	https://t.me/steppewest
+Viber	viber	viber://add?number=61400473376
+VK	vk	https://vk.com/steppe.west
+X	x	https://twitter.com/SteppeWest
+WhatsApp	whatsapp	https://is.gd/WkGAJO
+Viber	viber	https://is.gd/kGCt1C
 
 
 
@@ -43,10 +33,9 @@ Viber
 
 
 
-
-
-
-
+					<a href="https://steppewest.substack.com" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="40" width="40" style="vertical-align:middle;margin: 0px 0px 13px 0px" src="https://cdn.simpleicons.org/substack" alt="Substack">
+					</a>
 
 
 
