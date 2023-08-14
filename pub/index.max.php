@@ -20,8 +20,9 @@
 	<meta name="twitter:image" content="ui/img/golden-eagle-small.jpg">
 	<meta name="twitter:card" content="ui/img/golden-eagle-meta.jpg">
 	<title>Social Media Links | Steppe West</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
 	<link href="ui/css/style.css" rel="stylesheet">
+	<link href="ui/css/brand-icons.min.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/820f855cc1.js" crossorigin="anonymous"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178103221-1"></script>
@@ -30,39 +31,146 @@
 <body>
 	<div class="container-fluid">
 		<div class="row no-gutter">
-			<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-			<div class="col-md-8 col-lg-6">
-				<div class="login d-flex align-items-center py-5">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-9 col-lg-8 mx-auto text-center">
-								<img src="ui/img/eagle-master-240x240.jpg" width="120" height="120" class="rounded-circle" alt="Eagle-Master">
-								<h3 class="card-title">Steppe West</h3>
-								<p>Showcasing the music &amp; cultures of Central Asia.<br>Демонстрация музыки и культур Центральной Азии.</p>
-								<div class="align-bottom">
-								<a href="tel:+61400473376" class="btn btn-outline-warning btn-circle m-1" role="button" aria-disabled="true"><i class="fas fa-phone fa-lg"></i></a>
-								<a href="sms:+61400473376" class="btn btn-outline-warning btn-circle m-1" role="button" aria-disabled="true"><i class="fas fa-comment-dots fa-lg"></i></a>
-								<a href="mailto:pedro@steppewest.com?subject=Steppe West" class="btn btn-outline-warning btn-circle m-1" role="button" aria-disabled="true"><i class="far fa-envelope fa-lg"></i></a>
-								<a href="steppe-west.vcf" download="steppe-west-contact-card.vcf" class="btn btn-outline-warning text-uppercase font-weight-bold" role="button" aria-disabled="true">Add to Contacts</a>
-								</div>
-								<br>
-								<a href="https://medium.com/steppe-west/introduction-27be73a9a2c1?sk=fb7adc5052eef892bcf46fb59f7b3ffa" class="btn btn-lg btn-warning btn-block btn-login text-uppercase font-weight-bold mb-2" role="button" target="_blank" aria-disabled="true"><i class="fab fa-medium-m fa-lg"></i> Introduction Letter</a>
-								<br>
-								<a href="https://medium.com/steppe-west" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true"><i class="fab fa-medium-m"></i></a>
-								<a href="https://www.facebook.com/SteppeWest/" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true"><i class="fab fa-facebook"></i></a>
-								<a href="https://twitter.com/SteppeWest" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true"><i class="fab fa-twitter-square"></i></a>
-								<a href="https://www.instagram.com/Steppe.West/" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true"><i class="fab fa-instagram-square"></i></a>
-								<a href="https://www.youtube.com/channel/UCQAZOZEGExKLjOLsEgHxMLQ" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true"><i class="fab fa-youtube-square"></i></a>
-								<a href="https://vk.com/steppe.west" class="btn btn-warning btn-circle btn-circle-xl m-1" role="button" target="_blank" aria-disabled="true"><i class="fab fa-vk"></i></a>
-							</div>
-						</div>
+
+<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+
+<div class="col-md-8 col-lg-6">
+	<div class="login d-flex align-items-center py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 col-lg-8 mx-auto text-center">
+					<img src="ui/img/eagle-master-240x240.jpg" width="120" height="120" class="rounded-circle" alt="Eagle-Master">
+					<h3 class="card-title">Steppe West</h3>
+					<p>Showcasing the music &amp; cultures of Central Asia.<br>Демонстрация музыки и культур Центральной Азии.</p>
+					<a href="https://steppewest.substack.com/p/steppe-west-introducing-steppe-west" class="btn btn-lg btn-warning btn-block btn-login text-uppercase font-weight-bold mb-2" role="button" target="_blank" aria-disabled="true">
+						<img height="21" width="21" style="vertical-align:middle;margin: 0px 6px 0px 0px" src="https://cdn.simpleicons.org/substack/fff" alt="Substack">
+						Introduction Letter
+					</a>
+					<br>
+					<!-- / Substack
+						/ -->
+					<a href="https://steppewest.substack.com" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/substack/222" alt="Substack">
+					</a>
+					<!-- / Facebook
+						/ -->
+					<a href="https://www.facebook.com/SteppeWest/" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/facebook/222" alt="Facebook">
+					</a>
+					<!-- / Instagram
+						/ -->
+					<a href="https://www.instagram.com/Steppe.West/" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/instagram/222" alt="Instagram">
+					</a>
+					<!-- / Twitter
+						/ -->
+					<a href="https://twitter.com/SteppeWest" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/twitter/222" alt="Twitter">
+					</a>
+					<!-- / YouTube
+						/ -->
+					<a href="https://www.youtube.com/@SteppeWest" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/youtube/222" alt="YouTube">
+					</a>
+					<!-- / TikTok
+						/ -->
+					<a href="https://www.tiktok.com/@steppewest" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/tiktok/222" alt="TikTok">
+					</a>
+					<!-- / Pinterest
+					<a href="https://www.pinterest.com.au/SteppeWest/" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/pinterest/222" alt="Pinterest">
+					</a>
+						/ -->
+					<!-- / Threads
+					<a href="https://www.threads.net/@steppe.west" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/threads/222" alt="Threads">
+					</a>
+						/ -->
+					<!-- / WhatsApp
+					<a href="https://wa.me/61400473376?text=About%20Steppe%20West" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/whatsapp/222" alt="WhatsApp">
+					</a>
+						/ -->
+					<!-- / Telegram
+					<a href="https://t.me/steppewest" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/telegram/222" alt="Telegram">
+					</a>
+						/ -->
+					<!-- / Viber
+					<a href="viber://add?number=61400473376" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/viber/222" alt="Viber">
+					</a>
+						/ -->
+					<!-- / VK
+						/ -->
+					<a href="https://vk.com/steppe.west" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/vk/222" alt="VK">
+					</a>
+					<!-- / X
+					<a href="https://twitter.com/SteppeWest" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/x/222" alt="X">
+					</a>
+						/ -->
+					<!-- / WhatsApp
+					<a href="https://is.gd/WkGAJO" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/whatsapp/222" alt="WhatsApp">
+					</a>
+						/ -->
+					<!-- / Viber
+					<a href="https://is.gd/kGCt1C" class="btn btn-warning btn-circle btn-circle-lg m-1" role="button" target="_blank" aria-disabled="true">
+						<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="https://cdn.simpleicons.org/viber/222" alt="Viber">
+					</a>
+					/ -->
+					<br><br>
+					<div class="align-bottom">
+						<a href="tel:%2B61400473376" class="btn btn-outline-warning btn-circle m-1" role="button" aria-disabled="true"><i class="fas fa-phone fa-lg"></i></a>
+						<a href="sms:%2B61400473376" class="btn btn-outline-warning btn-circle m-1" role="button" aria-disabled="true"><i class="fas fa-comment-dots fa-lg"></i></a>
+						<a href="mailto:pedro@steppewest.com?subject=Steppe West" class="btn btn-outline-warning btn-circle m-1" role="button" aria-disabled="true"><i class="far fa-envelope fa-lg"></i></a>
+						<a href="steppe-west.vcf" download="steppe-west-contact-card.vcf" class="btn btn-outline-warning text-uppercase font-weight-bold" role="button" aria-disabled="true">Add to Contacts</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+		</div>
+	</div>
 </body>
 </html>
+
+<!--
+		<img height="42" width="42" src="ui/svg/facebook.svg" alt="Facebook">
+		<img height="42" width="42" src="ui/svg/instagram.svg" alt="Instagram">
+		<img height="42" width="42" src="ui/svg/pinterest.svg" alt="Pinterest">
+		<img height="42" width="42" src="ui/svg/substack.svg" alt="Substack">
+		<img height="42" width="42" src="ui/svg/telegram.svg" alt="Telegram">
+		<img height="42" width="42" src="ui/svg/threads.svg" alt="Threads">
+		<img height="42" width="42" src="ui/svg/tiktok.svg" alt="TikTok">
+		<img height="42" width="42" src="ui/svg/twitter.svg" alt="Twitter">
+		<img height="42" width="42" src="ui/svg/viber.svg" alt="Viber">
+		<img height="42" width="42" src="ui/svg/vk.svg" alt="VK">
+		<img height="42" width="42" src="ui/svg/whatsapp.svg" alt="WhatsApp">
+		<img height="42" width="42" src="ui/svg/x.svg" alt="X">
+		<img height="42" width="42" src="ui/svg/youtube.svg" alt="YouTube">
+ -->
+
+<!--
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/facebook.svg" alt="Facebook">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/instagram.svg" alt="Instagram">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/pinterest.svg" alt="Pinterest">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/substack.svg" alt="Substack">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/telegram.svg" alt="Telegram">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/threads.svg" alt="Threads">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/tiktok.svg" alt="TikTok">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/twitter.svg" alt="Twitter">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/viber.svg" alt="Viber">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/vk.svg" alt="VK">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/whatsapp.svg" alt="WhatsApp">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/x.svg" alt="X">
+		<img height="32" width="32" style="vertical-align:middle;margin: 0px 0px 6px 0px" src="ui/svg/youtube.svg" alt="YouTube">
+ -->
 
 <!--
 <i class="fab fa-facebook-f"></i>
