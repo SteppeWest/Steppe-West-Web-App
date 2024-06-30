@@ -5,7 +5,7 @@
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
  * @link https://steppewest.com/
- * @license MIT
+ * @license Proprietary/MIT
  */
 
 /**
@@ -23,12 +23,10 @@
 
 namespace app\assets;
 
-use app\assets\base\SWAssetBundle;
+use app\assets\SWAssetBundle;
 
 class SWAppAsset extends SWAssetBundle
 {
-	public $sourcePath = '@app/assets/lib';
-
 	public $css = [
 		'css/steppe-west.min.css',
 	];

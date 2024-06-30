@@ -19,36 +19,43 @@
  */
 
 /**
- * @class \app\assets\base\SWAssetBundle
+ * @class \app\assets\SWAssetBundle
  *
  * Load this asset with...
- * app\assets\base\SWAssetBundle::register($this);
+ * app\assets\SWAssetBundle::register($this);
  *
- * use app\assets\base\SWAssetBundle;
+ * use app\assets\SWAssetBundle;
  * SWAssetBundle::register($this);
  *
  * or specify as a dependency with...
- *     'app\assets\base\SWAssetBundle',
+ *     'app\assets\SWAssetBundle',
  */
 
-namespace app\assets\base;
+namespace app\assets;
 
 use yii\web\AssetBundle;
 
 class SWAssetBundle extends AssetBundle
 {
+	public $sourcePath = '@app/assets/lib';
 
 	public $depends = [
-		'yii\web\YiiAsset',
 		'yii\bootstrap5\BootstrapAsset',
 		'yii\bootstrap5\BootstrapIconAsset',
 		'yii\bootstrap5\BootstrapPluginAsset',
 		'yii\bootstrap5\JqueryAsset',
+		'yii\web\YiiAsset',
 	];
 
 /**
 	// @var string
-	public $baseUrl;
+	public $basePath // = '@webroot';
+
+	// @var string
+	public $sourcePath // = '@app/assets/lib';
+
+	// @var string
+	public $baseUrl // = '@web';
 
 	// @var array
 	public $css = [
