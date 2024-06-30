@@ -1,3 +1,3 @@
-# Steppe-West-Links
+# Steppe West Basic Yii2 Web App
 
-Steppe West links page.
+Steppe West.
