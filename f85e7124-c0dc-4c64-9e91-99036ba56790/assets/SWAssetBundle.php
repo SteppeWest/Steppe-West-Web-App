@@ -85,11 +85,6 @@ class SWAssetBundle extends AssetBundle
 
 	SWAppAsset
 	SWAssetBundle
-	SWBootstrapAsset
-	SWBootstrapIconsAsset
-	SWBootstrapPluginAsset
-	SWJqueryAsset
-	SWYiiAsset
 
  */
 
