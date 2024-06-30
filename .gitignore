@@ -4,6 +4,6 @@
 ._*
 **/._*
 
-# Ignore the z_gitignore folder
+# Ignore z_gitignore folders at any level
 z_gitignore/
 **/z_gitignore/
