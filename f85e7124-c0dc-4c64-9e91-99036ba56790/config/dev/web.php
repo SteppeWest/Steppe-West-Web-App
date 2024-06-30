@@ -29,3 +29,8 @@ if (YII_ENV_DEV) {
 }
 
 return ArrayHelper::merge($baseConfig, $config);
+
+
+'assetManager' => [
+	'basePath' => '@webroot/my-assets',
+],
