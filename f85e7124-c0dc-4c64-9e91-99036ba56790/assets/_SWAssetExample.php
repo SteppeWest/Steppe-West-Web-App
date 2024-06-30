@@ -9,6 +9,12 @@
  */
 
 /**
+ * To use this class, copy it & rename the copy,
+ * then replace all instances of 'SWAssetExample'
+ * with your new asset name.
+ */
+
+/**
  * @class \app\assets\SWAssetExample
  *
  * Load this asset with...
