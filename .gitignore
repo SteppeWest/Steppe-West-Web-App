@@ -1,6 +1,9 @@
 # Ignore hidden Mac system files
 .DS_Store
+**/.DS_Store
 ._*
+**/._*
 
 # Ignore the z_gitignore folder
 z_gitignore/
+**/z_gitignore/
