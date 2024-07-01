@@ -15,10 +15,7 @@ $config = [
 			'theme' => [
 				'pathMap' => [
 					'@app/views' => [
-						'@app/themes/base',
-						//'@app/themes/admin',
-						//'@app/themes/letter',
-						//'@app/themes/links',
+						'@app/themes/letter',
 					]
 					//'@app/modules' => '@app/themes/basic/modules',
 					//@app/widgets' => '@app/themes/basic/widgets',
