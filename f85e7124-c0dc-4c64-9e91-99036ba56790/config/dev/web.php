@@ -7,6 +7,10 @@ $baseConfig = require __DIR__ . '/../web.php';
 $config = [
 	'components' => [
 		// subdomain-specific components configuration
+		'request' => [
+			// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+			'cookieValidationKey' => 'LFZMHWb2bcuOxDbi13fUWBOedA6ZJeyk',
+		],
 		'view' => [
 			'theme' => [
 				'pathMap' => [
