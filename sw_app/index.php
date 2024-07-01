@@ -1,7 +1,7 @@
 <?php
 
 $endpoint = 'app';
-$appfolder  = 'f85e7124-c0dc-4c64-9e91-99036ba56790';
+$appfolder  = '01906f2b-7634-71b9-8eb0-9a03d7820dc8';
 
 // comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', true);
