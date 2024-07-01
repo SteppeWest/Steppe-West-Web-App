@@ -41,6 +41,7 @@ class SWAssetBundle extends AssetBundle
 
 	public $depends = [
 		'yii\bootstrap5\BootstrapAsset',
+		'app\assets\SWBootstrapIconsAsset',
 		//'yii\bootstrap5\BootstrapIconAsset',
 		'yii\bootstrap5\BootstrapPluginAsset',
 		'yii\web\JqueryAsset',

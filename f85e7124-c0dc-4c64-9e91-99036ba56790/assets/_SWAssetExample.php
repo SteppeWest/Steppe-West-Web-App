@@ -30,7 +30,7 @@
 
 namespace app\assets;
 
-use app\assets\base\SWAssetBundle;
+use app\assets\SWAssetBundle;
 
 class SWAssetExample extends SWAssetBundle
 {

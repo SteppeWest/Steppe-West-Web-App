@@ -23,9 +23,9 @@
 
 namespace app\assets;
 
-use app\assets\base\SWAssetBundle;
+use yii\web\AssetBundle;
 
-class SWBootstrapIconsAsset extends SWAssetBundle
+class SWBootstrapIconsAsset extends AssetBundle
 {
 	public $sourcePath = null;
 	public $baseUrl = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/';
