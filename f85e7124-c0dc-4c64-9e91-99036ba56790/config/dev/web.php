@@ -7,6 +7,20 @@ $baseConfig = require __DIR__ . '/../web.php';
 $config = [
 	'components' => [
 		// subdomain-specific components configuration
+		'view' => [
+			'theme' => [
+				'pathMap' => [
+					'@app/views' => [
+						'@app/themes/base',
+						//'@app/themes/admin',
+						//'@app/themes/letter',
+						//'@app/themes/links',
+					]
+					//'@app/modules' => '@app/themes/basic/modules',
+					//@app/widgets' => '@app/themes/basic/widgets',
+				],
+			],
+		],
 	],
 	// other subdomain-specific configurations
 ];

@@ -23,10 +23,12 @@
 
 namespace app\assets;
 
-use app\assets\SWAssetBundle;
+use yii\web\AssetBundle;
 
-class SWAppAsset extends SWAssetBundle
+class SWAppAsset extends AssetBundle
 {
+	public $sourcePath = '@app/assets/lib';
+
 	public $css = [
 		'css/steppe-west.min.css',
 	];
@@ -41,5 +43,11 @@ class SWAppAsset extends SWAssetBundle
 
 	public $jsOptions = [
 		'crossorigin' => 'anonymous',
+	];
+
+	public $depends = [
+		'yii\bootstrap5\BootstrapAsset',
+		'yii\bootstrap5\BootstrapIconAsset',
+		'yii\bootstrap5\BootstrapPluginAsset',
 	];
 }
