@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\SWLanguagePageSearch $model */
+/** @var app\models\SWCurrentLanguageSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swlanguage-page-search">
+<div class="swcurrent-language-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -19,19 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'page') ?>
+    <?= $form->field($model, 'position') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'subtitle') ?>
+    <?= $form->field($model, 'native') ?>
 
-    <?php // echo $form->field($model, 'description') ?>
+    <?php // echo $form->field($model, 'flag') ?>
 
-    <?php // echo $form->field($model, 'keywords') ?>
-
-    <?php // echo $form->field($model, 'lead') ?>
-
-    <?php // echo $form->field($model, 'body_yaml') ?>
+    <?php // echo $form->field($model, 'label') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

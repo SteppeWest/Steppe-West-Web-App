@@ -14,8 +14,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
-
     <?= $form->field($model, 'position')->textInput() ?>
 
     <?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>

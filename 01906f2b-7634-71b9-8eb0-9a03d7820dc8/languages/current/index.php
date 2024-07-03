@@ -1,24 +1,24 @@
 <?php
 
-use app\models\SWLanguageCode;
+use app\models\SWCurrentLanguage;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var app\models\SWLanguageCodeSearch $searchModel */
+/** @var app\models\SWCurrentLanguageSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Sw Language Codes');
+$this->title = Yii::t('app', 'Sw Current Languages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="swlanguage-code-index">
+<div class="swcurrent-language-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Sw Language Code'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Sw Current Language'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -31,15 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'pk',
             'code:ntext',
-            'active',
             'position',
             'name:ntext',
-            //'native:ntext',
+            'native:ntext',
             //'flag:ntext',
             //'label:ntext',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, SWLanguageCode $model, $key, $index, $column) {
+                'urlCreator' => function ($action, SWCurrentLanguage $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'pk' => $model->pk]);
                  }
             ],

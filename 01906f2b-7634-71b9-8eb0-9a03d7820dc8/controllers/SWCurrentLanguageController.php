@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguagePageController.php
+ * SWCurrentLanguageController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -8,31 +8,19 @@
  * @license MIT
  */
 
-/**
- * @class \app\assets\SWLanguagePageController
- *
- * Load this asset with...
- * app\assets\SWLanguagePageController::register($this);
- *
- * use app\assets\SWLanguagePageController;
- * SWAppAsset::register($this);
- *
- * or specify as a dependency with...
- *     'app\assets\SWLanguagePageController',
- */
-
 namespace app\controllers;
 
-use app\models\SWLanguagePage;
-use app\models\SWLanguagePageSearch;
+use app\models\SWCurrentLanguage;
+use app\models\SWCurrentLanguageSearch;
+use app\controllers\SWLanguageCodeController;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SWLanguagePageController implements the CRUD actions for SWLanguagePage model.
+ * SWCurrentLanguageController implements the CRUD actions for SWCurrentLanguage model.
  */
-class SWLanguagePageController extends Controller
+class SWCurrentLanguageController extends SWLanguageCodeController
 {
 	/**
 	 * @inheritDoc
@@ -53,23 +41,27 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Lists all SWLanguagePage models.
+	 * Lists all SWCurrentLanguage models.
 	 *
 	 * @return string
 	 */
 	public function actionIndex()
 	{
-		$searchModel = new SWLanguagePageSearch();
+		$page = '';
+		$languageRecord = SWCurrentLanguage::getLanguageRecord($page);
+
+		$searchModel = new SWCurrentLanguageSearch();
 		$dataProvider = $searchModel->search($this->request->queryParams);
 
 		return $this->render('index', [
+			'languageRecord' => $languageRecord,
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
 		]);
 	}
 
 	/**
-	 * Displays a single SWLanguagePage model.
+	 * Displays a single SWCurrentLanguage model.
 	 * @param int $pk Pk
 	 * @return string
 	 * @throws NotFoundHttpException if the model cannot be found
@@ -82,13 +74,13 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Creates a new SWLanguagePage model.
+	 * Creates a new SWCurrentLanguage model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 * @return string|\yii\web\Response
 	 */
 	public function actionCreate()
 	{
-		$model = new SWLanguagePage();
+		$model = new SWCurrentLanguage();
 
 		if ($this->request->isPost) {
 			if ($model->load($this->request->post()) && $model->save()) {
@@ -104,7 +96,7 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Updates an existing SWLanguagePage model.
+	 * Updates an existing SWCurrentLanguage model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param int $pk Pk
 	 * @return string|\yii\web\Response
@@ -124,7 +116,7 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Deletes an existing SWLanguagePage model.
+	 * Deletes an existing SWCurrentLanguage model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 * @param int $pk Pk
 	 * @return \yii\web\Response
@@ -138,15 +130,15 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Finds the SWLanguagePage model based on its primary key value.
+	 * Finds the SWCurrentLanguage model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
 	 * @param int $pk Pk
-	 * @return SWLanguagePage the loaded model
+	 * @return SWCurrentLanguage the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($pk)
 	{
-		if (($model = SWLanguagePage::findOne(['pk' => $pk])) !== null) {
+		if (($model = SWCurrentLanguage::findOne(['pk' => $pk])) !== null) {
 			return $model;
 		}
 

@@ -1,4 +1,12 @@
 <?php
+/**
+ * languages/shared/create.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 use yii\helpers\Html;
 
@@ -11,10 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="swlanguage-shared-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+	<?= $this->render('_form', [
+		'model' => $model,
+	]) ?>
 
 </div>

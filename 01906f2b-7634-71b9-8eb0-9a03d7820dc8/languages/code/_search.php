@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\SWLanguageSharedSearch $model */
+/** @var app\models\SWLanguageCodeSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swlanguage-shared-search">
+<div class="swlanguage-code-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -19,13 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'locale') ?>
+    <?= $form->field($model, 'position') ?>
 
-    <?= $form->field($model, 'lang') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'origin') ?>
+    <?= $form->field($model, 'native') ?>
 
-    <?php // echo $form->field($model, 'footer_yaml') ?>
+    <?php // echo $form->field($model, 'flag') ?>
+
+    <?php // echo $form->field($model, 'label') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

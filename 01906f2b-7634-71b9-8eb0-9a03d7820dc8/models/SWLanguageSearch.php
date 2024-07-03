@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\SWLanguagePage;
+use app\models\SWLanguage;
 
 /**
- * SWLanguagePageSearch represents the model behind the search form of `app\models\SWLanguagePage`.
+ * SWLanguageSearch represents the model behind the search form of `app\models\SWLanguage`.
  */
-class SWLanguagePageSearch extends SWLanguagePage
+class SWLanguageSearch extends SWLanguage
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class SWLanguagePageSearch extends SWLanguagePage
     public function rules()
     {
         return [
-            [['pk'], 'integer'],
-            [['code', 'page', 'title', 'subtitle', 'description', 'keywords', 'lead', 'body_yaml'], 'safe'],
+            [['pk', 'active', 'position', 'first'], 'integer'],
+            [['code', 'name', 'native', 'flag', 'label'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class SWLanguagePageSearch extends SWLanguagePage
      */
     public function search($params)
     {
-        $query = SWLanguagePage::find();
+        $query = SWLanguage::find();
 
         // add conditions that should always apply here
 
@@ -59,16 +59,16 @@ class SWLanguagePageSearch extends SWLanguagePage
         // grid filtering conditions
         $query->andFilterWhere([
             'pk' => $this->pk,
+            'active' => $this->active,
+            'position' => $this->position,
+            'first' => $this->first,
         ]);
 
         $query->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'page', $this->page])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'subtitle', $this->subtitle])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'keywords', $this->keywords])
-            ->andFilterWhere(['like', 'lead', $this->lead])
-            ->andFilterWhere(['like', 'body_yaml', $this->body_yaml]);
+            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'native', $this->native])
+            ->andFilterWhere(['like', 'flag', $this->flag])
+            ->andFilterWhere(['like', 'label', $this->label]);
 
         return $dataProvider;
     }

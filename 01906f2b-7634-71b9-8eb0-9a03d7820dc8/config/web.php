@@ -6,7 +6,10 @@ $db = require __DIR__ . '/db.php';
 $config = [
 	'id' => 'basic',
 	'basePath' => dirname(__DIR__),
-	'bootstrap' => ['log'],
+	'bootstrap' => [
+		'log',
+		'swLanguageSelector'
+	],
 	'aliases' => [
 		'@bower' => '@vendor/bower-asset',
 		'@npm'   => '@vendor/npm-asset',
@@ -49,6 +52,17 @@ $config = [
 				],
 			],
 		],
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+			'enableStrictParsing' => false,
+			'rules' => [
+				'<language:[A-Za-z]{2,3}>' => 'site/index',
+			],
+		],
+		'swLanguageSelector' => [
+			'class' => 'app\languages\SWLanguageSelector',
+		],
 		'cache' => [
 			'class' => 'yii\caching\FileCache',
 		],
@@ -75,14 +89,6 @@ $config = [
 			],
 		],
 		'db' => $db,
-		'urlManager' => [
-			'enablePrettyUrl' => true,
-			'showScriptName' => false,
-			'enableStrictParsing' => false,
-			'rules' => [
-				'<language:[A-Za-z]{2,3}>' => 'site/index',
-			],
-		],
 	],
 	'params' => $params,
 ];

@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguageSharedSearch.php
+ * SWCurrentLanguage.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -8,29 +8,17 @@
  * @license MIT
  */
 
-/**
- * @class \app\assets\SWLanguageSharedSearch
- *
- * Load this asset with...
- * app\assets\SWLanguageSharedSearch::register($this);
- *
- * use app\assets\SWLanguageSharedSearch;
- * SWAppAsset::register($this);
- *
- * or specify as a dependency with...
- *     'app\assets\SWLanguageSharedSearch',
- */
-
 namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\SWLanguageShared;
+use app\models\SWCurrentLanguage;
+use app\models\SWLanguageCodeSearch;
 
 /**
- * SWLanguageSharedSearch represents the model behind the search form of `app\models\SWLanguageShared`.
+ * SWCurrentLanguageSearch represents the model behind the search form of `app\models\SWCurrentLanguage`.
  */
-class SWLanguageSharedSearch extends SWLanguageShared
+class SWCurrentLanguageSearch extends SWLanguageCodeSearch
 {
 	/**
 	 * {@inheritdoc}
@@ -38,8 +26,8 @@ class SWLanguageSharedSearch extends SWLanguageShared
 	public function rules()
 	{
 		return [
-			[['pk'], 'integer'],
-			[['code', 'locale', 'lang', 'origin', 'footer_yaml'], 'safe'],
+			[['pk', 'position'], 'integer'],
+			[['code', 'name', 'native', 'flag', 'label'], 'safe'],
 		];
 	}
 
@@ -61,7 +49,7 @@ class SWLanguageSharedSearch extends SWLanguageShared
 	 */
 	public function search($params)
 	{
-		$query = SWLanguageShared::find();
+		$query = SWCurrentLanguage::find();
 
 		// add conditions that should always apply here
 
@@ -80,13 +68,14 @@ class SWLanguageSharedSearch extends SWLanguageShared
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'pk' => $this->pk,
+			'position' => $this->position,
 		]);
 
 		$query->andFilterWhere(['like', 'code', $this->code])
-			->andFilterWhere(['like', 'locale', $this->locale])
-			->andFilterWhere(['like', 'lang', $this->lang])
-			->andFilterWhere(['like', 'origin', $this->origin])
-			->andFilterWhere(['like', 'footer_yaml', $this->footer_yaml]);
+			->andFilterWhere(['like', 'name', $this->name])
+			->andFilterWhere(['like', 'native', $this->native])
+			->andFilterWhere(['like', 'flag', $this->flag])
+			->andFilterWhere(['like', 'label', $this->label]);
 
 		return $dataProvider;
 	}
