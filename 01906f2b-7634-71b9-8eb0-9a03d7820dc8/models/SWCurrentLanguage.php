@@ -62,32 +62,21 @@ class SWCurrentLanguage extends SWLanguageCode
 	public static function getLanguageRecord($page)
 	{
 		$language = self::getCurrentLanguage();
-		if (!$language)
+		if (!$language) {
 			return;
+		}
 
 		$languageCode = SWLanguageSelector::getCurrentLanguage();
 		$shared = SWLanguageShared::findOne(['code' => $languageCode]);
-		if (!$shared)
+		if (!$shared) {
 			return $language;
+		}
 
 		// Merge shared data into language data
-		foreach ($shared->attributes as $key => $value)
+		foreach ($shared->attributes as $key => $value) {
 			$language->$key = $value;
+		}
 
 		return $language;
 	}
-}
-?>
-<?php
-namespace app\models;
-
-/**
- * This is the model class for the current language, extending `SWLanguageCode`.
- */
-class SWCurrentLanguage extends SWLanguageCode
-{
-    public static function getCurrentLanguage($languageCode)
-    {
-        return self::findOne(['code' => $languageCode]);
-    }
 }
