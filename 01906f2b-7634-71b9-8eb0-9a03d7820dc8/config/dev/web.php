@@ -4,6 +4,7 @@ use yii\helpers\ArrayHelper;
 $baseConfig = require __DIR__ . '/../web.php';
 
 $config = [
+	'id' => 'dev',
 	'components' => [
 		'request' => [
 			// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
