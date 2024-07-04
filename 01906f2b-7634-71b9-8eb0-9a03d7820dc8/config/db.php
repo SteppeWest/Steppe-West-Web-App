@@ -6,6 +6,7 @@ return [
 	'username' => 'u746306670_sw_basic',
 	'password' => 'XMyxVaRYQyCAR3sl3EMDqa7X',
 	'charset' => 'utf8',
+	'tablePrefix' => 'sw_', // Add this line to set the table prefix
 
 	// Schema cache options (for production environment)
 	//'enableSchemaCache' => true,
