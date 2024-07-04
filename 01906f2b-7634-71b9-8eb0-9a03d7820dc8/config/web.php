@@ -3,7 +3,6 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-	// common configurations
 	'basePath' => dirname(__DIR__),
 	'bootstrap' => ['log'],
 	'aliases' => [
@@ -49,7 +48,7 @@ $config = [
 					],
 				],
 			],
-		], // custom
+		],
 		'urlManager' => [
 			'enablePrettyUrl' => true,
 			'showScriptName' => false,
@@ -63,7 +62,7 @@ $config = [
 		'user' => [
 			'identityClass' => 'app\models\User',
 			'enableAutoLogin' => true,
-		], // only in admin?
+		],
 		'errorHandler' => [
 			'errorAction' => 'site/error',
 		],
