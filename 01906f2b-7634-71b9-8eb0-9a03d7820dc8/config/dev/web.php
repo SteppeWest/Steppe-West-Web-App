@@ -34,3 +34,24 @@ if (YII_ENV_DEV) {
 }
 
 return ArrayHelper::merge($baseConfig, $config);
+
+
+
+// In your config file (web.php or main-local.php)
+if (YII_ENV_DEV) {
+	// configuration adjustments for 'dev' environment
+	$config['bootstrap'][] = 'gii';
+	$config['modules']['gii'] = [
+		'class' => 'yii\gii\Module',
+		// Adjust Gii settings here
+		'generators' => [
+			'model' => [
+			    'class' => 'yii\gii\generators\model\Generator',
+			    'tablePrefix' => 'sw_', // Set the table prefix
+			],
+			// You can configure other generators as needed
+		],
+	];
+}
+
+return $config;
