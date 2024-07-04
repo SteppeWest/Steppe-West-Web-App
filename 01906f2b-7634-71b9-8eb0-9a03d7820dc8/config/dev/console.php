@@ -4,10 +4,16 @@ use yii\helpers\ArrayHelper;
 
 $baseConfig = require __DIR__ . '/../console.php';
 
+
+// Get the folder name dynamically
+$folderName = basename(__DIR__) . '-console';
+
 $config = [
-	// subdomain-specific test configurations
+	// subdomain-specific console configurations
+	'id' => $folderName,
 ];
 
+// only in dev
 if (YII_ENV_DEV) {
 	// configuration adjustments for 'dev' environment
 	$config['bootstrap'][] = 'gii';
