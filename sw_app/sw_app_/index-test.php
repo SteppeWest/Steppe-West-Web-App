@@ -1,6 +1,5 @@
 <?php
-
-$endpoint = 'app';
+$endpoint = 'frontend';
 $appfolder  = '01906f2b-7634-71b9-8eb0-9a03d7820dc8';
 
 // NOTE: Make sure this file is not accessible when deployed to production
@@ -13,7 +12,19 @@ defined('YII_ENV') or define('YII_ENV', 'test');
 
 require __DIR__ . '/../' . $appfolder . '/vendor/autoload.php';
 require __DIR__ . '/../' . $appfolder . '/vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/../' . $appfolder . '/common/config/bootstrap.php';
+require __DIR__ . '/../' . $appfolder . '/' . $endpoint . '/config/bootstrap.php';
 
-$config = require __DIR__ . '/../' . $appfolder . '/config/' . $endpoint . '/test.php';
+
+$config = yii\helpers\ArrayHelper::merge(
+	require __DIR__ . '/../' . $appfolder . '/common/config/main.php',
+	require __DIR__ . '/../' . $appfolder . '/common/config/main-local.php',
+	require __DIR__ . '/../' . $appfolder . '/common/config/test.php',
+	require __DIR__ . '/../' . $appfolder . '/common/config/test-local.php',
+	require __DIR__ . '/../' . $appfolder . '/' . $endpoint . '/config/main.php',
+	require __DIR__ . '/../' . $appfolder . '/' . $endpoint . '/config/main-local.php',
+	require __DIR__ . '/../' . $appfolder . '/' . $endpoint . '/config/test.php',
+	require __DIR__ . '/../' . $appfolder . '/' . $endpoint . '/config/test-local.php'
+);
 
 (new yii\web\Application($config))->run();
