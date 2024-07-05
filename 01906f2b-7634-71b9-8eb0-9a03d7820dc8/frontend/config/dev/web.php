@@ -46,8 +46,8 @@ if (YII_ENV_DEV) {
 		// Adjust Gii settings here
 		'generators' => [
 			'model' => [
-			    'class' => 'yii\gii\generators\model\Generator',
-			    'tablePrefix' => 'sw_', // Set the table prefix
+				'class' => 'yii\gii\generators\model\Generator',
+				'tablePrefix' => 'sw_', // Set the table prefix
 			],
 			// You can configure other generators as needed
 		],

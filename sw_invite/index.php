@@ -1,15 +1,18 @@
 <?php
 
-$endpoint = 'invite';
-$appfolder  = '01906f2b-7634-71b9-8eb0-9a03d7820dc8';
-
-// comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-require __DIR__ . '/../' . $appfolder . '/vendor/autoload.php';
-require __DIR__ . '/../' . $appfolder . '/vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../../vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/../../common/config/bootstrap.php';
+require __DIR__ . '/../config/bootstrap.php';
 
-$config = require __DIR__ . '/../' . $appfolder . '/config/' . $endpoint . '/web.php';
+$config = yii\helpers\ArrayHelper::merge(
+	require __DIR__ . '/../../common/config/main.php',
+	require __DIR__ . '/../../common/config/main-local.php',
+	require __DIR__ . '/../config/main.php',
+	require __DIR__ . '/../config/main-local.php'
+);
 
 (new yii\web\Application($config))->run();

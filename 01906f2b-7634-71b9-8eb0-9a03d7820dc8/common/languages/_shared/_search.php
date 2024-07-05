@@ -10,28 +10,28 @@ use yii\widgets\ActiveForm;
 
 <div class="swlanguage-shared-search">
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-    ]); ?>
+	<?php $form = ActiveForm::begin([
+		'action' => ['index'],
+		'method' => 'get',
+	]); ?>
 
-    <?= $form->field($model, 'pk') ?>
+	<?= $form->field($model, 'pk') ?>
 
-    <?= $form->field($model, 'code') ?>
+	<?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'locale') ?>
+	<?= $form->field($model, 'locale') ?>
 
-    <?= $form->field($model, 'lang') ?>
+	<?= $form->field($model, 'lang') ?>
 
-    <?= $form->field($model, 'origin') ?>
+	<?= $form->field($model, 'origin') ?>
 
-    <?php // echo $form->field($model, 'footer_yaml') ?>
+	<?php // echo $form->field($model, 'footer_yaml') ?>
 
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
-    </div>
+	<div class="form-group">
+		<?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+		<?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
+	</div>
 
-    <?php ActiveForm::end(); ?>
+	<?php ActiveForm::end(); ?>
 
 </div>
