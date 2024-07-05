@@ -2,6 +2,8 @@
 include:
     - common
     - frontend
+    - letter
+    - links
     - backend
 paths:
     output: console/runtime/output

@@ -37,6 +37,8 @@
             "common\\tests\\": ["common/tests/", "common/tests/_support"],
             "backend\\tests\\": ["backend/tests/", "backend/tests/_support"],
             "frontend\\tests\\": ["frontend/tests/", "frontend/tests/_support"]
+            "letter\\tests\\": ["letter/tests/", "letter/tests/_support"]
+            "links\\tests\\": ["links/tests/", "links/tests/_support"]
         }
     },
     "config": {
