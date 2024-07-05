@@ -1,5 +1,5 @@
 <?php
-$endpoint = 'frontend';
+$endpoint = 'letter';
 $appfolder = '01906f2b-7634-71b9-8eb0-9a03d7820dc8';
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
