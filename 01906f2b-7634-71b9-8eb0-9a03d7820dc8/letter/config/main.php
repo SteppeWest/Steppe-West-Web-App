@@ -5,6 +5,18 @@ $params = array_merge(
 	require __DIR__ . '/params.php',
 	require __DIR__ . '/params-local.php'
 );
+$assetManager = array_merge(
+	require __DIR__ . '/../../common/config/assets.php',
+	require __DIR__ . '/assets.php',
+);
+$urlManager = array_merge(
+	require __DIR__ . '/../../common/config/url.php',
+	require __DIR__ . '/url.php',
+);
+$db = array_merge(
+	require __DIR__ . '/../../common/config/db.php',
+	require __DIR__ . '/db.php',
+);
 
 return [
 	'id' => 'app-letter',
@@ -12,6 +24,9 @@ return [
 	'bootstrap' => ['log'],
 	'controllerNamespace' => 'letter\controllers',
 	'components' => [
+		'assetManager' => $assetManager,
+		'urlManager' => $urlManager,
+		'db' => $db,
 		'request' => [
 			'csrfParam' => '_csrf-letter',
 		],
