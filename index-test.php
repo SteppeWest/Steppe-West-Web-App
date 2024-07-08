@@ -1,6 +1,6 @@
 <?php
 $endpoint = 'letter';
-$appfolder = '01906f2b-7634-71b9-8eb0-9a03d7820dc8';
+$appfolder = '0190888a-c7e8-7011-8121-33bd8b8c4763';
 
 // NOTE: Make sure this file is not accessible when deployed to production
 if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
