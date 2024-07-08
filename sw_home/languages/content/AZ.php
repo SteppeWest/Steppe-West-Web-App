@@ -1,0 +1,23 @@
+<?php
+return [
+	'title' => "Steppe West ilə tanış olun: Orta Asiyanı dünyaya tanıtmaq",
+	'description' => "Mərkəzi Asiyanın zəngin və müxtəlif musiqi və mədəniyyətlərini ingilisdilli dünyaya təqdim etmək.",
+	'keywords' => "Mərkəzi Asiya, Qazaxıstan, Qırğızıstan, Tacikistan, Türkmənistan, Özbəkistan, Azərbaycan, Monqolustan, Türklər, Yakut, Saxa, Tuva, Sibir, Monqollar, Azərbaycan musiqisi, Qazax musiqisi, Qırğız musiqisi, Monqol musiqisi, Tacik musiqisi, Türkmən musiqisi, Özbək musiqisi, Mərkəzi Asiya musiqisi, Türk musiqisi, Monqol musiqisi, Yakut musiqisi, Saxa musiqisi, Tuva musiqisi, Sibir musiqisi, Azərbaycan mədəniyyəti, Qazax mədəniyyəti, Qırğız mədəniyyəti, Monqol mədəniyyəti, Tacik mədəniyyəti, Türkmən mədəniyyəti, Özbək mədəniyyəti, Mərkəzi Asiya mədəniyyəti, Türk mədəniyyəti, Monqol mədəniyyəti, Yakut mədəniyyəti, Saxa mədəniyyəti, Tuva mədəniyyəti, Sibir mədəniyyəti, Mərkəzi Asiya xəbərləri, Azərbaycan xəbərləri, Qazax xəbərləri, Qırğız xəbərləri, Monqol xəbərləri, Tacik xəbərləri, Türkmən xəbərləri, Özbək xəbərləri, Türk xəbərləri, Monqol xəbərləri, Yakut xəbərləri, Saxa xəbərləri, Tuva xəbərləri, Sibir xəbərləri, Azərbaycan incəsənəti, Qazax incəsənəti, Qırğız incəsənəti, Monqol incəsənəti, Tacik incəsənəti, Türkmən incəsənəti, Özbək incəsənəti, Mərkəzi Asiya incəsənəti, Türk incəsənəti, Monqol incəsənəti, Yakut incəsənəti, Saxa incəsənəti, Tuva incəsənəti, Sibir incəsənəti",
+	'lead' => "Salam və Steppe West-ə xoş gəlmisiniz, bu sizin Orta Asiyanın zəngin və müxtəlif mədəniyyətlərinə qapınızdır. Biz Avstraliyada yerləşən bir platformayıq və bütün dünyadakı ingiliscə danışan auditoriyalara Orta Asiyanın maraqlı hekayələrini, ənənələrini və gündəlik həyatını paylaşmağa həvəsliyik.",
+	'heading0' => "Steppe West nədir?",
+	'paragraph0' => "Bizi mədəni bir körpü kimi düşünün, Orta Asiyanın geniş çöllərindən Avstraliya sahillərinə qədər və daha da irəliyə uzanır. Biz Orta Asiyanın musiqi, incəsənət, mətbəx, tarix və daha çox sahələrini araşdırırıq və bu xəzinələri hər kəs üçün maraqlı və əlçatan bir şəkildə təqdim edirik.",
+	'heading1' => "Missiyamız",
+	'paragraph1' => "Steppe West-də biz yalnız məzmun təqdim etməklə kifayətlənmirik; biz mədəniyyətlər arasında həqiqi əlaqələr və anlama yaratmağa çalışırıq. Türk və Monqol mədəniyyətlərinin zəngin mozaikasının dünya səhnəsində yer alması lazım olduğuna inanırıq və bu işi həyata keçirmək üçün buradayıq.",
+	'heading2' => "Bunu necə edirik",
+	'paragraph2' => "Orta Asiyalı yaradıcılarla yaxından əməkdaşlıq edərək, onların hekayələrini müxtəlif platformalarda canlandırırıq. Çöllərdən gələn ruhlu bir melodiya, ağız sulandıran bir resept və ya tarixi əhəmiyyətli bir maraqlı hekayə olsun, hər bir məzmunu orijinal və hörmətlə təqdim edirik. Həmişə orijinal yaradıcıya kredit veririk, onların işlərinə bağlantılar təqdim edirik.",
+	'heading3' => "Dil əlçatanlığı",
+	'paragraph3' => "Biz dilin bir maneə ola biləcəyini başa düşürük, buna görə də Orta Asiya məzmununu ingiliscə danışan auditoriyalara çatdırmağa böyük diqqət yetiririk. Tərcümələrimiz və təqdimatlarımız bu hekayələrin orijinal mahiyyətini və gözəlliyini qorumaq üçün hazırlanmışdır ki, heç bir şey tərcümədə itirilməsin.",
+	'heading4' => "Bu səyahətə bizə qoşulun",
+	'paragraph4' => "Biz əməkdaşlığa böyük əhəmiyyət veririk və hər bir səsin mədəni mozaikamıza unikal bir ip əlavə etdiyinə inanırıq. Əgər Orta Asiyanın musiqisi, incəsənəti, mətbəxi, idmanı və ya hekayələri ilə maraqlanırsınızsa və onları paylaşmaq istəyirsinizsə, Steppe West sizin platformanızdır. Sizin marağınız və iştirakınız Steppe West-i həqiqətən xüsusi edir.",
+	'heading5' => "İştirak edin",
+	'paragraph5' => "Sualınız, təklifiniz və ya paylaşmaq istədiyiniz bir şey varmı? Çəkinməyin! Bizə yazın və söhbətə başlayaq. Əgər Steppe West sizin üçün uyğun deyilsə belə, maraqlana biləcək başqalarına bu barədə məlumat verə bilərsiniz.",
+	'heading6' => "Komanda ilə tanış olun",
+	'paragraph6' => "Biz kiçik, lakin həvəsli bir komandayıq, o cümlədən Özbəkistandan gələn istedadlı bir gənc oğlan da var, işimizə Orta Asiya mədəniyyətini yeni perspektivlər və dərin anlayışla gətirir.",
+	'paragraph7' => "Beləliklə, bizimlə Orta Asiyanın möcüzələrini öyrənməyə qoşulun. Steppe West bizim müxtəlif dünyamızın gözəlliyini paylaşmaq, öyrənmək və qeyd etmək haqqındadır. Gəlin, birlikdə möcüzələr yaradaq!",
+	'close' => "Hörmətlə, Pedro",
+];

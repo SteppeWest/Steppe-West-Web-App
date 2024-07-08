@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+
+# Rewrite rule to capture the country code from the URL
+RewriteRule ^([A-Z]{2})/?$ index.php?language=$1 [L]
