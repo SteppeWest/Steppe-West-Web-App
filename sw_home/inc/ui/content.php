@@ -51,8 +51,7 @@ $rowData[] = [
 
 function imageTag($image, $alt) {
 	return '<img class="img-fluid rounded-circle" alt="' . htmlspecialchars($alt)
-		 . '" src="https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/'
-		 . htmlspecialchars($image) . '">';
+		 . '" src="' . CDN_BASE_URL . htmlspecialchars($image) . '">';
 }
 
 function renderColumns0($rowData) {

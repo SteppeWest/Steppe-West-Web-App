@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Define CDN base URL
+define('CDN_BASE_URL', 'https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/');
+
 $languages = [
 	'EN', // 0
 	'RU', // 1

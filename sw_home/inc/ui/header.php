@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container">
-		<a class="navbar-brand" href="/">Steppe West</a>
+		<a class="navbar-brand" href="https://steppewest.com/en">Steppe West</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -16,7 +16,6 @@
 	<div class="text-center my-5">
 		<div id="title">
 			<h1 class="text-white fs-2 fw-bolder mb-0"><?= $languageData['title'] ?></h1>
-			<h2 class="text-white fs-3 fw-bolder mb-0"><?= $languageData['subtitle'] ?></h2>
 		</div>
 	</div>
 </header>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 header
 {
-	background-image: url('/ui/img/Golden-Eagle-1900x0750.jpg');
+	background-image: url('../img/Golden-Eagle-1900x0750.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: #F90;

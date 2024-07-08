@@ -35,6 +35,7 @@ class SWAppAsset extends SWAssetBundle
 		'crossorigin' => 'anonymous',
 	];
 
+/*
 	public $js = [
 		'js/steppe-west.min.js',
 	];
@@ -42,4 +43,5 @@ class SWAppAsset extends SWAssetBundle
 	public $jsOptions = [
 		'crossorigin' => 'anonymous',
 	];
+ */
 }

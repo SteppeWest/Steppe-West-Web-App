@@ -37,7 +37,8 @@ use yii\web\AssetBundle;
 
 class SWAssetBundle extends AssetBundle
 {
-	public $sourcePath = '@common/assets/lib';
+	public $sourcePath = null;
+	public $baseUrl = '//cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/';
 
 	public $depends = [
 		'yii\bootstrap5\BootstrapAsset',
