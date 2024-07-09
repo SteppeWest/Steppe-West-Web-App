@@ -10,9 +10,13 @@ return [
 			'integrity' => 'sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd',
 		],
 		[
-			'url' => 'https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/css/steppe-west.min.css',
-			'integrity' => 'sha384-wogPCMc92qbjh20TrWpiOFe0h/zJp+foIGGTH6nEwf1Am+Pl+L6xLS3yBai/MfC1',
+			'url' => '/ui/css/steppe-west.min.css',
+			//'url' => '/ui/css/steppe-west.css',
 		],
+		/*[
+			'url' => 'https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/css/steppe-west.css',
+			'integrity' => 'sha384-IDehwO7rwUeY2QfF7Z3+O08xDtp0sgnMwqldeCevb8IKVl8tYg4i+KWgp6MTnXVE',
+		],*/
 	],
 	'js' => [
 		[

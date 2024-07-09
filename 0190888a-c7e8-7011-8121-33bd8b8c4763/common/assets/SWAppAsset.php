@@ -32,6 +32,7 @@ class SWAppAsset extends SWAssetBundle
 	];
 
 	public $cssOptions = [
+		'integrity' => 'sha384-nkZr4cTFCniMXs0pYxb6qp68BwC4+ijdl6pk9GxIyF+iGKX1nI/pV+b7UHiJEXt5',
 		'crossorigin' => 'anonymous',
 	];
 

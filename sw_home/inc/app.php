@@ -2,7 +2,8 @@
 session_start();
 
 // Define CDN base URL
-define('CDN_BASE_URL', 'https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/');
+//define('CDN_BASE_URL', 'https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/');
+define('LOCAL_BASE_URL', $canonical);
 
 $languages = [
 	'EN', // 0
@@ -21,6 +22,13 @@ $languages = [
 //$currentLanguage = isset($_GET['language']) ? strtoupper($_GET['language']) : $defaultLanguage;
 $currentLanguage = '';
 $languageData = [];
+
+// Include the circles data and assign to a variable
+$circles = include __DIR__ . '/data/circles.php';
+
+// Shuffle groups
+$groupFolders = array_keys($circles);
+shuffle($groupFolders);
 
 function sanitise($data) {
 	if (is_array($data)) {
@@ -70,6 +78,7 @@ function renderResources($type) {
 		if ($type === 'js') {
 			$html .= '</script>';
 		}
+		//$html .= PHP_EOL;
 	}
 	return $html;
 }
@@ -80,7 +89,7 @@ function renderNavigationLinks() {
 	foreach ($languages as $languageCode) {
 		$label = getFlagEmoji($languageCode) . ' ' . $languageCode;
 		$class = ($languageCode === $currentLanguage) ? ' active' : '';
-		$navigation .= '<li class="nav-item"><a class="nav-link' . $class . '" href="/' . $languageCode . '">' . $label . '</a></li>' . PHP_EOL;
+		$navigation .= '<li class="nav-item"><a class="nav-link' . $class . '" href="/' . $languageCode . '">' . $label . '</a></li>';
 	}
 	return $navigation;
 }
@@ -96,6 +105,51 @@ function renderLanguageButtons() {
 				. $label . '</a>';
 	}
 	return '<div class="btn-group">' . $buttons . '</div>';
+}
+
+function renderCircleImage($index) {
+	global $groupFolders, $circles; // Ensure these are accessible in this function
+
+	// Select a random group
+	$groupFolder = $groupFolders[$index % count($groupFolders)];
+
+	// Select a random image from the group
+	$images = glob(__DIR__ . "/../ui/img/circles/$groupFolder/*.jpg"); // Adjust path to be relative
+	if (!$images) {
+		return ''; // Handle case where no images are found
+	}
+
+	$image = $images[array_rand($images)];
+	$alt = $circles[$groupFolder];
+
+	return '<img class="img-fluid rounded-circle" alt="'
+		 . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '" src="/ui/img/circles/'
+		 . htmlspecialchars($groupFolder, ENT_QUOTES, 'UTF-8') . '/'
+		 . htmlspecialchars(basename($image), ENT_QUOTES, 'UTF-8') . '">';
+}
+
+function renderContentRow($index, $data) {
+	$textColumn = '<div class="col-lg-6 order-1 order-lg-2">' . $data . '</div>';
+
+	$lr = ($index % 2); // $lr for "left or right"
+	// Debugging output to check the value of $index
+	//echo "<!-- Debug: \$index = $index, \$lr = \$index % 2 = " . $lr . " -->" . PHP_EOL;
+
+	$rowOutput = '';
+	if ($lr == 0) {
+		$rowOutput .= '<div class="col-lg-1 order-3 order-lg-1">&nbsp;</div>';
+		$rowOutput .= $textColumn;
+		$rowOutput .= '<div class="col-lg-3 order-2 order-lg-3">'
+					. renderCircleImage($index) . '</div>';
+	}
+	else {
+		$rowOutput .= '<div class="col-lg-3 order-2 order-lg-1">'
+					. renderCircleImage($index) . '</div>';
+		$rowOutput .= $textColumn;
+		$rowOutput .= '<div class="col-lg-1 order-3 order-lg-3">&nbsp;</div>';
+	}
+
+	echo $rowOutput;
 }
 
 function renderFlagsBanner() {
