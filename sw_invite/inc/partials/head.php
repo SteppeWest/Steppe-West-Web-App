@@ -39,12 +39,4 @@
 	<title><?= $languageData['title'] ?></title>
 
 	<?= renderResources('css') ?>
-
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_04.jpeg">
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_09.jpeg">
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_10.jpeg">
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_19.jpeg">
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_17.jpeg">
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_11.jpeg">
-	<link rel="preload" type="image/jpg" href="<?= LOCAL_BASE_URL ?>ui/img/circles/central_asia_16.jpeg">
 </head>
