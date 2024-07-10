@@ -226,6 +226,17 @@ function init() {
 	// Merge shared and content data
 	$languageData = array_merge($commonData, $contentData);
 
+	// Merge shared and content data
+	$languageData = array_merge($commonData, $contentData);
+
+	// Set the 'lang' key in $languageData
+	if ($currentLanguage === 'EN') {
+		$languageData['lang'] = $languageData['locale'];
+	}
+	else {
+		$languageData['lang'] = strtolower($currentLanguage);
+	}
+
 	// Load substitutions data
 	$substitutionLinks = fetchData('data/substitutions');
 	$substitutions = [];

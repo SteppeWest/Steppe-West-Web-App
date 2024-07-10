@@ -9,7 +9,7 @@ include 'inc/app.php';
 init();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $languageData['lang'] ?>">
 <?php include 'inc/partials/head.min.php'; ?>
 <body>
 	<?php include 'inc/partials/header.min.php'; ?>
