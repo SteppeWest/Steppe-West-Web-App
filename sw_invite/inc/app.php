@@ -15,6 +15,7 @@ $languages = [
 	'UZ', // 6
 	'AZ', // 7
 	'MN', // 8
+	'TR', // 9
 ];
 
 // Default language code
@@ -24,7 +25,7 @@ $currentLanguage = '';
 $languageData = [];
 
 // Include the circles data and assign to a variable
-$circles = include __DIR__ . '/data/circles.php';
+$circles = include __DIR__ . '/data/utility/circles.php';
 
 // Shuffle groups
 $groupFolders = array_keys($circles);
@@ -63,7 +64,7 @@ function getFlagEmoji($languageCode) {
 }
 
 function renderResources($type) {
-	$resources = fetchData('data/resources');
+	$resources = fetchData('data/utility/resources');
 	$html = '';
 	foreach ($resources[$type] as $resource) {
 		if ($type === 'css') {
@@ -164,7 +165,7 @@ function renderFlagsBanner() {
 }
 
 function renderSocials($asButtons = true) {
-	$socials = fetchData('data/socials', true);
+	$socials = fetchData('data/utility/socials', true);
 	$links = [];
 	foreach ($socials as $name => $details) {
 		$url = $details['url'];
@@ -220,8 +221,8 @@ function init() {
 	$canonical = $canonical . $currentLanguage;
 
 	// Load language data
-	$commonData = fetchData('../languages/common/' . $currentLanguage, true);
-	$contentData = fetchData('../languages/content/' . $currentLanguage, true);
+	$commonData = fetchData('data/common/' . $currentLanguage, true);
+	$contentData = fetchData('data/invite/' . $currentLanguage, true);
 
 	// Merge shared and content data
 	$languageData = array_merge($commonData, $contentData);
@@ -238,7 +239,7 @@ function init() {
 	}
 
 	// Load substitutions data
-	$substitutionLinks = fetchData('data/substitutions');
+	$substitutionLinks = fetchData('data/utility/substitutions');
 	$substitutions = [];
 	foreach ($substitutionLinks as $placeholder => $data) {
 		$link = '<a class="link-info link-opacity-75-hover text-decoration-none" href="https://'

@@ -1,0 +1,21 @@
+<?php
+return [
+	'title' => "Steppe West'i Keşfedin: Orta Asya'yı Dünyaya Taşımak",
+	'lead' => "Merhaba ve Steppe West'e hoş geldiniz, sizi Orta Asya'nın zengin ve çeşitli kültürlerine götüren kapınız. Biz, Orta Asya'nın büyüleyici hikayelerini, geleneklerini ve günlük yaşamını dünyanın dört bir yanındaki İngilizce konuşan izleyicilerle paylaşma tutkusuna sahip Avustralya merkezli bir platformuz.",
+	'heading0' => "Steppe West Nedir?",
+	'paragraph0' => "Bizi, Orta Asya'nın geniş bozkırlarından Avustralya'nın kıyılarına ve ötesine uzanan bir kültürel köprü olarak düşünün. Orta Asya'nın canlı müzik, sanat, mutfak, tarih ve daha fazlasını içeren dünyasına dalıyor ve bu hazineleri herkesin ilgisini çekecek ve erişebilir bir şekilde sunuyoruz.",
+	'heading1' => "Misyonumuz",
+	'paragraph1' => "Steppe West'te sadece içerik sergilemekle kalmıyoruz; kültürler arasında gerçek bağlantılar ve anlayış geliştirmeye çalışıyoruz. Türk ve Moğol kültürlerinin zengin dokusunun küresel sahnede yer almayı hak ettiğine inanıyoruz ve bunu gerçekleştirmek için buradayız.",
+	'heading2' => "Bunu Nasıl Yapıyoruz?",
+	'paragraph2' => "Orta Asya'dan yaratıcılarla yakından çalışarak, hikayelerini çeşitli platformlarda hayata geçiriyoruz. İster bozkırlardan gelen duygusal bir melodi, ister ağız sulandıran bir tarif, isterse tarihi öneme sahip büyüleyici bir hikaye olsun, her içeriğin otantik ve saygılı bir şekilde sunulmasını sağlıyoruz. Ve her zaman hakkını teslim ediyor, orijinal yaratıcılara bağlantılar veriyoruz.",
+	'heading3' => "Dil Erişilebilirliği",
+	'paragraph3' => "Dil engel olabileceğini anlıyoruz, bu yüzden Orta Asya içeriğini İngilizce konuşan izleyicilere erişilebilir kılmaya büyük önem veriyoruz. Çevirilerimiz ve sunumlarımız, bu hikayelerin orijinal özünü ve güzelliğini koruyacak şekilde hazırlanmış olup, hiçbir şeyin çeviride kaybolmamasını sağlar.",
+	'heading4' => "Bu Yolculuğa Katılın",
+	'paragraph4' => "Biz işbirliğine açığız ve her sesin kültürel dokumuza benzersiz bir iplik eklediğine inanıyoruz. Orta Asya'nın çeşitli harikalarını keşfetmek ve paylaşmak konusunda tutkuluysanız—ister müzik, sanat, yiyecek, spor ya da hikayeler olsun—Steppe West sizin platformunuzdur. İlginiz ve katılımınız Steppe West'i gerçekten özel kılan şeydir.",
+	'heading5' => "Katılın",
+	'paragraph5' => "Bir sorunuz, öneriniz ya da paylaşacak bir şeyiniz mi var? Çekinmeyin! Bize bir satır bırakın ve sohbet başlatalım. Steppe West tam size göre değilse bile, ilgilenebilecek diğer kişilere de haber vermekten çekinmeyin.",
+	'heading6' => "Takımla Tanışın",
+	'paragraph6' => "Küçük ama tutkulu bir ekibiz, içinde Özbekistan'dan yetenekli bir genç de var. O, çalışmalarımıza taze bakış açıları ve Orta Asya kültürüne derin bir anlayış kazandırıyor.",
+	'paragraph7' => "Bu yolculukta bize katılın ve birlikte Orta Asya'nın harikalarını keşfedelim. Steppe West, dünyamızın güzelliklerini paylaşmak, öğrenmek ve kutlamakla ilgilidir. Hadi biraz sihir yaratalım!",
+	'close' => "Sevgilerle, Pedro",
+];
