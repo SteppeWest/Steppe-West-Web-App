@@ -12,4 +12,3 @@ return [
 	'footer3' => "Steppe West stands with {UA} Ukraine & {PS} Palestine.",
 	'copy' => "Copyright © Steppe West 2024.",
 ];
-

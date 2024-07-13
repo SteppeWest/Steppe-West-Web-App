@@ -1,6 +1,10 @@
 <?php
 $updated = '2024-07-10';
 $canonical = 'https://invite.steppewest.com/';
+$pages = [
+	'invite', // first item is /
+	'faq', // later items are /item/
+];
 
 // Include the app.php file for functions
 include 'inc/app.php';
@@ -20,7 +24,7 @@ init();
 			include 'inc/views/languages.php';
 
 			// Include content
-			include 'inc/views/invite.php';
+			include 'inc/views/content.php';
 
 			// Include signature
 			include 'inc/views/signature.php';
