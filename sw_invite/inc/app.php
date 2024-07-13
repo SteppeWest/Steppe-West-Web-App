@@ -1,40 +1,15 @@
 <?php
 session_start();
 
-// Define CDN base URL
-//define('CDN_BASE_URL', 'https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/');
-define('LOCAL_BASE_URL', $canonical);
-
-$languages = [
-	'EN', // 0
-	'RU', // 1
-	'KG', // 2
-	'KZ', // 3
-	'TJ', // 4
-	'TM', // 5
-	'UZ', // 6
-	'AZ', // 7
-	'MN', // 8
-	'TR', // 9
-];
-
-// Default language code
-//$defaultLanguage = $languages[0];
-//$currentLanguage = isset($_GET['language']) ? strtoupper($_GET['language']) : $defaultLanguage;
-$currentLanguage = '';
-$languageData = [];
-
 // Include the circles data and assign to a variable
-$circles = include __DIR__ . '/data/utility/circles.php';
+$circles = include __DIR__ . '/data/circles.php';
 
 // Shuffle groups
 $groupFolders = array_keys($circles);
 shuffle($groupFolders);
 
 function sanitise($data) {
-	if (is_array($data)) {
-		return array_map('sanitise', $data);
-	}
+	if (is_array($data)) return array_map('sanitise', $data);
 	return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
 }
 
@@ -43,10 +18,9 @@ function fetchData($file, $sanitise = false) {
 	$data = [];
 	if (file_exists($filePath)) {
 		$data = include $filePath;
-		if ($sanitise) {
-			$data = sanitise($data);
-		}
-	} else {
+		if ($sanitise) $data = sanitise($data);
+	}
+	else {
 		echo "'{$file}' not found.";
 	}
 	return $data;
@@ -69,7 +43,8 @@ function renderResources($type) {
 	foreach ($resources[$type] as $resource) {
 		if ($type === 'css') {
 			$html .= '<link rel="stylesheet" href="' . $resource['url'] . '"';
-		} elseif ($type === 'js') {
+		}
+		elseif ($type === 'js') {
 			$html .= '<script src="' . $resource['url'] . '"';
 		}
 		if (!empty($resource['integrity'])) {
@@ -109,13 +84,13 @@ function renderLanguageButtons() {
 }
 
 function renderCircleImage($index) {
-	global $groupFolders, $circles; // Ensure these are accessible in this function
+	global $groupFolders, $circles;
 
 	// Select a random group
 	$groupFolder = $groupFolders[$index % count($groupFolders)];
 
 	// Select a random image from the group
-	$images = glob(__DIR__ . "/../ui/img/circles/$groupFolder/*.jpg"); // Adjust path to be relative
+	$images = glob(__DIR__ . "/../ui/img/circles/$groupFolder/*.jpg");
 	if (!$images) {
 		return ''; // Handle case where no images are found
 	}
@@ -124,18 +99,15 @@ function renderCircleImage($index) {
 	$alt = $circles[$groupFolder];
 
 	return '<img class="img-fluid rounded-circle" alt="'
-		 . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '" src="/ui/img/circles/'
-		 . htmlspecialchars($groupFolder, ENT_QUOTES, 'UTF-8') . '/'
-		 . htmlspecialchars(basename($image), ENT_QUOTES, 'UTF-8') . '">';
+		 . $alt . '" src="/ui/img/circles/'
+		 . $groupFolder . '/'
+		 . basename($image) . '">';
 }
 
 function renderContentRow($index, $data) {
 	$textColumn = '<div class="col-lg-6 order-1 order-lg-2">' . $data . '</div>';
 
-	$lr = ($index % 2); // $lr for "left or right"
-	// Debugging output to check the value of $index
-	//echo "<!-- Debug: \$index = $index, \$lr = \$index % 2 = " . $lr . " -->" . PHP_EOL;
-
+	$lr = ($index % 2);
 	$rowOutput = '';
 	if ($lr == 0) {
 		$rowOutput .= '<div class="col-lg-1 order-3 order-lg-1">&nbsp;</div>';
@@ -174,7 +146,8 @@ function renderSocials($asButtons = true) {
 			$link = '<a class="btn btn-secondary btn-circle btn-circle-sm"'
 				  . ' role="button" href="https://' . $url . '" title="' . $name
 				  . '" target="_blank"><i class="' . $icon . '"></i></a>';
-		} else {
+		}
+		else {
 			$link = '<a href="https://' . $url . '" title="' . $name . '" target="_blank">'
 				  . '<i class="' . $icon . '"></i> ' . $name . '</a>';
 		}
@@ -201,37 +174,57 @@ function substitutePlaceholders($placeholder, &$target, $substitutions) {
 	}
 }
 
-function init() {
-	global $updated, $canonical, $languages, $currentLanguage, $languageData;
+function processUrl() {
+	global $currentLanguage;
 
-	// Set language
-	if (isset($_GET['language'])) {
-		$currentLanguage = $_GET['language'];
-	} elseif (isset($_SESSION['language'])) {
-		$currentLanguage = $_SESSION['language'];
-	} else {
-		$currentLanguage = $languages[0]; // default language
+	$languageMap = include __DIR__ . '/data/languagemap.php';
+	$languagesList = array_keys(include __DIR__ . '/data/languages.php');
+
+	$requestUri = $_SERVER['REQUEST_URI'];
+
+	if (preg_match('#^/faq/([A-Z]{2})#', $requestUri, $matches)) {
+		$countryCode = $matches[1];
+		if (isset($languageMap[$countryCode])) {
+			$newLanguage = $languageMap[$countryCode];
+			$newUrl = str_replace("/faq/$countryCode", "/faq/$newLanguage", $requestUri);
+			header("Location: $newUrl", true, 301);
+			exit();
+		}
 	}
-	$_SESSION['language'] = $currentLanguage;
+	elseif (preg_match('#^/([A-Z]{2})#', $requestUri, $matches)) {
+		$countryCode = $matches[1];
+		if (isset($languageMap[$countryCode])) {
+			$newLanguage = $languageMap[$countryCode];
+			$newUrl = str_replace("/$countryCode", "/$newLanguage", $requestUri);
+			header("Location: $newUrl", true, 301);
+			exit();
+		}
+	}
+	elseif ($requestUri === '/') {
+		header("Location: /en", true, 301);
+		exit();
+	}
+	else {
+		if (preg_match('#^/([a-z]{2,3})#', $requestUri, $matches)) {
+			$currentLanguage = $matches[1];
+		}
+	}
+}
 
-	// Set default timezone
-	date_default_timezone_set('UTC');
+function init() {
+	global $updated, $canonical, $currentLanguage, $languageData;
 
-	// Construct canonical URL
-	$canonical = $canonical . $currentLanguage;
+	processUrl();
 
 	// Load language data
-	$commonData = fetchData('data/common/' . $currentLanguage, true);
-	$contentData = fetchData('data/invite/' . $currentLanguage, true);
-
-	// Merge shared and content data
-	$languageData = array_merge($commonData, $contentData);
+	$commonData = fetchData('../languages/common/' . $currentLanguage, true);
+	$contentData = fetchData('../languages/content/' . $currentLanguage, true);
 
 	// Merge shared and content data
 	$languageData = array_merge($commonData, $contentData);
 
 	// Set the 'lang' key in $languageData
-	if ($currentLanguage === 'EN') {
+	if ($currentLanguage === 'en') {
 		$languageData['lang'] = $languageData['locale'];
 	}
 	else {
@@ -239,7 +232,7 @@ function init() {
 	}
 
 	// Load substitutions data
-	$substitutionLinks = fetchData('data/utility/substitutions');
+	$substitutionLinks = fetchData('data/substitutions');
 	$substitutions = [];
 	foreach ($substitutionLinks as $placeholder => $data) {
 		$link = '<a class="link-info link-opacity-75-hover text-decoration-none" href="https://'
