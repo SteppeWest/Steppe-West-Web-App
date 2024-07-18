@@ -1,7 +1,7 @@
 @charset "UTF-8";
 header
 {
-	background-image: url('../img/Golden-Eagle-1900x0750.jpg');
+	background-image: url('/ui/img/Golden-Eagle-1900x0750.jpg');
 /* background-image: url('https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/img/Golden-Eagle-1900x0750.jpg'); */
 	background-position: center;
 	background-repeat: no-repeat;

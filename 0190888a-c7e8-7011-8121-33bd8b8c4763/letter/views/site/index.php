@@ -5,7 +5,7 @@
 $this->title = 'Bridging Cultures: Steppe West‘s Invitation to Central Asia';
 ?>
 <section class="py-1">
-	<?= $this->render('//partials/_languages.min.php') ?>
+	<?= $this->render('//partials/languages.min.php') ?>
 
 	<div class="container my-4">
 		<div class="align-items-center justify-content-center row">
@@ -76,5 +76,5 @@ $this->title = 'Bridging Cultures: Steppe West‘s Invitation to Central Asia';
 		</div>
 	</div>
 
-	<?= $this->render('//partials/_content.foot.min.php') ?>
+	<?= $this->render('//partials/content.foot.min.php') ?>
 </section>

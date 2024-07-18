@@ -15,41 +15,41 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="swlanguage-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Sw Language', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+	<p>
+		<?= Html::a('Create Sw Language', ['create'], ['class' => 'btn btn-success']) ?>
+	</p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+	<?= GridView::widget([
+		'dataProvider' => $dataProvider,
+		'filterModel' => $searchModel,
+		'columns' => [
+			['class' => 'yii\grid\SerialColumn'],
 
-            'pk',
-            'position',
-            'code:ntext',
-            'name:ntext',
-            'native:ntext',
-            //'locale:ntext',
-            //'lang:ntext',
-            //'flag:ntext',
-            //'label:ntext',
-            //'description:ntext',
-            //'keywords:ntext',
-            //'origin:ntext',
-            //'footer_yaml:ntext',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, SWLanguage $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'pk' => $model->pk]);
-                 }
-            ],
-        ],
-    ]); ?>
+			'pk',
+			'position',
+			'code:ntext',
+			'name:ntext',
+			'native:ntext',
+			//'locale:ntext',
+			//'lang:ntext',
+			//'flag:ntext',
+			//'label:ntext',
+			//'description:ntext',
+			//'keywords:ntext',
+			//'origin:ntext',
+			//'footer_yaml:ntext',
+			[
+				'class' => ActionColumn::className(),
+				'urlCreator' => function ($action, SWLanguage $model, $key, $index, $column) {
+					return Url::toRoute([$action, 'pk' => $model->pk]);
+				 }
+			],
+		],
+	]); ?>
 
 
 </div>

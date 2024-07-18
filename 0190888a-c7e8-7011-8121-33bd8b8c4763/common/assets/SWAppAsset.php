@@ -23,11 +23,14 @@
 
 namespace common\assets;
 
-use yii\web\AssetBundle;
+use common\assets\SWAssetBundle;
 
-class SWAppAsset extends AssetBundle
+class SWAppAsset extends SWAssetBundle
 {
-	public $sourcePath = '@common/assets/lib';
+	public $basePath;
+	//public $basePath = '@webroot';
+	public $baseUrl;
+	//public $baseUrl = '@web';
 
 	public $css = [
 		'css/steppe-west.min.css',
@@ -36,14 +39,4 @@ class SWAppAsset extends AssetBundle
 	public $cssOptions = [
 		'crossorigin' => 'anonymous',
 	];
-
-/*
-	public $js = [
-		'js/steppe-west.min.js',
-	];
-
-	public $jsOptions = [
-		'crossorigin' => 'anonymous',
-	];
- */
 }

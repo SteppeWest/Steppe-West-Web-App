@@ -85,3 +85,32 @@ class SWLanguageSearch extends SWLanguage
 		return $dataProvider;
 	}
 }
+
+/*
+class SWLanguageSearch extends SWLanguage
+{
+	public function search($params)
+	{
+		$query = SWLanguage::find();
+
+		// Filter by language
+		if (isset(Yii::$app->language)) {
+			$query->andWhere(['language_code' => Yii::$app->language]);
+		}
+
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+		]);
+
+		$this->load($params);
+
+		if (!$this->validate()) {
+			return $dataProvider;
+		}
+
+		// Add other filtering conditions here...
+
+		return $dataProvider;
+	}
+}
+ */

@@ -15,6 +15,7 @@ return [
 		'tg',
 		'tk',
 		'uz',
+		'tr',
 	],
 	'swLanguageMap' => [
 		'EN' => 'en',

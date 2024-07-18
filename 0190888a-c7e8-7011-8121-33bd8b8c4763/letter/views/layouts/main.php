@@ -15,13 +15,13 @@ SWAppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<?= $this->render('//partials/_head.min.php') ?>
+	<?= $this->render('//partials/head.min.php') ?>
 </head>
 <body>
 	<?= $this->beginBody() ?>
-	<?= $this->render('//partials/_header.min.php') ?>
+	<?= $this->render('//partials/header.min.php') ?>
 	<?= $content ?>
-	<?= $this->render('//partials/_footer.min.php') ?>
+	<?= $this->render('//partials/footer.min.php') ?>
 	<?= $this->endBody() ?>
 </body>
 </html>
