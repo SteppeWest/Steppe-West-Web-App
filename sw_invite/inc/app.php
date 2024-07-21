@@ -202,11 +202,11 @@ function renderFooterContent()
 	return $footer;
 }
 
-function renderFaqLink($languageCode)
+function renderFaq()
 {
-	global $languageData;
-	$link = '<a href="/faq/Steppe_West_FAQ_' . $languageCode
-		  . '.pdf" target="_blank">' . $languageData['faq'] . '</a>';
+	global $currentLanguage, $languageData;
+	$link = '(<a href="/faq/Steppe_West_FAQ_' . $currentLanguage
+		  . '.pdf" target="_blank">' . $languageData['faq'] . '</a>)';
 	return $link;
 }
 

@@ -8,9 +8,8 @@ $rowData[] = '<p>' . $languageData['paragraph4'] . '</p>';
 $rowData[] = '<p>' . $languageData['paragraph5'] . '</p>';
 $rowData[] = '<p>' . $languageData['paragraph6'] . '</p>';
 $rowData[] = '<p>' . $languageData['paragraph7'] . '</p><p>'
-		   . $languageData['close'] . ' '
-		   . $languageData['pedro'] . '</p><p>'
-		   . renderFaqLink($currentLanguage) . '</p>';
+		   . $languageData['close'] . ' ' . $languageData['pedro']
+		   . '<br>' . renderFaq() . '</p>';
 ?>
 <div class="container my-4">
 	<?php foreach ($rowData as $index => $data): ?>

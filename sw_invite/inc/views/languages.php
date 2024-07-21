@@ -4,4 +4,9 @@
 			<?= renderLanguageButtons() ?>
 		</div>
 	</div>
+	<div class="row justify-content-center">
+		<div class="col-lg-8 text-center">
+			<?= renderFaq() ?>
+		</div>
+	</div>
 </div>
