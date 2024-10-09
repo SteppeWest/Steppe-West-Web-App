@@ -24,6 +24,7 @@ robots.txt
 
 
 
+```
 backend
 common
 console
@@ -48,8 +49,10 @@ yii
 yii_test
 yii_test.bat
 yii.bat
+```
 
 
+```
 assets
 config
 controllers
@@ -61,5 +64,6 @@ web
 widgets
 codeception.yml
 Dockerfile
+```
 
 
