@@ -1,6 +1,7 @@
 <?php
 $endpoint = 'links';
-$appfolder  = '0190888a-c7e8-7011-8121-33bd8b8c4763';
+//$appfolder = '0190888a-c7e8-7011-8121-33bd8b8c4763';
+$appfolder  = 'app';
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
