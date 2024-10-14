@@ -1,5 +1,11 @@
-RewriteEngine On
-RewriteBase /
+RewriteEngine on
 
-# Rewrite rule to capture the country code from the URL
-RewriteRule ^([A-Z]{2})/?$ index.php?language=$1 [L]
+# If a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Capture the language code from the URL (2 or 3 letters) and forward to index.php
+RewriteRule ^([A-Za-z]{2,3})(/.*)?$ index.php?language=$1&path=$2 [QSA,L]
+
+# Otherwise forward it to index.php
+RewriteRule . index.php [L]
