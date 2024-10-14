@@ -3,11 +3,11 @@
 namespace common\models;
 
 /**
- * This is the ActiveQuery class for [[SWLanguage]].
+ * This is the ActiveQuery class for [[SWLanguageExtra]].
  *
- * @see SWLanguage
+ * @see SWLanguageExtra
  */
-class SWLanguageQuery extends \yii\db\ActiveQuery
+class LanguageExtraQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class SWLanguageQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return SWLanguage[]|array
+     * @return SWLanguageExtra[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class SWLanguageQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return SWLanguage|array|null
+     * @return SWLanguageExtra|array|null
      */
     public function one($db = null)
     {

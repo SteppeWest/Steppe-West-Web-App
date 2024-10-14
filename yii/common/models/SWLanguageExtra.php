@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%language_shared}}".
+ * This is the model class for table "{{%language_extra}}".
  *
  * @property int $pk PK
  * @property string $code Code
@@ -13,16 +13,16 @@ use Yii;
  * @property string $lang Lang Code
  * @property string|null $footer_yaml Footer YAML
  *
- * @property Language $code0
+ * @property LanguageCode $code0
  */
-class SWLanguageShared extends \yii\db\ActiveRecord
+class SWLanguageExtra extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%language_shared}}';
+        return '{{%language_extra}}';
     }
 
     /**
@@ -39,7 +39,7 @@ class SWLanguageShared extends \yii\db\ActiveRecord
             [['code'], 'unique'],
             [['locale'], 'unique'],
             [['lang'], 'unique'],
-            [['code'], 'exist', 'skipOnError' => true, 'targetClass' => Language::class, 'targetAttribute' => ['code' => 'code']],
+            [['code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageCode::class, 'targetAttribute' => ['code' => 'code']],
         ];
     }
 
@@ -60,19 +60,19 @@ class SWLanguageShared extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Code0]].
      *
-     * @return \yii\db\ActiveQuery|LanguageQuery
+     * @return \yii\db\ActiveQuery|LanguageCodeQuery
      */
     public function getCode0()
     {
-        return $this->hasOne(Language::class, ['code' => 'code']);
+        return $this->hasOne(LanguageCode::class, ['code' => 'code']);
     }
 
     /**
      * {@inheritdoc}
-     * @return SWLanguageSharedQuery the active query used by this AR class.
+     * @return LanguageExtraQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new SWLanguageSharedQuery(get_called_class());
+        return new LanguageExtraQuery(get_called_class());
     }
 }

@@ -3,11 +3,11 @@
 namespace common\models;
 
 /**
- * This is the ActiveQuery class for [[SWLanguageShared]].
+ * This is the ActiveQuery class for [[SWLanguageCode]].
  *
- * @see SWLanguageShared
+ * @see SWLanguageCode
  */
-class SWLanguageSharedQuery extends \yii\db\ActiveQuery
+class LanguageCodeQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class SWLanguageSharedQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return SWLanguageShared[]|array
+     * @return SWLanguageCode[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class SWLanguageSharedQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return SWLanguageShared|array|null
+     * @return SWLanguageCode|array|null
      */
     public function one($db = null)
     {

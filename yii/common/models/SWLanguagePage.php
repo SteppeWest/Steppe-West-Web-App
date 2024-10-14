@@ -19,7 +19,7 @@ use Yii;
  * @property string|null $origin_link Origin Link
  * @property string|null $body_yaml Body YAML
  *
- * @property Language $code0
+ * @property LanguageCode $code0
  */
 class SWLanguagePage extends \yii\db\ActiveRecord
 {
@@ -41,7 +41,7 @@ class SWLanguagePage extends \yii\db\ActiveRecord
             [['title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_yaml'], 'string'],
             [['code'], 'string', 'max' => 4],
             [['page'], 'string', 'max' => 12],
-            [['code'], 'exist', 'skipOnError' => true, 'targetClass' => Language::class, 'targetAttribute' => ['code' => 'code']],
+            [['code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageCode::class, 'targetAttribute' => ['code' => 'code']],
         ];
     }
 
@@ -68,11 +68,11 @@ class SWLanguagePage extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Code0]].
      *
-     * @return \yii\db\ActiveQuery|LanguageQuery
+     * @return \yii\db\ActiveQuery|LanguageCodeQuery
      */
     public function getCode0()
     {
-        return $this->hasOne(Language::class, ['code' => 'code']);
+        return $this->hasOne(LanguageCode::class, ['code' => 'code']);
     }
 
     /**
