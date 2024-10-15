@@ -1,4 +1,12 @@
 <?php
+/**
+ * SWLanguageExtra.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace letter\models;
 
@@ -49,7 +57,7 @@ class SWLanguageExtra extends \yii\db\ActiveRecord
 	public function attributeLabels()
 	{
 		return [
-			'pk' => 'Pk',
+			'pk' => 'PK',
 			'code' => 'Code',
 			'locale' => 'Locale',
 			'lang' => 'Lang',

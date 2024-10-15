@@ -1,8 +1,19 @@
 <?php
+/**
+ * SWLanguageCode.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace letter\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use letter\languages\SWFlagSelector;
+use letter\languages\SWLanguageSelector;
 
 /**
  * This is the model class for table "{{%language_code}}".
@@ -37,15 +48,12 @@ class SWLanguageCode extends \yii\db\ActiveRecord
 		return [
 			[['code', 'name', 'native', 'flag', 'label'], 'required'],
 			[['position'], 'integer'],
-			[['code', 'prev'], 'string', 'max' => 4],
-			[['name', 'native'], 'string', 'max' => 32],
-			[['flag'], 'string', 'max' => 6],
-			[['label'], 'string', 'max' => 8],
-			[['code'], 'unique'],
-			[['name'], 'unique'],
-			[['native'], 'unique'],
-			[['flag'], 'unique'],
-			[['label'], 'unique'],
+			[['code', 'name', 'native', 'flag', 'label'], 'string'],
+			[['code', 'prev'], 'max' => 4],
+			[['name', 'native'], 'max' => 32],
+			[['flag'], 'max' => 6],
+			[['label'], 'max' => 8],
+			[['code', 'name', 'native', 'flag', 'label'], 'unique'],
 		];
 	}
 
@@ -55,14 +63,14 @@ class SWLanguageCode extends \yii\db\ActiveRecord
 	public function attributeLabels()
 	{
 		return [
-			'pk' => 'Pk',
+			'pk' => 'PK',
 			'code' => 'Code',
 			'prev' => 'Prev',
 			'position' => 'Position',
 			'name' => 'Name',
-			'native' => 'Native',
-			'flag' => 'Flag',
-			'label' => 'Label',
+			'native' => 'Native Name',
+			'flag' => 'Flag Icon',
+			'label' => 'UI Label',
 		];
 	}
 
@@ -84,5 +92,24 @@ class SWLanguageCode extends \yii\db\ActiveRecord
 	public function getLanguagePages()
 	{
 		return $this->hasMany(LanguagePage::class, ['code' => 'code']);
+	}
+
+	public static function getCurrentLanguage()
+	{
+		$languageCode = SWLanguageSelector::getCurrentLanguage();
+		return self::findOne(['code' => $languageCode]);
+	}
+
+	public function getFlag()
+	{
+		return SWFlagSelector::getFlag($this->getAttribute('flag'));
+	}
+
+	public function __get($name)
+	{
+		if ($name === 'flag') {
+			return $this->getFlag();
+		}
+		return parent::__get($name);
 	}
 }
