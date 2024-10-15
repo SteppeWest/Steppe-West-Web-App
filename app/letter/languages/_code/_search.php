@@ -4,38 +4,36 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguageSearch $model */
+/** @var app\models\SWLanguageCodeSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swlanguage-search">
+<div class="swlanguage-code-search">
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-    ]); ?>
+	<?php $form = ActiveForm::begin([
+		'action' => ['index'],
+		'method' => 'get',
+	]); ?>
 
-    <?= $form->field($model, 'pk') ?>
+	<?= $form->field($model, 'pk') ?>
 
-    <?= $form->field($model, 'code') ?>
+	<?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'prev') ?>
+	<?= $form->field($model, 'position') ?>
 
-    <?= $form->field($model, 'position') ?>
+	<?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'name') ?>
+	<?= $form->field($model, 'native') ?>
 
-    <?php // echo $form->field($model, 'native') ?>
+	<?php // echo $form->field($model, 'flag') ?>
 
-    <?php // echo $form->field($model, 'flag') ?>
+	<?php // echo $form->field($model, 'label') ?>
 
-    <?php // echo $form->field($model, 'label') ?>
+	<div class="form-group">
+		<?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+		<?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
+	</div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
+	<?php ActiveForm::end(); ?>
 
 </div>

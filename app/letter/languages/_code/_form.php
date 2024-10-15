@@ -4,32 +4,30 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguage $model */
+/** @var app\models\SWLanguageCode $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swlanguage-form">
+<div class="swlanguage-code-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+	<?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'code')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'prev')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'position')->textInput() ?>
 
-    <?= $form->field($model, 'position')->textInput() ?>
+	<?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'native')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'native')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'flag')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'flag')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'label')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
+	<div class="form-group">
+		<?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+	</div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
+	<?php ActiveForm::end(); ?>
 
 </div>

@@ -3,18 +3,18 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguage $model */
+/** @var app\models\SWLanguageCode $model */
 
-$this->title = 'Create Sw Language';
-$this->params['breadcrumbs'][] = ['label' => 'Sw Languages', 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Sw Language Code');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sw Language Codes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="swlanguage-create">
+<div class="swlanguage-code-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+	<?= $this->render('_form', [
+		'model' => $model,
+	]) ?>
 
 </div>

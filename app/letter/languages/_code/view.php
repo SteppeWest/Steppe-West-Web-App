@@ -4,40 +4,39 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguage $model */
+/** @var app\models\SWLanguageCode $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Sw Languages', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sw Language Codes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="swlanguage-view">
+<div class="swlanguage-code-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'pk' => $model->pk], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'pk' => $model->pk], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+	<p>
+		<?= Html::a(Yii::t('app', 'Update'), ['update', 'pk' => $model->pk], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a(Yii::t('app', 'Delete'), ['delete', 'pk' => $model->pk], [
+			'class' => 'btn btn-danger',
+			'data' => [
+				'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+				'method' => 'post',
+			],
+		]) ?>
+	</p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'pk',
-            'code',
-            'prev',
-            'position',
-            'name',
-            'native',
-            'flag',
-            'label',
-        ],
-    ]) ?>
+	<?= DetailView::widget([
+		'model' => $model,
+		'attributes' => [
+			'pk',
+			'code:ntext',
+			'position',
+			'name:ntext',
+			'native:ntext',
+			'flag:ntext',
+			'label:ntext',
+		],
+	]) ?>
 
 </div>
