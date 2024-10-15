@@ -1,6 +1,5 @@
 <?php
 $endpoint = 'letter';
-//$appfolder = '0190888a-c7e8-7011-8121-33bd8b8c4763';
 $appfolder  = 'app';
 
 // NOTE: Make sure this file is not accessible when deployed to production
