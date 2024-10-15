@@ -10,38 +10,38 @@ use yii\widgets\ActiveForm;
 
 <div class="swcurrent-language-search">
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-    ]); ?>
+	<?php $form = ActiveForm::begin([
+		'action' => ['index'],
+		'method' => 'get',
+	]); ?>
 
-    <?= $form->field($model, 'pk') ?>
+	<?= $form->field($model, 'pk') ?>
 
-    <?= $form->field($model, 'code') ?>
+	<?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'page') ?>
+	<?= $form->field($model, 'page') ?>
 
-    <?= $form->field($model, 'title') ?>
+	<?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'subtitle') ?>
+	<?= $form->field($model, 'subtitle') ?>
 
-    <?php // echo $form->field($model, 'description') ?>
+	<?php // echo $form->field($model, 'description') ?>
 
-    <?php // echo $form->field($model, 'keywords') ?>
+	<?php // echo $form->field($model, 'keywords') ?>
 
-    <?php // echo $form->field($model, 'lead') ?>
+	<?php // echo $form->field($model, 'lead') ?>
 
-    <?php // echo $form->field($model, 'origin') ?>
+	<?php // echo $form->field($model, 'origin') ?>
 
-    <?php // echo $form->field($model, 'origin_link') ?>
+	<?php // echo $form->field($model, 'origin_link') ?>
 
-    <?php // echo $form->field($model, 'body_yaml') ?>
+	<?php // echo $form->field($model, 'body_yaml') ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
-    </div>
+	<div class="form-group">
+		<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+		<?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+	</div>
 
-    <?php ActiveForm::end(); ?>
+	<?php ActiveForm::end(); ?>
 
 </div>
