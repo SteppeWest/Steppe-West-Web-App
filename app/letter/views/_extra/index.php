@@ -1,24 +1,24 @@
 <?php
 
-use letter\models\SWLanguagePage;
+use letter\models\SWLanguageExtra;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var letter\models\SWLanguagePageSearch $searchModel */
+/** @var letter\models\SWLanguageExtraSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Sw Language Pages';
+$this->title = 'Sw Language Extras';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="swlanguage-page-index">
+<div class="swlanguage-extra-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Sw Language Page', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Sw Language Extra', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -31,18 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'pk',
             'code',
-            'page',
-            'title:ntext',
-            'subtitle:ntext',
-            //'description:ntext',
-            //'keywords:ntext',
-            //'lead:ntext',
-            //'origin:ntext',
-            //'origin_link:ntext',
-            //'body_yaml:ntext',
+            'locale',
+            'lang',
+            'footer_yaml:ntext',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, SWLanguagePage $model, $key, $index, $column) {
+                'urlCreator' => function ($action, SWLanguageExtra $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'pk' => $model->pk]);
                  }
             ],
