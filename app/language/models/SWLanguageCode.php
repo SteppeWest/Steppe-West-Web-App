@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace language\models;
 
 use Yii;
 
@@ -55,21 +55,21 @@ class SWLanguageBase extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pk' => 'PK',
+            'pk' => 'Pk',
             'code' => 'Code',
             'prev' => 'Prev',
             'position' => 'Position',
             'name' => 'Name',
-            'native' => 'Native Name',
-            'flag' => 'Flag Icon',
-            'label' => 'UI Label',
+            'native' => 'Native',
+            'flag' => 'Flag',
+            'label' => 'Label',
         ];
     }
 
     /**
      * Gets query for [[LanguageExtra]].
      *
-     * @return \yii\db\ActiveQuery|LanguageExtraQuery
+     * @return \yii\db\ActiveQuery
      */
     public function getLanguageExtra()
     {
@@ -79,19 +79,10 @@ class SWLanguageBase extends \yii\db\ActiveRecord
     /**
      * Gets query for [[LanguagePages]].
      *
-     * @return \yii\db\ActiveQuery|LanguagePageQuery
+     * @return \yii\db\ActiveQuery
      */
     public function getLanguagePages()
     {
         return $this->hasMany(LanguagePage::class, ['code' => 'code']);
-    }
-
-    /**
-     * {@inheritdoc}
-     * @return LanguageCodeQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new LanguageCodeQuery(get_called_class());
     }
 }
