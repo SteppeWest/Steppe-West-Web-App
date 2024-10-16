@@ -9,12 +9,12 @@
  */
 
 /**
- * @class \letter\languages\SWFlagSelector
+ * @class \language\widgets\SWFlagSelector
  *
- * use letter\languages\SWFlagSelector;
+ * use language\widgets\SWFlagSelector;
  */
 
-namespace letter\languages;
+namespace language\widgets;
 
 class SWFlagSelector
 {
