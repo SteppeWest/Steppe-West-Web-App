@@ -7,13 +7,13 @@ use Yii;
 /**
  * This is the model class for table "{{%language_extra}}".
  *
- * @property int $pk PK
- * @property string $code Code
+ * @property int $pk_extra Extra PK
+ * @property string $lang_code Language Code
  * @property string $locale Locale
  * @property string $lang Lang Code
  * @property string|null $footer_yaml Footer YAML
  *
- * @property LanguageCode $code0
+ * @property LanguageBase $langCode
  */
 class SWLanguageExtra extends \yii\db\ActiveRecord
 {
@@ -31,15 +31,14 @@ class SWLanguageExtra extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'locale', 'lang'], 'required'],
+            [['lang_code', 'locale', 'lang'], 'required'],
             [['footer_yaml'], 'string'],
-            [['code'], 'string', 'max' => 2],
+            [['lang_code', 'lang'], 'string', 'max' => 4],
             [['locale'], 'string', 'max' => 12],
-            [['lang'], 'string', 'max' => 4],
-            [['code'], 'unique'],
+            [['lang_code'], 'unique'],
             [['locale'], 'unique'],
             [['lang'], 'unique'],
-            [['code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageCode::class, 'targetAttribute' => ['code' => 'code']],
+            [['lang_code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['lang_code' => 'lang_code']],
         ];
     }
 
@@ -49,8 +48,8 @@ class SWLanguageExtra extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pk' => 'Pk',
-            'code' => 'Code',
+            'pk_extra' => 'Pk Extra',
+            'lang_code' => 'Lang Code',
             'locale' => 'Locale',
             'lang' => 'Lang',
             'footer_yaml' => 'Footer Yaml',
@@ -58,12 +57,12 @@ class SWLanguageExtra extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Code0]].
+     * Gets query for [[LangCode]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getCode0()
+    public function getLangCode()
     {
-        return $this->hasOne(LanguageCode::class, ['code' => 'code']);
+        return $this->hasOne(LanguageBase::class, ['lang_code' => 'lang_code']);
     }
 }

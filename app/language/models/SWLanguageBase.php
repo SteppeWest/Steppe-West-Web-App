@@ -5,16 +5,16 @@ namespace language\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%language_code}}".
+ * This is the model class for table "{{%language_base}}".
  *
- * @property int $pk PK
- * @property string $code Code
- * @property string|null $prev
+ * @property int $pk_base Base PK
+ * @property string $lang_code Language Code
+ * @property string|null $prev_code Previous Code
  * @property int|null $position Position
  * @property string $name Name
  * @property string $native Native Name
- * @property string $flag Flag Icon
- * @property string $label UI Label
+ * @property string $flag_icon Flag Icon
+ * @property string $ui_label UI Label
  *
  * @property LanguageExtra $languageExtra
  * @property LanguagePage[] $languagePages
@@ -26,7 +26,7 @@ class SWLanguageBase extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%language_code}}';
+        return '{{%language_base}}';
     }
 
     /**
@@ -35,17 +35,16 @@ class SWLanguageBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'name', 'native', 'flag', 'label'], 'required'],
+            [['lang_code', 'name', 'native', 'flag_icon', 'ui_label'], 'required'],
             [['position'], 'integer'],
-            [['code', 'prev'], 'string', 'max' => 4],
+            [['lang_code', 'prev_code', 'flag_icon'], 'string', 'max' => 4],
             [['name', 'native'], 'string', 'max' => 32],
-            [['flag'], 'string', 'max' => 6],
-            [['label'], 'string', 'max' => 8],
-            [['code'], 'unique'],
+            [['ui_label'], 'string', 'max' => 8],
+            [['lang_code'], 'unique'],
             [['name'], 'unique'],
             [['native'], 'unique'],
-            [['flag'], 'unique'],
-            [['label'], 'unique'],
+            [['flag_icon'], 'unique'],
+            [['ui_label'], 'unique'],
         ];
     }
 
@@ -55,14 +54,14 @@ class SWLanguageBase extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pk' => 'Pk',
-            'code' => 'Code',
-            'prev' => 'Prev',
+            'pk_base' => 'Pk Base',
+            'lang_code' => 'Lang Code',
+            'prev_code' => 'Prev Code',
             'position' => 'Position',
             'name' => 'Name',
             'native' => 'Native',
-            'flag' => 'Flag',
-            'label' => 'Label',
+            'flag_icon' => 'Flag Icon',
+            'ui_label' => 'Ui Label',
         ];
     }
 
@@ -73,7 +72,7 @@ class SWLanguageBase extends \yii\db\ActiveRecord
      */
     public function getLanguageExtra()
     {
-        return $this->hasOne(LanguageExtra::class, ['code' => 'code']);
+        return $this->hasOne(LanguageExtra::class, ['lang_code' => 'lang_code']);
     }
 
     /**
@@ -83,6 +82,6 @@ class SWLanguageBase extends \yii\db\ActiveRecord
      */
     public function getLanguagePages()
     {
-        return $this->hasMany(LanguagePage::class, ['code' => 'code']);
+        return $this->hasMany(LanguagePage::class, ['lang_code' => 'lang_code']);
     }
 }
