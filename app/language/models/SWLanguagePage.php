@@ -11,6 +11,7 @@
 namespace letter\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%language_page}}".
@@ -29,7 +30,7 @@ use Yii;
  *
  * @property LanguageCode $code0
  */
-class SWLanguagePage extends \yii\db\ActiveRecord
+class SWLanguagePage extends ActiveRecord
 {
 	/**
 	 * {@inheritdoc}
@@ -78,7 +79,7 @@ class SWLanguagePage extends \yii\db\ActiveRecord
 	 *
 	 * @return \yii\db\ActiveQuery
 	 */
-	public function getCode0()
+	public function getLanguageCode()
 	{
 		return $this->hasOne(LanguageCode::class, ['code' => 'code']);
 	}

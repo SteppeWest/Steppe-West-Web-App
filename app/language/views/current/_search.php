@@ -19,23 +19,17 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'code') ?>
 
-	<?= $form->field($model, 'page') ?>
+	<?= $form->field($model, 'prev') ?>
 
-	<?= $form->field($model, 'title') ?>
+	<?= $form->field($model, 'position') ?>
 
-	<?= $form->field($model, 'subtitle') ?>
+	<?= $form->field($model, 'name') ?>
 
-	<?php // echo $form->field($model, 'description') ?>
+	<?php // echo $form->field($model, 'native') ?>
 
-	<?php // echo $form->field($model, 'keywords') ?>
+	<?php // echo $form->field($model, 'flag') ?>
 
-	<?php // echo $form->field($model, 'lead') ?>
-
-	<?php // echo $form->field($model, 'origin') ?>
-
-	<?php // echo $form->field($model, 'origin_link') ?>
-
-	<?php // echo $form->field($model, 'body_yaml') ?>
+	<?php // echo $form->field($model, 'label') ?>
 
 	<div class="form-group">
 		<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

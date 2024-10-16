@@ -1,11 +1,11 @@
 <?php
 
-namespace letter\assets;
+namespace language\assets;
 
 use yii\web\AssetBundle;
 
 /**
- * Main letter application asset bundle.
+ * Main language application asset bundle.
  */
 class AppAsset extends AssetBundle
 {

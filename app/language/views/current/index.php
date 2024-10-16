@@ -31,15 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 			'pk',
 			'code',
-			'page',
-			'title:ntext',
-			'subtitle:ntext',
-			//'description:ntext',
-			//'keywords:ntext',
-			//'lead:ntext',
-			//'origin:ntext',
-			//'origin_link:ntext',
-			//'body_yaml:ntext',
+			'prev',
+			'position',
+			'name',
+			//'native',
+			//'flag',
+			//'label',
 			[
 				'class' => ActionColumn::className(),
 				'urlCreator' => function ($action, SWCurrentLanguage $model, $key, $index, $column) {

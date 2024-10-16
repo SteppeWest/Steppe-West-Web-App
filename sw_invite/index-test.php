@@ -1,5 +1,5 @@
 <?php
-$endpoint = 'letter';
+$endpoint = 'language';
 $appfolder  = 'app';
 
 // NOTE: Make sure this file is not accessible when deployed to production

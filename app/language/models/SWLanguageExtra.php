@@ -11,6 +11,7 @@
 namespace letter\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%language_extra}}".
@@ -23,7 +24,7 @@ use Yii;
  *
  * @property LanguageCode $code0
  */
-class SWLanguageExtra extends \yii\db\ActiveRecord
+class SWLanguageExtra extends ActiveRecord
 {
 	/**
 	 * {@inheritdoc}
@@ -40,13 +41,11 @@ class SWLanguageExtra extends \yii\db\ActiveRecord
 	{
 		return [
 			[['code', 'locale', 'lang'], 'required'],
-			[['footer_yaml'], 'string'],
-			[['code'], 'string', 'max' => 2],
-			[['locale'], 'string', 'max' => 12],
-			[['lang'], 'string', 'max' => 4],
-			[['code'], 'unique'],
-			[['locale'], 'unique'],
-			[['lang'], 'unique'],
+			[['code', 'locale', 'lang', 'footer_yaml'], 'string'],
+			[['code'], 'max' => 2],
+			[['locale'], 'max' => 12],
+			[['lang'], 'max' => 4],
+			[['code', 'locale', 'lang'], 'unique'],
 			[['code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageCode::class, 'targetAttribute' => ['code' => 'code']],
 		];
 	}
@@ -70,7 +69,7 @@ class SWLanguageExtra extends \yii\db\ActiveRecord
 	 *
 	 * @return \yii\db\ActiveQuery
 	 */
-	public function getCode0()
+	public function getLanguageCode()
 	{
 		return $this->hasOne(LanguageCode::class, ['code' => 'code']);
 	}

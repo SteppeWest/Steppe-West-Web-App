@@ -19,22 +19,22 @@ $urlManager = array_merge(
 );
 
 return [
-	'id' => 'app-letter',
+	'id' => 'app-language',
 	'basePath' => dirname(__DIR__),
 	'bootstrap' => ['log'],
-	'controllerNamespace' => 'letter\controllers',
+	'controllerNamespace' => 'language\controllers',
 	'components' => [
 		'assetManager' => $assetManager,
 		'urlManager' => $urlManager,
 		'db' => $db,
 		'request' => [
-			'csrfParam' => '_csrf-letter',
+			'csrfParam' => '_csrf-language',
 		],
 		'user' => [
 		],
 		'session' => [
-			// this is the name of the session cookie used for login on the letter
-			'name' => 'advanced-letter',
+			// this is the name of the session cookie used for login on the language
+			'name' => 'advanced-language',
 		],
 		'log' => [
 			'traceLevel' => YII_DEBUG ? 3 : 0,

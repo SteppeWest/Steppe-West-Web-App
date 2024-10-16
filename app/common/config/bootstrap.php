@@ -3,7 +3,7 @@ Yii::setAlias('@common',   dirname(__DIR__));
 Yii::setAlias('@assets',       '@common/assets');
 Yii::setAlias('@backend',  dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
-Yii::setAlias('@letter',   dirname(dirname(__DIR__)) . '/letter');
+Yii::setAlias('@language', dirname(dirname(__DIR__)) . '/language');
 Yii::setAlias('@links',    dirname(dirname(__DIR__)) . '/links');
 Yii::setAlias('@members',  dirname(dirname(__DIR__)) . '/members');
 Yii::setAlias('@cdn',      dirname(dirname(__DIR__)) . '/cdn');

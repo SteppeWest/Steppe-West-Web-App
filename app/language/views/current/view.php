@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var letter\models\SWCurrentLanguage $model */
 
-$this->title = $model->title;
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Sw Current Languages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,15 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
 		'attributes' => [
 			'pk',
 			'code',
-			'page',
-			'title:ntext',
-			'subtitle:ntext',
-			'description:ntext',
-			'keywords:ntext',
-			'lead:ntext',
-			'origin:ntext',
-			'origin_link:ntext',
-			'body_yaml:ntext',
+			'prev',
+			'position',
+			'name',
+			'native',
+			'flag',
+			'label',
 		],
 	]) ?>
 
