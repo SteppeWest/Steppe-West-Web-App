@@ -32,7 +32,7 @@ use language\widgets\SWLanguageSelector;
  *
  * @property LanguagePage[] $languagePages
  */
-class SWLanguageBase extends \yii\db\ActiveRecord
+class SWLanguageBase extends ActiveRecord
 {
 	/**
 	 * {@inheritdoc}

@@ -1,8 +1,17 @@
 <?php
+/**
+ * SWLanguagePage.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace language\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%language_page}}".
@@ -21,7 +30,7 @@ use Yii;
  *
  * @property LanguageBase $pageLang
  */
-class SWLanguagePage extends \yii\db\ActiveRecord
+class SWLanguagePage extends ActiveRecord
 {
 	/**
 	 * {@inheritdoc}
