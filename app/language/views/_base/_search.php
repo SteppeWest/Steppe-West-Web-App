@@ -15,21 +15,27 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'base_pk') ?>
+    <?= $form->field($model, 'lang_pk') ?>
 
-    <?= $form->field($model, 'base_code') ?>
+    <?= $form->field($model, 'lang_code') ?>
 
     <?= $form->field($model, 'prev_code') ?>
 
-    <?= $form->field($model, 'position') ?>
+    <?= $form->field($model, 'menu_position') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'lang_name') ?>
 
-    <?php // echo $form->field($model, 'native') ?>
+    <?php // echo $form->field($model, 'native_name') ?>
 
     <?php // echo $form->field($model, 'flag_icon') ?>
 
     <?php // echo $form->field($model, 'ui_label') ?>
+
+    <?php // echo $form->field($model, 'locale') ?>
+
+    <?php // echo $form->field($model, 'html_lang') ?>
+
+    <?php // echo $form->field($model, 'footer_yaml') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

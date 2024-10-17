@@ -49,14 +49,14 @@ class SWLanguageBaseController extends Controller
 
     /**
      * Displays a single SWLanguageBase model.
-     * @param int $base_pk Base PK
+     * @param int $lang_pk Language PK
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($base_pk)
+    public function actionView($lang_pk)
     {
         return $this->render('view', [
-            'model' => $this->findModel($base_pk),
+            'model' => $this->findModel($lang_pk),
         ]);
     }
 
@@ -71,7 +71,7 @@ class SWLanguageBaseController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'base_pk' => $model->base_pk]);
+                return $this->redirect(['view', 'lang_pk' => $model->lang_pk]);
             }
         } else {
             $model->loadDefaultValues();
@@ -85,16 +85,16 @@ class SWLanguageBaseController extends Controller
     /**
      * Updates an existing SWLanguageBase model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $base_pk Base PK
+     * @param int $lang_pk Language PK
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($base_pk)
+    public function actionUpdate($lang_pk)
     {
-        $model = $this->findModel($base_pk);
+        $model = $this->findModel($lang_pk);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'base_pk' => $model->base_pk]);
+            return $this->redirect(['view', 'lang_pk' => $model->lang_pk]);
         }
 
         return $this->render('update', [
@@ -105,13 +105,13 @@ class SWLanguageBaseController extends Controller
     /**
      * Deletes an existing SWLanguageBase model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $base_pk Base PK
+     * @param int $lang_pk Language PK
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($base_pk)
+    public function actionDelete($lang_pk)
     {
-        $this->findModel($base_pk)->delete();
+        $this->findModel($lang_pk)->delete();
 
         return $this->redirect(['index']);
     }
@@ -119,13 +119,13 @@ class SWLanguageBaseController extends Controller
     /**
      * Finds the SWLanguageBase model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $base_pk Base PK
+     * @param int $lang_pk Language PK
      * @return SWLanguageBase the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($base_pk)
+    protected function findModel($lang_pk)
     {
-        if (($model = SWLanguageBase::findOne(['base_pk' => $base_pk])) !== null) {
+        if (($model = SWLanguageBase::findOne(['lang_pk' => $lang_pk])) !== null) {
             return $model;
         }
 

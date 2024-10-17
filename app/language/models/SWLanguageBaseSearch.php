@@ -17,8 +17,8 @@ class SWLanguageBaseSearch extends SWLanguageBase
     public function rules()
     {
         return [
-            [['base_pk', 'position'], 'integer'],
-            [['base_code', 'prev_code', 'name', 'native', 'flag_icon', 'ui_label'], 'safe'],
+            [['lang_pk', 'menu_position'], 'integer'],
+            [['lang_code', 'prev_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang', 'footer_yaml'], 'safe'],
         ];
     }
 
@@ -58,16 +58,19 @@ class SWLanguageBaseSearch extends SWLanguageBase
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'base_pk' => $this->base_pk,
-            'position' => $this->position,
+            'lang_pk' => $this->lang_pk,
+            'menu_position' => $this->menu_position,
         ]);
 
-        $query->andFilterWhere(['like', 'base_code', $this->base_code])
+        $query->andFilterWhere(['like', 'lang_code', $this->lang_code])
             ->andFilterWhere(['like', 'prev_code', $this->prev_code])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'native', $this->native])
+            ->andFilterWhere(['like', 'lang_name', $this->lang_name])
+            ->andFilterWhere(['like', 'native_name', $this->native_name])
             ->andFilterWhere(['like', 'flag_icon', $this->flag_icon])
-            ->andFilterWhere(['like', 'ui_label', $this->ui_label]);
+            ->andFilterWhere(['like', 'ui_label', $this->ui_label])
+            ->andFilterWhere(['like', 'locale', $this->locale])
+            ->andFilterWhere(['like', 'html_lang', $this->html_lang])
+            ->andFilterWhere(['like', 'footer_yaml', $this->footer_yaml]);
 
         return $dataProvider;
     }

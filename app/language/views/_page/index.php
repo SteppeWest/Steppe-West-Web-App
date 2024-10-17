@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'page_pk',
-            'page_code',
-            'page_tag',
+            'page_lang',
+            'page_slug',
             'title:ntext',
             'subtitle:ntext',
             //'description:ntext',

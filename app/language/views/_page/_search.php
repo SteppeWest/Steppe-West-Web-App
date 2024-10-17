@@ -17,9 +17,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'page_pk') ?>
 
-    <?= $form->field($model, 'page_code') ?>
+    <?= $form->field($model, 'page_lang') ?>
 
-    <?= $form->field($model, 'page_tag') ?>
+    <?= $form->field($model, 'page_slug') ?>
 
     <?= $form->field($model, 'title') ?>
 

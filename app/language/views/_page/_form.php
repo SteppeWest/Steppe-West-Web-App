@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'page_code')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'page_lang')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'page_tag')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'page_slug')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'title')->textarea(['rows' => 6]) ?>
 

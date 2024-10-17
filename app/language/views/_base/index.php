@@ -29,18 +29,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'base_pk',
-            'base_code',
+            'lang_pk',
+            'lang_code',
             'prev_code',
-            'position',
-            'name',
-            //'native',
+            'menu_position',
+            'lang_name',
+            //'native_name',
             //'flag_icon',
             //'ui_label',
+            //'locale',
+            //'html_lang',
+            //'footer_yaml:ntext',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, SWLanguageBase $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'base_pk' => $model->base_pk]);
+                    return Url::toRoute([$action, 'lang_pk' => $model->lang_pk]);
                  }
             ],
         ],

@@ -8,9 +8,9 @@ use Yii;
  * This is the model class for table "{{%language_page}}".
  *
  * @property int $page_pk Page PK
- * @property string $page_code Language Code
- * @property string $page_tag Page Slug
- * @property string $title Title
+ * @property string $page_lang Language Code
+ * @property string $page_slug Page Slug
+ * @property string $title Page Title
  * @property string|null $subtitle Subtitle
  * @property string|null $description Description
  * @property string|null $keywords Keywords
@@ -19,8 +19,7 @@ use Yii;
  * @property string|null $origin_link Origin Link
  * @property string|null $body_yaml Body YAML
  *
- * @property LanguageBase $pageCode
- * @property LanguageExtra $pageCode0
+ * @property LanguageBase $pageLang
  */
 class SWLanguagePage extends \yii\db\ActiveRecord
 {
@@ -38,12 +37,11 @@ class SWLanguagePage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['page_code', 'page_tag', 'title'], 'required'],
+            [['page_lang', 'page_slug', 'title'], 'required'],
             [['title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_yaml'], 'string'],
-            [['page_code'], 'string', 'max' => 4],
-            [['page_tag'], 'string', 'max' => 12],
-            [['page_code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['page_code' => 'base_code']],
-            [['page_code'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageExtra::class, 'targetAttribute' => ['page_code' => 'extra_code']],
+            [['page_lang'], 'string', 'max' => 4],
+            [['page_slug'], 'string', 'max' => 12],
+            [['page_lang'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['page_lang' => 'lang_code']],
         ];
     }
 
@@ -54,9 +52,9 @@ class SWLanguagePage extends \yii\db\ActiveRecord
     {
         return [
             'page_pk' => 'Page PK',
-            'page_code' => 'Language Code',
-            'page_tag' => 'Page Slug',
-            'title' => 'Title',
+            'page_lang' => 'Language Code',
+            'page_slug' => 'Page Slug',
+            'title' => 'Page Title',
             'subtitle' => 'Subtitle',
             'description' => 'Description',
             'keywords' => 'Keywords',
@@ -68,22 +66,12 @@ class SWLanguagePage extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[PageCode]].
+     * Gets query for [[PageLang]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getPageCode()
+    public function getPageLang()
     {
-        return $this->hasOne(LanguageBase::class, ['base_code' => 'page_code']);
-    }
-
-    /**
-     * Gets query for [[PageCode0]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPageCode0()
-    {
-        return $this->hasOne(LanguageExtra::class, ['extra_code' => 'page_code']);
+        return $this->hasOne(LanguageBase::class, ['lang_code' => 'page_lang']);
     }
 }

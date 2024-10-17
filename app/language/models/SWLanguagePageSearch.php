@@ -18,7 +18,7 @@ class SWLanguagePageSearch extends SWLanguagePage
     {
         return [
             [['page_pk'], 'integer'],
-            [['page_code', 'page_tag', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_yaml'], 'safe'],
+            [['page_lang', 'page_slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_yaml'], 'safe'],
         ];
     }
 
@@ -61,8 +61,8 @@ class SWLanguagePageSearch extends SWLanguagePage
             'page_pk' => $this->page_pk,
         ]);
 
-        $query->andFilterWhere(['like', 'page_code', $this->page_code])
-            ->andFilterWhere(['like', 'page_tag', $this->page_tag])
+        $query->andFilterWhere(['like', 'page_lang', $this->page_lang])
+            ->andFilterWhere(['like', 'page_slug', $this->page_slug])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'subtitle', $this->subtitle])
             ->andFilterWhere(['like', 'description', $this->description])
