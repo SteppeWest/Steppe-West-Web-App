@@ -1,10 +1,18 @@
 <?php
+/**
+ * SWLanguageBaseSearch.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
-namespace language\models;
+namespace letter\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use language\models\SWLanguageBase;
+use letter\models\SWLanguageBase;
 
 /**
  * SWLanguageBaseSearch represents the model behind the search form of `language\models\SWLanguageBase`.

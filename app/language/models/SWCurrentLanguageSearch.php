@@ -1,15 +1,23 @@
 <?php
+/**
+ * SWCurrentLanguageSearch.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace language\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use language\models\SWCurrentLanguage;
+use language\models\SWLanguagePageSearch;
 
 /**
  * SWCurrentLanguageSearch represents the model behind the search form of `language\models\SWCurrentLanguage`.
  */
-class SWCurrentLanguageSearch extends SWCurrentLanguage
+class SWCurrentLanguageSearch extends SWLanguagePageSearch
 {
 	/**
 	 * {@inheritdoc}
