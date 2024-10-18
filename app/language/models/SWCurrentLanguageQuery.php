@@ -1,13 +1,23 @@
 <?php
+/**
+ * SWCurrentLanguageQuery.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace language\models;
+
+use yii\db\ActiveQuery;
 
 /**
  * This is the ActiveQuery class for [[SWCurrentLanguage]].
  *
  * @see SWCurrentLanguage
  */
-class SWCurrentLanguageQuery extends \yii\db\ActiveQuery
+class SWCurrentLanguageQuery extends ActiveQuery
 {
 	/*public function active()
 	{

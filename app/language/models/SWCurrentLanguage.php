@@ -1,8 +1,17 @@
 <?php
+/**
+ * SWCurrentLanguage.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace language\models;
 
 use Yii;
+use letter\models\SWLanguagePage;
 
 /**
  * This is the model class for table "{{%language_page}}".
@@ -21,59 +30,15 @@ use Yii;
  *
  * @property LanguageBase $pageLang
  */
-class SWCurrentLanguage extends \yii\db\ActiveRecord
+class SWCurrentLanguage extends SWLanguagePage
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public static function tableName()
-	{
-		return '{{%language_page}}';
-	}
+	//public static function tableName()
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function rules()
-	{
-		return [
-			[['page_lang', 'page_slug', 'title'], 'required'],
-			[['title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_yaml'], 'string'],
-			[['page_lang'], 'string', 'max' => 4],
-			[['page_slug'], 'string', 'max' => 12],
-			[['page_lang'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['page_lang' => 'lang_code']],
-		];
-	}
+	//public function rules()
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'page_pk' => 'Page PK',
-			'page_lang' => 'Language Code',
-			'page_slug' => 'Page Slug',
-			'title' => 'Page Title',
-			'subtitle' => 'Subtitle',
-			'description' => 'Description',
-			'keywords' => 'Keywords',
-			'lead' => 'Page Lead',
-			'origin' => 'Substack Origin',
-			'origin_link' => 'Origin Link',
-			'body_yaml' => 'Body YAML',
-		];
-	}
+	//public function attributeLabels()
 
-	/**
-	 * Gets query for [[PageLang]].
-	 *
-	 * @return \yii\db\ActiveQuery|LanguageBaseQuery
-	 */
-	public function getPageLang()
-	{
-		return $this->hasOne(LanguageBase::class, ['lang_code' => 'page_lang']);
-	}
+	//public function getPageLang()
 
 	/**
 	 * {@inheritdoc}
@@ -82,5 +47,52 @@ class SWCurrentLanguage extends \yii\db\ActiveRecord
 	public static function find()
 	{
 		return new SWCurrentLanguageQuery(get_called_class());
+	}
+
+	public static function getCurrentLanguage()
+	{
+		$languageCode = SWLanguageSelector::getCurrentLanguage();
+		return self::findOne(['code' => $languageCode]);
+	}
+
+	public static function getLanguageRecord($page = null)
+	{
+		$language = self::getCurrentLanguage();
+		if (!$language) return null;
+
+		$shared = $language->shared;
+		if ($shared) {
+			foreach ($shared->attributes as $key => $value) {
+				$language->$key = $value;
+			}
+		}
+
+		if (!$page) return $language;
+
+		$pageRecord = SWLanguagePage::findOne([
+			'code' => $language->code,
+			'page' => $page
+		]);
+		if ($pageRecord) {
+			foreach ($pageRecord->attributes as $key => $value) {
+				$language->$key = $value;
+			}
+		}
+
+		return $language;
+	}
+
+	private static function mergeRecords($record, $language)
+	{
+		if (!$record) {
+			return $language;
+		}
+
+		// Merge record data into language data
+		foreach ($record->attributes as $key => $value) {
+			$language->$key = $value;
+		}
+
+		return $language;
 	}
 }
