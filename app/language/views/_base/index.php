@@ -15,40 +15,40 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="swlanguage-base-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Sw Language Base', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+	<p>
+		<?= Html::a('Create Sw Language Base', ['create'], ['class' => 'btn btn-success']) ?>
+	</p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+	<?= GridView::widget([
+		'dataProvider' => $dataProvider,
+		'filterModel' => $searchModel,
+		'columns' => [
+			['class' => 'yii\grid\SerialColumn'],
 
-            'lang_pk',
-            'lang_code',
-            'prev_code',
-            'menu_position',
-            'active',
-            //'lang_name',
-            //'native_name',
-            //'flag_icon',
-            //'ui_label',
-            //'locale',
-            //'html_lang',
-            //'footer_yaml:ntext',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, SWLanguageBase $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'lang_pk' => $model->lang_pk]);
-                 }
-            ],
-        ],
-    ]); ?>
+			'lang_pk',
+			'lang_code',
+			'prev_code',
+			'menu_position',
+			'active',
+			//'lang_name',
+			//'native_name',
+			//'flag_icon',
+			//'ui_label',
+			//'locale',
+			//'html_lang',
+			//'footer_yaml:ntext',
+			[
+				'class' => ActionColumn::className(),
+				'urlCreator' => function ($action, SWLanguageBase $model, $key, $index, $column) {
+					return Url::toRoute([$action, 'lang_pk' => $model->lang_pk]);
+				 }
+			],
+		],
+	]); ?>
 
 
 </div>
