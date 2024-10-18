@@ -1,17 +1,25 @@
 <?php
+/**
+ * SWCurrentLanguageController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace language\controllers;
 
 use language\models\SWCurrentLanguage;
 use language\models\SWCurrentLanguageSearch;
-use yii\web\Controller;
+use language\controllers\SWLanguagePageController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * SWCurrentLanguageController implements the CRUD actions for SWCurrentLanguage model.
  */
-class SWCurrentLanguageController extends Controller
+class SWCurrentLanguageController extends SWLanguagePageController
 {
 	/**
 	 * @inheritDoc
@@ -76,7 +84,6 @@ class SWCurrentLanguageController extends Controller
 		} else {
 			$model->loadDefaultValues();
 		}
-
 		return $this->render('create', [
 			'model' => $model,
 		]);
@@ -96,7 +103,6 @@ class SWCurrentLanguageController extends Controller
 		if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
 			return $this->redirect(['view', 'page_pk' => $model->page_pk]);
 		}
-
 		return $this->render('update', [
 			'model' => $model,
 		]);

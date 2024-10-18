@@ -1,4 +1,12 @@
 <?php
+/**
+ * SWLanguageBaseController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace language\controllers;
 
@@ -76,7 +84,6 @@ class SWLanguageBaseController extends Controller
 		} else {
 			$model->loadDefaultValues();
 		}
-
 		return $this->render('create', [
 			'model' => $model,
 		]);
@@ -96,7 +103,6 @@ class SWLanguageBaseController extends Controller
 		if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
 			return $this->redirect(['view', 'lang_pk' => $model->lang_pk]);
 		}
-
 		return $this->render('update', [
 			'model' => $model,
 		]);
