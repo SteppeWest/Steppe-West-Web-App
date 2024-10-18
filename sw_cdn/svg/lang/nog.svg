@@ -2,19 +2,19 @@
 <svg
    width="600"
    height="400"
-   viewBox="0 -30000 60000 40000"
+   viewBox="0 0 6 4"
    version="1.1"
-   id="svg10461"
-   sodipodi:docname="ug.svg"
+   id="svg8275"
+   sodipodi:docname="nog.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs10465" />
+     id="defs8279" />
   <sodipodi:namedview
-     id="namedview10463"
+     id="namedview8277"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -31,17 +31,30 @@
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10461" />
+     inkscape:current-layer="svg8275" />
   <g
-     id="g10573"
-     transform="matrix(0.66666667,0,0,0.66666667,0,-9999.9999)">
-    <path
-       fill="#559ee2"
-       d="M 0,-30000 H 90000 V 30000 H 0"
-       id="path10457" />
-    <path
-       fill="#ffffff"
-       d="M 41750,0 55318,-4408 46932,7133 V -7133 l 8386,11541 z m 925,8021 a 15000,15000 0 1 1 0,-16042 12000,12000 0 1 0 0,16042"
-       id="path10459" />
+     id="g9514"
+     transform="scale(0.66666667)">
+    <rect
+       fill="#d81e05"
+       width="9"
+       height="6"
+       id="rect8269"
+       x="0"
+       y="0" />
+    <rect
+       fill="#0039a6"
+       width="9"
+       height="4"
+       id="rect8271"
+       x="0"
+       y="0" />
+    <rect
+       fill="#00923f"
+       width="9"
+       height="2"
+       id="rect8273"
+       x="0"
+       y="0" />
   </g>
 </svg>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="200"
-   height="100"
+   width="600"
+   height="400"
    version="1.1"
    id="svg27151"
    sodipodi:docname="az.svg"
@@ -11,68 +11,80 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-	 id="defs27155" />
+     id="defs27155" />
   <sodipodi:namedview
-	 id="namedview27153"
-	 pagecolor="#ffffff"
-	 bordercolor="#666666"
-	 borderopacity="1.0"
-	 inkscape:showpageshadow="2"
-	 inkscape:pageopacity="0.0"
-	 inkscape:pagecheckerboard="0"
-	 inkscape:deskcolor="#d1d1d1"
-	 showgrid="false"
-	 inkscape:zoom="5.235"
-	 inkscape:cx="100"
-	 inkscape:cy="49.952245"
-	 inkscape:window-width="1440"
-	 inkscape:window-height="847"
-	 inkscape:window-x="0"
-	 inkscape:window-y="25"
-	 inkscape:window-maximized="1"
-	 inkscape:current-layer="svg27151" />
+     id="namedview27153"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4975"
+     inkscape:cx="299.83306"
+     inkscape:cy="200"
+     inkscape:window-width="1440"
+     inkscape:window-height="819"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg27151" />
   <g
-	 id="g10637"
-	 transform="scale(0.16666667)">
-	<g
-	   id="g27163">
-	  <rect
-		 width="1200"
-		 height="600"
-		 fill="#509e2f"
-		 id="rect27139"
-		 x="0"
-		 y="0" />
-	  <rect
-		 width="1200"
-		 height="400"
-		 fill="#ef3340"
-		 id="rect27141"
-		 x="0"
-		 y="0" />
-	  <rect
-		 width="1200"
-		 height="200"
-		 fill="#00b5e2"
-		 id="rect27143"
-		 x="0"
-		 y="0" />
-	  <circle
-		 cx="570"
-		 cy="300"
-		 r="90"
-		 fill="#ffffff"
-		 id="circle27145" />
-	  <circle
-		 cx="590"
-		 cy="300"
-		 r="75"
-		 fill="#ef3340"
-		 id="circle27147" />
-	  <path
-		 d="m 670,250 9.567,26.903 25.788,-12.258 -12.258,25.788 L 720,300 693.097,309.567 705.355,335.355 679.567,323.097 670,350 660.433,323.097 634.645,335.355 646.903,309.567 620,300 l 26.903,-9.567 -12.258,-25.788 25.788,12.258 z"
-		 fill="#ffffff"
-		 id="path27149" />
-	</g>
+     id="g2994"
+     transform="scale(4)">
+    <g
+       id="g2979"
+       style="display:inline"
+       transform="scale(0.75,1)">
+      <rect
+         width="200"
+         height="100"
+         fill="#509e2f"
+         id="rect27139"
+         x="0"
+         y="0"
+         style="stroke-width:0.166667" />
+      <rect
+         width="200"
+         height="66.666672"
+         fill="#ef3340"
+         id="rect27141"
+         x="0"
+         y="0"
+         style="stroke-width:0.166667" />
+      <rect
+         width="200"
+         height="33.333336"
+         fill="#00b5e2"
+         id="rect27143"
+         x="0"
+         y="0"
+         style="stroke-width:0.166667" />
+    </g>
+    <g
+       id="g2984"
+       transform="translate(-25)">
+      <circle
+         cx="95"
+         cy="50"
+         r="15"
+         fill="#ffffff"
+         id="circle27145"
+         style="stroke-width:0.166667" />
+      <circle
+         cx="98.333336"
+         cy="50"
+         r="12.5"
+         fill="#ef3340"
+         id="circle27147"
+         style="stroke-width:0.166667" />
+      <path
+         d="m 111.66667,41.666667 1.5945,4.483834 4.298,-2.043 -2.043,4.298 4.48383,1.5945 -4.48383,1.5945 2.043,4.298 -4.298,-2.043 -1.5945,4.483833 -1.5945,-4.483833 -4.298,2.043 2.043,-4.298 -4.48383,-1.5945 4.48383,-1.5945 -2.043,-4.298 4.298,2.043 z"
+         fill="#ffffff"
+         id="path27149"
+         style="stroke-width:0.166667" />
+    </g>
   </g>
 </svg>
