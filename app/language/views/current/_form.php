@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'origin_link')->textarea(['rows' => 6]) ?>
 
-	<?= $form->field($model, 'body_yaml')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'body_json')->textarea(['rows' => 6]) ?>
 
 	<div class="form-group">
 		<?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

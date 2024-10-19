@@ -17,7 +17,9 @@
         "php": ">=7.4.0",
         "yiisoft/yii2": "~2.0.45",
         "yiisoft/yii2-bootstrap5": "~2.0.2",
-        "yiisoft/yii2-symfonymailer": "~2.0.3"
+        "yiisoft/yii2-symfonymailer": "~2.0.3",
+        "laminas/laminas-code": "^4.14",
+        "symfony/yaml": "7.2.x-dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -36,8 +38,8 @@
         "psr-4": {
             "common\\tests\\": ["common/tests/", "common/tests/_support"],
             "backend\\tests\\": ["backend/tests/", "backend/tests/_support"],
-            "frontend\\tests\\": ["frontend/tests/", "frontend/tests/_support"]
-            "letter\\tests\\": ["letter/tests/", "letter/tests/_support"]
+            "frontend\\tests\\": ["frontend/tests/", "frontend/tests/_support"],
+            "language\\tests\\": ["language/tests/", "language/tests/_support"],
             "links\\tests\\": ["links/tests/", "links/tests/_support"]
         }
     },

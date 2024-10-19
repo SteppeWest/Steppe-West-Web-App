@@ -29,7 +29,7 @@ use language\widgets\SWLanguageSelector;
  * @property string $ui_label UI Label
  * @property string $locale Locale
  * @property string $html_lang HTML Language
- * @property string|null $footer_yaml Footer YAML
+ * @property string|null $footer_json Footer JSON
  *
  * @property LanguagePage[] $languagePages
  */
@@ -51,7 +51,7 @@ class SWLanguageBase extends ActiveRecord
 		return [
 			[['lang_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang'], 'required'],
 			[['menu_position', 'active'], 'integer'],
-			[['lang_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang', 'footer_yaml'], 'string'],
+			[['lang_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang', 'footer_json'], 'string'],
 			[['lang_code', 'prev_code', 'flag_icon'], 'max' => 4],
 			[['lang_name', 'native_name'], 'max' => 32],
 			[['ui_label', 'html_lang'], 'max' => 8],
@@ -77,7 +77,7 @@ class SWLanguageBase extends ActiveRecord
 			'ui_label' => 'UI Label',
 			'locale' => 'Locale',
 			'html_lang' => 'HTML Language',
-			'footer_yaml' => 'Footer YAML',
+			'footer_json' => 'Footer JSON',
 		];
 	}
 

@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			//'lead:ntext',
 			//'origin:ntext',
 			//'origin_link:ntext',
-			//'body_yaml:ntext',
+			//'body_json:ntext',
 			[
 				'class' => ActionColumn::className(),
 				'urlCreator' => function ($action, SWLanguagePage $model, $key, $index, $column) {

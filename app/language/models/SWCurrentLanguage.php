@@ -26,7 +26,7 @@ use letter\models\SWLanguagePage;
  * @property string|null $lead Page Lead
  * @property string|null $origin Substack Origin
  * @property string|null $origin_link Origin Link
- * @property string|null $body_yaml Body YAML
+ * @property string|null $body_json Body JSON
  *
  * @property LanguageBase $pageLang
  */

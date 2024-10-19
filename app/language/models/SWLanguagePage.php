@@ -26,7 +26,7 @@ use yii\db\ActiveRecord;
  * @property string|null $lead Page Lead
  * @property string|null $origin Substack Origin
  * @property string|null $origin_link Origin Link
- * @property string|null $body_yaml Body YAML
+ * @property string|null $body_json Body JSON
  *
  * @property LanguageBase $pageLang
  */
@@ -47,7 +47,7 @@ class SWLanguagePage extends ActiveRecord
 	{
 		return [
 			[['page_lang', 'page_slug', 'title'], 'required'],
-			[['title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_yaml'], 'string'],
+			[['title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_json'], 'string'],
 			[['page_lang'], 'string', 'max' => 4],
 			[['page_slug'], 'string', 'max' => 12],
 			[['page_lang'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['page_lang' => 'lang_code']],
@@ -70,7 +70,7 @@ class SWLanguagePage extends ActiveRecord
 			'lead' => 'Page Lead',
 			'origin' => 'Substack Origin',
 			'origin_link' => 'Origin Link',
-			'body_yaml' => 'Body YAML',
+			'body_json' => 'Body JSON',
 		];
 	}
 

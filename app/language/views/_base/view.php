@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			'ui_label',
 			'locale',
 			'html_lang',
-			'footer_yaml:ntext',
+			'footer_json:ntext',
 		],
 	]) ?>
 
