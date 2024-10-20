@@ -1,1 +1,0 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=https://steppewest.com"><title>Redirecting to Steppe West</title></head><body><p>If you are not redirected automatically, <a href="https://steppewest.com">click here</a>.</p></body></html>

@@ -34,6 +34,7 @@ class SWAppAsset extends SWAssetBundle
 
 	public $css = [
 		'css/steppe-west.min.css',
+		//'//cdn.steppewest.com/css/steppe-west.min.css',
 	];
 
 	public $cssOptions = [
