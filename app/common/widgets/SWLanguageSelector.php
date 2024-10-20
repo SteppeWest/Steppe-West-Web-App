@@ -9,12 +9,12 @@
  */
 
 /**
- * @class \language\widgets\SWLanguageSelector
+ * @class \common\widgets\SWLanguageSelector
  *
- * use language\widgets\SWLanguageSelector;
+ * use common\widgets\SWLanguageSelector;
  */
 
-namespace language\widgets;
+namespace common\widgets;
 
 use Yii;
 use yii\helpers\Url;
