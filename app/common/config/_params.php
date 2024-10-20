@@ -3,7 +3,7 @@
 return [
 	'adminEmail' => 'pedro@steppewest.com',
 	'senderEmail' => 'noreply@steppewest.com',
-	'senderName' => 'WteppeWest.com Mailer',
+	'senderName' => 'SteppeWest.com Mailer',
 	'swDefaultLanguage' => 'en',
 	'swLanguages' => [
 		'az',
