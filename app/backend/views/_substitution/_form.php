@@ -10,18 +10,18 @@ use yii\widgets\ActiveForm;
 
 <div class="swsubstitution-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+	<?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'value')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'value')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
+	<div class="form-group">
+		<?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+	</div>
 
-    <?php ActiveForm::end(); ?>
+	<?php ActiveForm::end(); ?>
 
 </div>

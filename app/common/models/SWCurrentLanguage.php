@@ -1,8 +1,19 @@
 <?php
+/**
+ * SWCurrentLanguage.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace common\models;
 
 use Yii;
+use common\models\SWLanguageBase;
+use common\widgets\SWFlagSelector;
+use common\widgets\SWLanguageSelector;
 
 /**
  * This is the model class for table "{{%language_base}}".
@@ -22,77 +33,22 @@ use Yii;
  *
  * @property LanguagePage[] $languagePages
  */
-class SWCurrentLanguage extends \yii\db\ActiveRecord
+class SWCurrentLanguage extends SWLanguageBase
 {
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return '{{%language_base}}';
-    }
+	//public static function tableName()
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['lang_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang'], 'required'],
-            [['menu_position', 'active'], 'integer'],
-            [['footer_json'], 'string'],
-            [['lang_code', 'prev_code', 'flag_icon'], 'string', 'max' => 4],
-            [['lang_name', 'native_name'], 'string', 'max' => 32],
-            [['ui_label', 'html_lang'], 'string', 'max' => 8],
-            [['locale'], 'string', 'max' => 12],
-            [['lang_code'], 'unique'],
-            [['lang_name'], 'unique'],
-            [['native_name'], 'unique'],
-            [['flag_icon'], 'unique'],
-            [['ui_label'], 'unique'],
-            [['locale'], 'unique'],
-            [['html_lang'], 'unique'],
-            [['prev_code'], 'unique'],
-        ];
-    }
+	//public function rules()
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'pk' => 'Language PK',
-            'lang_code' => 'Language Code',
-            'prev_code' => 'Previous Code',
-            'menu_position' => 'Menu Position',
-            'active' => 'Active',
-            'lang_name' => 'Language Name',
-            'native_name' => 'Native Name',
-            'flag_icon' => 'Flag Icon',
-            'ui_label' => 'UI Label',
-            'locale' => 'Locale',
-            'html_lang' => 'HTML Language',
-            'footer_json' => 'Footer JSON',
-        ];
-    }
+	//public function attributeLabels()
 
-    /**
-     * Gets query for [[LanguagePages]].
-     *
-     * @return \yii\db\ActiveQuery|LanguagePageQuery
-     */
-    public function getLanguagePages()
-    {
-        return $this->hasMany(LanguagePage::class, ['page_lang' => 'lang_code']);
-    }
+	//public function getLanguagePages()
 
-    /**
-     * {@inheritdoc}
-     * @return SWCurrentLanguageQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new SWCurrentLanguageQuery(get_called_class());
-    }
+	/**
+	 * {@inheritdoc}
+	 * @return SWCurrentLanguageQuery the active query used by this AR class.
+	 */
+	public static function find()
+	{
+		return new SWCurrentLanguageQuery(get_called_class());
+	}
 }

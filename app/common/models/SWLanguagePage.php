@@ -1,8 +1,19 @@
 <?php
+/**
+ * SWLanguagePage.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace common\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use common\widgets\SWFlagSelector;
+use common\widgets\SWLanguageSelector;
 
 /**
  * This is the model class for table "{{%language_page}}".
@@ -21,57 +32,57 @@ use Yii;
  *
  * @property LanguageBase $pageLang
  */
-class SWLanguagePage extends \yii\db\ActiveRecord
+class SWLanguagePage extends ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return '{{%language_page}}';
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public static function tableName()
+	{
+		return '{{%language_page}}';
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['page_lang', 'slug', 'title'], 'required'],
-            [['title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_json'], 'string'],
-            [['page_lang'], 'string', 'max' => 4],
-            [['slug'], 'string', 'max' => 12],
-            [['page_lang'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['page_lang' => 'lang_code']],
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function rules()
+	{
+		return [
+			[['page_lang', 'slug', 'title'], 'required'],
+			[['page_lang', 'slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_json'], 'string'],
+			[['page_lang'] 'max' => 4],
+			[['slug'], 'max' => 12],
+			[['page_lang'], 'exist', 'skipOnError' => true, 'targetClass' => LanguageBase::class, 'targetAttribute' => ['page_lang' => 'lang_code']],
+		];
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'pk' => 'Page PK',
-            'page_lang' => 'Language Code',
-            'slug' => 'Page Slug',
-            'title' => 'Page Title',
-            'subtitle' => 'Subtitle',
-            'description' => 'Description',
-            'keywords' => 'Keywords',
-            'lead' => 'Page Lead',
-            'origin' => 'Substack Origin',
-            'origin_link' => 'Origin Link',
-            'body_json' => 'Body JSON',
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'pk' => 'Page PK',
+			'page_lang' => 'Language Code',
+			'slug' => 'Page Slug',
+			'title' => 'Page Title',
+			'subtitle' => 'Subtitle',
+			'description' => 'Description',
+			'keywords' => 'Keywords',
+			'lead' => 'Page Lead',
+			'origin' => 'Substack Origin',
+			'origin_link' => 'Origin Link',
+			'body_json' => 'Body JSON',
+		];
+	}
 
-    /**
-     * Gets query for [[PageLang]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPageLang()
-    {
-        return $this->hasOne(LanguageBase::class, ['lang_code' => 'page_lang']);
-    }
+	/**
+	 * Gets query for [[PageLang]].
+	 *
+	 * @return \yii\db\ActiveQuery
+	 */
+	public function getPageLang()
+	{
+		return $this->hasOne(LanguageBase::class, ['lang_code' => 'page_lang']);
+	}
 }
