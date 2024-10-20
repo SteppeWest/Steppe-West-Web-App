@@ -1,9 +1,9 @@
 <?php
 
 return [
-	'adminEmail' => 'admin@example.com',
-	'senderEmail' => 'noreply@example.com',
-	'senderName' => 'Example.com mailer',
+	'adminEmail' => 'pedro@steppewest.com',
+	'senderEmail' => 'noreply@steppewest.com',
+	'senderName' => 'WteppeWest.com Mailer',
 	'swDefaultLanguage' => 'en',
 	'swLanguages' => [
 		'az',

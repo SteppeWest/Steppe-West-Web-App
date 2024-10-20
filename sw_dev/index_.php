@@ -1,5 +1,5 @@
 <?php
-$endpoint = 'language';
+$endpoint = 'frontend';
 $appfolder  = 'app';
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);

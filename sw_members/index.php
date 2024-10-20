@@ -1,5 +1,5 @@
 <?php
-$endpoint = 'links';
+$endpoint = 'members';
 $appfolder  = 'app';
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);

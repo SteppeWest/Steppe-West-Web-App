@@ -5,23 +5,23 @@ return [
 	'bundles' => [
 		'yii\bootstrap5\BootstrapAsset' => [
 			'sourcePath' => null,
-			'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/',
+			'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/',
 			'css' => [
 				'css/bootstrap.min.css',
 			],
 			'cssOptions' => [
-				'integrity' => 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN',
+				'integrity' => 'sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH',
 				'crossorigin' => 'anonymous',
 			],
 		],
 		'yii\bootstrap5\BootstrapPluginAsset' => [
 			'sourcePath' => null,
-			'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/',
+			'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/',
 			'js' => [
 				'js/bootstrap.bundle.min.js',
 			],
 			'jsOptions' => [
-				'integrity' => 'sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL',
+				'integrity' => 'sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz',
 				'crossorigin' => 'anonymous',
 			],
 		],
