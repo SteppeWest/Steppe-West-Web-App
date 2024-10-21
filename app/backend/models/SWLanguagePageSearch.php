@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SWSubstitution;
+use common\models\SWLanguagePage;
 
 /**
- * SWSubstitutionSearch represents the model behind the search form of `common\models\SWSubstitution`.
+ * SWLanguagePageSearch represents the model behind the search form of `common\models\SWLanguagePage`.
  */
-class SWSubstitutionSearch extends SWSubstitution
+class SWLanguagePageSearch extends SWLanguagePage
 {
 	/**
 	 * {@inheritdoc}
@@ -18,7 +18,7 @@ class SWSubstitutionSearch extends SWSubstitution
 	{
 		return [
 			[['pk'], 'integer'],
-			[['name', 'value', 'description'], 'safe'],
+			[['page_lang', 'slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_json'], 'safe'],
 		];
 	}
 
@@ -40,7 +40,7 @@ class SWSubstitutionSearch extends SWSubstitution
 	 */
 	public function search($params)
 	{
-		$query = SWSubstitution::find();
+		$query = SWLanguagePage::find();
 
 		// add conditions that should always apply here
 
@@ -61,9 +61,16 @@ class SWSubstitutionSearch extends SWSubstitution
 			'pk' => $this->pk,
 		]);
 
-		$query->andFilterWhere(['like', 'name', $this->name])
-			->andFilterWhere(['like', 'value', $this->value])
-			->andFilterWhere(['like', 'description', $this->description]);
+		$query->andFilterWhere(['like', 'page_lang', $this->page_lang])
+			->andFilterWhere(['like', 'slug', $this->slug])
+			->andFilterWhere(['like', 'title', $this->title])
+			->andFilterWhere(['like', 'subtitle', $this->subtitle])
+			->andFilterWhere(['like', 'description', $this->description])
+			->andFilterWhere(['like', 'keywords', $this->keywords])
+			->andFilterWhere(['like', 'lead', $this->lead])
+			->andFilterWhere(['like', 'origin', $this->origin])
+			->andFilterWhere(['like', 'origin_link', $this->origin_link])
+			->andFilterWhere(['like', 'body_json', $this->body_json]);
 
 		return $dataProvider;
 	}

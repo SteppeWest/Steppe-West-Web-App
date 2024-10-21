@@ -1,6 +1,14 @@
 <?php
+/**
+ * SWSubstitutionSearch.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
-namespace backend\models;
+namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
