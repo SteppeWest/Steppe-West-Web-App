@@ -1,0 +1,20 @@
+@charset "UTF-8";
+header
+{
+	background-image: url('../img/Golden-Eagle-1900x0750.jpg');
+/* background-image: url('https://cdn.steppewest.com/tLC93gF6xhwTRC68ecmAU8VN3qEzA8/img/Golden-Eagle-1900x0750.jpg'); */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #F90;
+	height: 400px;
+	/* Ensure this is set to create a positioning context */
+	position: relative;
+	/* Add bottom padding to header */
+	padding-bottom: 5px;
+}
+#title {
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	right: 0;
+}
