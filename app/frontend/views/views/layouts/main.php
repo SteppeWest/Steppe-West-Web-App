@@ -4,7 +4,7 @@
 /** @var string $content */
 
 use common\widgets\Alert;
-use common\assets\SWAppAsset;
+use frontend\assets\SWLetterAsset;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
