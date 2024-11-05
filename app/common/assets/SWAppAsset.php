@@ -27,7 +27,7 @@ use common\assets\SWAssetBundle;
 
 class SWAppAsset extends SWAssetBundle
 {
-	public $sourcePath = '@static/SWAppAsset';
+	public $sourcePath = '@static/sw-app';
 	//public $basePath;
 	//public $basePath = '@webroot';
 	//public $baseUrl;

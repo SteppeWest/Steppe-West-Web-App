@@ -8,3 +8,4 @@ Yii::setAlias('@members',  dirname(dirname(__DIR__)) . '/members');
 //Yii::setAlias('@cdn',      dirname(dirname(__DIR__)) . '/cdn');
 Yii::setAlias('@console',  dirname(dirname(__DIR__)) . '/console');
 Yii::setAlias('@static',   dirname(dirname(__DIR__)) . '/static');
+//Yii::setAlias('@themes',   dirname(dirname(__DIR__)) . '/themes');

@@ -21,19 +21,28 @@
  *     'common\assets\SWLetterAsset',
  */
 
-namespace common\assets;
+namespace frontend\assets;
 
-use common\assets\SWAssetBundle;
+use yii\web\AssetBundle;
 
-class SWLetterAsset extends SWAssetBundle
+class SWLetterAsset extends AssetBundle
 {
-	public $sourcePath = '@static/SWLetterAsset';
+	public $sourcePath = '@static/sw-language-page';
 
 	public $css = [
-		'css/steppe-west-letter.min.css',
+		'css/sw-language-page.min.css',
 	];
 
 	public $cssOptions = [
 		'crossorigin' => 'anonymous',
 	];
 }
+
+/*
+/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/
+/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/
+/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/steppe-west-letter.css
+/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/steppe-west-letter.min.css
+/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/img/
+/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/img/Golden-Eagle-1900x0750.jpg
+*/

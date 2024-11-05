@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguagePageController.php
+ * SWLanguageLinksController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -10,16 +10,16 @@
 
 namespace frontend\controllers;
 
+use common\models\SWLanguagePage;
+use common\models\SWLanguagePageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\SWLanguagePage;
-use common\models\SWLanguagePageSearch;
 
 /**
  * SWLanguagePageController implements the CRUD actions for SWLanguagePage model.
  */
-class SWLanguagePageController extends Controller
+class SWLanguageLinksController extends Controller
 {
 	/**
 	 * @inheritDoc
@@ -32,6 +32,7 @@ class SWLanguagePageController extends Controller
 				'verbs' => [
 					'class' => VerbFilter::className(),
 					'actions' => [
+						'delete' => ['POST'],
 					],
 				],
 			]
@@ -59,34 +60,68 @@ class SWLanguagePageController extends Controller
 	 * @param int $pk Page PK
 	 * @return string
 	 * @throws NotFoundHttpException if the model cannot be found
+	 */
 	public function actionView($pk)
 	{
 		return $this->render('view', [
 			'model' => $this->findModel($pk),
 		]);
 	}
-	 */
-	public function actionView($slug = 'introduction', $lc = null)
-	{
-		// Sample content for testing purposes
-		//return "This is the SWLanguagePage view action.";
-    	return "SWLanguagePageController is working.";
 
 	/**
-		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
+	 * Creates a new SWLanguagePage model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return string|\yii\web\Response
+	 */
+	public function actionCreate()
+	{
+		$model = new SWLanguagePage();
 
-		// Retrieve the language page based on slug and language code
-		$page = SWLanguagePage::find()
-			->where(['slug' => $slug, 'page_lang' => $lc])
-			->one();
-
-		if (!$page) {
-			throw new NotFoundHttpException('Page not found.');
+		if ($this->request->isPost) {
+			if ($model->load($this->request->post()) && $model->save()) {
+				return $this->redirect(['view', 'pk' => $model->pk]);
+			}
+		} else {
+			$model->loadDefaultValues();
 		}
 
-		// Render the view from sw-language-page
-		return $this->render('//sw-language-page/view', ['page' => $page]);
+		return $this->render('create', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Updates an existing SWLanguagePage model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param int $pk Page PK
+	 * @return string|\yii\web\Response
+	 * @throws NotFoundHttpException if the model cannot be found
 	 */
+	public function actionUpdate($pk)
+	{
+		$model = $this->findModel($pk);
+
+		if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+			return $this->redirect(['view', 'pk' => $model->pk]);
+		}
+
+		return $this->render('update', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Deletes an existing SWLanguagePage model.
+	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 * @param int $pk Page PK
+	 * @return \yii\web\Response
+	 * @throws NotFoundHttpException if the model cannot be found
+	 */
+	public function actionDelete($pk)
+	{
+		$this->findModel($pk)->delete();
+
+		return $this->redirect(['index']);
 	}
 
 	/**
