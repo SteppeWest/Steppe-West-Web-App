@@ -1,6 +1,6 @@
 <?php
 /**
- * SWSubstitutionController.php
+ * SubstitutionController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -10,16 +10,16 @@
 
 namespace frontend\controllers;
 
-use common\models\SWSubstitution;
-use common\models\SWSubstitutionSearch;
+use common\models\Substitution;
+use common\models\SubstitutionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SWSubstitutionController implements the CRUD actions for SWSubstitution model.
+ * SubstitutionController implements the CRUD actions for Substitution model.
  */
-class SWSubstitutionController extends Controller
+class SubstitutionController extends Controller
 {
 	/**
 	 * @inheritDoc
@@ -39,13 +39,13 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Lists all SWSubstitution models.
+	 * Lists all Substitution models.
 	 *
 	 * @return string
 	 */
 	public function actionIndex()
 	{
-		$searchModel = new SWSubstitutionSearch();
+		$searchModel = new SubstitutionSearch();
 		$dataProvider = $searchModel->search($this->request->queryParams);
 
 		return $this->render('index', [
@@ -55,7 +55,7 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Displays a single SWSubstitution model.
+	 * Displays a single Substitution model.
 	 * @param int $pk PK
 	 * @return string
 	 * @throws NotFoundHttpException if the model cannot be found
@@ -68,15 +68,15 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Finds the SWSubstitution model based on its primary key value.
+	 * Finds the Substitution model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
 	 * @param int $pk PK
-	 * @return SWSubstitution the loaded model
+	 * @return Substitution the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($pk)
 	{
-		if (($model = SWSubstitution::findOne(['pk' => $pk])) !== null) {
+		if (($model = Substitution::findOne(['pk' => $pk])) !== null) {
 			return $model;
 		}
 

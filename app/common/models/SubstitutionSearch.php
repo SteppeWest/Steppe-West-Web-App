@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguagePageSearch.php
+ * SubstitutionSearch.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -12,12 +12,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SWLanguagePage;
+use common\models\Substitution;
 
 /**
- * SWLanguagePageSearch represents the model behind the search form of `common\models\SWLanguagePage`.
+ * SubstitutionSearch represents the model behind the search form of `common\models\Substitution`.
  */
-class SWLanguagePageSearch extends SWLanguagePage
+class SubstitutionSearch extends Substitution
 {
 	/**
 	 * {@inheritdoc}
@@ -26,7 +26,7 @@ class SWLanguagePageSearch extends SWLanguagePage
 	{
 		return [
 			[['pk'], 'integer'],
-			[['page_lang', 'slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_json'], 'safe'],
+			[['name', 'value', 'description'], 'safe'],
 		];
 	}
 
@@ -48,7 +48,7 @@ class SWLanguagePageSearch extends SWLanguagePage
 	 */
 	public function search($params)
 	{
-		$query = SWLanguagePage::find();
+		$query = Substitution::find();
 
 		// add conditions that should always apply here
 
@@ -69,16 +69,9 @@ class SWLanguagePageSearch extends SWLanguagePage
 			'pk' => $this->pk,
 		]);
 
-		$query->andFilterWhere(['like', 'page_lang', $this->page_lang])
-			->andFilterWhere(['like', 'slug', $this->slug])
-			->andFilterWhere(['like', 'title', $this->title])
-			->andFilterWhere(['like', 'subtitle', $this->subtitle])
-			->andFilterWhere(['like', 'description', $this->description])
-			->andFilterWhere(['like', 'keywords', $this->keywords])
-			->andFilterWhere(['like', 'lead', $this->lead])
-			->andFilterWhere(['like', 'origin', $this->origin])
-			->andFilterWhere(['like', 'origin_link', $this->origin_link])
-			->andFilterWhere(['like', 'body_json', $this->body_json]);
+		$query->andFilterWhere(['like', 'name', $this->name])
+			->andFilterWhere(['like', 'value', $this->value])
+			->andFilterWhere(['like', 'description', $this->description]);
 
 		return $dataProvider;
 	}

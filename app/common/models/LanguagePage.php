@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguagePage.php
+ * LanguagePage.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -13,7 +13,7 @@ namespace common\models;
 use Yii;
 use yii\db\ActiveRecord;
 use common\widgets\SWFlagSelector;
-use common\widgets\SWLanguageSelector;
+use common\widgets\LanguageSelector;
 
 /**
  * This is the model class for table "{{%language_page}}".
@@ -32,7 +32,7 @@ use common\widgets\SWLanguageSelector;
  *
  * @property Language $pageLang
  */
-class SWLanguagePage extends ActiveRecord
+class LanguagePage extends ActiveRecord
 {
 	/**
 	 * {@inheritdoc}

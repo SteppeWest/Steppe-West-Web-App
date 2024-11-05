@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWSubstitutionSearch $model */
+/** @var common\models\SubstitutionSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swsubstitution-search">
+<div class="Substitution-search">
 
 	<?php $form = ActiveForm::begin([
 		'action' => ['index'],

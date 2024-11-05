@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguageSelector.php
+ * LanguageSelector.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -9,9 +9,9 @@
  */
 
 /**
- * @class \common\widgets\SWLanguageSelector
+ * @class \common\widgets\LanguageSelector
  *
- * use common\widgets\SWLanguageSelector;
+ * use common\widgets\LanguageSelector;
  */
 
 namespace common\widgets;
@@ -19,7 +19,7 @@ namespace common\widgets;
 use Yii;
 use yii\helpers\Url;
 
-class SWLanguageSelector implements \yii\base\BootstrapInterface
+class LanguageSelector implements \yii\base\BootstrapInterface
 {
 	public function bootstrap($app)
 	{
@@ -49,10 +49,10 @@ class SWLanguageSelector implements \yii\base\BootstrapInterface
 		$defaultLanguage = Yii::$app->params['swDefaultLanguage'];
 
 		if ($language) {
-			$languageMap = Yii::$app->params['swLanguageMap'];
+			$languageMap = Yii::$app->params['LanguageMap'];
 			if (array_key_exists($language, $languageMap)) {
 				$language = $languageMap[$language];
-			} elseif (!in_array($language, Yii::$app->params['swLanguages'])) {
+			} elseif (!in_array($language, Yii::$app->params['Languages'])) {
 				$language = $defaultLanguage;
 			}
 		} else {

@@ -1,19 +1,19 @@
 <?php
 
-use common\models\SWSubstitution;
+use common\models\Substitution;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWSubstitutionSearch $searchModel */
+/** @var common\models\SubstitutionSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Sw Substitutions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="swsubstitution-index">
+<div class="Substitution-index">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			'description:ntext',
 			[
 				'class' => ActionColumn::className(),
-				'urlCreator' => function ($action, SWSubstitution $model, $key, $index, $column) {
+				'urlCreator' => function ($action, Substitution $model, $key, $index, $column) {
 					return Url::toRoute([$action, 'pk' => $model->pk]);
 				 }
 			],

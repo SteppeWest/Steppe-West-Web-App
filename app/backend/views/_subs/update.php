@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWSubstitution $model */
+/** @var common\models\Substitution $model */
 
 $this->title = 'Update Sw Substitution: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Sw Substitutions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'pk' => $model->pk]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="swsubstitution-update">
+<div class="Substitution-update">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 

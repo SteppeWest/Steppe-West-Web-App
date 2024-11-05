@@ -1,19 +1,19 @@
 <?php
 
-use common\models\SWLanguagePage;
+use common\models\LanguagePage;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguagePageSearch $searchModel */
+/** @var common\models\LanguagePageSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Sw Language Pages';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="swlanguage-page-index">
+<div class="Language-page-index">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			//'body_json:ntext',
 			[
 				'class' => ActionColumn::className(),
-				'urlCreator' => function ($action, SWLanguagePage $model, $key, $index, $column) {
+				'urlCreator' => function ($action, LanguagePage $model, $key, $index, $column) {
 					return Url::toRoute([$action, 'pk' => $model->pk]);
 				 }
 			],

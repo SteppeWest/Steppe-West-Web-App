@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguagePage $model */
+/** @var common\models\LanguagePage $model */
 
 $this->title = 'Update Sw Language Page: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Sw Language Pages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'pk' => $model->pk]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="swlanguage-page-update">
+<div class="Language-page-update">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 

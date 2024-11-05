@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguagePageSearch $model */
+/** @var common\models\LanguagePageSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swlanguage-page-search">
+<div class="Language-page-search">
 
 	<?php $form = ActiveForm::begin([
 		'action' => ['index'],

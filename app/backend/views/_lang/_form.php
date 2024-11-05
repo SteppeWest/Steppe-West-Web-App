@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SWLanguage $model */
+/** @var common\models\Language $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="swlanguage-form">
+<div class="Language-form">
 
 	<?php $form = ActiveForm::begin(); ?>
 

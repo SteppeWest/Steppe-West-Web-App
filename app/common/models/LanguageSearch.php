@@ -1,6 +1,6 @@
 <?php
 /**
- * SWSubstitutionSearch.php
+ * LanguageSearch.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -12,12 +12,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SWSubstitution;
+use common\models\Language;
 
 /**
- * SWSubstitutionSearch represents the model behind the search form of `common\models\SWSubstitution`.
+ * LanguageSearch represents the model behind the search form of `common\models\Language`.
  */
-class SWSubstitutionSearch extends SWSubstitution
+class LanguageSearch extends Language
 {
 	/**
 	 * {@inheritdoc}
@@ -25,8 +25,8 @@ class SWSubstitutionSearch extends SWSubstitution
 	public function rules()
 	{
 		return [
-			[['pk'], 'integer'],
-			[['name', 'value', 'description'], 'safe'],
+			[['pk', 'menu_position', 'active'], 'integer'],
+			[['lang_code', 'prev_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang', 'footer_json'], 'safe'],
 		];
 	}
 
@@ -48,7 +48,7 @@ class SWSubstitutionSearch extends SWSubstitution
 	 */
 	public function search($params)
 	{
-		$query = SWSubstitution::find();
+		$query = Language::find();
 
 		// add conditions that should always apply here
 
@@ -67,11 +67,19 @@ class SWSubstitutionSearch extends SWSubstitution
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'pk' => $this->pk,
+			'menu_position' => $this->menu_position,
+			'active' => $this->active,
 		]);
 
-		$query->andFilterWhere(['like', 'name', $this->name])
-			->andFilterWhere(['like', 'value', $this->value])
-			->andFilterWhere(['like', 'description', $this->description]);
+		$query->andFilterWhere(['like', 'lang_code', $this->lang_code])
+			->andFilterWhere(['like', 'prev_code', $this->prev_code])
+			->andFilterWhere(['like', 'lang_name', $this->lang_name])
+			->andFilterWhere(['like', 'native_name', $this->native_name])
+			->andFilterWhere(['like', 'flag_icon', $this->flag_icon])
+			->andFilterWhere(['like', 'ui_label', $this->ui_label])
+			->andFilterWhere(['like', 'locale', $this->locale])
+			->andFilterWhere(['like', 'html_lang', $this->html_lang])
+			->andFilterWhere(['like', 'footer_json', $this->footer_json]);
 
 		return $dataProvider;
 	}

@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $page common\models\SWLanguagePage */
+/* @var $page common\models\LanguagePage */
 
 $this->title = $page->title ?? 'Introduction Page';
 ?>

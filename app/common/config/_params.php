@@ -17,7 +17,7 @@ return [
 		'uz',
 		'tr',
 	],
-	'swLanguageMap' => [
+	'LanguageMap' => [
 		'EN' => 'en',
 		'RU' => 'ru',
 		'KZ' => 'kk',

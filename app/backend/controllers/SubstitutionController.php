@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use common\models\SWSubstitution;
-use common\models\SWSubstitutionSearch;
+use common\models\Substitution;
+use common\models\SubstitutionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SWSubstitutionController implements the CRUD actions for SWSubstitution model.
+ * SubstitutionController implements the CRUD actions for Substitution model.
  */
-class SWSubstitutionController extends Controller
+class SubstitutionController extends Controller
 {
 	/**
 	 * @inheritDoc
@@ -32,13 +32,13 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Lists all SWSubstitution models.
+	 * Lists all Substitution models.
 	 *
 	 * @return string
 	 */
 	public function actionIndex()
 	{
-		$searchModel = new SWSubstitutionSearch();
+		$searchModel = new SubstitutionSearch();
 		$dataProvider = $searchModel->search($this->request->queryParams);
 
 		return $this->render('index', [
@@ -48,7 +48,7 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Displays a single SWSubstitution model.
+	 * Displays a single Substitution model.
 	 * @param int $pk PK
 	 * @return string
 	 * @throws NotFoundHttpException if the model cannot be found
@@ -61,13 +61,13 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Creates a new SWSubstitution model.
+	 * Creates a new Substitution model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 * @return string|\yii\web\Response
 	 */
 	public function actionCreate()
 	{
-		$model = new SWSubstitution();
+		$model = new Substitution();
 
 		if ($this->request->isPost) {
 			if ($model->load($this->request->post()) && $model->save()) {
@@ -83,7 +83,7 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Updates an existing SWSubstitution model.
+	 * Updates an existing Substitution model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param int $pk PK
 	 * @return string|\yii\web\Response
@@ -103,7 +103,7 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Deletes an existing SWSubstitution model.
+	 * Deletes an existing Substitution model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 * @param int $pk PK
 	 * @return \yii\web\Response
@@ -117,15 +117,15 @@ class SWSubstitutionController extends Controller
 	}
 
 	/**
-	 * Finds the SWSubstitution model based on its primary key value.
+	 * Finds the Substitution model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
 	 * @param int $pk PK
-	 * @return SWSubstitution the loaded model
+	 * @return Substitution the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($pk)
 	{
-		if (($model = SWSubstitution::findOne(['pk' => $pk])) !== null) {
+		if (($model = Substitution::findOne(['pk' => $pk])) !== null) {
 			return $model;
 		}
 

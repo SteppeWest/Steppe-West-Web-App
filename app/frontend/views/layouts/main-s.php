@@ -15,13 +15,13 @@ SWLetterAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<?= $this->render('//sw-language-page/layouts/head.php') ?>
+	<?= $this->render('//language-page/layouts/head.php') ?>
 </head>
 <body>
 	<?= $this->beginBody() ?>
-	<?= $this->render('//sw-language-page/layouts/header.php') ?>
+	<?= $this->render('//language-page/layouts/header.php') ?>
 	<?= $content ?>
-	<?= $this->render('//sw-language-page/layouts/footer.php') ?>
+	<?= $this->render('//language-page/layouts/footer.php') ?>
 	<?= $this->endBody() ?>
 </body>
 </html>

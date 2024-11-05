@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $page common\models\SWLanguagePage */
+/* @var $page common\models\LanguagePage */
 
 use common\widgets\Alert;
 use frontend\assets\SWLetterAsset;

@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use common\models\SWLanguagePage;
-use common\models\SWLanguagePageSearch;
+use common\models\Language;
+use common\models\LanguageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SWLanguagePageController implements the CRUD actions for SWLanguagePage model.
+ * LanguageController implements the CRUD actions for Language model.
  */
-class SWLanguagePageController extends Controller
+class LanguageController extends Controller
 {
 	/**
 	 * @inheritDoc
@@ -32,13 +32,13 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Lists all SWLanguagePage models.
+	 * Lists all Language models.
 	 *
 	 * @return string
 	 */
 	public function actionIndex()
 	{
-		$searchModel = new SWLanguagePageSearch();
+		$searchModel = new LanguageSearch();
 		$dataProvider = $searchModel->search($this->request->queryParams);
 
 		return $this->render('index', [
@@ -48,8 +48,8 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Displays a single SWLanguagePage model.
-	 * @param int $pk Page PK
+	 * Displays a single Language model.
+	 * @param int $pk Language PK
 	 * @return string
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
@@ -61,13 +61,13 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Creates a new SWLanguagePage model.
+	 * Creates a new Language model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 * @return string|\yii\web\Response
 	 */
 	public function actionCreate()
 	{
-		$model = new SWLanguagePage();
+		$model = new Language();
 
 		if ($this->request->isPost) {
 			if ($model->load($this->request->post()) && $model->save()) {
@@ -83,9 +83,9 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Updates an existing SWLanguagePage model.
+	 * Updates an existing Language model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param int $pk Page PK
+	 * @param int $pk Language PK
 	 * @return string|\yii\web\Response
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
@@ -103,9 +103,9 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Deletes an existing SWLanguagePage model.
+	 * Deletes an existing Language model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 * @param int $pk Page PK
+	 * @param int $pk Language PK
 	 * @return \yii\web\Response
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
@@ -117,15 +117,15 @@ class SWLanguagePageController extends Controller
 	}
 
 	/**
-	 * Finds the SWLanguagePage model based on its primary key value.
+	 * Finds the Language model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
-	 * @param int $pk Page PK
-	 * @return SWLanguagePage the loaded model
+	 * @param int $pk Language PK
+	 * @return Language the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($pk)
 	{
-		if (($model = SWLanguagePage::findOne(['pk' => $pk])) !== null) {
+		if (($model = Language::findOne(['pk' => $pk])) !== null) {
 			return $model;
 		}
 

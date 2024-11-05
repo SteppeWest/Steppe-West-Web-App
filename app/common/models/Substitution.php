@@ -1,6 +1,6 @@
 <?php
 /**
- * SWSubstitution.php
+ * Substitution.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -21,7 +21,7 @@ use yii\db\ActiveRecord;
  * @property string $value Value
  * @property string|null $description Description
  */
-class SWSubstitution extends ActiveRecord
+class Substitution extends ActiveRecord
 {
 	/**
 	 * {@inheritdoc}

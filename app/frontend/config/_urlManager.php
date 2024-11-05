@@ -3,13 +3,14 @@ return [
 	'baseUrl' => 'http://steppewest.p2m',
 	//'baseUrl' => 'http://steppewest.com',
 	'rules' => [
-		// Root URL, defaults to 'introduction' in SWLanguagePageController
-		'' => 'sw-language-page/view',
-		//'<lc:[a-z]{2,3}>/' => 'sw-language-page/view',
+		// Root URL, defaults to 'introduction' in LanguagePageController
+		//'' => 'site/index',
+		'' => 'language-page/view',
+		//'<lc:[a-z]{2,3}>/' => 'language-page/view',
 
 		// Additional rules for valid pages by slug and language code
-		//'<slug:introduction|invite|faq>' => 'sw-language-page/view',
-		//'<slug:introduction|invite|faq>/<lc:[a-z]{2,3}>' => 'sw-language-page/view',
+		//'<slug:introduction|invite|faq>' => 'language-page/view',
+		//'<slug:introduction|invite|faq>/<lc:[a-z]{2,3}>' => 'language-page/view',
 
 		/*
 		// Redirect uppercase country codes to lowercase language codes

@@ -27,10 +27,10 @@ use yii\web\AssetBundle;
 
 class SWLetterAsset extends AssetBundle
 {
-	public $sourcePath = '@static/sw-language-page';
+	public $sourcePath = '@static/language-page';
 
 	public $css = [
-		'css/sw-language-page.min.css',
+		'css/language-page.min.css',
 	];
 
 	public $cssOptions = [
@@ -39,10 +39,10 @@ class SWLetterAsset extends AssetBundle
 }
 
 /*
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/steppe-west-letter.css
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/steppe-west-letter.min.css
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/img/
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/img/Golden-Eagle-1900x0750.jpg
+/Users/pedro/Sites/yii_steppewest/app/static/language-page/
+/Users/pedro/Sites/yii_steppewest/app/static/language-page/css/
+/Users/pedro/Sites/yii_steppewest/app/static/language-page/css/steppe-west-letter.css
+/Users/pedro/Sites/yii_steppewest/app/static/language-page/css/steppe-west-letter.min.css
+/Users/pedro/Sites/yii_steppewest/app/static/language-page/img/
+/Users/pedro/Sites/yii_steppewest/app/static/language-page/img/Golden-Eagle-1900x0750.jpg
 */
