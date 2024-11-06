@@ -66,7 +66,7 @@ class LanguagePageController extends Controller
 		]);
 	}
 	 */
-	public function actionView($slug = 'introduction', $lc = null)
+	public function actionView($slug = 'intro', $lc = null)
 	{
 		// Sample content for testing purposes
 		return "This is the LanguagePage view action.";
