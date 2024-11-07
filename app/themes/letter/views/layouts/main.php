@@ -4,7 +4,8 @@
 /** @var string $content */
 
 use common\widgets\Alert;
-use themes\letter\assets\SwLetterAsset;
+use frontend\assets\AppAsset;
+//use themes\letter\assets\SwLetterAsset;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
