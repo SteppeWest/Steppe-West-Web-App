@@ -1,5 +1,8 @@
 <?php
 return [
+	'name' => 'Steppe West', // Set the application name here
+	//'homeUrl' => '//steppewest.p2m/', // Set the global TEST home URL here
+	//'homeUrl' => '//steppewest.com/', // Set the global home URL here
 	'aliases' => [
 		'@bower' => '@vendor/bower-asset',
 		'@npm'   => '@vendor/npm-asset',
