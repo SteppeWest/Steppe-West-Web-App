@@ -27,6 +27,13 @@ return [
 		'assetManager' => $assetManager,
 		'urlManager' => $urlManager,
 		'db' => $db,
+		'view' => [
+			'theme' => [
+				'pathMap' => [
+					'@app/views' => '@themes/letter/views'
+				],
+			],
+		],
 		'request' => [
 			'csrfParam' => '_csrf-frontend',
 		],
