@@ -9,16 +9,16 @@
  */
 
 /**
- * @class \themes\letter\assetsSwLetterAsset
+ * @class \themes\letter\assets\SwLetterAsset
  *
  * Load this asset with...
- * themes\letter\assetsSwLetterAsset::register($this);
+ * themes\letter\assets\SwLetterAsset::register($this);
  *
- * use themes\letter\assetsSwLetterAsset;
+ * use themes\letter\assets\SwLetterAsset;
  * SwLetterAsset::register($this);
  *
  * or specify as a dependency with...
- *     'themes\letter\assetsSwLetterAsset',
+ *     'themes\letter\assets\SwLetterAsset',
  */
 
 namespace frontend\assets;
