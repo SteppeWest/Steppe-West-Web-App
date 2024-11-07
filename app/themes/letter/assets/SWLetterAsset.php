@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLetterAsset.php
+ * SwLetterAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -9,23 +9,23 @@
  */
 
 /**
- * @class \common\assets\SWLetterAsset
+ * @class \common\assets\SwLetterAsset
  *
  * Load this asset with...
- * common\assets\SWLetterAsset::register($this);
+ * common\assets\SwLetterAsset::register($this);
  *
- * use common\assets\SWLetterAsset;
- * SWLetterAsset::register($this);
+ * use common\assets\SwLetterAsset;
+ * SwLetterAsset::register($this);
  *
  * or specify as a dependency with...
- *     'common\assets\SWLetterAsset',
+ *     'common\assets\SwLetterAsset',
  */
 
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
-class SWLetterAsset extends AssetBundle
+class SwLetterAsset extends AssetBundle
 {
 	public $sourcePath = '@static/sw-letter';
 
@@ -37,12 +37,3 @@ class SWLetterAsset extends AssetBundle
 		'crossorigin' => 'anonymous',
 	];
 }
-
-/*
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/steppe-west-letter.css
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/css/steppe-west-letter.min.css
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/img/
-/Users/pedro/Sites/yii_steppewest/app/static/sw-language-page/img/Golden-Eagle-1900x0750.jpg
-*/
