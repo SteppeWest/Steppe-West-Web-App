@@ -1,6 +1,6 @@
 <?php
 /**
- * SWAppAsset.php
+ * SwAppAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -9,23 +9,23 @@
  */
 
 /**
- * @class \common\assets\SWAppAsset
+ * @class \common\assets\SwAppAsset
  *
  * Load this asset with...
- * common\assets\SWAppAsset::register($this);
+ * common\assets\SwAppAsset::register($this);
  *
- * use common\assets\SWAppAsset;
- * SWAppAsset::register($this);
+ * use common\assets\SwAppAsset;
+ * SwAppAsset::register($this);
  *
  * or specify as a dependency with...
- *     'common\assets\SWAppAsset',
+ *     'common\assets\SwAppAsset',
  */
 
 namespace common\assets;
 
 use common\assets\SWAssetBundle;
 
-class SWAppAsset extends SWAssetBundle
+class SwAppAsset extends SWAssetBundle
 {
 	public $sourcePath = '@static/sw-app';
 	//public $basePath;
