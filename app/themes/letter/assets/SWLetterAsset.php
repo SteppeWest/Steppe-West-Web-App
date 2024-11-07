@@ -27,7 +27,7 @@ use yii\web\AssetBundle;
 
 class SWLetterAsset extends AssetBundle
 {
-	public $sourcePath = '@static/letter';
+	public $sourcePath = '@static/sw-letter';
 
 	public $css = [
 		'css/sw-letter.min.css',
