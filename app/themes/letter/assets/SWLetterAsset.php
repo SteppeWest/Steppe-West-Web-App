@@ -27,10 +27,10 @@ use yii\web\AssetBundle;
 
 class SWLetterAsset extends AssetBundle
 {
-	public $sourcePath = '@static/sw-language-page';
+	public $sourcePath = '@static/letter';
 
 	public $css = [
-		'css/sw-language-page.min.css',
+		'css/sw-letter.min.css',
 	];
 
 	public $cssOptions = [
