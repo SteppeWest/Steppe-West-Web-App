@@ -16,6 +16,7 @@ use yii\bootstrap5\NavBar;
 
 $page = $this->params['page'];
 $lang = $this->params['lang'];
+$menuItems = $this->params['menuItems'];
 
 $title = Html::encode($page->title);
 ?>
@@ -34,24 +35,10 @@ $title = Html::encode($page->title);
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<?php
-			$menuItems = [
-				['label' => '🇬🇧 EN', 'url' => ['/site/index/EN']],
-				['label' => '🇷🇺 RU', 'url' => ['/site/index/RU']],
-				['label' => '🇰🇬 KG', 'url' => ['/site/index/KG']],
-				['label' => '🇰🇿 KZ', 'url' => ['/site/index/KZ']],
-				['label' => '🇹🇯 TJ', 'url' => ['/site/index/TJ']],
-				['label' => '🇹🇲 TM', 'url' => ['/site/index/TM']],
-				['label' => '🇺🇿 UZ', 'url' => ['/site/index/UZ']],
-				['label' => '🇦🇿 AZ', 'url' => ['/site/index/AZ']],
-				['label' => '🇲🇳 MN', 'url' => ['/site/index/MN']],
-			];
-
-			echo Nav::widget([
+			<?php echo Nav::widget([
 				'options' => ['class' => 'navbar-nav ms-auto mb-2 mb-lg-0'],
 				'items' => $menuItems,
-			]);
-			?>
+			]); ?>
 		</div>
 	</div>
 	<?php

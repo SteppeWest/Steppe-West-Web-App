@@ -15,6 +15,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\base\Theme; // Add this to create a Theme instance
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
+use yii\helpers\Html;
 use common\models\SwLanguagePage;
 use common\models\SwLanguagePageSearch;
 use common\models\SwLanguage;
@@ -106,11 +108,15 @@ class SwLanguagePageController extends Controller
 			Yii::$app->language = $lang->html_lang;
 		}
 
+		// Call createMenuItems to build the menu based on active languages
+		$menuItems = $this->createMenuItems();
+
 		$this->view->params['slug'] = $slug;
 		$this->view->params['lc'] = $lc;
 		$this->view->params['page'] = $page;
 		$this->view->params['lang'] = $lang;
 		$this->view->params['asset'] = $asset;
+		$this->view->params['menuItems'] = $menuItems;
 
 		// Render the main content view located at views/letter/site/index.php
 		return $this->render('@app/views/letter/site/index');
@@ -130,6 +136,59 @@ class SwLanguagePageController extends Controller
 		}
 
 		throw new NotFoundHttpException('The requested page does not exist.');
+	}
+
+	private function getFlagIcon($flagIcon)
+	{
+		$codePoints = [
+			127397 + ord($flagIcon[0]),
+			127397 + ord($flagIcon[1])
+		];
+		return mb_convert_encoding('&#' . implode(';&#', $codePoints) . ';', 'UTF-8', 'HTML-ENTITIES');
+	}
+
+	private function createMenuItems()
+	{
+		// Get the current URL components
+		$currentUrl = Url::current();
+		$parsedUrl = parse_url($currentUrl);
+
+		// Fetch active languages ordered by menu_position
+		$languages = SwLanguage::find()
+			->where(['active' => true])
+			->orderBy(['menu_position' => SORT_ASC])
+			->all();
+
+		$menuItems = [];
+
+		foreach ($languages as $language) {
+			// Generate the label with the flag emoji and UI label
+			$flagEmoji = $this->getFlagIcon($language->flag_icon);
+			$label = $flagEmoji . ' ' . Html::encode($language->ui_label);
+
+			// Construct the new URL path by replacing or appending the language code
+			$path = isset($parsedUrl['path']) ? trim($parsedUrl['path'], '/') : '';
+			$segments = explode('/', $path);
+
+			// If `lc` is already in the URL, replace it with the current language code
+			if (isset($segments[1])) {
+				$segments[1] = $language->lang_code;
+			} else {
+				// Otherwise, append the language code as a new segment
+				$segments[] = $language->lang_code;
+			}
+
+			// Reconstruct the path and generate the URL
+			$newUrl = '/' . implode('/', $segments);
+
+			// Add to menuItems
+			$menuItems[] = [
+				'label' => $label,
+				'url' => $newUrl,
+			];
+		}
+
+		return $menuItems;
 	}
 }
 	/**
