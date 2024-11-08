@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'lead:ntext',
             'origin:ntext',
             'origin_link:ntext',
-            'body_json:ntext',
+            'body_content:ntext',
 		],
 	]) ?>
 

@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'html_lang')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'footer_json')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'footer_content')->textarea(['rows' => 6]) ?>
 
 	<div class="form-group">
 		<?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

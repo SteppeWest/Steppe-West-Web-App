@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'origin_link') ?>
 
-    <?php // echo $form->field($model, 'body_json') ?>
+    <?php // echo $form->field($model, 'body_content') ?>
 
 	<div class="form-group">
 		<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -10,17 +10,37 @@
 
 namespace frontend\controllers;
 
-use common\models\SwLanguagePage;
-use common\models\SwLanguagePageSearch;
+use \Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\base\Theme; // Add this to create a Theme instance
 use yii\filters\VerbFilter;
+use common\models\SwLanguagePage;
+use common\models\SwLanguagePageSearch;
+use common\models\SwLanguage;
+use common\models\SwLanguageSearch;
+use frontend\assets\SwLetterAsset;
 
 /**
  * SwLanguagePageController implements the CRUD actions for SwLanguagePage model.
  */
 class SwLanguagePageController extends Controller
 {
+	public function init()
+	{
+		parent::init();
+
+		// Set a new Theme instance specifically for this controller
+		Yii::$app->view->theme = new Theme([
+			'pathMap' => [
+				'@app/views' => '@app/views/letter',
+			],
+		]);
+
+		// Specify the layout explicitly for this controller
+		$this->layout = '@app/views/letter/layouts/main';
+	}
+
 	/**
 	 * @inheritDoc
 	 */
@@ -62,11 +82,6 @@ class SwLanguagePageController extends Controller
 	 */
 	public function actionView($slug = 'intro', $lc = null)
 	{
-		// Sample content for testing purposes
-		//return "This is the SwLanguagePage view action.";
-    	return "SwLanguagePageController is working.";
-
-	/**
 		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
 
 		// Retrieve the language page based on slug and language code
@@ -78,9 +93,27 @@ class SwLanguagePageController extends Controller
 			throw new NotFoundHttpException('Page not found.');
 		}
 
-		// Render the view from sw-language-page
-		return $this->render('//sw-language-page/view', ['page' => $page]);
-	 */
+		// Register SwLetterAsset to pass it to the layout
+		$asset = SwLetterAsset::register($this->view);
+
+		// Retrieve the language settings from SwLanguage
+		$lang = SwLanguage::find()
+			->where(['lang_code' => $page->page_lang])
+			->one();
+
+		// Set Yii::$app->language if SwLanguage and html_lang are found
+		if ($lang && $lang->html_lang) {
+			Yii::$app->language = $lang->html_lang;
+		}
+
+		$this->view->params['slug'] = $slug;
+		$this->view->params['lc'] = $lc;
+		$this->view->params['page'] = $page;
+		$this->view->params['lang'] = $lang;
+		$this->view->params['asset'] = $asset;
+
+		// Render the main content view located at views/letter/site/index.php
+		return $this->render('@app/views/letter/site/index');
 	}
 
 	/**
@@ -99,3 +132,5 @@ class SwLanguagePageController extends Controller
 		throw new NotFoundHttpException('The requested page does not exist.');
 	}
 }
+	/**
+	 */

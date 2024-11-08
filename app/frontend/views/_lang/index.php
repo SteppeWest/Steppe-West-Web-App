@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'ui_label',
             //'locale',
             //'html_lang',
-            //'footer_json:ntext',
+            //'footer_content:ntext',
 			[
 				'class' => ActionColumn::className(),
 				'urlCreator' => function ($action, SwLanguage $model, $key, $index, $column) {

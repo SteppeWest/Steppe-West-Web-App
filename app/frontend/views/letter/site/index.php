@@ -1,11 +1,19 @@
 <?php
+/**
+ * @frontend/views/letter/site/index.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 /** @var yii\web\View $this */
 
 $this->title = 'Bridging Cultures: Steppe West‘s Invitation to Central Asia';
 ?>
 <section class="py-1">
-	<?= $this->render('//letter/partials/languages.php') ?>
+	<?= $this->render('//letter/partials/languages.min.php') ?>
 
 	<div class="container my-4">
 		<div class="align-items-center justify-content-center row">
@@ -76,5 +84,5 @@ $this->title = 'Bridging Cultures: Steppe West‘s Invitation to Central Asia';
 		</div>
 	</div>
 
-	<?= $this->render('//letter/partials/content-foot.php') ?>
+	<?= $this->render('//letter/partials/content-foot.min.php') ?>
 </section>

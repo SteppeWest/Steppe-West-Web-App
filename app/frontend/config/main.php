@@ -27,13 +27,15 @@ return [
 		'assetManager' => $assetManager,
 		'urlManager' => $urlManager,
 		'db' => $db,
+		/*
 		'view' => [
 			'theme' => [
 				'pathMap' => [
-					'@app/views' => '@themes/letter/views'
+					'@app/views' => '@app/views/letter'
 				],
 			],
 		],
+		*/
 		'request' => [
 			'csrfParam' => '_csrf-frontend',
 		],

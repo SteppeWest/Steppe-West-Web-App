@@ -46,3 +46,36 @@ use yii\bootstrap5\Html;
 
 <?php $this->registerCsrfMetaTags() ?>
 <?php $this->head() ?>
+
+
+
+<?php
+/* @var $this yii\web\View */
+
+use frontend\assets\SwLetterAsset;
+
+$asset = SwLetterAsset::register($this);
+$imgUrl = $asset->baseUrl . '/img';
+$icoUrl = $asset->baseUrl . '/ico';
+?>
+
+<!-- Open Graph Image -->
+<meta property="og:image" content="<?= $imgUrl ?>/og_image_01-1200x0630.jpeg">
+<meta property="og:image" content="<?= $imgUrl ?>/og_image_01-1200x0630.jpeg">
+
+<!-- Twitter Image -->
+<meta property="twitter:image" content="<?= $imgUrl ?>/og_image_01-1200x0630.jpeg">
+<meta property="twitter:image" content="<?= $imgUrl ?>/og_image_01-1200x0630.jpeg">
+
+<!-- Favicon and Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="<?= $icoUrl ?>/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= $icoUrl ?>/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<?= $icoUrl ?>/favicon-16x16.png">
+<link rel="manifest" href="<?= $icoUrl ?>/site.webmanifest">
+<link rel="mask-icon" href="<?= $icoUrl ?>/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="<?= $icoUrl ?>/favicon.ico">
+
+<!-- Microsoft Application Config -->
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="<?= $icoUrl ?>/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">

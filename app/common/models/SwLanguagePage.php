@@ -28,7 +28,7 @@ use common\widgets\SWLanguageSelector;
  * @property string|null $lead Page Lead
  * @property string|null $origin Substack Origin
  * @property string|null $origin_link Origin Link
- * @property string|null $body_json Body JSON
+ * @property string|null $body_content Body JSON
  *
  * @property SwLanguage $pageLang
  */
@@ -49,7 +49,7 @@ class SwLanguagePage extends ActiveRecord
 	{
 		return [
 			[['page_lang', 'slug', 'title'], 'required'],
-			[['page_lang', 'slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_json'], 'string'],
+			[['page_lang', 'slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_content'], 'string'],
 			[['page_lang'], 'max' => 4],
 			[['slug'], 'max' => 12],
 			[['page_lang'], 'exist', 'skipOnError' => true, 'targetClass' => SwLanguage::class, 'targetAttribute' => ['page_lang' => 'lang_code']],
@@ -72,7 +72,7 @@ class SwLanguagePage extends ActiveRecord
 			'lead' => 'Page Lead',
 			'origin' => 'Substack Origin',
 			'origin_link' => 'Origin Link',
-			'body_json' => 'Body JSON',
+			'body_content' => 'Body JSON',
 		];
 	}
 

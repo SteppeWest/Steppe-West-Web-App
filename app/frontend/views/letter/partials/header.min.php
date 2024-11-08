@@ -1,10 +1,23 @@
 <?php
+/**
+ * @frontend/views/letter/partials/header.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 /** @var \yii\web\View $this */
 
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+
+$page = $this->params['page'];
+$lang = $this->params['lang'];
+
+$title = Html::encode($page->title);
 ?>
 <header>
 	<?php
@@ -46,7 +59,7 @@ use yii\bootstrap5\NavBar;
 	?>
 	<div class="my-5 text-center">
 		<div id="title">
-			<h1 class="fw-bolder mb-0 text-white fs-2"><?= Html::encode($this->title) ?></h1>
+			<h1 class="fw-bolder mb-0 text-white fs-2"><?= $title ?></h1>
 			<h2 class="fw-bolder mb-0 text-white fs-3">Join us on a journey of cultural exchange and discovery</h2>
 		</div>
 	</div>

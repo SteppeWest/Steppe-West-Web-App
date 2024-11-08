@@ -26,7 +26,7 @@ class SwLanguageSearch extends SwLanguage
 	{
 		return [
 			[['pk', 'menu_position', 'active'], 'integer'],
-			[['lang_code', 'prev_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang', 'footer_json'], 'safe'],
+			[['lang_code', 'prev_code', 'lang_name', 'native_name', 'flag_icon', 'ui_label', 'locale', 'html_lang', 'footer_content'], 'safe'],
 		];
 	}
 
@@ -79,7 +79,7 @@ class SwLanguageSearch extends SwLanguage
 			->andFilterWhere(['like', 'ui_label', $this->ui_label])
 			->andFilterWhere(['like', 'locale', $this->locale])
 			->andFilterWhere(['like', 'html_lang', $this->html_lang])
-			->andFilterWhere(['like', 'footer_json', $this->footer_json]);
+			->andFilterWhere(['like', 'footer_content', $this->footer_content]);
 
 		return $dataProvider;
 	}

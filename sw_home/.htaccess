@@ -1,5 +1,0 @@
-RewriteEngine On
-RewriteBase /
-
-# Rewrite rule to capture the country code from the URL
-RewriteRule ^([A-Z]{2})/?$ index.php?country=$1 [L]
