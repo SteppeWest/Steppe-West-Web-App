@@ -10,12 +10,12 @@
 
 namespace frontend\modules\controllers;
 
-use frontend\modules\controllers\LanguageController;
+use frontend\modules\controllers\LanguageModuleController;
 
 /**
  * Default controller for the `SwLetterModule` module
  */
-class LetterController extends LanguageController
+class LetterController extends LanguageModuleController
 {
 	/**
 	 * Renders the index view for the module

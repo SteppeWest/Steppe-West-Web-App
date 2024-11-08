@@ -10,12 +10,12 @@
 
 namespace frontend\modules\controllers;
 
-use frontend\modules\controllers\LanguageController;
+use frontend\modules\controllers\LanguageModuleController;
 
 /**
  * Default controller for the `SwLinksModule` module
  */
-class LinksController extends LanguageController
+class LinksController extends LanguageModuleController
 {
 	/**
 	 * Renders the index view for the module

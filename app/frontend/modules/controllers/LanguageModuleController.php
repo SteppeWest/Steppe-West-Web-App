@@ -1,6 +1,6 @@
 <?php
 /**
- * LanguageController.php
+ * LanguageModuleController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -15,7 +15,7 @@ use frontend\controllers\LanguagePageController;
 /**
  * Default controller for the `SwLanguageModule` module
  */
-class LanguageController extends LanguagePageController
+class LanguageModuleController extends LanguagePageController
 {
 	/**
 	 * Renders the index view for the module
