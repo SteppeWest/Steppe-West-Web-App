@@ -5,7 +5,7 @@ return [
 	'username' => 'u746306670_sw_advanced',
 	'password' => 'XMyxVaRYQyCAR3sl3EMDqa7X',
 	'charset' => 'utf8',
-	//'tablePrefix' => 'sw_',
+	'tablePrefix' => 'sw_',
 
 	// Schema cache options (for production environment)
 	//'enableSchemaCache' => true,

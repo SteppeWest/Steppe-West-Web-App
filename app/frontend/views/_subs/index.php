@@ -1,41 +1,41 @@
 <?php
 
-use common\models\SwSubstitution;
+use frontend\models\Substitution;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var common\models\SwSubstitutionSearch $searchModel */
+/** @var frontend\models\SubstitutionSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Sw Substitutions';
+$this->title = 'Substitutions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sw-substitution-index">
+<div class="substitution-index">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
 	<p>
-		<?= Html::a('Create Sw Substitution', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a('Create Substitution', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 	<?= GridView::widget([
 		'dataProvider' => $dataProvider,
 		'filterModel' => $searchModel,
-        'columns' => [
+		'columns' => [
 			['class' => 'yii\grid\SerialColumn'],
 
-            'pk',
-            'name',
-            'value:ntext',
-            'description:ntext',
+			'pk',
+			'name',
+			'value:ntext',
+			'description:ntext',
 			[
 				'class' => ActionColumn::className(),
-				'urlCreator' => function ($action, SwSubstitution $model, $key, $index, $column) {
+				'urlCreator' => function ($action, Substitution $model, $key, $index, $column) {
 					return Url::toRoute([$action, 'pk' => $model->pk]);
 				 }
 			],

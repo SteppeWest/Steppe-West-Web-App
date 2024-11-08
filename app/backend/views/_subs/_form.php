@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SwSubstitution $model */
+/** @var common\models\Substitution $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="sw-substitution-form">
+<div class="substitution-form">
 
 	<?php $form = ActiveForm::begin(); ?>
 

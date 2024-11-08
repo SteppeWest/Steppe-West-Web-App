@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var common\models\SwSubstitution $model */
+/** @var common\models\Substitution $model */
 
-$this->title = 'Create Sw Substitution';
-$this->params['breadcrumbs'][] = ['label' => 'Sw Substitutions', 'url' => ['index']];
+$this->title = 'Create Substitution';
+$this->params['breadcrumbs'][] = ['label' => 'Substitutions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sw-substitution-create">
+<div class="substitution-create">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 

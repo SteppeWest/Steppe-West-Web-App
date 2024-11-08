@@ -4,24 +4,24 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var common\models\SwSubstitutionSearch $model */
+/** @var frontend\models\SubstitutionSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="sw-substitution-search">
+<div class="substitution-search">
 
 	<?php $form = ActiveForm::begin([
 		'action' => ['index'],
 		'method' => 'get',
 	]); ?>
 
-    <?= $form->field($model, 'pk') ?>
+	<?= $form->field($model, 'pk') ?>
 
-    <?= $form->field($model, 'name') ?>
+	<?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'value') ?>
+	<?= $form->field($model, 'value') ?>
 
-    <?= $form->field($model, 'description') ?>
+	<?= $form->field($model, 'description') ?>
 
 	<div class="form-group">
 		<?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

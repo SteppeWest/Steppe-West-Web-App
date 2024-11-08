@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var common\models\SwSubstitution $model */
+/** @var frontend\models\Substitution $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Sw Substitutions', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Substitutions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="sw-substitution-view">
+<div class="substitution-view">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,10 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?= DetailView::widget([
 		'model' => $model,
 		'attributes' => [
-            'pk',
-            'name',
-            'value:ntext',
-            'description:ntext',
+			'pk',
+			'name',
+			'value:ntext',
+			'description:ntext',
 		],
 	]) ?>
 
