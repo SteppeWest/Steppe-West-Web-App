@@ -10,12 +10,10 @@
 
 namespace frontend\modules;
 
-use frontend\modules\LanguageModule;
-
 /**
  * SwLinks module definition class
  */
-class LinksModule extends LanguageModule
+class LinksModule extends \frontend\modules\LanguageModule
 {
 	/**
 	 * {@inheritdoc}

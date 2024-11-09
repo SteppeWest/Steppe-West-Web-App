@@ -1,6 +1,6 @@
 <?php
 /**
- * SwLetterController.php
+ * LetterController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -10,12 +10,10 @@
 
 namespace frontend\modules\controllers;
 
-use frontend\modules\controllers\LanguageModuleController;
-
 /**
  * Default controller for the `SwLetterModule` module
  */
-class LetterController extends LanguageModuleController
+class LetterController extends \frontend\modules\controllers\LanguageModuleController
 {
 	/**
 	 * Renders the index view for the module
@@ -25,6 +23,8 @@ class LetterController extends LanguageModuleController
 	{
 		return $this->render('index');
 	}
+
+
 }
 
 /*

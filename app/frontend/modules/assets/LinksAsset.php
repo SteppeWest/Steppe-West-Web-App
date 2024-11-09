@@ -12,20 +12,18 @@
  * @class \frontend\modules\assets\LinksAsset
  *
  * Load this asset with...
- * frontend\modules\assets\LetterAsset::register($this);
+ * frontend\modules\assets\LinksAsset::register($this);
  *
- * use frontend\modules\assets\LetterAsset;
- * LetterAsset::register($this);
+ * use frontend\modules\assets\LinksAsset;
+ * LinksAsset::register($this);
  *
  * or specify as a dependency with...
- *     'themes\letter\assets\LetterAsset',
+ *     'frontend\modules\assets\LinksAsset',
  */
 
 namespace frontend\modules\assets;
 
-use yii\web\AssetBundle;
-
-class LinksAsset extends AssetBundle
+class LinksAsset extends \yii\web\AssetBundle
 {
 	public $sourcePath = '@static/sw-links';
 
@@ -35,5 +33,9 @@ class LinksAsset extends AssetBundle
 
 	public $cssOptions = [
 		'crossorigin' => 'anonymous',
+	];
+
+	public $depends = [
+		'frontend\assets\SwMetaAsset',
 	];
 }

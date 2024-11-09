@@ -1,6 +1,6 @@
 <?php
 /**
- * LetterAsset.php
+ * SwMetaAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -9,21 +9,23 @@
  */
 
 /**
- * @class \frontend\modules\assets\LetterAsset
+ * @class \frontend\modules\assets\SwMetaAsset
  *
  * Load this asset with...
- * frontend\modules\assets\LetterAsset::register($this);
+ * frontend\assets\SwMetaAsset::register($this);
  *
- * use frontend\modules\assets\LetterAsset;
- * LetterAsset::register($this);
+ * use frontend\assets\SwMetaAsset;
+ * SwMetaAsset::register($this);
  *
  * or specify as a dependency with...
- *     'frontend\modules\assets\LetterAsset',
+ *     'frontend\assets\SwMetaAsset',
  */
 
 namespace frontend\modules\assets;
 
-class LetterAsset extends \yii\web\AssetBundle
+use yii\web\AssetBundle;
+
+class SwMetaAsset extends AssetBundle
 {
 	public $sourcePath = '@static/sw-letter';
 
@@ -34,11 +36,4 @@ class LetterAsset extends \yii\web\AssetBundle
 	public $cssOptions = [
 		'crossorigin' => 'anonymous',
 	];
-
-	public $depends = [
-		'frontend\assets\SwMetaAsset',
-	];
 }
-
-
-

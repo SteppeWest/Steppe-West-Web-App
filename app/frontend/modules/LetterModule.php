@@ -10,12 +10,10 @@
 
 namespace frontend\modules;
 
-use frontend\modules\LanguageModule;
-
 /**
  * SwLetter module definition class
  */
-class LetterModule extends LanguageModule
+class LetterModule extends \frontend\modules\LanguageModule
 {
 	/**
 	 * {@inheritdoc}

@@ -1,6 +1,6 @@
 <?php
 /**
- * SwLinksController.php
+ * LinksController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -10,12 +10,10 @@
 
 namespace frontend\modules\controllers;
 
-use frontend\modules\controllers\LanguageModuleController;
-
 /**
  * Default controller for the `SwLinksModule` module
  */
-class LinksController extends LanguageModuleController
+class LinksController extends \frontend\modules\controllers\LanguageModuleController
 {
 	/**
 	 * Renders the index view for the module
