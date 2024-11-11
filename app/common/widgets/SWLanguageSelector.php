@@ -1,6 +1,6 @@
 <?php
 /**
- * SWLanguageSelector.php
+ * SwLanguageSelector.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -9,9 +9,9 @@
  */
 
 /**
- * @class \common\widgets\SWLanguageSelector
+ * @class \common\widgets\SwLanguageSelector
  *
- * use common\widgets\SWLanguageSelector;
+ * use common\widgets\SwLanguageSelector;
  */
 
 namespace common\widgets;
@@ -19,7 +19,7 @@ namespace common\widgets;
 use Yii;
 use yii\helpers\Url;
 
-class SWLanguageSelector implements \yii\base\BootstrapInterface
+class SwLanguageSelector implements \yii\base\BootstrapInterface
 {
 	public function bootstrap($app)
 	{

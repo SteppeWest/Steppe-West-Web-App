@@ -21,19 +21,21 @@
  *     'frontend\assets\SwMetaAsset',
  */
 
-namespace frontend\modules\assets;
+namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
 class SwMetaAsset extends AssetBundle
 {
-	public $sourcePath = '@static/sw-letter';
-
-	public $css = [
-		'css/sw-letter.min.css',
-	];
+	public $sourcePath = '@static/sw-meta';
 
 	public $cssOptions = [
 		'crossorigin' => 'anonymous',
+	];
+
+	public $depends = [
+		'yii\web\YiiAsset',
+		'yii\bootstrap5\BootstrapAsset',
+		'common\assets\P2BootstrapIconsAsset',
 	];
 }

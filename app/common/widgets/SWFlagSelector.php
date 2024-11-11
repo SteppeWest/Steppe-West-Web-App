@@ -1,6 +1,6 @@
 <?php
 /**
- * SWFlagSelector.php
+ * SwFlagSelector.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -9,33 +9,27 @@
  */
 
 /**
- * @class \common\widgets\SWFlagSelector
+ * @class \common\widgets\SwFlagSelector
  *
- * use common\widgets\SWFlagSelector;
+ * use common\widgets\SwFlagSelector;
  */
 
 namespace common\widgets;
 
-class SWFlagSelector
+class SwFlagSelector
 {
-	public static function getFlag($code)
+	public static function getFlagIcon($iconCode)
 	{
-		// Check if the country code is strictly 2 characters in A-Z
-		if (preg_match('/^[A-Z]{2}$/', $code)) {
+		// Check if the icon code is strictly 2 characters in A-Z
+		if (preg_match('/^[A-Z]{2}$/', $iconCode)) {
 			$codePoints = [
-				127397 + ord($code[0]),
-				127397 + ord($code[1])
+				127397 + ord($iconCode[0]),
+				127397 + ord($iconCode[1])
 			];
-			$emoji = mb_convert_encoding('&#' . implode(';&#', $codePoints) . ';', 'UTF-8', 'HTML-ENTITIES');
-			return $emoji ?: 'NF';
+			return mb_convert_encoding('&#' . implode(';&#', $codePoints) . ';', 'UTF-8', 'HTML-ENTITIES');
 		}
-
-		// Check if the country code is 2 or 3 characters in a-z
-		if (preg_match('/^[a-z]{2,3}$/', $code)) {
+		else {
 			return 'NF'; // we will later return an SVG here
 		}
-
-		// If none of the above conditions are met, return 'NF'
-		return 'NF';
 	}
 }

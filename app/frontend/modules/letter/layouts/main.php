@@ -30,13 +30,13 @@ $this->params['asset'] = $asset;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<?= $this->render('//letter/partials/head.min.php') ?>
+	<?= $this->render('@app/modules/letter/partials/head.min.php') ?>
 </head>
 <body>
 	<?= $this->beginBody() ?>
-	<?= $this->render('//letter/partials/header.min.php') ?>
+	<?= $this->render('@app/modules/letter/partials/header.min.php') ?>
 	<?= $content ?>
-	<?= $this->render('//letter/partials/footer.min.php') ?>
+	<?= $this->render('@app/modules/letter/partials/footer.min.php') ?>
 	<?= $this->endBody() ?>
 </body>
 </html>

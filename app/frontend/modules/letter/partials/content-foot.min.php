@@ -1,13 +1,25 @@
 <?php
+/**
+ * @frontend/views/letter/partials/content-foot.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 /** @var \yii\web\View $this */
 
 use yii\bootstrap5\Html;
+
+$letterAsset = $this->params['letterAsset'];
+
+$letterAssetUrl = $letterAsset->baseUrl;
 ?>
 <div class="container my-4">
 	<div class="justify-content-center row">
 		<div class="col-lg-8">
-			<img class="img-fluid" alt="Steppe West 🇹🇯 🇰🇿 🇺🇿 🇦🇿 🇲🇳 🇰🇬 🇹🇲" src="/ui/img/flags-banner-1004x0200.png">
+			<img class="img-fluid" alt="Steppe West 🇹🇯 🇰🇿 🇺🇿 🇦🇿 🇲🇳 🇰🇬 🇹🇲" src="<?= $letterAssetUrl ?>/img/flags-banner-200h.png">
 		</div>
 	</div>
 	<div class="justify-content-center row align-items-end">

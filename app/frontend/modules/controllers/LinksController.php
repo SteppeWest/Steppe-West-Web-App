@@ -10,11 +10,30 @@
 
 namespace frontend\modules\controllers;
 
+use Yii;
+use yii\base\Theme; // Add this to create a Theme instance
+use frontend\modules\assets\LinksAsset;
+
 /**
  * Default controller for the `SwLinksModule` module
  */
-class LinksController extends \frontend\modules\controllers\LanguageModuleController
+class LinksController extends LanguageModuleController
 {
+	public function init()
+	{
+		parent::init();
+
+		// Set a new Theme instance specifically for this controller
+		Yii::$app->view->theme = new Theme([
+			'pathMap' => [
+				'@app/views' => '@app/modules/links',
+			],
+		]);
+
+		// Specify the layout explicitly for this controller
+		$this->layout = '@app/modules/links/layouts/main';
+	}
+
 	/**
 	 * Renders the index view for the module
 	 * @return string
@@ -23,7 +42,27 @@ class LinksController extends \frontend\modules\controllers\LanguageModuleContro
 	{
 		return $this->render('index');
 	}
+
+	/**
+	 * Renders the view for the module
+	 * @return string
+	 */
+	public function actionView($slug = 'intro', $lc = null)
+	{
+		// Run shared logic from the parent
+		parent::actionView($slug, $lc);
+
+		// Register the specific asset
+		$linksAsset = LinksAsset::register($this->view);
+		$this->view->params['linksAsset'] = $linksAsset;
+
+		// Render the specific view for Links
+		return $this->render('@app/modules/links/site/index');
+	}
 }
+
+/*
+ */
 
 /*
 sw-language

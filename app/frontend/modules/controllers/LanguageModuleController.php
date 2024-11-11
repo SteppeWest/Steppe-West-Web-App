@@ -10,10 +10,19 @@
 
 namespace frontend\modules\controllers;
 
+use Yii;
+use yii\web\Controller;
+use yii\helpers\Url;
+use yii\helpers\Html;
+use frontend\models\Language;
+use frontend\models\LanguagePage;
+use frontend\assets\SwMetaAsset;
+use common\widgets\SwFlagSelector;
+
 /**
  * Default controller for the `SwLanguageModule` module
  */
-class LanguageModuleController extends \frontend\controllers\LanguagePageController
+class LanguageModuleController extends Controller
 {
 	/**
 	 * Renders the index view for the module
@@ -24,8 +33,55 @@ class LanguageModuleController extends \frontend\controllers\LanguagePageControl
 		return $this->render('index');
 	}
 
+	/**
+	 * Renders the view for the module
+	 * @return string
+	 */
+	public function actionView($slug = 'intro', $lc = null)
+	{
+		$defaultLc = Yii::$app->params['swDefaultLanguage'];
+
+		$lc = $lc ?? $defaultLc;
+
+		// Retrieve the language page based on slug and language code
+		$page = LanguagePage::find()
+			->where(['slug' => $slug, 'page_lang' => $lc])
+			->one();
+
+		if (!$page) {
+			throw new NotFoundHttpException('Page not found.');
+		}
+
+		// Retrieve the language settings from Language
+		$lang = Language::find()
+			->where(['lang_code' => $page->page_lang])
+			->one();
+
+		// Set Yii::$app->language if Language and html_lang are found
+		if ($lang && $lang->html_lang) {
+			Yii::$app->language = $lang->html_lang;
+		}
+
+		// Register the meta asset
+		$metaAsset = SwMetaAsset::register($this->view);
+
+		// Create the language menu items
+		$langMenuItems = $this->createLanguageMenuItems($slug, $defaultLc);
+
+		// Set view parameters for use in the layout and views
+		$this->view->params['slug']          = $slug;
+		$this->view->params['lc']            = $lc;
+		$this->view->params['page']          = $page;
+		$this->view->params['lang']          = $lang;
+		$this->view->params['langMenuItems'] = $langMenuItems;
+		$this->view->params['metaAsset']     = $metaAsset;
+
+		// Register asset and render view in child classes
+	}
+
 	protected function getFlagIcon($flagIcon)
 	{
+		// To be modified to return an SVG if there is no emoji
 		$codePoints = [
 			127397 + ord($flagIcon[0]),
 			127397 + ord($flagIcon[1])
@@ -33,104 +89,53 @@ class LanguageModuleController extends \frontend\controllers\LanguagePageControl
 		return mb_convert_encoding('&#' . implode(';&#', $codePoints) . ';', 'UTF-8', 'HTML-ENTITIES');
 	}
 
-	protected function createLanguageMenuItems()
+	protected function createLanguageMenuItems($slug, $defaultLc)
 	{
-		// Get the current URL components
-		$currentUrl = Url::current();
-		$parsedUrl = parse_url($currentUrl);
-
-		// Ensure $queryParams is a string
-		$queryParams = isset($parsedUrl['query']) ? $parsedUrl['query'] : '';
-		$queryArray = [];
-		parse_str($queryParams, $queryArray);
-
 		// Fetch active languages ordered by menu_position
-		$languages = SwLanguage::find()
+		$languages = Language::find()
 			->where(['active' => true])
 			->orderBy(['menu_position' => SORT_ASC])
 			->all();
 
+		// Get current URL segments
+		$path = Yii::$app->request->pathInfo;
+		$path = trim($path, '/');
+		$segments = explode('/', $path);
+
+		// Get current language code based on the presence of a slug
+		$currentLangCode = $slug ? ($segments[1] ?? $defaultLc) : ($segments[0] ?? $defaultLc);
+
 		$menuItems = [];
+		$menuUrlBase = Yii::$app->homeUrl . '/';
+		if ($slug) {
+			$menuUrlBase .= $slug . '/';
+		}
 
 		foreach ($languages as $language) {
 			// Generate the label with the flag emoji and UI label
-			$flagEmoji = $this->getFlagIcon($language->flag_icon);
-			$label = $flagEmoji . ' ' . Html::encode($language->ui_label);
+			$flagIcon = SwFlagSelector::getFlagIcon($language->flag_icon);
+			$label = $flagIcon . ' ' . Html::encode($language->ui_label);
 
-			// Modify the URL to include or replace `lc` with `lang_code`
-			$queryArray['lc'] = $language->lang_code;
-			$newUrl = Url::to(array_merge([$parsedUrl['path']], $queryArray));
+			// Construct the URL
+			$newUrl = $menuUrlBase . $language->lang_code;
 
-			// Add to menuItems
+			// Check if this is the active item
+			$isActive = ($language->lang_code === $currentLangCode);
+
+			// Add to menu items
 			$menuItems[] = [
 				'label' => $label,
 				'url' => $newUrl,
+				'active' => $isActive, // Set active if this is the current language
 			];
 		}
 
 		return $menuItems;
 	}
-	{
-		foreach ($languages as $language) {
-			// Generate the label with the flag emoji and UI label
-			$flagEmoji = $this->getFlagIcon($language->flag_icon);
-			$label = $flagEmoji . ' ' . Html::encode($language->ui_label);
-
-			// Construct the new URL path by replacing or appending the language code
-			$path = isset($parsedUrl['path']) ? trim($parsedUrl['path'], '/') : '';
-			$segments = explode('/', $path);
-
-			// If `lc` is already in the URL, replace it with the current language code
-			if (isset($segments[1])) {
-				$segments[1] = $language->lang_code;
-			} else {
-				// Otherwise, append the language code as a new segment
-				$segments[] = $language->lang_code;
-			}
-
-			// Reconstruct the path and generate the URL
-			$newUrl = '/' . implode('/', $segments);
-
-			// Add to menuItems
-			$menuItems[] = [
-				'label' => $label,
-				'url' => $newUrl,
-			];
-		}
-	}
-	{
-		// Determine the base URL
-		$baseUrl = Url::base(true);
-
-		foreach ($languages as $language) {
-			// Generate the label with the flag emoji and UI label
-			$flagEmoji = $this->getFlagIcon($language->flag_icon);
-			$label = $flagEmoji . ' ' . Html::encode($language->ui_label);
-
-			// Construct the new URL path by replacing or appending the language code
-			$path = isset($parsedUrl['path']) ? trim($parsedUrl['path'], '/') : '';
-			$segments = explode('/', $path);
-
-			// If the language code (lc) is already in the URL, replace it
-			if (isset($segments[1])) {
-				$segments[1] = $language->lang_code;
-			} else {
-				// Otherwise, append the language code as a new segment
-				$segments[] = $language->lang_code;
-			}
-
-			// Reconstruct the path and generate the full URL
-			$newUrl = $baseUrl . '/' . implode('/', $segments);
-
-			// Add to menuItems
-			$menuItems[] = [
-				'label' => $label,
-				'url' => $newUrl,
-			];
-		}
-	}
-
 }
+
+/*
+ */
 
 /*
 sw-language
@@ -143,3 +148,4 @@ sw-links
 frontend\modules\LinksModule
 frontend\modules\controllers\LinksController
  */
+

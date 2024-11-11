@@ -39,6 +39,3 @@ class LetterAsset extends \yii\web\AssetBundle
 		'frontend\assets\SwMetaAsset',
 	];
 }
-
-
-

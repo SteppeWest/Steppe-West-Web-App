@@ -41,4 +41,10 @@ class SwAppAsset extends SWAssetBundle
 	public $cssOptions = [
 		'crossorigin' => 'anonymous',
 	];
+
+	public $depends = [
+		'yii\web\YiiAsset',
+		'yii\bootstrap5\BootstrapAsset',
+		'common\assets\P2BootstrapIconsAsset',
+	];
 }

@@ -61,5 +61,13 @@ return [
 			'errorAction' => 'site/error',
 		],
 	],
+	'modules' => [
+		'letter' => [
+			'class' => 'frontend\modules\LetterModule',
+		],
+		'links' => [
+			'class' => 'frontend\modules\LinksModule',
+		],
+	],
 	'params' => $params,
 ];
