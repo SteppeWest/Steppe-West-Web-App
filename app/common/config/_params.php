@@ -4,6 +4,7 @@ return [
 	'adminEmail' => 'pedro@steppewest.com',
 	'senderEmail' => 'noreply@steppewest.com',
 	'senderName' => 'Steppe West Mailer',
+	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {Xitter} {YouTube} {TikTok} {Threads}',
 	'swDefaultLanguage' => 'en',
 	'swActiveLanguages' => [
 		'az',
@@ -31,3 +32,7 @@ return [
 	'user.passwordResetTokenExpire' => 3600, // remove
 	'user.passwordMinLength' => 8, // remove
 ];
+
+
+
+

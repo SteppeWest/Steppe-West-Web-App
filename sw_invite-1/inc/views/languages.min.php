@@ -1,0 +1,1 @@
+<div class="container my-1"><div class="justify-content-center row"><div class="col-lg-8 text-center fw-bolder"><?=renderLanguageButtons()?></div></div><div class="justify-content-center row"><div class="col-lg-8 text-center"><?=renderFaq()?></div></div></div>

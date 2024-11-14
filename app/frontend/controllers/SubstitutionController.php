@@ -32,6 +32,7 @@ class SubstitutionController extends Controller
 				'verbs' => [
 					'class' => VerbFilter::className(),
 					'actions' => [
+						'delete' => ['POST'],
 					],
 				],
 			]
@@ -65,6 +66,62 @@ class SubstitutionController extends Controller
 		return $this->render('view', [
 			'model' => $this->findModel($pk),
 		]);
+	}
+
+	/**
+	 * Creates a new Substitution model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return string|\yii\web\Response
+	 */
+	public function actionCreate()
+	{
+		$model = new Substitution();
+
+		if ($this->request->isPost) {
+			if ($model->load($this->request->post()) && $model->save()) {
+				return $this->redirect(['view', 'pk' => $model->pk]);
+			}
+		} else {
+			$model->loadDefaultValues();
+		}
+
+		return $this->render('create', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Updates an existing Substitution model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param int $pk PK
+	 * @return string|\yii\web\Response
+	 * @throws NotFoundHttpException if the model cannot be found
+	 */
+	public function actionUpdate($pk)
+	{
+		$model = $this->findModel($pk);
+
+		if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+			return $this->redirect(['view', 'pk' => $model->pk]);
+		}
+
+		return $this->render('update', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Deletes an existing Substitution model.
+	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 * @param int $pk PK
+	 * @return \yii\web\Response
+	 * @throws NotFoundHttpException if the model cannot be found
+	 */
+	public function actionDelete($pk)
+	{
+		$this->findModel($pk)->delete();
+
+		return $this->redirect(['index']);
 	}
 
 	/**

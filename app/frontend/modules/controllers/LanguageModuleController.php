@@ -14,10 +14,12 @@ use Yii;
 use yii\web\Controller;
 use yii\helpers\Url;
 use yii\helpers\Html;
+use Symfony\Component\Yaml\Yaml;
+use common\assets\SwMetaAsset;
+use common\widgets\SwFlagSelector;
+use common\widgets\SwSubstitution;
 use frontend\models\Language;
 use frontend\models\LanguagePage;
-use frontend\assets\SwMetaAsset;
-use common\widgets\SwFlagSelector;
 
 /**
  * Default controller for the `SwLanguageModule` module
@@ -39,9 +41,9 @@ class LanguageModuleController extends Controller
 	 */
 	public function actionView($slug = 'intro', $lc = null)
 	{
-		$defaultLc = Yii::$app->params['swDefaultLanguage'];
-
-		$lc = $lc ?? $defaultLc;
+		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
+		$this->view->params['lc'] = $lc;
+		$this->view->params['slug'] = $slug;
 
 		// Retrieve the language page based on slug and language code
 		$page = LanguagePage::find()
@@ -58,38 +60,30 @@ class LanguageModuleController extends Controller
 			->one();
 
 		// Set Yii::$app->language if Language and html_lang are found
-		if ($lang && $lang->html_lang) {
-			Yii::$app->language = $lang->html_lang;
+		$this->view->params['locale'] = 'en_AU';
+		$this->view->params['footer'] = null;
+		if ($lang) {
+			if ($lang->html_lang) {
+				Yii::$app->language = $lang->html_lang;
+			}
+			if ($lang->locale) {
+				$this->view->params['locale'] = $lang->locale;
+			}
+			if ($lang->footer_content) {
+				$this->view->params['footer'] = $this->processFooterContent($lang->footer_content);
+			}
 		}
 
 		// Register the meta asset
-		$metaAsset = SwMetaAsset::register($this->view);
+		$this->view->params['metaAssetUrl'] = SwMetaAsset::register($this->view);
 
-		// Create the language menu items
-		$langMenuItems = $this->createLanguageMenuItems($slug, $defaultLc);
+		// Create the language menu
+		$this->view->params['langMenu'] = $this->createLanguageMenu($slug, $lc);
 
-		// Set view parameters for use in the layout and views
-		$this->view->params['slug']          = $slug;
-		$this->view->params['lc']            = $lc;
-		$this->view->params['page']          = $page;
-		$this->view->params['lang']          = $lang;
-		$this->view->params['langMenuItems'] = $langMenuItems;
-		$this->view->params['metaAsset']     = $metaAsset;
-
-		// Register asset and render view in child classes
+		return $page;
 	}
 
-	protected function getFlagIcon($flagIcon)
-	{
-		// To be modified to return an SVG if there is no emoji
-		$codePoints = [
-			127397 + ord($flagIcon[0]),
-			127397 + ord($flagIcon[1])
-		];
-		return mb_convert_encoding('&#' . implode(';&#', $codePoints) . ';', 'UTF-8', 'HTML-ENTITIES');
-	}
-
-	protected function createLanguageMenuItems($slug, $defaultLc)
+	protected function createLanguageMenu($slug, $lc)
 	{
 		// Fetch active languages ordered by menu_position
 		$languages = Language::find()
@@ -101,9 +95,6 @@ class LanguageModuleController extends Controller
 		$path = Yii::$app->request->pathInfo;
 		$path = trim($path, '/');
 		$segments = explode('/', $path);
-
-		// Get current language code based on the presence of a slug
-		$currentLangCode = $slug ? ($segments[1] ?? $defaultLc) : ($segments[0] ?? $defaultLc);
 
 		$menuItems = [];
 		$menuUrlBase = Yii::$app->homeUrl . '/';
@@ -120,7 +111,7 @@ class LanguageModuleController extends Controller
 			$newUrl = $menuUrlBase . $language->lang_code;
 
 			// Check if this is the active item
-			$isActive = ($language->lang_code === $currentLangCode);
+			$isActive = ($language->lang_code === $lc);
 
 			// Add to menu items
 			$menuItems[] = [
@@ -132,20 +123,43 @@ class LanguageModuleController extends Controller
 
 		return $menuItems;
 	}
+
+	/**
+	 * Processes footer content by parsing YAML and applying substitutions.
+	 *
+	 * @param string|null $footerContent Raw YAML string from the database
+	 * @return array Processed footer content as an array of text strings
+	 */
+	protected function processFooterContent($footerContent)
+	{
+		$parsedContent = [];
+		try {
+			// Parse YAML from the footer content
+			$parsedContent = Yaml::parse($footerContent);
+		} catch (\Exception $e) {
+			// Log or handle the YAML parsing error as needed
+			Yii::error("Error parsing footer content YAML: " . $e->getMessage(), __METHOD__);
+			return [];
+		}
+
+		// Extract text fields from parsed content and apply substitutions
+		$processedContent = '';
+		if (is_array($parsedContent)) {
+			foreach ($parsedContent as $contentItem) {
+				if (isset($contentItem['text'])) {
+					// Apply substitutions to each text item
+					$contentTemp = SwSubstitution::applySubstitutions($contentItem['text']);
+					$processedContent .= Html::tag(
+						'p', $contentTemp, ['class' => 'm-0 text-center text-white']
+					);
+				}
+			}
+		}
+
+		return $processedContent;
+	}
 }
 
 /*
- */
-
-/*
-sw-language
-frontend\modules\LanguageModule
-frontend\modules\controllers\LanguageController
-sw-letter
-frontend\modules\LetterModule
-frontend\modules\controllers\LetterController
-sw-links
-frontend\modules\LinksModule
-frontend\modules\controllers\LinksController
  */
 

@@ -25,8 +25,8 @@ class SubstitutionSearch extends Substitution
 	public function rules()
 	{
 		return [
-			[['pk'], 'integer'],
-			[['name', 'value', 'description'], 'safe'],
+			[['pk', 'external', 'social'], 'integer'],
+			[['name', 'title', 'url', 'class', 'icon', 'description'], 'safe'],
 		];
 	}
 
@@ -67,10 +67,15 @@ class SubstitutionSearch extends Substitution
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'pk' => $this->pk,
+			'external' => $this->external,
+			'social' => $this->social,
 		]);
 
 		$query->andFilterWhere(['like', 'name', $this->name])
-			->andFilterWhere(['like', 'value', $this->value])
+			->andFilterWhere(['like', 'title', $this->title])
+			->andFilterWhere(['like', 'url', $this->url])
+			->andFilterWhere(['like', 'class', $this->class])
+			->andFilterWhere(['like', 'icon', $this->icon])
 			->andFilterWhere(['like', 'description', $this->description]);
 
 		return $dataProvider;

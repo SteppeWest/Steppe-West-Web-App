@@ -36,6 +36,6 @@ class LinksAsset extends \yii\web\AssetBundle
 	];
 
 	public $depends = [
-		'frontend\assets\SwMetaAsset',
+		'common\assets\SwMetaAsset',
 	];
 }
