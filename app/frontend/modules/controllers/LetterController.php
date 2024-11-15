@@ -215,25 +215,48 @@ $this->view->params['page']
 
 	protected function addCircleImage($circleFolders, $letterAsset, &$folderIndex): string
 	{
-		// Get the folder name and generate the image URL
-		$folderName = basename($circleFolders[$folderIndex]);
-		$imageFiles = glob($folders[$folderIndex] . '/*.jpg');
-
-		$circleImage = '';
-		if (!empty($imageFiles)) {
-			$randomImageFile = $imageFiles[array_rand($imageFiles)];
-			$imageFilename = pathinfo($randomImageFile, PATHINFO_FILENAME);
-			$title = 'Central Asian ' . ucwords(str_replace('_', ' ', $folderName));
-
-			$circleImage = Html::img(
-				$letterAsset->baseUrl . "/img/circles/{$folderName}/{$imageFilename}.jpg",
+		// Validate circleFolders array
+		if (empty($circleFolders) || !isset($circleFolders[$folderIndex])) {
+			Yii::warning("No valid folder found in circleFolders at index $folderIndex", __METHOD__);
+			return Html::img(
+				$letterAsset->baseUrl . "/img/circles/default.jpg", // Placeholder image
 				[
 					'class' => 'img-fluid rounded-circle',
-					'alt' => $title,
+					'alt' => 'Central Asian Placeholder Image',
 				]
 			);
 		}
 
+		// Get the folder name and image files
+		$folderName = basename($circleFolders[$folderIndex]);
+		$imageFiles = glob($circleFolders[$folderIndex] . '/*.jpg');
+
+		// Handle missing images in folder
+		if (empty($imageFiles)) {
+			Yii::warning("No images found in folder: {$circleFolders[$folderIndex]}", __METHOD__);
+			return Html::img(
+				$letterAsset->baseUrl . "/img/circles/default.jpg", // Placeholder image
+				[
+					'class' => 'img-fluid rounded-circle',
+					'alt' => 'Central Asian Placeholder Image',
+				]
+			);
+		}
+
+		// Select a random image and generate HTML
+		$randomImageFile = $imageFiles[array_rand($imageFiles)];
+		$imageFilename = pathinfo($randomImageFile, PATHINFO_FILENAME);
+		$title = 'Central Asian ' . ucwords(str_replace('_', ' ', $folderName));
+
+		$circleImage = Html::img(
+			$letterAsset->baseUrl . "/img/circles/{$folderName}/{$imageFilename}.jpg",
+			[
+				'class' => 'img-fluid rounded-circle',
+				'alt' => $title,
+			]
+		);
+
+		// Move to the next folder; if at the end of folders, start again
 		$folderIndex = ($folderIndex + 1) % count($circleFolders);
 
 		return $circleImage;
