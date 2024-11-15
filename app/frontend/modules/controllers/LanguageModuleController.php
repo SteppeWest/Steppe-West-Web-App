@@ -12,7 +12,6 @@ namespace frontend\modules\controllers;
 
 use Yii;
 use yii\web\Controller;
-use yii\helpers\Url;
 use yii\helpers\Html;
 use Symfony\Component\Yaml\Yaml;
 use common\assets\SwMetaAsset;
@@ -60,19 +59,9 @@ class LanguageModuleController extends Controller
 			->one();
 
 		// Set Yii::$app->language if Language and html_lang are found
-		$this->view->params['locale'] = 'en_AU';
-		$this->view->params['footer'] = null;
-		if ($lang) {
-			if ($lang->html_lang) {
-				Yii::$app->language = $lang->html_lang;
-			}
-			if ($lang->locale) {
-				$this->view->params['locale'] = $lang->locale;
-			}
-			if ($lang->footer_content) {
-				$this->view->params['footer'] = $this->processFooterContent($lang->footer_content);
-			}
-		}
+		Yii::$app->language = $lang->html_lang;
+		$this->view->params['locale'] = $lang->locale;
+		$this->view->params['footer'] = $this->processFooterContent($lang->footer_content);
 
 		// Register the meta asset
 		$this->view->params['metaAssetUrl'] = SwMetaAsset::register($this->view);
@@ -132,13 +121,8 @@ class LanguageModuleController extends Controller
 	 */
 	protected function processFooterContent($footerContent)
 	{
-		$parsedContent = [];
-		try {
-			// Parse YAML from the footer content
-			$parsedContent = Yaml::parse($footerContent);
-		} catch (\Exception $e) {
-			// Log or handle the YAML parsing error as needed
-			Yii::error("Error parsing footer content YAML: " . $e->getMessage(), __METHOD__);
+		$parsedContent = $this->parseYamlItem($footerContent);
+		if (!$parsedContent) {
 			return [];
 		}
 
@@ -157,6 +141,18 @@ class LanguageModuleController extends Controller
 		}
 
 		return $processedContent;
+	}
+
+	protected function parseYamlItem($yamlItem)
+	{
+		try {
+			// Parse YAML from the footer content
+			return Yaml::parse($yamlItem);
+		} catch (\Exception $e) {
+			// Log or handle the YAML parsing error as needed
+			Yii::error("Error parsing footer content YAML: " . $e->getMessage(), __METHOD__);
+			return null;
+		}
 	}
 }
 

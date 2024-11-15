@@ -11,8 +11,7 @@
 namespace frontend\modules\controllers;
 
 use Yii;
-use yii\base\Theme; // Add this to create a Theme instance
-use yii\helpers\Url;
+use yii\base\Theme;
 use yii\helpers\Html;
 use Symfony\Component\Yaml\Yaml;
 use common\widgets\SwSubstitution;
@@ -74,20 +73,12 @@ class LetterController extends LanguageModuleController
 		$this->view->params['socialButtons'] = SwSubstitution::applySubstitutions($socialList);
 
 		// Set up origin link
-		$origin = null;
-		if ($page->origin) {
-			$origin = SwSubstitution::applySubstitutions($page->origin);
-		}
-		$this->view->params['origin'] = $origin !== null
-			? Html::tag('div',
-				Html::tag('div', $origin, ['class' => 'col-lg-8 text-center']),
-				['class' => 'justify-content-center row']
-			)
-		: null;
+		$this->view->params['origin'] = $this->setOriginLink($page);
 
 		// Process body content
-		$processedBody = $this->processBodyContent($page->body_content, $lc, $letterAsset);
-		$this->view->params['bodyContent'] = $processedBody['contentArray'];
+		$rawBodyContent = $this->parseYamlItem($page->body_content);
+		$this->view->params['faqLink'] = $this->generateFaqLink($rawBodyContent, $lc);
+		$this->view->params['bodyContent'] = $this->processBodyContent($rawBodyContent, $lc, $letterAsset);
 
 /*
 $this->view->params['lc']
@@ -103,128 +94,149 @@ $this->view->params['page']
 		return $this->render('@app/modules/letter/site/index');
 	}
 
-	protected function processBodyContent($rawContent, $lc, $letterAsset)
+	protected function setOriginLink($page): ?string
 	{
-		$parsedContent = [];
+		$origin = null;
+		if ($page->origin) {
+			$origin = SwSubstitution::applySubstitutions($page->origin);
 
-		try {
-			// Parse YAML from the body content
-			$parsedContent = Yaml::parse($rawContent);
+			return Html::tag('div',
+				Html::tag('div', $origin, ['class' => 'col-lg-8 text-center']),
+				['class' => 'justify-content-center row']
+			);
 		}
-		catch (\Exception $e) {
-			// Log or handle the YAML parsing error as needed
-			Yii::error("Error parsing body content YAML: " . $e->getMessage(), __METHOD__);
-			return [];
+		return null;
+	}
+
+	protected function generateFaqLink(array &$rawBodyContent, string $lc): ?string
+	{
+		// Ensure the first content item exists
+		if (empty($rawBodyContent) || !isset($rawBodyContent[0]['content'])) {
+			return null;
 		}
 
-		$contentArray = [];
+		// Examine the first content item
+		$firstContentItem = $rawBodyContent[0]['content'];
 
-		// Process each content section
-		foreach ($parsedContent as $index => $item) {
+		// Check if it contains an 'faq' key
+		foreach ($firstContentItem as $contentItem) {
+			if (isset($contentItem['faq'])) {
+				// Generate the FAQ link
+				$faqLink = Html::a(
+					Html::encode($contentItem['faq']),
+					Yii::$app->homeUrl . "/faq/" . $lc,
+					['class' => 'text-info link-opacity-75-hover text-decoration-none']
+				);
+
+				// Wrap the link in necessary divs
+				$wrappedLink = Html::tag(
+					'div',
+					Html::tag('div', $faqLink, ['class' => 'col-lg-8 text-center']),
+					['class' => 'justify-content-center row']
+				);
+
+				// Remove the first content item from the array
+				array_shift($rawBodyContent);
+
+				return $wrappedLink;
+			}
+		}
+
+		// No 'faq' key found, return null
+		return null;
+	}
+
+	protected function processBodyContent($rawContent, $lc, $letterAsset): ?array
+	{
+		// Ensure content exists
+		if (empty($rawContent)) {
+			return null;
+		}
+
+		// Get shuffled list of circle images folders
+		$circleFolders = $this->getCirclesFolders($letterAsset);
+		$folderIndex = 0; // Initialize folder index
+
+		// Process each content item, adding an image from the current folder
+		$processedContent = [];
+		foreach ($rawContent as $index => $item) {
 			if (!isset($item['content']) || !is_array($item['content'])) {
 				continue;
 			}
 
-			// Handle the first content item for 'faq'
-			if ($index === 0) {
-				$faqLink = $this->generateFaqLink($item['content'], $lc);
-				if ($faqLink) {
-					$this->view->params['faqLink'] = $faqLink;
-					continue; // Skip processing this item as HTML content
-				}
-			}
+			// Process content item
+			$contentItem['content'] = $this->processContentItem($item['content']);
+			$contentItem['image'] = $this->addCircleImage($circleFolders, $letterAsset, $folderIndex);
 
-			// Process remaining content items
-			$htmlContent = '';
-			foreach ($item['content'] as $contentItem) {
-				foreach ($contentItem as $key => $text) {
-					switch ($key) {
-						case 'paragraph':
-							$htmlContent .= Html::tag('p', Html::encode($text));
-							break;
-						case 'lead':
-							$htmlContent .= Html::tag('p', Html::encode($text), ['class' => 'lead']);
-							break;
-						case 'heading':
-							$htmlContent .= Html::tag('h4', Html::encode($text));
-							break;
-					}
-				}
-			}
-
-			$contentArray[] = $htmlContent;
+			$processedContent[] = $contentItem;
 		}
 
-		return $contentArray;
-	}
-	{
-		// Register LetterAsset to get base URL for images
-		$letterAsset = LetterAsset::register($this->view);
-		$baseFolderPath = Yii::getAlias('@frontend/web') . '/img/circles';
-
-		// Get list of subfolders and shuffle them
-		$folders = array_filter(glob($baseFolderPath . '/*'), 'is_dir');
-		shuffle($folders);
-
-		// Initialize folder index for cycling through folders if content items exceed folder count
-		$folderIndex = 0;
-		$contentCount = count($this->view->params['bodyContent']);
-
-		// Process each content item, adding an image from the current folder
-		foreach ($this->view->params['bodyContent'] as &$contentItem) {
-			// Get the folder name and generate the image URL
-			$folderName = basename($folders[$folderIndex]);
-			$imageFiles = glob($folders[$folderIndex] . '/*.{jpg,png,jpeg}', GLOB_BRACE);
-
-			// If there are images in the folder, choose a random one
-			if (!empty($imageFiles)) {
-				$randomImageFile = $imageFiles[array_rand($imageFiles)];
-				$imageFilename = pathinfo($randomImageFile, PATHINFO_FILENAME);
-
-				// Convert folder name to title-cased label
-				$title = 'Central Asian ' . ucwords(str_replace('_', ' ', $folderName));
-
-				// Generate the HTML image tag with title and URL
-				$contentItem['image'] = Html::img(
-					$letterAsset->baseUrl . "/img/circles/{$folderName}/{$imageFilename}.jpg",
-					[
-						'class' => 'img-fluid rounded-circle',
-						'alt' => $title,
-					]
-				);
-			}
-
-			// Move to the next folder; if at the end of folders, start again
-			$folderIndex = ($folderIndex + 1) % count($folders);
-		}
-
-		// Set modified bodyContent to view parameters
-		$this->view->params['bodyContent'] = $this->processBodyContent($this->view->params['bodyContent']);
-
-		// Render the main content view
-		return $this->render('@app/modules/letter/site/index');
+		return $processedContent;
 	}
 
-	protected function generateFaqLink($contentItems, $lc)
+	protected function getCirclesFolders($letterAsset): array
 	{
-		foreach ($contentItems as $contentItem) {
-			if (isset($contentItem['faq'])) {
-				return Html::tag(
-					'div',
-					Html::tag(
-						'div',
-						Html::a(
-							Html::encode($contentItem['faq']),
-							Yii::$app->homeUrl . "/faq/" . Html::encode($lc),
-							['class' => 'text-info link-opacity-75-hover text-decoration-none']
-						),
-						['class' => 'col-lg-8 text-center']
-					),
-					['class' => 'justify-content-center row']
-				);
+		$circleFolderPath = $letterAsset->baseUrl . '/img/circles';
+
+		$circlesFolders = array_filter(glob($circleFolderPath . '/*'), 'is_dir');
+		if (empty($circlesFolders)) {
+			Yii::error("No folders found in $circleFolderPath", __METHOD__);
+			return []; // Return empty content if no folders are available
+		}
+
+		shuffle($circlesFolders);
+
+		return $circlesFolders;
+	}
+
+	protected function processContentItem($rawContentItem): string
+	{
+		$htmlContent = '';
+
+		foreach ($rawContentItem as $key => $text) {
+			switch ($key) {
+				case 'paragraph':
+					$htmlContent .= Html::tag('p', Html::encode($text));
+					break;
+				case 'lead':
+					$htmlContent .= Html::tag('p', Html::encode($text), ['class' => 'lead']);
+					break;
+				case 'heading':
+					$htmlContent .= Html::tag('h4', Html::encode($text));
+					break;
+				case 'line':
+					$htmlContent .= Html::encode($text) . '<br>';
+					break;
 			}
 		}
-		return null; // Return null if no FAQ link is found
+
+		return $htmlContent;
+	}
+
+	protected function addCircleImage($circleFolders, $letterAsset, &$folderIndex): string
+	{
+		// Get the folder name and generate the image URL
+		$folderName = basename($circleFolders[$folderIndex]);
+		$imageFiles = glob($folders[$folderIndex] . '/*.jpg');
+
+		$circleImage = '';
+		if (!empty($imageFiles)) {
+			$randomImageFile = $imageFiles[array_rand($imageFiles)];
+			$imageFilename = pathinfo($randomImageFile, PATHINFO_FILENAME);
+			$title = 'Central Asian ' . ucwords(str_replace('_', ' ', $folderName));
+
+			$circleImage = Html::img(
+				$letterAsset->baseUrl . "/img/circles/{$folderName}/{$imageFilename}.jpg",
+				[
+					'class' => 'img-fluid rounded-circle',
+					'alt' => $title,
+				]
+			);
+		}
+
+		$folderIndex = ($folderIndex + 1) % count($circleFolders);
+
+		return $circleImage;
 	}
 }
 
@@ -243,6 +255,4 @@ sw-links
 frontend\modules\LinksModule
 frontend\modules\controllers\LinksController
  */
-
-
 
