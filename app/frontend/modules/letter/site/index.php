@@ -16,7 +16,17 @@
  * @var string|null $faqLink FAQ link generated from body content
  */
 $bodyContent = $this->params['bodyContent'];
-//var_dump($bodyContent);
+
+/*
+var_dump($this->params['rawContent']);
+var_dump($this->params['rawItem']);
+var_dump($this->params['htmlContent']);
+var_dump($bodyContent);
+var_dump($this->params['assetUrl']);
+var_dump($this->params['basePath']);
+var_dump($this->params['basename']);
+var_dump($this->params['frontend']);
+ */
 ?>
 <section class="py-1">
 	<?= $this->render('@app/modules/letter/layouts/languages.min.php') ?>

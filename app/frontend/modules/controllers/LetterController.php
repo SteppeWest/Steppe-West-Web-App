@@ -30,7 +30,6 @@ class LetterController extends LanguageModuleController
 		Yii::$app->view->theme = new Theme([
 			'pathMap' => [
 				'@app/views/layouts' => '@app/modules/letter/layouts',
-				'@app/views/partials' => '@app/modules/letter/partials',
 			],
 		]);
 
@@ -39,55 +38,58 @@ class LetterController extends LanguageModuleController
 	}
 
 	/**
-	 * Renders the index view for the module
-	 * @return string
-	 */
-	public function actionIndex()
-	{
-		return $this->render('index');
-	}
-
-	/**
 	 * Renders the view for the module
 	 * @return string
 	 */
 	public function actionView($slug = 'intro', $lc = null)
 	{
+		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
 		// Run shared logic from the parent
 		$page = parent::actionView($slug, $lc);
 
-		// Register the letter asset
+		// Register the letter asset and get the base URL
 		$letterAsset = LetterAsset::register($this->view);
 
-		// Set up flags banner
+		// Meta tags and content setup
+		$this->view->params['canonicalUrl'] = rtrim(Yii::$app->homeUrl, '/') . '/' . $slug . '/' . $lc;
+		$this->view->params['title'] = Html::encode($page->title);
+		$this->view->params['subtitle'] = !empty($page->subtitle) ? Html::encode($page->subtitle) : null;
+		$this->view->params['keywords'] = !empty($page->keywords) ? Html::encode($page->keywords) : null;
+		$this->view->params['description'] = !empty($page->description) ? Html::encode($page->description) : null;
+
+		// Images, socials, and origin
 		$this->view->params['flagsBanner'] = Html::img(
 			$letterAsset->baseUrl . '/img/flags-banner-200h.png',
-			[
-				'class' => 'img-fluid',
-				'alt' => 'Steppe West 🇰🇿 🇰🇬 🇹🇯 🇹🇲 🇺🇿 🇦🇫 🇦🇿 🇲🇳 🇹🇷',
-			],
+			['class' => 'img-fluid', 'alt' => 'Steppe West 🇰🇿 🇰🇬 🇹🇯 🇹🇲 🇺🇿 🇦🇫 🇦🇿 🇲🇳 🇹🇷']
 		);
-
-		// Set up socials buttons
-		$socialList = Yii::$app->params['swSocialAccounts'];
-		$this->view->params['socialButtons'] = SwSubstitution::applySubstitutions($socialList);
+		$this->view->params['socialButtons'] = SwSubstitution::applySubstitutions(Yii::$app->params['swSocialAccounts']);
+		$this->view->params['origin'] = $this->setOriginLink($page);
 
 		// Set up origin link
 		$this->view->params['origin'] = $this->setOriginLink($page);
 
 		// Process body content
-		$rawBodyContent = $this->parseYamlItem($page->body_content);
-		$this->view->params['faqLink'] = $this->generateFaqLink($rawBodyContent, $lc);
-		$this->view->params['bodyContent'] = $this->processBodyContent($rawBodyContent, $lc, $letterAsset);
+		$rawContent = $this->parseYamlItem($page->body_content);
+		$this->view->params['faqLink'] = $this->generateFaqLink($lc, $rawContent);
+		$this->view->params['bodyContent'] = $this->processBodyContent($lc, $rawContent, $letterAsset);
 
-/*
-$this->view->params['lc']
-$this->view->params['slug']
-$this->view->params['locale']
-$this->view->params['footer']
-$this->view->params['metaAssetUrl']
-$this->view->params['langMenu']
-$this->view->params['page']
+/* view params
+$this->params['lc']
+$this->params['slug']
+$this->params['locale']
+$this->params['footer']
+$this->params['metaAssetUrl']
+$this->params['langMenu']
+$this->params['canonicalUrl']
+$this->params['title']
+$this->params['subtitle']
+$this->params['keywords']
+$this->params['description']
+$this->params['flagsBanner']
+$this->params['socialButtons']
+$this->params['origin']
+$this->params['faqLink']
+$this->params['bodyContent']
  */
 
 		// Render the specific view for Letter
@@ -97,9 +99,8 @@ $this->view->params['page']
 	protected function setOriginLink($page): ?string
 	{
 		$origin = null;
-		if ($page->origin) {
+		if (!empty($page->origin)) {
 			$origin = SwSubstitution::applySubstitutions($page->origin);
-
 			return Html::tag('div',
 				Html::tag('div', $origin, ['class' => 'col-lg-8 text-center']),
 				['class' => 'justify-content-center row']
@@ -108,15 +109,15 @@ $this->view->params['page']
 		return null;
 	}
 
-	protected function generateFaqLink(array &$rawBodyContent, string $lc): ?string
+	protected function generateFaqLink($lc, array &$rawContent): ?string
 	{
 		// Ensure the first content item exists
-		if (empty($rawBodyContent) || !isset($rawBodyContent[0]['content'])) {
+		if (empty($rawContent) || !isset($rawContent[0]['content'])) {
 			return null;
 		}
 
 		// Examine the first content item
-		$firstContentItem = $rawBodyContent[0]['content'];
+		$firstContentItem = $rawContent[0]['content'];
 
 		// Check if it contains an 'faq' key
 		foreach ($firstContentItem as $contentItem) {
@@ -136,7 +137,7 @@ $this->view->params['page']
 				);
 
 				// Remove the first content item from the array
-				array_shift($rawBodyContent);
+				array_shift($rawContent);
 
 				return $wrappedLink;
 			}
@@ -146,7 +147,7 @@ $this->view->params['page']
 		return null;
 	}
 
-	protected function processBodyContent($rawContent, $lc, $letterAsset): ?array
+	protected function processBodyContent(string $lc, array $rawContent, LetterAsset $letterAsset): ?array
 	{
 		// Ensure content exists
 		if (empty($rawContent)) {
@@ -154,7 +155,7 @@ $this->view->params['page']
 		}
 
 		// Get shuffled list of circle images folders
-		$circleFolders = $this->getCirclesFolders($letterAsset);
+		$circleFolders = $this->getCircleFolders($letterAsset);
 		$folderIndex = 0; // Initialize folder index
 
 		// Process each content item, adding an image from the current folder
@@ -164,66 +165,69 @@ $this->view->params['page']
 				continue;
 			}
 
-			// Process content item
-			$contentItem['content'] = $this->processContentItem($item['content']);
-			$contentItem['image'] = $this->addCircleImage($circleFolders, $letterAsset, $folderIndex);
-
-			$processedContent[] = $contentItem;
+			$processedContent[] = [
+				'content' => $this->processContentItem($item['content']),
+				'image' => $this->addCircleImage($letterAsset, $circleFolders, $folderIndex),
+			];;
 		}
 
 		return $processedContent;
 	}
 
-	protected function getCirclesFolders($letterAsset): array
-	{
-		$circleFolderPath = $letterAsset->baseUrl . '/img/circles';
-
-		$circlesFolders = array_filter(glob($circleFolderPath . '/*'), 'is_dir');
-		if (empty($circlesFolders)) {
-			Yii::error("No folders found in $circleFolderPath", __METHOD__);
-			return []; // Return empty content if no folders are available
-		}
-
-		shuffle($circlesFolders);
-
-		return $circlesFolders;
-	}
-
-	protected function processContentItem($rawContentItem): string
+	protected function processContentItem(array $rawItem): string
 	{
 		$htmlContent = '';
 
-		foreach ($rawContentItem as $key => $text) {
-			switch ($key) {
-				case 'paragraph':
-					$htmlContent .= Html::tag('p', Html::encode($text));
-					break;
-				case 'lead':
-					$htmlContent .= Html::tag('p', Html::encode($text), ['class' => 'lead']);
-					break;
-				case 'heading':
-					$htmlContent .= Html::tag('h4', Html::encode($text));
-					break;
-				case 'line':
-					$htmlContent .= Html::encode($text) . '<br>';
-					break;
+		// Loop through each nested item
+		foreach ($rawItem as $nestedItem) {
+			// Ensure the nested item is an array
+			if (!is_array($nestedItem)) {
+				continue;
+			}
+
+			// Process each key-value pair within the nested item
+			foreach ($nestedItem as $key => $text) {
+				switch ($key) {
+					case 'paragraph':
+						$htmlContent .= Html::tag('p', $text);
+						break;
+					case 'lead':
+						$htmlContent .= Html::tag('p', $text, ['class' => 'lead']);
+						break;
+					case 'heading':
+						$htmlContent .= Html::tag('h4', $text);
+						break;
+				}
 			}
 		}
 
 		return $htmlContent;
 	}
 
-	protected function addCircleImage($circleFolders, $letterAsset, &$folderIndex): string
+	protected function getCircleFolders(LetterAsset $letterAsset): array
+	{
+		// Use basePath instead of baseUrl to get the filesystem path
+		$circleFolderPath = $letterAsset->basePath . '/img/circles';
+
+		// Find subfolders
+		$circleFolders = array_filter(glob($circleFolderPath . '/*'), 'is_dir');
+		if (empty($circleFolders)) {
+			Yii::error("No folders found in $circleFolderPath", __METHOD__);
+			return []; // Return empty array if no folders are available
+		}
+
+		shuffle($circleFolders);
+		return $circleFolders;
+	}
+
+	protected function addCircleImage(LetterAsset $letterAsset, array $circleFolders, int &$folderIndex): string
 	{
 		// Validate circleFolders array
 		if (empty($circleFolders) || !isset($circleFolders[$folderIndex])) {
 			Yii::warning("No valid folder found in circleFolders at index $folderIndex", __METHOD__);
 			return Html::img(
 				$letterAsset->baseUrl . "/img/circles/default.jpg", // Placeholder image
-				[
-					'class' => 'img-fluid rounded-circle',
-					'alt' => 'Central Asian Placeholder Image',
-				]
+				['class' => 'img-fluid rounded-circle', 'alt' => 'Central Asian Placeholder Image']
 			);
 		}
 
@@ -236,10 +240,7 @@ $this->view->params['page']
 			Yii::warning("No images found in folder: {$circleFolders[$folderIndex]}", __METHOD__);
 			return Html::img(
 				$letterAsset->baseUrl . "/img/circles/default.jpg", // Placeholder image
-				[
-					'class' => 'img-fluid rounded-circle',
-					'alt' => 'Central Asian Placeholder Image',
-				]
+				['class' => 'img-fluid rounded-circle', 'alt' => 'Central Asian Placeholder Image']
 			);
 		}
 
@@ -250,10 +251,7 @@ $this->view->params['page']
 
 		$circleImage = Html::img(
 			$letterAsset->baseUrl . "/img/circles/{$folderName}/{$imageFilename}.jpg",
-			[
-				'class' => 'img-fluid rounded-circle',
-				'alt' => $title,
-			]
+			['class' => 'img-fluid rounded-circle', 'alt' => $title]
 		);
 
 		// Move to the next folder; if at the end of folders, start again
@@ -262,7 +260,6 @@ $this->view->params['page']
 		return $circleImage;
 	}
 }
-
 
 /*
  */

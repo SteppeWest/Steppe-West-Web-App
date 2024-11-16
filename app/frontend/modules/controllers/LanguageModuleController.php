@@ -40,7 +40,6 @@ class LanguageModuleController extends Controller
 	 */
 	public function actionView($slug = 'intro', $lc = null)
 	{
-		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
 		$this->view->params['lc'] = $lc;
 		$this->view->params['slug'] = $slug;
 
@@ -64,10 +63,20 @@ class LanguageModuleController extends Controller
 		$this->view->params['footer'] = $this->processFooterContent($lang->footer_content);
 
 		// Register the meta asset
-		$this->view->params['metaAssetUrl'] = SwMetaAsset::register($this->view);
+		$metaAsset = SwMetaAsset::register($this->view);
+		$this->view->params['metaAssetUrl'] = $metaAsset->baseUrl;
 
 		// Create the language menu
 		$this->view->params['langMenu'] = $this->createLanguageMenu($slug, $lc);
+
+/*
+$this->params['lc']
+$this->params['slug']
+$this->params['locale']
+$this->params['footer']
+$this->params['metaAssetUrl']
+$this->params['langMenu']
+ */
 
 		return $page;
 	}

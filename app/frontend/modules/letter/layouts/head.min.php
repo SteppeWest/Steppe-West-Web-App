@@ -17,14 +17,11 @@ use yii\bootstrap5\Html;
 
 $slug = $this->params['slug'];
 $lc = $this->params['lc'];
-$page = $this->params['page'];
-
-// Canonical URL and Open Graph/Twitter Image Paths
-$canonicalUrl = Yii::$app->homeUrl . "{$slug}/{$lc}";
-$title = Html::encode($page->title);
-$locale = $this->params['locale'] ?? 'en_AU';
-$keywords = Html::encode($page->keywords);
-$description = Html::encode($page->description);
+$canonicalUrl = $this->params['canonicalUrl'];
+$title = $this->params['title'];
+$locale = $this->params['locale'];
+$keywords = $this->params['keywords'];
+$description = $this->params['description'];
 $metaAssetUrl = $this->params['metaAssetUrl'];
 ?>
 <meta charset="<?= Yii::$app->charset ?>">
