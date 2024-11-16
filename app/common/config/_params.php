@@ -4,7 +4,7 @@ return [
 	'adminEmail' => 'pedro@steppewest.com',
 	'senderEmail' => 'noreply@steppewest.com',
 	'senderName' => 'Steppe West Mailer',
-	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {Xitter} {YouTube} {TikTok} {Threads}',
+	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads}',
 	'swDefaultLanguage' => 'en',
 	'swActiveLanguages' => [
 		'az',
