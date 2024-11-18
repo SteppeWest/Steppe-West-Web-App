@@ -9,14 +9,15 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-	public $sourcePath = '@static/app';
-	//public $basePath = '@webroot';
-	//public $baseUrl = '@web';
+	public $sourcePath = '@static/frontend';
+
 	public $css = [
 		'css/site.min.css',
 	];
+
 	public $js = [
 	];
+
 	public $depends = [
 		'yii\web\YiiAsset',
 		'yii\bootstrap5\BootstrapAsset',
