@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-	public $sourcePath = '@static/app';
+	public $sourcePath = '@static/frontend';
 	//public $basePath = '@webroot';
 	//public $baseUrl = '@web';
 	public $css = [
