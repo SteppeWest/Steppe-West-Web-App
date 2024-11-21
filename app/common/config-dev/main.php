@@ -2,10 +2,18 @@
 use yii\helpers\Url;
 
 return [
+	'bootstrap' => [
+		function () {
+			// Get the current request's host and scheme
+			$hostInfo = Yii::$app->request->hostInfo;
+			$basePath = Yii::$app->request->baseUrl;
+
+			// Set dynamically generated baseUrl and homeUrl
+			Yii::$app->urlManager->baseUrl = $hostInfo . $basePath;
+			Yii::$app->homeUrl = $hostInfo . $basePath;
+		},
+	],
 	'name' => 'Steppe West', // Set the application name here
-	'homeUrl' => '//steppewest.p2m/', // Local development URL
-	//'homeUrl' => '//dev.steppewest.com/', // Remote development URL
-	//'homeUrl' => '//steppewest.com/', // Public
 	'charset' => 'utf-8',
 	'aliases' => [
 		'@bower' => '@vendor/bower-asset',

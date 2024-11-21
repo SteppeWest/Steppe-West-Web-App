@@ -23,11 +23,19 @@ return [
 	'basePath' => dirname(__DIR__),
 	'controllerNamespace' => 'backend\controllers',
 	'bootstrap' => ['log'],
-	'modules' => [],
 	'components' => [
 		'assetManager' => $assetManager,
 		'urlManager' => $urlManager,
 		'db' => $db,
+		/**
+		'view' => [
+			'theme' => [
+				'pathMap' => [
+					'@app/views' => '@app/views/letter'
+				],
+			],
+		],
+		*/
 		'request' => [
 			'csrfParam' => '_csrf-backend',
 		],
@@ -38,7 +46,7 @@ return [
 		],
 		'session' => [
 			// this is the name of the session cookie used for login on the backend
-			'name' => 'advanced-backend',
+			'name' => 'steppe-west-backend',
 		],
 		'log' => [
 			'traceLevel' => YII_DEBUG ? 3 : 0,
