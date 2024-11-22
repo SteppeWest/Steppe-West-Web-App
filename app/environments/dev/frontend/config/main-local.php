@@ -1,9 +1,20 @@
 <?php
+/**
+ * app/frontend/config/main-local.php
+ */
+
+$rootUrl = 'https://dev.steppewest.com'; // remote dev
+//$rootUrl = '//steppewest.com'; // production
+
 $config = [
+	'homeUrl' => $rootUrl,
 	'components' => [
+		'urlManager' => [
+			'baseUrl' => $rootUrl,
+		],
 		'request' => [
 			// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-			'cookieValidationKey' => '',
+			'cookieValidationKey' => 'n9R4mk3Czhb2w7fBUWi0_zVyByEgWj8_',
 		],
 	],
 ];
@@ -18,7 +29,6 @@ if (!YII_ENV_TEST) {
 	$config['bootstrap'][] = 'gii';
 	$config['modules']['gii'] = [
 		'class' => \yii\gii\Module::class,
-		'allowedIPs' => ['127.0.0.1', '::1'], // adjust this to your needs
 	];
 }
 

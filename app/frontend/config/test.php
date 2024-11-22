@@ -1,4 +1,7 @@
 <?php
+/**
+ * app/frontend/config/test.php
+ */
 return [
 	'id' => 'app-frontend-tests',
 	'components' => [

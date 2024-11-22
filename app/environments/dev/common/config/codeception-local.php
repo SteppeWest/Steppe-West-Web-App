@@ -1,4 +1,7 @@
 <?php
+/**
+ * app/common/config/codeception-local.php
+ */
 return yii\helpers\ArrayHelper::merge(
 	require __DIR__ . '/main.php',
 	require __DIR__ . '/main-local.php',
@@ -8,7 +11,7 @@ return yii\helpers\ArrayHelper::merge(
 		'components' => [
 			'request' => [
 				// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-				'cookieValidationKey' => '',
+				'cookieValidationKey' => 'iWUzNwsYl-XX1aiUB0fYpYZmu678W4O5',
 			],
 		],
 	]

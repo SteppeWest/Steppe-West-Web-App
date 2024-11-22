@@ -1,4 +1,7 @@
 <?php
+/**
+ * app/common/config/test-local.php
+ */
 return [
 	'components' => [
 		'db' => [

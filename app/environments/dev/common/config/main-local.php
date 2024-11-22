@@ -1,6 +1,18 @@
 <?php
+/**
+ * app/common/config/main-local.php
+ */
 return [
 	'components' => [
+		'db' => [
+			'class' => \yii\db\Connection::class,
+			//'class' => 'yii\db\Connection',
+			'dsn' => 'mysql:host=localhost;dbname=u746306670_sw_advanced',
+			'username' => 'u746306670_sw_advanced',
+			'password' => 'XMyxVaRYQyCAR3sl3EMDqa7X',
+			'charset' => 'utf8',
+			'tablePrefix' => 'sw_',
+		],
 		'mailer' => [
 			'class' => \yii\symfonymailer\Mailer::class,
 			'viewPath' => '@common/mail',

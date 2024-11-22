@@ -21,23 +21,23 @@ $this->params['breadcrumbs'][] = $this->title;
 		<?= Html::a('Create Substitution', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 	<?= GridView::widget([
 		'dataProvider' => $dataProvider,
 		'filterModel' => $searchModel,
-        'columns' => [
+		'columns' => [
 			['class' => 'yii\grid\SerialColumn'],
 
-            'pk',
-            'name',
-            'title',
-            'url:url',
-            'class',
-            //'icon',
-            //'external',
-            //'social',
-            //'description:ntext',
+			'pk',
+			'name',
+			'title',
+			'url:url',
+			'class',
+			//'icon',
+			//'external',
+			//'social',
+			//'description:ntext',
 			[
 				'class' => ActionColumn::className(),
 				'urlCreator' => function ($action, Substitution $model, $key, $index, $column) {

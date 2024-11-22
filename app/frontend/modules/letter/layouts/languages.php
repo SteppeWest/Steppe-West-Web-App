@@ -1,6 +1,6 @@
 <?php
 /**
- * @frontend/views/letter/partials/languages.php
+ * @frontend/modules/letter/layouts/languages.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -10,18 +10,18 @@
 
 /**
  * @var \yii\web\View $this
- * @var array $langMenuItems Array of language menu items passed from the controller
+ * @var array $langMenu Array of language menu items passed from the controller
  */
 
 use yii\bootstrap5\Html;
 
-$langMenuItems = $this->params['langMenuItems'];
+$langMenu = $this->params['langMenu'];
 ?>
 <div class="container my-1">
 	<div class="justify-content-center row">
 		<div class="col-lg-8 fw-bolder text-center">
 			<div class="btn-group">
-				<?php foreach ($langMenuItems as $item): ?>
+				<?php foreach ($langMenu as $item): ?>
 					<?= Html::a(
 						$item['label'],          // Display the label with the flag and language code
 						$item['url'],            // Link URL

@@ -1,4 +1,7 @@
 <?php
+/**
+ * app/common/config/test.php
+ */
 return [
 	'id' => 'app-common-tests',
 	'basePath' => dirname(__DIR__),

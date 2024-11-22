@@ -12,21 +12,21 @@ use yii\widgets\ActiveForm;
 
 	<?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'class')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'class')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'external')->textInput() ?>
+	<?= $form->field($model, 'external')->textInput() ?>
 
-    <?= $form->field($model, 'social')->textInput() ?>
+	<?= $form->field($model, 'social')->textInput() ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
 	<div class="form-group">
 		<?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

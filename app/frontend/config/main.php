@@ -1,32 +1,42 @@
 <?php
+/**
+ * app/frontend/config/main.php
+ */
 $params = array_merge(
-	require __DIR__ . '/../../common/config/_params.php',
-	require __DIR__ . '/../../common/config/_params-local.php',
-	require __DIR__ . '/_params.php',
-	require __DIR__ . '/_params-local.php'
-);
-$db = array_merge(
-	require __DIR__ . '/../../common/config/_db.php',
-	require __DIR__ . '/_db.php',
-);
-$assetManager = array_merge(
-	require __DIR__ . '/../../common/config/_assetManager.php',
-	require __DIR__ . '/_assetManager.php',
-);
-$urlManager = array_merge(
-	require __DIR__ . '/../../common/config/_urlManager.php',
-	require __DIR__ . '/_urlManager.php',
+	require __DIR__ . '/../../common/config/params.php',
+	require __DIR__ . '/../../common/config/params-local.php',
+	require __DIR__ . '/params.php',
+	require __DIR__ . '/params-local.php'
 );
 
 return [
 	'id' => 'app-frontend',
+	'name' => 'Steppe West', // Set the application name here
 	'basePath' => dirname(__DIR__),
 	'bootstrap' => ['log'],
 	'controllerNamespace' => 'frontend\controllers',
 	'components' => [
-		'assetManager' => $assetManager,
-		'urlManager' => $urlManager,
-		'db' => $db,
+		'urlManager' => [
+			'rules' => [
+				// Root URL, defaults to 'intro' in LetterController
+				'' => 'letter/letter/view',
+
+				// Specific slugs (e.g., intro, invite, faq) without or with language code
+				'<slug:intro|invite|faq>' => 'letter/letter/view',
+				'<slug:intro|invite|faq>/<lc:[a-z]{2,3}>' => 'letter/letter/view',
+
+				// Language code only (e.g., domain.tld/en) routes to the view action
+				'<lc:[a-z]{2,3}>' => 'letter/letter/view',
+
+				// Specific slug 'links' without or with language code
+				'<slug:links>' => 'links/links/view',
+				'<slug:links>/<lc:[a-z]{2,3}>' => 'links/links/view',
+
+				// Fallback rules to handle other modules or controllers
+				'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+			],
+		],
 		/**
 		'view' => [
 			'theme' => [
@@ -35,7 +45,7 @@ return [
 				],
 			],
 		],
-		*/
+		 */
 		'request' => [
 			'csrfParam' => '_csrf-frontend',
 		],
@@ -60,6 +70,14 @@ return [
 		'errorHandler' => [
 			'errorAction' => 'site/error',
 		],
+		/**
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+			'rules' => [
+			],
+		],
+		 */
 	],
 	'modules' => [
 		'letter' => [

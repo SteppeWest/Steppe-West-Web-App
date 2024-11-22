@@ -1,6 +1,6 @@
 <?php
 /**
- * @frontend/views/letter/partials/header.php
+ * @frontend/modules/letter/layouts/header.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -13,21 +13,15 @@
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
-
-$page = $this->params['page'];
-$lang = $this->params['lang'];
-$langMenuItems = $this->params['langMenuItems'];
 ?>
 <header>
-	<?php
-	NavBar::begin([
+	<?php NavBar::begin([
 		'brandLabel' => Yii::$app->name,
 		'brandUrl' => Yii::$app->homeUrl,
 		'options' => [
 			'class' => 'navbar navbar-dark bg-dark navbar-expand-lg',
 		],
-	]);
-	?>
+	]); ?>
 	<div class="container">
 		<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
 			<span class="navbar-toggler-icon"></span>
@@ -35,19 +29,17 @@ $langMenuItems = $this->params['langMenuItems'];
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<?php echo Nav::widget([
 				'options' => ['class' => 'navbar-nav ms-auto mb-2 mb-lg-0'],
-				'items' => $langMenuItems,
+				'items' => $this->params['langMenu'],
 				'activateItems' => true,
 			]); ?>
 		</div>
 	</div>
-	<?php
-	NavBar::end();
-	?>
+	<?php NavBar::end(); ?>
 	<div class="my-5 text-center">
 		<div id="title">
-			<h1 class="fw-bolder mb-0 text-white fs-2"><?= Html::encode($page->title ?></h1>
-			<?php if (!empty($page->subtitle)): ?>
-				<h2 class="fw-bolder mb-0 text-white fs-3"><?= Html::encode($page->subtitle) ?></h2>
+			<h1 class="fw-bolder mb-0 text-white fs-2"><?= $this->params['title'] ?></h1>
+			<?php if (!empty($this->params['subtitle'])): ?>
+				<h2 class="fw-bolder mb-0 text-white fs-3"><?= $this->params['subtitle'] ?></h2>
 			<?php endif; ?>
 		</div>
 	</div>
