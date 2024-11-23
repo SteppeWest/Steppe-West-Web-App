@@ -37,5 +37,6 @@ class LetterAsset extends \yii\web\AssetBundle
 
 	public $depends = [
 		'common\assets\SwMetaAsset',
+		//'common\assets\P2FontAwesomeAsset',
 	];
 }
