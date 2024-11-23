@@ -1,1 +1,0 @@
-<?php use yii\bootstrap5\Html; ?><div class="align-items-center row"><div class="col-md-3 offset-md-1 order-2 order-md-1"><?=$image?></div><div class="col-md-6 order-1 order-md-2"><?=$contentItem?></div></div>
