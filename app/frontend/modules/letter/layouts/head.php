@@ -23,41 +23,4 @@ $locale = $this->params['locale'];
 $keywords = $this->params['keywords'];
 $description = $this->params['description'];
 $metaAssetUrl = $this->params['metaAssetUrl'];
-?>
-<meta charset="<?= Yii::$app->charset ?>">
-<!-- Canonical link -->
-<link rel="canonical" href="<?= $canonicalUrl ?>"><!-- DATA -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Meta tags for SEO -->
-<meta name="description" content="<?= $description ?>"><!-- DATA -->
-<meta name="keywords" content="<?= $keywords ?>"><!-- DATA -->
-<meta name="author" content="Pedro Plowman for Steppe West">
-<!-- Open Graph Meta Tags -->
-<meta property="og:type" content="article"><!-- DATA -->
-<meta property="og:url" content="<?= $canonicalUrl ?>"><!-- DATA -->
-<meta property="og:title" content="<?= $title ?>"><!-- DATA -->
-<meta property="og:description" content="<?= $description ?>"><!-- DATA -->
-<meta property="og:image" content="<?= $metaAssetUrl ?>/img/og_image_01-1200x0630.jpeg">
-<meta property="og:image" content="<?= $metaAssetUrl ?>/img/og_image_02-1200x0630.jpeg">
-<meta property="og:updated_time" content="2024-07-08"><!-- DATA -->
-<meta property="og:locale" content="<?= $locale ?>"><!-- DATA -->
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="<?= $canonicalUrl ?>"><!-- DATA -->
-<meta property="twitter:title" content="<?= $title ?>"><!-- DATA -->
-<meta property="twitter:description" content="<?= $description ?>"><!-- DATA -->
-<meta property="twitter:image" content="<?= $metaAssetUrl ?>/img/og_image_01-1200x0630.jpeg">
-<meta property="twitter:image" content="<?= $metaAssetUrl ?>/img/og_image_02-1200x0630.jpeg">
-<!-- Favicon-->
-<link rel="apple-touch-icon" sizes="180x180" href="<?= $metaAssetUrl ?>/ico/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="<?= $metaAssetUrl ?>/ico/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="<?= $metaAssetUrl ?>/ico/favicon-16x16.png">
-<link rel="manifest" href="<?= $metaAssetUrl ?>/ico/site.webmanifest">
-<link rel="mask-icon" href="<?= $metaAssetUrl ?>/ico/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="<?= $metaAssetUrl ?>/ico/favicon.ico">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-config" content="<?= $metaAssetUrl ?>/ico/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-<title><?= $title ?></title><!-- DATA -->
-<?php $this->registerCsrfMetaTags() ?>
-<?php $this->head() ?>
+?><meta charset="<?= Yii::$app->charset ?>"><link href="<?= $canonicalUrl ?>"rel="canonical"><meta content="width=device-width,initial-scale=1,shrink-to-fit=no"name="viewport"><meta content="<?= $description ?>"name="description"><meta content="<?= $keywords ?>"name="keywords"><meta content="Pedro Plowman for Steppe West"name="author"><meta content="article"property="og:type"><meta content="<?= $canonicalUrl ?>"property="og:url"><meta content="<?= $title ?>"property="og:title"><meta content="<?= $description ?>"property="og:description"><meta content="<?= $metaAssetUrl ?>/img/og_image_01-1200x0630.jpeg"property="og:image"><meta content="<?= $metaAssetUrl ?>/img/og_image_02-1200x0630.jpeg"property="og:image"><meta content="2024-07-08"property="og:updated_time"><meta content="<?= $locale ?>"property="og:locale"><meta content="summary_large_image"property="twitter:card"><meta content="<?= $canonicalUrl ?>"property="twitter:url"><meta content="<?= $title ?>"property="twitter:title"><meta content="<?= $description ?>"property="twitter:description"><meta content="<?= $metaAssetUrl ?>/img/og_image_01-1200x0630.jpeg"property="twitter:image"><meta content="<?= $metaAssetUrl ?>/img/og_image_02-1200x0630.jpeg"property="twitter:image"><link href="<?= $metaAssetUrl ?>/ico/apple-touch-icon.png"rel="apple-touch-icon"sizes="180x180"><link href="<?= $metaAssetUrl ?>/ico/favicon-32x32.png"rel="icon"sizes="32x32"type="image/png"><link href="<?= $metaAssetUrl ?>/ico/favicon-16x16.png"rel="icon"sizes="16x16"type="image/png"><link href="<?= $metaAssetUrl ?>/ico/site.webmanifest"rel="manifest"><link href="<?= $metaAssetUrl ?>/ico/safari-pinned-tab.svg"rel="mask-icon"color="#5bbad5"><link href="<?= $metaAssetUrl ?>/ico/favicon.ico"rel="shortcut icon"><meta content="#da532c"name="msapplication-TileColor"><meta content="<?= $metaAssetUrl ?>/ico/browserconfig.xml"name="msapplication-config"><meta content="#ffffff"name="theme-color"><title><?= $title ?></title><?php $this->registerCsrfMetaTags() ?><?php $this->head() ?>

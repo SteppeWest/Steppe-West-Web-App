@@ -29,7 +29,7 @@ var_dump($this->params['frontend']);
  */
 ?>
 <section class="py-1">
-	<?= $this->render('@app/modules/letter/layouts/languages.min.php') ?>
+	<?= $this->render('@app/modules/letter/layouts/languages.php') ?>
 
 	<div class="container my-4">
 		<?= $this->params['faqLink'] ?>
@@ -39,8 +39,8 @@ var_dump($this->params['frontend']);
 			<?php
 				// Choose the layout based on index (alternate left and right)
 				$layoutFile = $index % 2 === 0
-					? '@app/modules/letter/layouts/letter-row-left.min.php'
-					: '@app/modules/letter/layouts/letter-row-right.min.php';
+					? '@app/modules/letter/layouts/letter-row-left.php'
+					: '@app/modules/letter/layouts/letter-row-right.php';
 			?>
 			<?= $this->render($layoutFile, [
 				'contentItem' => $contentItem['content'],
@@ -51,5 +51,5 @@ var_dump($this->params['frontend']);
 		<?= $this->params['faqLink'] ?>
 	</div>
 
-	<?= $this->render('@app/modules/letter/layouts/letter-foot.min.php') ?>
+	<?= $this->render('@app/modules/letter/layouts/letter-foot.php') ?>
 </section>
