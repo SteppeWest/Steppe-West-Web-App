@@ -27,29 +27,4 @@ var_dump($this->params['basePath']);
 var_dump($this->params['basename']);
 var_dump($this->params['frontend']);
  */
-?>
-<section class="py-1">
-	<?= $this->render('@app/modules/letter/layouts/languages.min.php') ?>
-
-	<div class="container my-4">
-		<?= $this->params['faqLink'] ?>
-
-		<!-- Loop through body content and alternate layouts -->
-		<?php foreach ($bodyContent as $index => $contentItem): ?>
-			<?php
-				// Choose the layout based on index (alternate left and right)
-				$layoutFile = $index % 2 === 0
-					? '@app/modules/letter/layouts/letter-row-left.min.php'
-					: '@app/modules/letter/layouts/letter-row-right.min.php';
-			?>
-			<?= $this->render($layoutFile, [
-				'contentItem' => $contentItem['content'],
-				'image' => $contentItem['image'],
-			]) ?>
-		<?php endforeach; ?>
-
-		<?= $this->params['faqLink'] ?>
-	</div>
-
-	<?= $this->render('@app/modules/letter/layouts/letter-foot.min.php') ?>
-</section>
+?><section class="py-1"><?= $this->render('@app/modules/letter/layouts/languages.min.php') ?><div class="container my-4"><?= $this->params['faqLink'] ?><?php foreach ($bodyContent as $index => $contentItem): ?><?php $layoutFile=$index%2===0?'@app/modules/letter/layouts/letter-row-left.min.php':'@app/modules/letter/layouts/letter-row-right.min.php'; ?><?=$this->render($layoutFile,['contentItem'=>$contentItem['content'],'image'=>$contentItem['image'],])?><?php endforeach; ?><?= $this->params['faqLink'] ?></div><?= $this->render('@app/modules/letter/layouts/letter-foot.min.php') ?></section>

@@ -25,4 +25,19 @@ $this->params['page'] = $page;
 $this->params['lang'] = $lang;
 $this->params['asset'] = $asset;
  */
-?><?php $this->beginPage() ?><!doctypehtml><html class="h-100"lang="<?= Yii::$app->language ?>"><head><?= $this->render('@app/modules/letter/layouts/head.min.php') ?></head><body><?= $this->beginBody() ?><?= $this->render('@app/modules/letter/layouts/header.min.php') ?><?= $content ?><?= $this->render('@app/modules/letter/layouts/footer.min.php') ?><?= $this->endBody() ?></body></html><?php $this->endPage(); ?>
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>" class="h-100">
+<head>
+	<?= $this->render('@app/modules/letter/layouts/head.min.php') ?>
+</head>
+<body>
+	<?= $this->beginBody() ?>
+	<?= $this->render('@app/modules/letter/layouts/header.min.php') ?>
+	<?= $content ?>
+	<?= $this->render('@app/modules/letter/layouts/footer.min.php') ?>
+	<?= $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage(); ?>
