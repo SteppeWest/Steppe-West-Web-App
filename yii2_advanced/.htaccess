@@ -1,0 +1,8 @@
+# Deny access to all files in this directory
+Order Deny,Allow
+Deny from all
+
+# If using modern Apache versions, use this instead:
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
