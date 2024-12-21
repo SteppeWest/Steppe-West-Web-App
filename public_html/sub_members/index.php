@@ -1,6 +1,6 @@
 <?php
 $endpoint = 'members';
-$appfolder  = 'yii2_advanced';
+$appfolder  = 'p2-yii2';
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');

@@ -1,6 +1,6 @@
 <?php
 $endpoint = 'language';
-$appfolder  = 'yii2_advanced';
+$appfolder  = 'p2-yii2';
 
 // NOTE: Make sure this file is not accessible when deployed to production
 if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {

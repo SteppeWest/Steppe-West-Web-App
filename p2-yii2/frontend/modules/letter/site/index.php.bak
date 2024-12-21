@@ -1,0 +1,94 @@
+<?php
+/**
+ * @frontend/modules/letter/site/index.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
+
+/**
+ * Main view for displaying letter content.
+ *
+ * @var yii\web\View $this
+ * @var array $bodyContent Contains the processed content items
+ * @var string|null $faqLink FAQ link generated from body content
+ */
+$bodyContent = $this->params['bodyContent'];
+
+/*
+var_dump($this->params['rawContent']);
+var_dump($this->params['rawItem']);
+var_dump($this->params['htmlContent']);
+var_dump($bodyContent);
+var_dump($this->params['assetUrl']);
+var_dump($this->params['basePath']);
+var_dump($this->params['basename']);
+var_dump($this->params['frontend']);
+ */
+
+var_dump($this->params['faq']['content']);
+
+?>
+<section class="py-1">
+	<?= $this->render('@app/modules/letter/layouts/languages.php') ?>
+
+	<div class="container my-4">
+		<!-- Loop through body content and alternate layouts -->
+		<?php foreach ($bodyContent as $index => $contentItem): ?>
+			<?php
+				// Choose the layout based on index (alternate left and right)
+				$layoutFile = $index % 2 === 0
+					? '@app/modules/letter/layouts/letter-row-left.php'
+					: '@app/modules/letter/layouts/letter-row-right.php';
+			?>
+			<?= $this->render($layoutFile, [
+				'contentItem' => $contentItem['content'],
+				'image' => $contentItem['image'],
+			]) ?>
+		<?php endforeach; ?>
+
+		<?php if (isset($this->params['faq']) && !empty($this->params['faq']['content'])): ?>
+		<div class="row align-items-center mt-4">
+			<div class="col-md-8 offset-md-2">
+				<div class="accordion" id="outerFAQaccordion">
+					<div class="accordion-item">
+						<h3 class="accordion-header">
+							<button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#outerFAQcollapse" aria-expanded="false" aria-controls="outerFAQcollapse">
+								<?= $this->params['faq']['title'] ?>
+							</button>
+						</h3>
+						<div id="outerFAQcollapse" class="accordion-collapse collapse" data-bs-parent="#outerFAQaccordion">
+							<div class="accordion-body">
+								<?= $this->params['faq']['content'] ?>
+								<div class="accordion accordion-flush" id="innerFAQaccordion">
+									<?php foreach ($this->params['faq']['content'] as $faqItem): ?>
+										<?php if (isset($faqItem['heading']) && isset($faqItem['paragraph'])): ?>
+											<div class="accordion-item">
+												<h4 class="accordion-header">
+													<button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#faqItem<?= md5($faqItem['heading']) ?>" aria-expanded="false" aria-controls="faqItem<?= md5($faqItem['heading']) ?>">
+														<?= $faqItem['heading'] ?>
+													</button>
+												</h4>
+												<div id="faqItem<?= md5($faqItem['heading']) ?>" class="accordion-collapse collapse" data-bs-parent="#innerFAQaccordion">
+													<div class="accordion-body">
+														<?= $faqItem['paragraph'] ?>
+													</div>
+												</div>
+											</div>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
+
+	</div>
+
+	<?= $this->render('@app/modules/letter/layouts/letter-foot.php') ?>
+</section>
