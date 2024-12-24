@@ -1,0 +1,59 @@
+#!/usr/bin/env fish
+
+# Script: ./build_update
+# Purpose: Copy specific files and folders from ./p2-yii2 to ./sw_update/p2-yii2/
+# - Exclude folders named "docs", "tests", or "z_gitignore".
+# - Create empty placeholders for "vendor" and "runtime".
+
+# Source and destination directories
+set source_dir ./p2-yii2
+set destination_dir ./sw_update/p2-yii2
+
+# Files to copy
+set files_to_copy composer.json init LICENSE.md README.md requirements.php yii
+
+# Ensure destination directory exists
+if not test -d $destination_dir
+    mkdir -p $destination_dir
+end
+
+# Copy specific files
+for file in $files_to_copy
+    if test -f $source_dir/$file
+        cp $source_dir/$file $destination_dir/
+        echo "Copied $file to $destination_dir."
+    else
+        echo "Warning: $file does not exist in $source_dir."
+    end
+end
+
+# Function to handle recursive folder copying with exclusions
+function copy_folder -a src dest
+    for item in (find $src -type d)
+        set relative_path (string replace -r "^$src/" "" $item)
+
+        # Exclude specific folders
+        if echo $relative_path | grep -qE "/?(docs|tests|z_gitignore)$"
+            echo "Excluding folder: $relative_path"
+            continue
+        end
+
+        # Handle "vendor" and "runtime" folders
+        if echo $relative_path | grep -qE "/?(vendor|runtime)$"
+            mkdir -p $dest/$relative_path
+            echo "Created empty folder: $dest/$relative_path"
+            continue
+        end
+
+        # Otherwise, copy the folder and its contents
+        mkdir -p $dest/$relative_path
+        cp -r $item/* $dest/$relative_path/
+        echo "Copied folder: $relative_path"
+    end
+end
+
+# Perform recursive folder copying
+copy_folder $source_dir $destination_dir
+
+# Output result
+echo "Folder copying completed with exclusions."
