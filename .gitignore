@@ -7,6 +7,12 @@
 # The docs/ folder contains confidential information
 docs/
 
+/public_html/assets
+/public_html/sub_dev
+/public_html/sub_links
+/public_html/sub_members
+/public_html/sub_tmp
+
 /p2-yii2/vendor/*
 !/p2-yii2/vendor/.gitkeep
 
