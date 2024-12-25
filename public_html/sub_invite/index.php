@@ -1,0 +1,1 @@
+<?php $languageMap=['EN'=>'en','RU'=>'ru','KZ'=>'kk','KG'=>'ky','TJ'=>'tg','TM'=>'tk','UZ'=>'uz','AZ'=>'az','MN'=>'mn',];$path=trim(parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH),'/');$target='https://steppewest.com/invite';if(array_key_exists($path,$languageMap)){$target.='/'.$languageMap[$path];}header('Location: '.$target,true,301);exit;
