@@ -7,6 +7,9 @@
 # The docs/ folder contains confidential information
 docs/
 
+/p2-yii2/vendor/*
+!/p2-yii2/vendor/.gitkeep
+
 # Ignore z_gitignore folders at any level
 z_gitignore/
 **/z_gitignore/
