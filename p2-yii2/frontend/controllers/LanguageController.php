@@ -1,5 +1,6 @@
 <?php
 /**
+ * LanguageController.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
