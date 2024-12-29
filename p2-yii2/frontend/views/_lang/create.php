@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\Language $model */
+/** @var common\models\Language $model */
 
 $this->title = 'Create Language';
 $this->params['breadcrumbs'][] = ['label' => 'Languages', 'url' => ['index']];

@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var common\models\LanguagePage $model */
+/** @var common\models\LanguageFaq $model */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Language Pages', 'url' => ['index']];
+$this->title = $model->pk;
+$this->params['breadcrumbs'][] = ['label' => 'Language Faqs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="language-page-view">
+<div class="language-faq-view">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,17 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
 		'model' => $model,
 		'attributes' => [
 			'pk',
-			'lang_pk',
-			'page_lang',
-			'slug',
-			'title:ntext',
-			'subtitle:ntext',
-			'description:ntext',
-			'keywords:ntext',
-			'lead:ntext',
-			'origin:ntext',
-			'origin_link:ntext',
-			'body_content:ntext',
+			'page_pk',
+			'active',
+			'position',
+			'question',
+			'answer:ntext',
 		],
 	]) ?>
 

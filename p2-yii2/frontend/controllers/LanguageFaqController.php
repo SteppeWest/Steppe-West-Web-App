@@ -2,16 +2,16 @@
 
 namespace frontend\controllers;
 
-use common\models\LanguagePage;
-use common\models\LanguagePageSearch;
+use common\models\LanguageFaq;
+use common\models\LanguageFaqSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LanguagePageController implements the CRUD actions for LanguagePage model.
+ * LanguageFaqController implements the CRUD actions for LanguageFaq model.
  */
-class LanguagePageController extends Controller
+class LanguageFaqController extends Controller
 {
 	/**
 	 * @inheritDoc
@@ -32,13 +32,13 @@ class LanguagePageController extends Controller
 	}
 
 	/**
-	 * Lists all LanguagePage models.
+	 * Lists all LanguageFaq models.
 	 *
 	 * @return string
 	 */
 	public function actionIndex()
 	{
-		$searchModel = new LanguagePageSearch();
+		$searchModel = new LanguageFaqSearch();
 		$dataProvider = $searchModel->search($this->request->queryParams);
 
 		return $this->render('index', [
@@ -48,8 +48,8 @@ class LanguagePageController extends Controller
 	}
 
 	/**
-	 * Displays a single LanguagePage model.
-	 * @param int $pk Page PK
+	 * Displays a single LanguageFaq model.
+	 * @param int $pk PK
 	 * @return string
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
@@ -61,13 +61,13 @@ class LanguagePageController extends Controller
 	}
 
 	/**
-	 * Creates a new LanguagePage model.
+	 * Creates a new LanguageFaq model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 * @return string|\yii\web\Response
 	 */
 	public function actionCreate()
 	{
-		$model = new LanguagePage();
+		$model = new LanguageFaq();
 
 		if ($this->request->isPost) {
 			if ($model->load($this->request->post()) && $model->save()) {
@@ -83,9 +83,9 @@ class LanguagePageController extends Controller
 	}
 
 	/**
-	 * Updates an existing LanguagePage model.
+	 * Updates an existing LanguageFaq model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param int $pk Page PK
+	 * @param int $pk PK
 	 * @return string|\yii\web\Response
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
@@ -103,9 +103,9 @@ class LanguagePageController extends Controller
 	}
 
 	/**
-	 * Deletes an existing LanguagePage model.
+	 * Deletes an existing LanguageFaq model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 * @param int $pk Page PK
+	 * @param int $pk PK
 	 * @return \yii\web\Response
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
@@ -117,15 +117,15 @@ class LanguagePageController extends Controller
 	}
 
 	/**
-	 * Finds the LanguagePage model based on its primary key value.
+	 * Finds the LanguageFaq model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
-	 * @param int $pk Page PK
-	 * @return LanguagePage the loaded model
+	 * @param int $pk PK
+	 * @return LanguageFaq the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($pk)
 	{
-		if (($model = LanguagePage::findOne(['pk' => $pk])) !== null) {
+		if (($model = LanguageFaq::findOne(['pk' => $pk])) !== null) {
 			return $model;
 		}
 

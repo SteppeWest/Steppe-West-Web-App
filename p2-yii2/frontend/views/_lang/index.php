@@ -1,13 +1,13 @@
 <?php
 
-use frontend\models\Language;
+use common\models\Language;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\LanguageSearch $searchModel */
+/** @var common\models\LanguageSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Languages';

@@ -8,14 +8,14 @@
  * @license MIT
  */
 
-namespace frontend\models;
+namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\LanguagePage;
+use common\models\LanguagePage;
 
 /**
- * LanguagePageSearch represents the model behind the search form of `frontend\models\LanguagePage`.
+ * LanguagePageSearch represents the model behind the search form of `common\models\LanguagePage`.
  */
 class LanguagePageSearch extends LanguagePage
 {
@@ -25,7 +25,7 @@ class LanguagePageSearch extends LanguagePage
 	public function rules()
 	{
 		return [
-			[['pk'], 'integer'],
+			[['pk', 'lang_pk'], 'integer'],
 			[['page_lang', 'slug', 'title', 'subtitle', 'description', 'keywords', 'lead', 'origin', 'origin_link', 'body_content'], 'safe'],
 		];
 	}
@@ -67,6 +67,7 @@ class LanguagePageSearch extends LanguagePage
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'pk' => $this->pk,
+			'lang_pk' => $this->lang_pk,
 		]);
 
 		$query->andFilterWhere(['like', 'page_lang', $this->page_lang])

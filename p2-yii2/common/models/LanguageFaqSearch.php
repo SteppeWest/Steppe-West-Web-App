@@ -1,6 +1,6 @@
 <?php
 /**
- * SubstitutionSearch.php
+ * LanguageFaqSearch.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2024 Steppe West
@@ -8,16 +8,16 @@
  * @license MIT
  */
 
-namespace frontend\models;
+namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Substitution;
+use common\models\LanguageFaq;
 
 /**
- * SubstitutionSearch represents the model behind the search form of `common\models\Substitution`.
+ * LanguageFaqSearch represents the model behind the search form of `common\models\LanguageFaq`.
  */
-class SubstitutionSearch extends Substitution
+class LanguageFaqSearch extends LanguageFaq
 {
 	/**
 	 * {@inheritdoc}
@@ -25,8 +25,8 @@ class SubstitutionSearch extends Substitution
 	public function rules()
 	{
 		return [
-			[['pk', 'external', 'social'], 'integer'],
-			[['name', 'title', 'url', 'class', 'icon', 'description'], 'safe'],
+			[['pk', 'page_pk', 'active', 'position'], 'integer'],
+			[['question', 'answer'], 'safe'],
 		];
 	}
 
@@ -48,7 +48,7 @@ class SubstitutionSearch extends Substitution
 	 */
 	public function search($params)
 	{
-		$query = Substitution::find();
+		$query = LanguageFaq::find();
 
 		// add conditions that should always apply here
 
@@ -67,16 +67,13 @@ class SubstitutionSearch extends Substitution
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'pk' => $this->pk,
-			'external' => $this->external,
-			'social' => $this->social,
+			'page_pk' => $this->page_pk,
+			'active' => $this->active,
+			'position' => $this->position,
 		]);
 
-		$query->andFilterWhere(['like', 'name', $this->name])
-			->andFilterWhere(['like', 'title', $this->title])
-			->andFilterWhere(['like', 'url', $this->url])
-			->andFilterWhere(['like', 'class', $this->class])
-			->andFilterWhere(['like', 'icon', $this->icon])
-			->andFilterWhere(['like', 'description', $this->description]);
+		$query->andFilterWhere(['like', 'question', $this->question])
+			->andFilterWhere(['like', 'answer', $this->answer]);
 
 		return $dataProvider;
 	}

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\LanguagePageSearch $model */
+/** @var common\models\LanguagePageSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
@@ -17,13 +17,15 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'pk') ?>
 
+	<?= $form->field($model, 'lang_pk') ?>
+
 	<?= $form->field($model, 'page_lang') ?>
 
 	<?= $form->field($model, 'slug') ?>
 
 	<?= $form->field($model, 'title') ?>
 
-	<?= $form->field($model, 'subtitle') ?>
+	<?php // echo $form->field($model, 'subtitle') ?>
 
 	<?php // echo $form->field($model, 'description') ?>
 

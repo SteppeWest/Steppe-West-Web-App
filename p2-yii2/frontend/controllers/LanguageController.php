@@ -1,17 +1,9 @@
 <?php
-/**
- * LanguageController.php
- *
- * @author Pedro Plowman
- * @copyright Copyright (c) 2024 Steppe West
- * @link https://steppewest.com/
- * @license MIT
- */
 
 namespace frontend\controllers;
 
-use frontend\models\Language;
-use frontend\models\LanguageSearch;
+use common\models\Language;
+use common\models\LanguageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -32,6 +24,7 @@ class LanguageController extends Controller
 				'verbs' => [
 					'class' => VerbFilter::className(),
 					'actions' => [
+						'delete' => ['POST'],
 					],
 				],
 			]
@@ -68,6 +61,62 @@ class LanguageController extends Controller
 	}
 
 	/**
+	 * Creates a new Language model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return string|\yii\web\Response
+	 */
+	public function actionCreate()
+	{
+		$model = new Language();
+
+		if ($this->request->isPost) {
+			if ($model->load($this->request->post()) && $model->save()) {
+				return $this->redirect(['view', 'pk' => $model->pk]);
+			}
+		} else {
+			$model->loadDefaultValues();
+		}
+
+		return $this->render('create', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Updates an existing Language model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param int $pk Language PK
+	 * @return string|\yii\web\Response
+	 * @throws NotFoundHttpException if the model cannot be found
+	 */
+	public function actionUpdate($pk)
+	{
+		$model = $this->findModel($pk);
+
+		if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+			return $this->redirect(['view', 'pk' => $model->pk]);
+		}
+
+		return $this->render('update', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Deletes an existing Language model.
+	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 * @param int $pk Language PK
+	 * @return \yii\web\Response
+	 * @throws NotFoundHttpException if the model cannot be found
+	 */
+	public function actionDelete($pk)
+	{
+		$this->findModel($pk)->delete();
+
+		return $this->redirect(['index']);
+	}
+
+	/**
 	 * Finds the Language model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
 	 * @param int $pk Language PK
@@ -83,4 +132,3 @@ class LanguageController extends Controller
 		throw new NotFoundHttpException('The requested page does not exist.');
 	}
 }
-\

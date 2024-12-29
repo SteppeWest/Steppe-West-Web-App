@@ -1,24 +1,24 @@
 <?php
 
-use common\models\LanguagePage;
+use common\models\LanguageFaq;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var common\models\LanguagePageSearch $searchModel */
+/** @var common\models\LanguageFaqSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Language Pages';
+$this->title = 'Language Faqs';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="language-page-index">
+<div class="language-faq-index">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
 	<p>
-		<?= Html::a('Create Language Page', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a('Create Language Faq', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
 	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -30,20 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
 			['class' => 'yii\grid\SerialColumn'],
 
 			'pk',
-			'lang_pk',
-			'page_lang',
-			'slug',
-			'title:ntext',
-			//'subtitle:ntext',
-			//'description:ntext',
-			//'keywords:ntext',
-			//'lead:ntext',
-			//'origin:ntext',
-			//'origin_link:ntext',
-			//'body_content:ntext',
+			'page_pk',
+			'active',
+			'position',
+			'question',
+			//'answer:ntext',
 			[
 				'class' => ActionColumn::className(),
-				'urlCreator' => function ($action, LanguagePage $model, $key, $index, $column) {
+				'urlCreator' => function ($action, LanguageFaq $model, $key, $index, $column) {
 					return Url::toRoute([$action, 'pk' => $model->pk]);
 				 }
 			],

@@ -17,8 +17,8 @@ use Symfony\Component\Yaml\Yaml;
 use common\assets\SwMetaAsset;
 use common\widgets\SwFlagSelector;
 use common\widgets\SwSubstitution;
-use frontend\models\Language;
-use frontend\models\LanguagePage;
+use common\models\Language;
+use common\models\LanguagePage;
 
 /**
  * Default controller for the `SwLanguageModule` module

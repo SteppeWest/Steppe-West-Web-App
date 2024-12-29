@@ -4,13 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\LanguagePage $model */
+/** @var common\models\LanguagePage $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
 <div class="language-page-form">
 
 	<?php $form = ActiveForm::begin(); ?>
+
+	<?= $form->field($model, 'lang_pk')->textInput() ?>
 
 	<?= $form->field($model, 'page_lang')->textInput(['maxlength' => true]) ?>
 

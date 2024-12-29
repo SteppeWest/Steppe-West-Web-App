@@ -15,8 +15,8 @@ use yii\base\Theme;
 use yii\helpers\Html;
 use common\widgets\SwSubstitution;
 use common\widgets\SwYaml;
+use common\models\LanguagePage;
 use frontend\modules\assets\LetterAsset;
-use frontend\models\LanguagePage;
 
 /**
  * Default controller for the `SwLetterModule` module

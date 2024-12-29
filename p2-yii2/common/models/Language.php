@@ -1,14 +1,6 @@
 <?php
-/**
- * Language.php
- *
- * @author Pedro Plowman
- * @copyright Copyright (c) 2024 Steppe West
- * @link https://steppewest.com/
- * @license MIT
- */
 
-namespace frontend\models;
+namespace common\models;
 
 use Yii;
 
@@ -27,8 +19,6 @@ use Yii;
  * @property string $locale Locale
  * @property string $html_lang HTML Language
  * @property string|null $footer_content Footer Content
- *
- * @property LanguagePage[] $languagePages
  */
 class Language extends \yii\db\ActiveRecord
 {
@@ -82,15 +72,5 @@ class Language extends \yii\db\ActiveRecord
 			'html_lang' => 'HTML Language',
 			'footer_content' => 'Footer Content',
 		];
-	}
-
-	/**
-	 * Gets query for [[LanguagePages]].
-	 *
-	 * @return \yii\db\ActiveQuery
-	 */
-	public function getLanguagePages()
-	{
-		return $this->hasMany(LanguagePage::class, ['page_lang' => 'lang_code']);
 	}
 }
