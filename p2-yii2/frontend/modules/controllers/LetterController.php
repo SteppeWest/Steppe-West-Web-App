@@ -16,6 +16,7 @@ use yii\helpers\Html;
 use common\widgets\SwSubstitution;
 use common\widgets\SwYaml;
 use common\models\LanguagePage;
+use common\models\LanguageFaq;
 use frontend\modules\assets\LetterAsset;
 
 /**
@@ -49,9 +50,6 @@ class LetterController extends LanguageModuleController
 		// Run shared logic from the parent
 		$page = parent::actionView($slug, $lc);
 
-		// Initialize FAQ data
-		$faq = null;
-
 		// Fetch the FAQ content for the invite page
 		if ($slug === 'invite') {
 			$faq = $this->processFaqContent($lc);
@@ -83,6 +81,7 @@ class LetterController extends LanguageModuleController
 		$this->view->params['bodyContent'] = $this->processBodyContent($rawContent, $letterAsset);
 
 		// Pass the FAQ to the view
+		$faq = $this->processFaqContent($page->pk);
 		$this->view->params['faq'] = $faq;
 
 /* view params
@@ -229,26 +228,30 @@ $this->params['bodyContent']
 		return $circleImage;
 	}
 
-	protected function processFaqContent($lc): ?array
+	protected function processFaqContent($pagePk): ?array
 	{
-		$faqPage = LanguagePage::find()
-			->where(['slug' => 'faq', 'page_lang' => $lc])
-			->one();
+		// Fetch FAQ records from the LanguageFaq model
+		$faqRecords = LanguageFaq::find()
+			->where(['page_pk' => $pagePk, 'active' => 1]) // Filter by page_id and active status
+			->orderBy(['position' => SORT_ASC]) // Optional: If there's an `order` column
+			->all();
 
-		if (!$faqPage) {
+		// If no records found, return null
+		if (empty($faqRecords)) {
 			return null;
 		}
 
-		$faqTitle = $faqPage->title;
-		$rawFaq = SwYaml::parseYamlItem($faqPage->body_content);
-
 		$faqHtml = '<div class="accordion accordion-flush" id="innerFAQaccordion">';
 
-		foreach ($rawFaq as $index => $item) {
-			$faqHtml .= $this->processFaqItem($index, $item);
+		// Process each FAQ record
+		foreach ($faqRecords as $index => $faq) {
+			$faqHtml .= $this->processFaqItem($index, $faq);
 		}
 
 		$faqHtml .= '</div>';
+
+		// Use a generic title or dynamically set from some source
+		$faqTitle = 'Frequently Asked Questions';
 
 		return [
 			'title' => $faqTitle,
@@ -256,27 +259,33 @@ $this->params['bodyContent']
 		];
 	}
 
-	protected function processFaqItem(int $index, array $faqItem): string
+	protected function processFaqItem(int $index, LanguageFaq $faq): string
 	{
-
 		$id = 'faqItem' . $index;
 		$collapsed = $index === 0 ? '' : ' collapsed';
 		$show = $index === 0 ? ' show' : '';
 
 		$faqHtml = '<div class="accordion-item">';
-
-		$faqHtml .= '<h4 class="accordion-header"><button class="accordion-button';
+		$faqHtml .= '<h4 class="accordion-header">';
+		$faqHtml .= '<button class="accordion-button';
 		$faqHtml .= $collapsed;
-		$faqHtml .= ' collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#';
-		$faqHtml .= $id . '" aria-expanded="false" aria-controls="' . $id . '">';
-		$faqHtml .= $faqItem['heading'];
-		$faqHtml .= '</button></h4>';
-
-		$faqHtml .= '<div id="' . $id . '" class="accordion-collapse collapse' . $show;
-		$faqHtml .= '" data-bs-parent="#innerFAQaccordion"><div class="accordion-body">';
-		$faqHtml .= $faqItem[0];
-		$faqHtml .= '</div></div>';
-
+		$faqHtml .= ' fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#';
+		$faqHtml .= $id;
+		$faqHtml .= '" aria-expanded="false" aria-controls="';
+		$faqHtml .= $id;
+		$faqHtml .= '"><i class="bi bi-play-fill"></i>&nbsp;';
+		$faqHtml .= Html::encode($faq->question); // Escape question text
+		$faqHtml .= '</button>';
+		$faqHtml .= '</h4>';
+		$faqHtml .= '<div id="';
+		$faqHtml .= $id;
+		$faqHtml .= '" class="accordion-collapse collapse';
+		$faqHtml .= $show;
+		$faqHtml .= '" data-bs-parent="#innerFAQaccordion">';
+		$faqHtml .= '<div class="accordion-body p-0">'; // Remove padding with Bootstrap class
+		$faqHtml .= SwSubstitution::applySubstitutions($faq->answer);
+		$faqHtml .= '</div>';
+		$faqHtml .= '</div>';
 		$faqHtml .= '</div>';
 
 		return $faqHtml;
