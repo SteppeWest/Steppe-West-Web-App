@@ -22,7 +22,7 @@
 		"symfony/yaml": "^7.1",
 		"kartik-v/yii2-markdown": "dev-master",
 		"p2made/p2y2-things": "*",
-		"p2made/p2y2-sb-admin-theme": "*"
+		"p2made/p2y2-sb-admin": "*"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "~2.1.0",
@@ -63,7 +63,7 @@
 		},
 		{
 			"type": "path",
-			"url": "../../../Developer/Web/p2made/p2y2-sb-admin-theme",
+			"url": "../../../Developer/Web/p2made/p2y2-sb-admin",
 			"options": {
 				"symlink": true
 			}
