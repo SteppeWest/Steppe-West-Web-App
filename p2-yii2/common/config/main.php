@@ -59,6 +59,11 @@ return [
 			'showScriptName' => false,
 			'enableStrictParsing' => false,
 		],
+		/**
+		'request' => [
+			'enableCsrfCookie' => false,
+		],
+		 */
 		'cache' => [
 			'class' => \yii\caching\FileCache::class,
 		],

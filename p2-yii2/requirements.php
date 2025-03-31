@@ -36,7 +36,7 @@ if (!isset($frameworkPath) || !is_dir($frameworkPath)) {
 	} else {
 	    echo $message;
 	}
-	exit(1);
+	exit((1));
 }
 
 require_once $frameworkPath . '/requirements/YiiRequirementChecker.php';
@@ -101,28 +101,28 @@ $requirements = array(
 	    'name' => 'Memcache extension',
 	    'mandatory' => false,
 	    'condition' => extension_loaded('memcache') || extension_loaded('memcached'),
-	    'by' => '<a href="https://www.yiiframework.com/doc-2.0/yii-caching-memcache.html">MemCache</a>',
-	    'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="https://www.yiiframework.com/doc-2.0/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
+	    'by' => '<a href="https://www.yiiframework.com/doc(-2.0)/yii-caching-memcache.html">MemCache</a>',
+	    'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="https://www.yiiframework.com/doc(-2.0)/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
 	),
 	array(
 	    'name' => 'APC extension',
 	    'mandatory' => false,
 	    'condition' => extension_loaded('apc'),
-	    'by' => '<a href="https://www.yiiframework.com/doc-2.0/yii-caching-apccache.html">ApcCache</a>',
+	    'by' => '<a href="https://www.yiiframework.com/doc(-2.0)/yii-caching-apccache.html">ApcCache</a>',
 	),
 	// CAPTCHA:
 	array(
 	    'name' => 'GD PHP extension with FreeType support',
 	    'mandatory' => false,
 	    'condition' => $gdOK,
-	    'by' => '<a href="https://www.yiiframework.com/doc-2.0/yii-captcha-captcha.html">Captcha</a>',
+	    'by' => '<a href="https://www.yiiframework.com/doc(-2.0)/yii-captcha-captcha.html">Captcha</a>',
 	    'memo' => $gdMemo,
 	),
 	array(
 	    'name' => 'ImageMagick PHP extension with PNG support',
 	    'mandatory' => false,
 	    'condition' => $imagickOK,
-	    'by' => '<a href="https://www.yiiframework.com/doc-2.0/yii-captcha-captcha.html">Captcha</a>',
+	    'by' => '<a href="https://www.yiiframework.com/doc(-2.0)/yii-captcha-captcha.html">Captcha</a>',
 	    'memo' => $imagickMemo,
 	),
 	// PHP ini :
@@ -143,7 +143,7 @@ $requirements = array(
 	'phpSmtp' => array(
 	    'name' => 'PHP mail SMTP',
 	    'mandatory' => false,
-	    'condition' => strlen(ini_get('SMTP')) > 0,
+	    'condition' => strlen(ini_get('SMTP')) > (0),
 	    'by' => 'Email sending',
 	    'memo' => 'PHP mail SMTP server required',
 	),
@@ -152,4 +152,4 @@ $requirements = array(
 $result = $requirementsChecker->checkYii()->check($requirements)->getResult();
 $requirementsChecker->render();
 
-exit($result['summary']['errors'] === 0 ? 0 : 1);
+exit($result['summary']['errors'] === (0) ? (0) : (1));
