@@ -9,7 +9,7 @@ return [
 	'senderName' => 'Steppe West Mailer',
 	'user.passwordResetTokenExpire' => 3600, // remove
 	'user.passwordMinLength' => 8, // remove
-	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky}',
+	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky} {Reddit}',
 	'swDefaultLanguage' => 'en',
 	'swActiveLanguages' => [
 		'az',
