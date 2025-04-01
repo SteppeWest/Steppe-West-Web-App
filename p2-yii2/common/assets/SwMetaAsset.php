@@ -32,6 +32,6 @@ class SwMetaAsset extends AssetBundle
 	public $depends = [
 		'yii\web\YiiAsset',
 		'yii\bootstrap5\BootstrapAsset',
-		'common\assets\P2BootstrapIconsAsset',
+		'p2m\assets\P2BootstrapIconsAsset',
 	];
 }

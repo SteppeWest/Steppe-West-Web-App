@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3044a5b176fdbf86e5a96152cbd67c95",
+    "content-hash": "cb9049c1247baef6130c931f84b6172f",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -712,11 +712,11 @@
         },
         {
             "name": "p2made/p2y2-things",
-            "version": "dev-5.x-reboot",
+            "version": "dev-5.0-dev",
             "dist": {
                 "type": "path",
                 "url": "../../../Developer/Web/p2made/p2y2-things",
-                "reference": "790a1fbe9bde011f7d0c4ef83509dee882fff714"
+                "reference": "258d2d1bad1e5f4b045a3c9752e9b6128efd03dc"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -3225,57 +3225,6 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
             },
             "time": "2024-12-30T11:07:19+00:00"
-        },
-        {
-            "name": "p2made/p2y2-things-demo",
-            "version": "dev-5.x-reboot",
-            "dist": {
-                "type": "path",
-                "url": "../../../Developer/Web/p2made/p2y2-things-demo",
-                "reference": "c69f823e45a73cbcb3f6fbfa7e34b08df49ce0f4"
-            },
-            "require": {
-                "p2made/p2y2-things": "dev-5.x-reboot"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "p2m\\demo\\": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pedro Plowman",
-                    "email": "p2opensource@gmail.com",
-                    "homepage": "https://github.com/p2made"
-                }
-            ],
-            "description": "Not really a theme. A set of pages to demonstrate p2made/p2y2-things, bundled as a theme.",
-            "keywords": [
-                "PHP",
-                "admin",
-                "asset",
-                "bundle",
-                "extension",
-                "frontend",
-                "theme",
-                "theme",
-                "ui",
-                "user-interface",
-                "yii",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/p2made/p2y2-things-demo/issues?state=open",
-                "source": "https://github.com/p2made/p2y2-things-demo"
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "phar-io/manifest",
@@ -5980,7 +5929,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "kartik-v/yii2-markdown": 20
+        "kartik-v/yii2-markdown": 20,
+        "p2made/p2y2-things": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
