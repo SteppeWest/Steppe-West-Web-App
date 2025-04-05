@@ -2,6 +2,13 @@
 /**
  * app/common/config/main.php
  */
+
+$bootstrapVersion = '5.3.4';
+$bootstrapCssIntegrity = 'sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC';
+$bootstrapJsIntegrity = 'sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu';
+$jqueryVersion = '3.7.1';
+$jqueryIntegrity = 'sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs';
+
 return [
 	'charset' => 'utf-8',
 	'aliases' => [
@@ -17,23 +24,23 @@ return [
 			'bundles' => [
 				'yii\bootstrap5\BootstrapAsset' => [
 					'sourcePath' => null,
-					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/',
+					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@' . $bootstrapVersion . '/dist/',
 					'css' => [
 						'css/bootstrap.min.css',
 					],
 					'cssOptions' => [
-						'integrity' => 'sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH',
+						'integrity' => $bootstrapCssIntegrity,
 						'crossorigin' => 'anonymous',
 					],
 				],
 				'yii\bootstrap5\BootstrapPluginAsset' => [
 					'sourcePath' => null,
-					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/',
+					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@' . $bootstrapVersion . '/dist/',
 					'js' => [
 						'js/bootstrap.bundle.min.js',
 					],
 					'jsOptions' => [
-						'integrity' => 'sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz',
+						'integrity' => $bootstrapJsIntegrity,
 						'crossorigin' => 'anonymous',
 					],
 				],
@@ -41,10 +48,10 @@ return [
 					'sourcePath' => null,
 					'baseUrl' => '//code.jquery.com/',
 					'js' => [
-						'jquery-3.7.1.min.js',
+						'jquery-' . $jqueryVersion . '.min.js',
 					],
 					'jsOptions' => [
-						'integrity' => 'sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs',
+						'integrity' => $jqueryIntegrity,
 						'crossorigin' => 'anonymous',
 					],
 				],
