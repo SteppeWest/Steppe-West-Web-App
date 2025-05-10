@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "bower-asset/bootstrap",
-            "version": "v5.3.5",
+            "version": "v5.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "85f23534bd2de8041354b297516cf21959091b31"
+                "reference": "f849680d16a9695c9a6c9c062d6cff55ddcf071e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/85f23534bd2de8041354b297516cf21959091b31",
-                "reference": "85f23534bd2de8041354b297516cf21959091b31"
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/f849680d16a9695c9a6c9c062d6cff55ddcf071e",
+                "reference": "f849680d16a9695c9a6c9c062d6cff55ddcf071e"
             },
             "type": "bower-asset"
         },
@@ -790,7 +790,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../Developer/Web/p2made/p2y2-things-demo",
-                "reference": "f574df153ad175341de05d48e5aae4c349eaa428"
+                "reference": "7b58144d63d102c2dd9bff19d27a38f34fc42a86"
             },
             "require": {
                 "p2made/p2y2-things": "dev-5.0-dev"
@@ -1872,12 +1872,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "d74bd8ec91ab0ee44a9d6d14a82b55ec2561b828"
+                "reference": "cd2cd02812aa2b498d401055708417b38b776c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d74bd8ec91ab0ee44a9d6d14a82b55ec2561b828",
-                "reference": "d74bd8ec91ab0ee44a9d6d14a82b55ec2561b828",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/cd2cd02812aa2b498d401055708417b38b776c99",
+                "reference": "cd2cd02812aa2b498d401055708417b38b776c99",
                 "shasum": ""
             },
             "require": {
@@ -1986,7 +1986,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-05T05:27:07+00:00"
+            "time": "2025-05-06T17:12:51+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap5",
@@ -2231,12 +2231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "99c5226d78778fbd3cbb5865eb622cddbda7c255"
+                "reference": "7eaf0ecc0a01252392045de36b2d3702bfe1094c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/99c5226d78778fbd3cbb5865eb622cddbda7c255",
-                "reference": "99c5226d78778fbd3cbb5865eb622cddbda7c255",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/7eaf0ecc0a01252392045de36b2d3702bfe1094c",
+                "reference": "7eaf0ecc0a01252392045de36b2d3702bfe1094c",
                 "shasum": ""
             },
             "require": {
@@ -2292,20 +2292,20 @@
                 "issues": "https://github.com/Behat/Gherkin/issues",
                 "source": "https://github.com/Behat/Gherkin/tree/master"
             },
-            "time": "2025-05-05T15:30:10+00:00"
+            "time": "2025-05-06T15:30:56+00:00"
         },
         {
             "name": "codeception/codeception",
-            "version": "dev-main",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "cbfa60e12fb9bd4f07df5620519bd3184c0bac3e"
+                "reference": "5894c6f9f2f4bdcbd2a1d73ed6dc91976ce8a012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/cbfa60e12fb9bd4f07df5620519bd3184c0bac3e",
-                "reference": "cbfa60e12fb9bd4f07df5620519bd3184c0bac3e",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/5894c6f9f2f4bdcbd2a1d73ed6dc91976ce8a012",
+                "reference": "5894c6f9f2f4bdcbd2a1d73ed6dc91976ce8a012",
                 "shasum": ""
             },
             "require": {
@@ -2368,7 +2368,6 @@
                 "symfony/phpunit-bridge": "For phpunit-bridge support",
                 "vlucas/phpdotenv": "For loading params from .env files"
             },
-            "default-branch": true,
             "bin": [
                 "codecept"
             ],
@@ -2412,7 +2411,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/Codeception/issues",
-                "source": "https://github.com/Codeception/Codeception/tree/main"
+                "source": "https://github.com/Codeception/Codeception/tree/5.3.0"
             },
             "funding": [
                 {
@@ -2420,7 +2419,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-05-02T15:04:00+00:00"
+            "time": "2025-05-06T19:00:07+00:00"
         },
         {
             "name": "codeception/lib-asserts",
@@ -2590,22 +2589,22 @@
         },
         {
             "name": "codeception/module-asserts",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/module-asserts.git",
-                "reference": "c58281f3d741599c81676bcb92996cf1e22d9ffd"
+                "reference": "eb1f7c980423888f3def5116635754ae4a75bd47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/module-asserts/zipball/c58281f3d741599c81676bcb92996cf1e22d9ffd",
-                "reference": "c58281f3d741599c81676bcb92996cf1e22d9ffd",
+                "url": "https://api.github.com/repos/Codeception/module-asserts/zipball/eb1f7c980423888f3def5116635754ae4a75bd47",
+                "reference": "eb1f7c980423888f3def5116635754ae4a75bd47",
                 "shasum": ""
             },
             "require": {
                 "codeception/codeception": "*@dev",
-                "codeception/lib-asserts": "^2.0",
-                "php": "^8.1"
+                "codeception/lib-asserts": "^2.2",
+                "php": "^8.2"
             },
             "conflict": {
                 "codeception/codeception": "<5.0"
@@ -2641,9 +2640,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/module-asserts/issues",
-                "source": "https://github.com/Codeception/module-asserts/tree/3.1.0"
+                "source": "https://github.com/Codeception/module-asserts/tree/3.2.0"
             },
-            "time": "2025-04-24T17:18:25+00:00"
+            "time": "2025-05-02T02:33:11+00:00"
         },
         {
             "name": "codeception/module-filesystem",
@@ -5136,12 +5135,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d10b149020a8cec39fad6e34adf1295ffab768f8"
+                "reference": "2eab7741e965524bfdd864caf3ff76c18a2dc3e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d10b149020a8cec39fad6e34adf1295ffab768f8",
-                "reference": "d10b149020a8cec39fad6e34adf1295ffab768f8",
+                "url": "https://api.github.com/repos/symfony/console/zipball/2eab7741e965524bfdd864caf3ff76c18a2dc3e9",
+                "reference": "2eab7741e965524bfdd864caf3ff76c18a2dc3e9",
                 "shasum": ""
             },
             "require": {
@@ -5156,8 +5155,7 @@
                 "symfony/dotenv": "<6.4",
                 "symfony/event-dispatcher": "<6.4",
                 "symfony/lock": "<6.4",
-                "symfony/process": "<6.4",
-                "symfony/runtime": "<7.3"
+                "symfony/process": "<6.4"
             },
             "provide": {
                 "psr/log-implementation": "1.0|2.0|3.0"
@@ -5223,7 +5221,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-05T08:24:21+00:00"
+            "time": "2025-05-07T08:12:56+00:00"
         },
         {
             "name": "symfony/css-selector",
