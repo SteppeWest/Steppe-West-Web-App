@@ -59,27 +59,6 @@
 		{
 			"type": "composer",
 			"url": "https://asset-packagist.org"
-		},
-		{
-			"type": "path",
-			"url": "../../../Developer/Web/p2made/p2y2-sb-admin",
-			"options": {
-				"symlink": true
-			}
-		},
-		{
-			"type": "path",
-			"url": "../../../Developer/Web/p2made/p2y2-things",
-			"options": {
-				"symlink": true
-			}
-		},
-		{
-			"type": "path",
-			"url": "../../../Developer/Web/p2made/p2y2-things-demo",
-			"options": {
-				"symlink": true
-			}
 		}
 	]
 }
