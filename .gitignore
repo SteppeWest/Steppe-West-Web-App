@@ -1,26 +1,95 @@
-# Ignore hidden Mac system files
+### Yii2 ###
+
+# yii console commands (now in /p2-yii2)
+/p2-yii2/yii
+/p2-yii2/yii_test
+/p2-yii2/yii_test.bat
+
+# phpstorm project files (in /p2-yii2)
+/p2-yii2/.idea
+
+# netbeans project files (in /p2-yii2)
+/p2-yii2/nbproject
+
+# zend studio for eclipse project files (in /p2-yii2)
+/p2-yii2/.buildpath
+/p2-yii2/.project
+/p2-yii2/.settings
+
+# Mac DS_Store Files
 .DS_Store
-**/.DS_Store
-._*
-**/._*
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Composer vendor directory (in /p2-yii2)
+/p2-yii2/vendor
+
+# Other directories (in /p2-yii2)
+/p2-yii2/components
 
 # Composer itself is not needed (in /p2-yii2)
 /p2-yii2/composer.phar
 /p2-yii2/composer.lock
 
+# PHPUnit itself is not needed (in /p2-yii2)
+/p2-yii2/phpunit.phar
+# Local PHPUnit config (in /p2-yii2)
+/p2-yii2/phpunit.xml
+
+# Vagrant runtime
+/.vagrant
+
 # The docs/ folder contains confidential information
 docs/
 
-/public_html/
+# Ignore generated files for the frontend (now in /public_html)
 /public_html/assets
-/public_html/sub_dev
-/public_html/sub_links
-/public_html/sub_members
-/public_html/sub_tmp
+/public_html/index.php
+/public_html/index-test.php
+/public_html/robots.txt
 
+# Ignore generated files for the backend (now in /public_html/sub_admin)
+/public_html/sub_admin/assets
+/public_html/sub_admin/index.php
+/public_html/sub_admin/index-test.php
+/public_html/sub_admin/robots.txt
+
+# ignore other possible generated files
+/public_html/sub_dev/
+/public_html/sub_dev/assets
+/public_html/sub_dev/index.php
+/public_html/sub_dev/index-test.php
+/public_html/sub_dev/robots.txt
+/public_html/sub_invite/
+/public_html/sub_invite/assets
+/public_html/sub_invite/index.php
+/public_html/sub_invite/index-test.php
+/public_html/sub_invite/robots.txt
+/public_html/sub_links/
+/public_html/sub_links/assets
+/public_html/sub_links/index.php
+/public_html/sub_links/index-test.php
+/public_html/sub_links/robots.txt
+/public_html/sub_members/
+/public_html/sub_members/assets
+/public_html/sub_members/index.php
+/public_html/sub_members/index-test.php
+/public_html/sub_members/robots.txt
+/public_html/sub_tmp/
+/public_html/sub_tmp/assets
+/public_html/sub_tmp/index.php
+/public_html/sub_tmp/index-test.php
+/public_html/sub_tmp/robots.txt
+
+# composer vendor dir
 /p2-yii2/vendor/*
 !/p2-yii2/vendor/.gitkeep
 
 # Ignore z_gitignore folders at any level
 z_gitignore/
 **/z_gitignore/
+
+@bower
+@npm
+@p2m
