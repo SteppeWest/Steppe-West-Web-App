@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb9049c1247baef6130c931f84b6172f",
+    "content-hash": "b25c4d6dcb35c561fe4f621de49acf82",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -27,12 +27,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/Inputmask.git",
-                "reference": "b45bb673cbcee0ce8b1dc5ad22c3e019176fe148"
+                "reference": "c089423807efcde053eada085a8418e6a42a6785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/b45bb673cbcee0ce8b1dc5ad22c3e019176fe148",
-                "reference": "b45bb673cbcee0ce8b1dc5ad22c3e019176fe148"
+                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/c089423807efcde053eada085a8418e6a42a6785",
+                "reference": "c089423807efcde053eada085a8418e6a42a6785"
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
@@ -664,11 +664,10 @@
             "dist": {
                 "type": "path",
                 "url": "../../../Developer/Web/p2made/p2y2-sb-admin",
-                "reference": "973421422069774e4a52752e51ec33ef8af54ef3"
+                "reference": "d2a46c98d22ce93e52422d3b6beb6c1dab93bdfd"
             },
             "require": {
-                "p2made/p2y2-things": "dev-5.0-dev",
-                "p2made/p2y2-things-demo": "dev-5.0-dev"
+                "p2made/p2y2-things": "dev-5.0-dev"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -717,7 +716,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../Developer/Web/p2made/p2y2-things",
-                "reference": "5e8f5aff7d07e6c723f09230d51ad8837164f430"
+                "reference": "2f094193c22283b5c0d95576242daeb81d3ad533"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -778,57 +777,6 @@
             "support": {
                 "issues": "https://github.com/p2made/p2y2-things/issues?state=open",
                 "source": "https://github.com/p2made/p2y2-things"
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "p2made/p2y2-things-demo",
-            "version": "dev-5.0-dev",
-            "dist": {
-                "type": "path",
-                "url": "../../../Developer/Web/p2made/p2y2-things-demo",
-                "reference": "7b58144d63d102c2dd9bff19d27a38f34fc42a86"
-            },
-            "require": {
-                "p2made/p2y2-things": "dev-5.0-dev"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "p2m\\demo\\": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pedro Plowman",
-                    "email": "p2opensource@gmail.com",
-                    "homepage": "https://github.com/p2made"
-                }
-            ],
-            "description": "Not really a theme. A set of pages to demonstrate p2made/p2y2-things, bundled as a theme.",
-            "keywords": [
-                "PHP",
-                "admin",
-                "asset",
-                "bundle",
-                "extension",
-                "frontend",
-                "theme",
-                "theme",
-                "ui",
-                "user-interface",
-                "yii",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/p2made/p2y2-things-demo/issues?state=open",
-                "source": "https://github.com/p2made/p2y2-things-demo"
             },
             "transport-options": {
                 "symlink": true,
@@ -2231,12 +2179,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "7eaf0ecc0a01252392045de36b2d3702bfe1094c"
+                "reference": "093375a62e7ce32297ce44edd3df7296b872589c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/7eaf0ecc0a01252392045de36b2d3702bfe1094c",
-                "reference": "7eaf0ecc0a01252392045de36b2d3702bfe1094c",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/093375a62e7ce32297ce44edd3df7296b872589c",
+                "reference": "093375a62e7ce32297ce44edd3df7296b872589c",
                 "shasum": ""
             },
             "require": {
@@ -2246,6 +2194,7 @@
             "require-dev": {
                 "cucumber/gherkin-monorepo": "dev-gherkin-v32.1.1",
                 "friendsofphp/php-cs-fixer": "^3.65",
+                "mikey179/vfsstream": "^1.6",
                 "phpstan/extension-installer": "^1",
                 "phpstan/phpstan": "^2",
                 "phpstan/phpstan-phpunit": "^2",
@@ -2292,20 +2241,20 @@
                 "issues": "https://github.com/Behat/Gherkin/issues",
                 "source": "https://github.com/Behat/Gherkin/tree/master"
             },
-            "time": "2025-05-06T15:30:56+00:00"
+            "time": "2025-05-22T21:53:55+00:00"
         },
         {
             "name": "codeception/codeception",
-            "version": "5.3.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "5894c6f9f2f4bdcbd2a1d73ed6dc91976ce8a012"
+                "reference": "4ac6b4fb10db02c5a43b4afbeb665a0e33fbcfde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/5894c6f9f2f4bdcbd2a1d73ed6dc91976ce8a012",
-                "reference": "5894c6f9f2f4bdcbd2a1d73ed6dc91976ce8a012",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4ac6b4fb10db02c5a43b4afbeb665a0e33fbcfde",
+                "reference": "4ac6b4fb10db02c5a43b4afbeb665a0e33fbcfde",
                 "shasum": ""
             },
             "require": {
@@ -2411,7 +2360,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/Codeception/issues",
-                "source": "https://github.com/Codeception/Codeception/tree/5.3.0"
+                "source": "https://github.com/Codeception/Codeception/tree/5.3.1"
             },
             "funding": [
                 {
@@ -2419,7 +2368,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-05-06T19:00:07+00:00"
+            "time": "2025-05-13T23:20:11+00:00"
         },
         {
             "name": "codeception/lib-asserts",
@@ -3979,12 +3928,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "85057ceedee50c49d4f6ecaff73ee96adb3b3625"
+                "reference": "1731502ec245d5d82359388190e163193989b7ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/85057ceedee50c49d4f6ecaff73ee96adb3b3625",
-                "reference": "85057ceedee50c49d4f6ecaff73ee96adb3b3625",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1731502ec245d5d82359388190e163193989b7ad",
+                "reference": "1731502ec245d5d82359388190e163193989b7ad",
                 "shasum": ""
             },
             "require": {
@@ -4049,9 +3998,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.8"
+                "source": "https://github.com/bobthecow/psysh/tree/main"
             },
-            "time": "2025-03-16T03:05:19+00:00"
+            "time": "2025-05-11T16:52:40+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -5135,12 +5084,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "2eab7741e965524bfdd864caf3ff76c18a2dc3e9"
+                "reference": "0c575e7bb1a44a06c4a04d037fe3ced4d9c34a76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/2eab7741e965524bfdd864caf3ff76c18a2dc3e9",
-                "reference": "2eab7741e965524bfdd864caf3ff76c18a2dc3e9",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0c575e7bb1a44a06c4a04d037fe3ced4d9c34a76",
+                "reference": "0c575e7bb1a44a06c4a04d037fe3ced4d9c34a76",
                 "shasum": ""
             },
             "require": {
@@ -5221,7 +5170,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-07T08:12:56+00:00"
+            "time": "2025-05-13T13:52:14+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -5591,12 +5540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "5be5bdd07600c270083d821a4b20697a47526311"
+                "reference": "548f6760c54197b1084e1e5c71f6d9d523f2f78e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/5be5bdd07600c270083d821a4b20697a47526311",
-                "reference": "5be5bdd07600c270083d821a4b20697a47526311",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/548f6760c54197b1084e1e5c71f6d9d523f2f78e",
+                "reference": "548f6760c54197b1084e1e5c71f6d9d523f2f78e",
                 "shasum": ""
             },
             "require": {
@@ -5667,7 +5616,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-09T08:14:14+00:00"
+            "time": "2025-04-27T18:39:23+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -5986,6 +5935,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-markdown": 20,
+        "p2made/p2y2-sb-admin": 20,
         "p2made/p2y2-things": 20
     },
     "prefer-stable": false,

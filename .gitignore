@@ -4,9 +4,14 @@
 ._*
 **/._*
 
+# Composer itself is not needed (in /p2-yii2)
+/p2-yii2/composer.phar
+/p2-yii2/composer.lock
+
 # The docs/ folder contains confidential information
 docs/
 
+/public_html/
 /public_html/assets
 /public_html/sub_dev
 /public_html/sub_links
