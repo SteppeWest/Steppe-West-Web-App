@@ -17,7 +17,7 @@ use yii\bootstrap5\NavBar;
 <header>
 	<?php NavBar::begin([
 		'brandLabel' => Yii::$app->name,
-		'brandUrl' => Yii::$app->homeUrl,
+		'brandUrl' => Yii::$container->get('hostBaseUrl'),
 		'options' => [
 			'class' => 'navbar navbar-dark bg-dark navbar-expand-lg',
 		],
