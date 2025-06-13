@@ -1,0 +1,1 @@
+./sw_manager/main.fish
