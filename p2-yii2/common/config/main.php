@@ -18,7 +18,7 @@ return [
 	'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
 	'bootstrap' => [
 		'log',
-		\p2m\components\SwUrlManagerBootstrap::class,
+		\p2m\components\P2UrlManagerBootstrap::class,
 	],
 	'components' => [
 		'assetManager' => [
