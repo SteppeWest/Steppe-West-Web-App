@@ -95,8 +95,8 @@ $this->params['langMenu']
 		$segments = explode('/', $path);
 
 		$menuItems = [];
-		$menuUrlBase = Yii::$app->homeUrl . '/';
-		if ($slug) {
+		$menuUrlBase = Yii::$container->get('hostBaseUrl') . '/';
+		if ($slug && $slug !== 'intro') {
 			$menuUrlBase .= $slug . '/';
 		}
 
