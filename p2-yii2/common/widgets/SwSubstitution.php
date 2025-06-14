@@ -22,6 +22,7 @@ namespace common\widgets;
 use yii\helpers\Html;
 use common\widgets\SwFlagSelector;
 use common\models\Substitution;
+use p2m\helpers\BI;
 
 class SwSubstitution {
 	/**
@@ -87,7 +88,7 @@ class SwSubstitution {
 			// Determine link text based on icon and title
 			$linkText = '';
 			if (!empty($substitution->icon)) {
-				$linkIcon = Html::tag('i', '', ['class' => $substitution->icon]);
+				$linkIcon = BI::i($substitution->icon); // ->size(3)
 				if (strpos($substitution->class, 'btn') === 0) {
 					$linkText = $linkIcon;
 				} else {
