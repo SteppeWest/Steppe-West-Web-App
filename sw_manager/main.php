@@ -5,7 +5,7 @@
  * CLI front-controller for Steppe West project.
  */
 
-require_once __DIR__ . '/../lib/Console.php';
+require_once __DIR__ . '/lib/Console.php';
 
 // 1) Ensure we’re running from the project root
 chdir(__DIR__ . '/..');
