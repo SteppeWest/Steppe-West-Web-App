@@ -1,1 +1,1 @@
-./main.php
+./sw_manager/main.php
