@@ -2,6 +2,8 @@
 <?php
 // sw_manager/commands/clean.php
 
+require_once __DIR__ . '/../lib/Console.php';
+
 /**
  * Recursively delete a directory’s contents (but not the dir itself).
  */
@@ -37,3 +39,10 @@ if ($didClean) {
 } else {
 	echo "✅ Nothing to clean (all runtime dirs were already empty).\n";
 }
+
+
+
+// Example:
+echo Console::ok("All runtime dirs cleaned.") . "\n";
+echo Console::info("Nothing to do.") . "\n";
+fwrite(STDERR, Console::fail("Backup failed!") . "\n");

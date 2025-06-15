@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 // sw_manager/commands/compose.php
 // Runs `composer update` in the p2-yii2 directory,
