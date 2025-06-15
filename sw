@@ -1,1 +1,1 @@
-./sw_manager/main.fish
+./main.php
