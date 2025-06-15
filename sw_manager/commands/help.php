@@ -2,6 +2,8 @@
 <?php
 // sw_manager/commands/help.php
 
+require_once __DIR__ . '/../lib/Console.php';
+
 echo <<<HELP
 Steppe West CLI (“sw”) — available commands:
 

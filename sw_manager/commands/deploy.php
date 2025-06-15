@@ -2,6 +2,8 @@
 <?php
 // sw_manager/commands/deploy.php
 
+require_once __DIR__ . '/../lib/Console.php';
+
 // 1) Load credentials *only* when deploying
 require __DIR__ . '/../credentials.php';
 

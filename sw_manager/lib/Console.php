@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 // sw_manager/lib/Console.php
 

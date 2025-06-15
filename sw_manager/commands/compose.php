@@ -4,6 +4,8 @@
 // Runs `composer update` in the p2-yii2 directory,
 // only prints on failure.
 
+require_once __DIR__ . '/../lib/Console.php';
+
 $projectDir = realpath(__DIR__ . '/../../p2-yii2');
 if (!$projectDir || !is_dir($projectDir)) {
 	fwrite(STDERR, "Error: p2-yii2 not found.\n");

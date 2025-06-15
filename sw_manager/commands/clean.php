@@ -35,14 +35,8 @@ foreach (glob($pattern, GLOB_ONLYDIR) ?: [] as $runtimeDir) {
 }
 
 if ($didClean) {
-	echo "✅ All runtime directories cleaned.\n";
+	echo Console::ok("✅ All runtime directories cleaned.") . "\n";
 } else {
-	echo "✅ Nothing to clean (all runtime dirs were already empty).\n";
+	echo Console::ok("✅ Nothing to clean (all runtime dirs were already empty).") . "\n";
+	echo "";
 }
-
-
-
-// Example:
-echo Console::ok("All runtime dirs cleaned.") . "\n";
-echo Console::info("Nothing to do.") . "\n";
-fwrite(STDERR, Console::fail("Backup failed!") . "\n");

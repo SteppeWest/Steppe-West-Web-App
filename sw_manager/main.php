@@ -5,6 +5,8 @@
  * CLI front-controller for Steppe West project.
  */
 
+require_once __DIR__ . '/../lib/Console.php';
+
 // 1) Ensure we’re running from the project root
 chdir(__DIR__ . '/..');
 
@@ -20,7 +22,7 @@ if (is_file($cmdFile)) {
 	$GLOBALS['sw_args'] = $args;
 	require $cmdFile;
 } else {
-	fwrite(STDERR, "Unknown command “{$cmd}”.\n");
-	fwrite(STDERR, "Try: ./sw help\n");
+	fwrite(STDERR, Console::fail("Unknown command “{$cmd}”.") . "\n");
+	fwrite(STDERR, Console::fail("Try: ./sw help") . "\n");
 	exit(1);
 }
