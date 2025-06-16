@@ -1,1 +1,0 @@
-./sw_manager/main.php
