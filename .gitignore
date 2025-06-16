@@ -1,6 +1,7 @@
 ### Yii2 ###
 
 /sw_manager/credentials.php
+/sw
 
 # yii console commands (now in /p2-yii2)
 /p2-yii2/yii
