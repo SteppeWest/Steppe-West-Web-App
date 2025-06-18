@@ -51,7 +51,7 @@ Thumbs.db
 docs/
 
 # Ignore generated files for the frontend (now in /public_html)
-public_html/
+# public_html/
 
 # composer vendor dir
 /p2-yii2/vendor/*
