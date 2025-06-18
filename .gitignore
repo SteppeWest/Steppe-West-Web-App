@@ -29,9 +29,6 @@
 # Windows thumbnail cache
 Thumbs.db
 
-# Composer vendor directory (in /p2-yii2)
-/p2-yii2/vendor
-
 # Other directories (in /p2-yii2)
 /p2-yii2/components
 
@@ -46,16 +43,6 @@ Thumbs.db
 
 # Vagrant runtime
 /.vagrant
-
-# The docs/ folder contains confidential information
-docs/
-
-# Ignore generated files for the frontend (now in /public_html)
-# public_html/
-
-# composer vendor dir
-/p2-yii2/vendor/*
-!/p2-yii2/vendor/.gitkeep
 
 # Ignore z_gitignore folders at any level
 z_gitignore/
