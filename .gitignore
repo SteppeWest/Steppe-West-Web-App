@@ -1,5 +1,8 @@
 ### Yii2 ###
 
+# stuff to keep
+!**/.gitkeep
+
 /sw
 /sw_manager/credentials.php
 
