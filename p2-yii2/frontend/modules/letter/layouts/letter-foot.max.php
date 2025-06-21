@@ -32,7 +32,9 @@ use common\widgets\SwContactObfuscator;
 		</div>
 		<div class="col-lg-4 float-end">
 			<p class="float-end fs-2">
+
 				<?= $this->params['socialButtons'] ?>
+
 			</p>
 		</div>
 	</div>
