@@ -16,8 +16,46 @@
 
 namespace common\widgets;
 
-class SwFlagSelector
+use yii\base\Widget;
+use p2m\assets\P2FlagIconsAsset;
+use p2m\helpers\FI;
+
+class SwFlagSelector extends Widget
 {
+	/** @var string Two-letter country code */
+	public $iconCode;
+
+	/** @var int|null optional font-size utility */
+	public $size;
+
+	public function init()
+	{
+		parent::init();
+		// register the BI asset bundle
+		P2FlagIconsAsset::register($this);
+	}
+
+	public function run()
+	{
+		// now you can generate your <i>…</i> safely
+		if (preg_match('/^[A-Z]{2}$/', $this->iconCode)) {
+			$points = [
+				127397 + ord($this->iconCode[0]),
+				127397 + ord($this->iconCode[1]),
+			];
+			$html = mb_convert_encoding('&#' . implode(';&#', $points) . ';', 'UTF-8', 'HTML-ENTITIES');
+		} else {
+			$html = 'NF';
+		}
+
+		if ($this->size) {
+			// wrap or style as you need, e.g.
+			return "<span class=\"fs-{$this->size}\">{$html}</span>";
+		}
+
+		return $html;
+	}
+	/**
 	public static function getFlagIcon($iconCode)
 	{
 		// Check if the icon code is strictly 2 characters in A-Z
@@ -32,4 +70,5 @@ class SwFlagSelector
 			return 'NF'; // we will later return an SVG here
 		}
 	}
+	 */
 }
