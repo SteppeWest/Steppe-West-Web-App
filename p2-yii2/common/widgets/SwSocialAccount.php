@@ -42,7 +42,8 @@ class SwSocialAccount {
 		return preg_replace_callback('/\{([A-Z]{2})\}/', function ($matches) {
 			$iconCode = $matches[1];
 			// Use SwFlagSelector for two-letter country codes
-			return SwFlagSelector::getFlagIcon($iconCode);
+			return \p2m\helpers\FI::i($iconCode);
+			//return SwFlagSelector::getFlagIcon($iconCode);
 		}, $text);
 	}
 

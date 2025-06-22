@@ -59,7 +59,8 @@ class SwSubstitution {
 
 			// Check if the name is exactly 2 uppercase letters for a flag emoji
 			if (preg_match('/^[A-Z]{2}$/', $name)) {
-				return SwFlagSelector::getFlagIcon($name);
+				return \p2m\helpers\FI::i($name);
+				//return SwFlagSelector::getFlagIcon($name);
 			}
 
 			// Fetch the Substitution record by name
