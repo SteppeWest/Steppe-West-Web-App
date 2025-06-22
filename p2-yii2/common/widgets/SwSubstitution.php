@@ -20,28 +20,25 @@
 namespace common\widgets;
 
 use yii\helpers\Html;
-use common\widgets\SwFlagSelector;
 use common\models\Substitution;
 use p2m\helpers\BI;
+use p2m\helpers\FI;
 
-class SwSubstitution {
+class SwSubstitution
+{
 	/**
 	 * Recursively applies substitutions to each element of an array.
-	 *
-	 * @param array $input
-	 * @return array
 	 */
 	public static function processSubstitutions(array $input)
 	{
-		if (is_array($input)) {
-			foreach ($input as $key => $value) {
+		foreach ($input as $key => $value) {
+			if (is_array($value)) {
 				$input[$key] = self::processSubstitutions($value);
 			}
-			return $input;
-		} elseif (is_string($input)) {
-			return self::applySubstitutions($input);
+			elseif (is_string($value)) {
+				$input[$key] = self::applySubstitutions($value);
+			}
 		}
-
 		return $input;
 	}
 
@@ -51,55 +48,65 @@ class SwSubstitution {
 	 * @param string $text
 	 * @return string
 	 */
-	public static function applySubstitutions($text)
+	public static function applySubstitutions(string $text): string
 	{
-		// Use regex to find all placeholders in braces, like {UA} or {SubstitutionName}
-		return preg_replace_callback('/\{([A-Za-z0-9_]+)\}/', function ($matches) {
-			$name = $matches[1];
+		// 1) Double-brace flags
+		$text = preg_replace_callback(
+			'/\{\{([a-z]{2}(?:[a-z-][a-z0-9]{0,9})?)\}\}/',
+			function (array $match) {
+				// $code[1] is the code, e.g. 'gb', 'kz', 'ua', 'au-qld', 'pride'
+				// $match[1] is now guaranteed to be:
+				//  • length 2–12
+				//  • first two chars [a-z]
+				//  • third char (if any) [a-z or -]
+				//  • remaining chars [a-z0-9]
+				return FI::i($match[1]);
+			},
+			$text
+		);
 
-			// Check if the name is exactly 2 uppercase letters for a flag emoji
-			if (preg_match('/^[A-Z]{2}$/', $name)) {
-				return \p2m\helpers\FI::i($name);
-				//return SwFlagSelector::getFlagIcon($name);
-			}
+		// 2) Single-brace text/link substitutions
+		return preg_replace_callback(
+			'/\{([A-Za-z0-9_-]+)\}/',
+			function (array $match) {
+				$name = $match[1];
 
-			// Fetch the Substitution record by name
-			$substitution = Substitution::findOne(['name' => $name]);
-			if (!$substitution) {
-				return $matches[0]; // No substitution found, return original placeholder
-			}
-
-			$substitutionTitle = Html::encode($substitution->title);
-
-			// Check if it's a plain text substitution
-			if (empty($substitution->url)) {
-				return $substitutionTitle;
-			}
-
-			// Construct the link with provided details
-			$linkOptions = [
-				'title' => $substitutionTitle,
-				'target' => $substitution->external ? '_blank' : '_self'
-			];
-
-			if (!empty($substitution->class)) {
-				$linkOptions['class'] = $substitution->class;
-			}
-
-			// Determine link text based on icon and title
-			$linkText = '';
-			if (!empty($substitution->icon)) {
-				$linkIcon = BI::i($substitution->icon); // ->size(3)
-				if (strpos($substitution->class, 'btn') === 0) {
-					$linkText = $linkIcon;
-				} else {
-					$linkText = $linkIcon . '&nbsp;' . $substitutionTitle;
+				$substitution = Substitution::findOne(['name' => $name]);
+				if (!$substitution) {
+					return $match[0]; // leave placeholder intact
 				}
-			} else {
-				$linkText = $substitutionTitle;
-			}
 
-			return Html::a($linkText, $substitution->url, $linkOptions);
-		}, $text);
+				// Escape the title
+				$title = Html::encode($substitution->title);
+
+				// if no URL, return plain text
+				if (empty($substitution->url)) {
+					return $title;
+				}
+
+				// Build link options
+				$linkOptions = [
+					'title'  => $title,
+					'target' => $substitution->external ? '_blank' : '_self',
+				];
+
+				if (!empty($substitution->class)) {
+					$linkOptions['class'] = $substitution->class;
+				}
+
+				// Build link text: icon only for btn-* classes
+				if (!empty($substitution->icon)) {
+					$icon = BI::i($substitution->icon);
+					$linkText = strpos($substitution->class ?? '', 'btn') === 0
+							  ? $icon
+							  : $icon . '&nbsp;' . $title;
+				} else {
+					$linkText = $title;
+				}
+
+				return Html::a($linkText, $substitution->url, $linkOptions);
+			},
+			$text
+		);
 	}
 }
