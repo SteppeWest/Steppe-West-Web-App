@@ -31,6 +31,7 @@ use yii\bootstrap5\NavBar;
 				'options' => ['class' => 'navbar-nav ms-auto mb-2 mb-lg-0'],
 				'items' => $this->params['langMenu'],
 				'activateItems' => true,
+				'encodeLabels' => false,
 			]); ?>
 		</div>
 	</div>

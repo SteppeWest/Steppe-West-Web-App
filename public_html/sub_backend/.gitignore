@@ -4,5 +4,4 @@
 
 # ...except this file, so Git will always see a tracked file here
 !assets/
-!sub_backend/
 !.gitignore

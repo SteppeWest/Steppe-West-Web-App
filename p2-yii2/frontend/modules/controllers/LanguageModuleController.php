@@ -102,7 +102,8 @@ $this->params['langMenu']
 
 		foreach ($languages as $language) {
 			// Generate the label with the flag emoji and UI label
-			$flagIcon = SwFlagSelector::getFlagIcon($language->flag_icon);
+			$flagIcon = \p2m\helpers\FI::i($language->flag_icon);
+			//$flagIcon = SwFlagSelector::getFlagIcon($language->flag_icon);
 			$label = $flagIcon . ' ' . Html::encode($language->ui_label);
 
 			// Construct the URL
