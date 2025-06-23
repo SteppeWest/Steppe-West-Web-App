@@ -12,25 +12,11 @@
 /p2-yii2/yii_test
 /p2-yii2/yii_test.bat
 
-# phpstorm project files (in /p2-yii2)
-/p2-yii2/.idea
-
-# netbeans project files (in /p2-yii2)
-/p2-yii2/nbproject
-
-# zend studio for eclipse project files (in /p2-yii2)
-/p2-yii2/.buildpath
-/p2-yii2/.project
-/p2-yii2/.settings
-
 # Mac DS_Store Files
 .DS_Store
 
 # Windows thumbnail cache
 Thumbs.db
-
-# Other directories (in /p2-yii2)
-/p2-yii2/components
 
 # Composer itself is not needed (in /p2-yii2)
 /p2-yii2/composer.phar
@@ -41,8 +27,7 @@ Thumbs.db
 # Local PHPUnit config (in /p2-yii2)
 /p2-yii2/phpunit.xml
 
-# Vagrant runtime
-/.vagrant
+# Ignore z_gitignore folders at any level
 
 # Ignore z_gitignore folders at any level
 z_gitignore/
