@@ -27,9 +27,6 @@ Thumbs.db
 # Local PHPUnit config (in /p2-yii2)
 /p2-yii2/phpunit.xml
 
-# Ignore public_html folder
-public_html/
-
 # Ignore z_gitignore folders at any level
 z_gitignore/
 **/z_gitignore/
