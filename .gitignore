@@ -4,8 +4,7 @@
 !*/
 !**/.gitkeep
 
-/sw
-/sw_manager/credentials.php
+/manager/credentials.php
 
 # yii console commands (now in /p2-yii2)
 /p2-yii2/yii
