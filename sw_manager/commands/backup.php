@@ -4,103 +4,62 @@
 
 require_once __DIR__ . '/../lib/Console.php';
 require_once __DIR__ . '/../lib/Remote.php';
+require_once __DIR__ . '/../lib/Ssh.php';
+require_once __DIR__ . '/../lib/Db.php';
 
-$args   = $GLOBALS['sw_args'] ?? [];
-$remote = Remote::parseFlag($args);
-
-// Load your non‐secret constants (and DB credentials) in credentials.php
-// It must define at least:
-//   SSH_ALIAS       e.g. 'steppewest'
-//   SSH_REMOTE_DIR  e.g. 'domains/steppewest.com'
-//   DB_HOST, DB_USER, DB_PASS, DB_NAME
-require __DIR__ . '/../credentials.php';
-
-// Build timestamp and file paths
+$args     = $GLOBALS['sw_args'] ?? [];
+$remote   = Remote::parseFlag($args);
 date_default_timezone_set('Australia/Brisbane');
 $ts       = date('Y-m-d\TH-i-s');
 $suffix   = $remote ? 'r' : 'l';
 $baseDir  = realpath(__DIR__ . '/../../');
-$backupDirLocal = $baseDir . '/z_gitignore/backup';
-@mkdir($backupDirLocal, 0755, true);
-$zipLocal = "{$backupDirLocal}/{$ts}-{$suffix}.zip";
+$zipLocal = "{$baseDir}/z_gitignore/backup/{$ts}-{$suffix}.zip";
+$sqlRel   = "{$baseDir}/z_gitignore/data/".DB_NAME."_{$ts}.sql";
 
-// Patterns to exclude when zipping
+// 1) Dump DB
+$code = $remote
+	? Ssh::run(sprintf('php -r %s', var_export("require 'sw_manager/lib/Db.php'; Db::dump('{$sqlRel}');", true)), true, SSH_REMOTE_DIR)
+	: Db::dump($sqlRel);
+if ($code !== 0) {
+	fwrite(STDERR, Console::fail("DB dump failed (exit code {$code}).\n"));
+	exit($code);
+}
+
+// 2) Build exclude patterns
 $excludes = [
 	'p2-yii2/*/vendor/*',
 	'p2-yii2/*/runtime/*/*',
 	'public_html/assets/*',
 	'public_html/sub_*/assets/*',
 ];
+$excludeFlags = array_map(fn($p) => '-x '.escapeshellarg($p), $excludes);
 
-// Prepare the SQL dump command
-$sqlRel   = "z_gitignore/data/".DB_NAME."_{$ts}.sql";
-@mkdir(dirname("{$baseDir}/{$sqlRel}"), 0755, true);
-$sqlCmd   = sprintf(
-	'mysqldump -h%s -u%s -p%s %s > %s',
-	DB_HOST, DB_USER, DB_PASS, DB_NAME,
-	escapeshellarg($sqlRel)
+// 3) Zip
+$zipCmd = sprintf(
+	'cd %s && zip -r %s p2-yii2 public_html %s %s',
+	escapeshellarg($baseDir),
+	escapeshellarg($remote ? "~/".SSH_REMOTE_DIR."/z_gitignore/backup/{$ts}-r.zip" : $zipLocal),
+	escapeshellarg(basename($sqlRel)),
+	implode(' ', $excludeFlags)
 );
 
-// Helper to build the zip command
-function buildZip(string $zipPath, array $excludes): string {
-	$cmd = "zip -r " . escapeshellarg($zipPath) . " p2-yii2 public_html " . escapeshellarg($GLOBALS['sqlRel']);
-	foreach ($excludes as $pattern) {
-		$cmd .= " -x " . escapeshellarg($pattern);
-	}
-	return $cmd;
+$code = $remote
+	? Ssh::run($zipCmd, true, SSH_REMOTE_DIR)
+	: Ssh::run($zipCmd, false);
+if ($code !== 0) {
+	fwrite(STDERR, Console::fail("Zip failed (exit code {$code}).\n"));
+	exit($code);
 }
 
+// 4) If remote, scp back
 if ($remote) {
-	// Remote: run over SSH, then scp back
 	$remoteZip = "~/".SSH_REMOTE_DIR."/z_gitignore/backup/{$ts}-r.zip";
-	$remoteSql = "~/".SSH_REMOTE_DIR."/{$sqlRel}";
-	$cmds = [
-		"cd ~/".SSH_REMOTE_DIR,
-		$sqlCmd,
-		buildZip($remoteZip, $excludes),
-		"rm ".escapeshellarg($remoteSql),
-	];
-	$ssh  = sprintf(
-		'ssh -t %s %s',
-		SSH_ALIAS,
-		escapeshellarg(implode(' && ', $cmds))
-	);
-	passthru($ssh, $code);
+	$code = Ssh::scpGet($remoteZip, $zipLocal);
 	if ($code !== 0) {
-		fwrite(STDERR, Console::fail("Remote backup failed (exit code {$code}).\n"));
+		fwrite(STDERR, Console::fail("SCP fetch failed (exit code {$code}).\n"));
 		exit($code);
 	}
-	// Copy it back
-	$scp = sprintf(
-		'scp %s:%s %s',
-		SSH_ALIAS,
-		escapeshellarg($remoteZip),
-		escapeshellarg($zipLocal)
-	);
-	passthru($scp, $code);
-	if ($code !== 0) {
-		fwrite(STDERR, Console::fail("Failed to copy remote backup (exit code {$code}).\n"));
-		exit($code);
-	}
-	echo Console::ok("✅ Remote backup complete: {$zipLocal}\n");
-
-} else {
-	// Local: run everything here
-	chdir($baseDir);
-	passthru($sqlCmd, $code);
-	if ($code !== 0) {
-		fwrite(STDERR, Console::fail("DB dump failed (exit code {$code}).\n"));
-		exit($code);
-	}
-	$zipCmd = buildZip($zipLocal, $excludes);
-	passthru($zipCmd, $code);
-	if ($code !== 0) {
-		fwrite(STDERR, Console::fail("Zip creation failed (exit code {$code}).\n"));
-		exit($code);
-	}
-	// Clean up the SQL file
-	@unlink("{$baseDir}/{$sqlRel}");
-	echo Console::ok("✅ Local backup complete: {$zipLocal}\n");
 }
 
+echo Console::ok("Backup complete: {$zipLocal}\n");
 exit(0);
