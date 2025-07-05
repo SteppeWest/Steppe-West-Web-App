@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
-// sw_manager/lib/Timestamp.php
+// sw_manager/lib/Files.php
 
-class Timestamp
+class Files
 {
 	/**
 	 * ISO-style timestamp for this process, e.g. "2025-07-06T09-15-30".

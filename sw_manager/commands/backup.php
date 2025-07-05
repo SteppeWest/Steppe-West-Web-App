@@ -16,13 +16,12 @@ $remote = Remote::parseFlag($args);
 $backup   = new Backup($remote);
 
 // generate filenames
-$zipName  = Timestamp::zipFilename($remote);
-$sqlName  = Timestamp::sqlFilename($remote);
+$zipName  = Files::zipFilename($remote);
+$sqlName  = Files::sqlFilename($remote);
 
 // local paths
 $zipLocal = $backup->backupDir() . '/' . $zipName;
 $sqlLocal = $backup->sqlDumpDir() . '/' . $sqlName;
-
 
 // 1) DB dump
 Console::info("Dumping DB… ");
