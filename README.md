@@ -30,7 +30,7 @@ root/
 │  ├─ requirements.php
 │  ├─ yii
 │  └─ yii_test
-│  public_html/
+├─ public_html/
 │  ├─ assets/
 │  ├─ sub_admin/
 │  │  ├─ assets/
