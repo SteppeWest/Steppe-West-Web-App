@@ -7,9 +7,9 @@ return [
 		'db' => [
 			'class' => \yii\db\Connection::class,
 			//'class' => 'yii\db\Connection',
-			'dsn' => 'mysql:host=localhost;dbname=u746306670_sw_advanced',
-			'username' => 'u746306670_sw_advanced',
-			'password' => 'XMyxVaRYQyCAR3sl3EMDqa7X',
+			'dsn' => 'mysql:host=localhost;dbname=u746306670_sw',
+			'username' => 'u746306670_sw',
+			'password' => '6EpWZubb0aHji5ctLFqcBQXWkJ99aG8DxXYhe326',
 			'charset' => 'utf8',
 			'tablePrefix' => 'sw_',
 		],

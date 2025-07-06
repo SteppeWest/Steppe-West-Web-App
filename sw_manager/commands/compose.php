@@ -4,6 +4,10 @@
 // Runs `composer update` in the p2-yii2 directory,
 // only prints on failure.
 
+require_once __DIR__ . '/../lib/Remote.php';
+$args   = $GLOBALS['sw_args'] ?? [];
+$remote = Remote::parseFlag($args);
+
 require_once __DIR__ . '/../lib/Console.php';
 
 $projectDir = realpath(__DIR__ . '/../../p2-yii2');

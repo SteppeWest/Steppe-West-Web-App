@@ -2,7 +2,19 @@
 <?php
 // sw_manager/commands/clean.php
 
+// 1. Load your libraries
 require_once __DIR__ . '/../lib/Console.php';
+require_once __DIR__ . '/../lib/Remote.php';
+require_once __DIR__ . '/../lib/Options.php';
+
+// 2. Grab the arguments passed in
+$args = $GLOBALS['sw_args'] ?? [];
+
+// 3. Parse flags (order only matters if flags interact)
+$remote = Remote::parseFlag($args);
+$dryRun = Options::parseFlag($args, '--dry-run');
+
+// …now you can use $remote, $dryRun, $args, and Console::* in your logic…
 
 /**
  * Recursively delete a directory’s contents (but not the dir itself).

@@ -3,8 +3,9 @@
  * app/frontend/config/main-local.php
  */
 
-$rootUrl = 'https://dev.steppewest.com'; // remote dev
-//$rootUrl = '//steppewest.com'; // production
+$rootUrl = 'http://steppewest.p2m'; // local dev
+//$rootUrl = 'https://dev.steppewest.com'; // remote dev
+//$rootUrl = 'https://steppewest.com'; // production
 
 $config = [
 	'homeUrl' => $rootUrl,

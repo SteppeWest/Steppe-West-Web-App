@@ -8,29 +8,10 @@ Docs are excluded from the repository until (and if) I make a version without co
 root/
 ├─ docs/
 ├─ p2-yii2/
+│  ├─ Yii2 application
 │  ├─ backend/
-│  │  ├─ assets/
-│  │  ├─ config/
-│  │  ├─ controllers/
-│  │  ├─ models/
-│  │  ├─ runtime/
-│  │  ├─ tests/
-│  │  ├─ views/
-│  │  └─ web/
 │  ├─ common/
-│  │  ├─ assets/
-│  │  ├─ config/
-│  │  ├─ fixtures/
-│  │  ├─ mail/
-│  │  ├─ models/
-│  │  ├─ tests/
-│  │  └─ widgets/
 │  ├─ console/
-│  │  ├─ config/
-│  │  ├─ controllers/
-│  │  ├─ migrations/
-│  │  ├─ models/
-│  │  └─ runtime/
 │  ├─ docs/
 │  ├─ environments/
 │  │  ├─ dev/
@@ -39,15 +20,6 @@ root/
 │  │  ├─ language.yii.htaccess
 │  │  └─ yii.htaccess
 │  ├─ frontend/
-│  │  ├─ assets/
-│  │  ├─ config/
-│  │  ├─ controllers/
-│  │  ├─ models/
-│  │  ├─ modules/
-│  │  ├─ runtime/
-│  │  ├─ tests/
-│  │  ├─ views/
-│  │  └─ web/
 │  ├─ static/
 │  ├─ vendor/
 │  ├─ codeception.yml
@@ -58,7 +30,7 @@ root/
 │  ├─ requirements.php
 │  ├─ yii
 │  └─ yii_test
-│  public_html/
+├─ public_html/
 │  ├─ assets/
 │  ├─ sub_admin/
 │  │  ├─ assets/
