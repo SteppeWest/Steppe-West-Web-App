@@ -15,13 +15,12 @@ $remote = Remote::parseFlag($args);
 // instantiate helper
 $backup   = new Backup($remote);
 
-// generate filenames
-$zipName  = Files::zipFilename($remote);
-$sqlName  = Files::sqlFilename($remote);
+require_once __DIR__ . '/../lib/Files.php';
 
-// local paths
-$zipLocal = $backup->backupDir() . '/' . $zipName;
-$sqlLocal = $backup->sqlDumpDir() . '/' . $sqlName;
+$zipLocal  = Files::zipLocalPath($remote);
+$sqlLocal  = Files::sqlLocalPath($remote);
+$zipRemote = Files::zipRemotePath($remote);
+$sqlRemote = Files::sqlRemotePath($remote);
 
 // 1) DB dump
 Console::info("Dumping DB… ");
