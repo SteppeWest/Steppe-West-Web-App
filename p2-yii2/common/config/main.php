@@ -16,12 +16,10 @@ return [
 		'@npm'   => '@vendor/npm-asset',
 	],
 	'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-	/*
 	'bootstrap' => [
 		'log',
 		\p2m\components\P2UrlManagerBootstrap::class,
 	],
-	 */
 	'components' => [
 		'assetManager' => [
 			'basePath' => '@webroot/assets',
@@ -73,9 +71,9 @@ return [
 			'enableStrictParsing' => false,
 		],
 		'authManager' => [
-			'class' => 'yii\rbac\DbManager',
-			// uncomment if you want to cache RBAC items hierarchy
-			// 'cache' => 'cache',
+			'class' => yii\rbac\DbManager::class,
+			// optional:
+			'defaultRoles' => ['guest', 'user'],
 		],
 		/**
 		'request' => [
@@ -84,6 +82,15 @@ return [
 		 */
 		'cache' => [
 			'class' => \yii\caching\FileCache::class,
+		],
+	],
+	'modules' => [
+		'user' => [
+			'class' => Da\User\Module::class,
+			// ...other configs from here: [Configuration Options](installation/configuration-options.md), e.g.
+			// 'administrators' => ['admin'], // this is required for accessing administrative actions
+			// 'generatePasswords' => true,
+			// 'switchIdentitySessionKey' => 'myown_usuario_admin_user_key',
 		],
 	],
 ];
