@@ -16,10 +16,12 @@ return [
 		'@npm'   => '@vendor/npm-asset',
 	],
 	'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+	/*
 	'bootstrap' => [
 		'log',
 		\p2m\components\P2UrlManagerBootstrap::class,
 	],
+	 */
 	'components' => [
 		'assetManager' => [
 			'basePath' => '@webroot/assets',
