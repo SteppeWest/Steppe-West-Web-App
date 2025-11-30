@@ -29,16 +29,16 @@ class SiteController extends Controller
 		return [
 			'access' => [
 				'class' => AccessControl::class,
-				'only' => ['logout', 'signup'],
+				'only' => ['login', 'logout', 'signup'],
 				'rules' => [
 					[
-						'actions' => ['signup'],
 						'allow' => true,
+						'actions' => ['login', 'signup'],
 						'roles' => ['?'],
 					],
 					[
-						'actions' => ['logout'],
 						'allow' => true,
+						'actions' => ['logout'],
 						'roles' => ['@'],
 					],
 				],
@@ -256,4 +256,14 @@ class SiteController extends Controller
 			'model' => $model
 		]);
 	}
+}
+
+?>
+<?php
+class SiteController extends Controller
+{
+	public function behaviors()
+	{
+	}
+	// ...
 }
