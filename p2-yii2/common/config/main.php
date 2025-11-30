@@ -72,6 +72,11 @@ return [
 			'showScriptName' => false,
 			'enableStrictParsing' => false,
 		],
+		'authManager' => [
+			'class' => 'yii\rbac\DbManager',
+			// uncomment if you want to cache RBAC items hierarchy
+			// 'cache' => 'cache',
+		],
 		/**
 		'request' => [
 			'enableCsrfCookie' => false,
