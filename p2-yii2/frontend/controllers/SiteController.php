@@ -257,13 +257,3 @@ class SiteController extends Controller
 		]);
 	}
 }
-
-?>
-<?php
-class SiteController extends Controller
-{
-	public function behaviors()
-	{
-	}
-	// ...
-}
