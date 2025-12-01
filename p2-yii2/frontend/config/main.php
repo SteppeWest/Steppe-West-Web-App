@@ -14,12 +14,20 @@ return [
 	'name' => 'Steppe West', // Set the application name here
 	'basePath' => dirname(__DIR__),
 	'bootstrap' => ['log'],
+	'defaultRoute' => 'site/index',
 	'controllerNamespace' => 'frontend\controllers',
 	'components' => [
 		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
 			'rules' => [
 				// Root URL, defaults to 'intro' in LetterController
 				'' => 'letter/letter/view',
+				''       => 'site/index',              // root → default Site page
+
+				/*
+				'intro'  => 'letter/default/index',    // keep your module page
+				'invite' => 'links/default/index',     // keep your module page
 
 				// Specific slugs (e.g., intro, invite, faq) without or with language code
 				'<slug:intro|invite|faq>' => 'letter/letter/view',
@@ -35,6 +43,7 @@ return [
 				// Fallback rules to handle other modules or controllers
 				'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+				*/
 			],
 		],
 		/**
@@ -70,14 +79,6 @@ return [
 		'errorHandler' => [
 			'errorAction' => 'site/error',
 		],
-		/**
-		'urlManager' => [
-			'enablePrettyUrl' => true,
-			'showScriptName' => false,
-			'rules' => [
-			],
-		],
-		 */
 	],
 	'modules' => [
 		'letter' => [
