@@ -70,6 +70,11 @@ return [
 			'showScriptName' => false,
 			'enableStrictParsing' => false,
 		],
+		'authManager' => [
+			'class' => yii\rbac\DbManager::class,
+			// optional:
+			'defaultRoles' => ['guest', 'user'],
+		],
 		/**
 		'request' => [
 			'enableCsrfCookie' => false,
@@ -77,6 +82,15 @@ return [
 		 */
 		'cache' => [
 			'class' => \yii\caching\FileCache::class,
+		],
+	],
+	'modules' => [
+		'user' => [
+			'class' => Da\User\Module::class,
+			// ...other configs from here: [Configuration Options](installation/configuration-options.md), e.g.
+			// 'administrators' => ['admin'], // this is required for accessing administrative actions
+			// 'generatePasswords' => true,
+			// 'switchIdentitySessionKey' => 'myown_usuario_admin_user_key',
 		],
 	],
 ];
