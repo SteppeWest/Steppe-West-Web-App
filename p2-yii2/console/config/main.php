@@ -13,24 +13,30 @@ return [
 	'bootstrap' => ['log'],
 	'controllerNamespace' => 'console\controllers',
 	'aliases' => [
-	    '@bower' => '@vendor/bower-asset',
-	    '@npm'   => '@vendor/npm-asset',
+		'@bower' => '@vendor/bower-asset',
+		'@npm'   => '@vendor/npm-asset',
 	],
 	'controllerMap' => [
-	    'fixture' => [
-	        'class' => \yii\console\controllers\FixtureController::class,
-	        'namespace' => 'common\fixtures',
-	      ],
+		'fixture' => [
+			'class' => \yii\console\controllers\FixtureController::class,
+			'namespace' => 'common\fixtures',
+		  ],
 	],
 	'components' => [
-	    'log' => [
-	        'targets' => [
-	            [
-	                'class' => \yii\log\FileTarget::class,
-	                'levels' => ['error', 'warning'],
-	            ],
-	        ],
-	    ],
+		'log' => [
+			'targets' => [
+				[
+					'class' => \yii\log\FileTarget::class,
+					'levels' => ['error', 'warning'],
+				],
+			],
+		],
+	],
+	'modules' => [
+		'user' =>  Da\User\Module::class,
 	],
 	'params' => $params,
 ];
+
+
+
