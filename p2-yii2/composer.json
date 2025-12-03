@@ -16,12 +16,13 @@
 	"prefer-stable" : true,
 	"require": {
 		"php": ">=7.4.0",
-		"yiisoft/yii2": "~2.0.52",
-		"yiisoft/yii2-bootstrap5": "~2.0.2",
+		"yiisoft/yii2": "~2.0.53",
+		"yiisoft/yii2-bootstrap5": "dev-master",
 		"yiisoft/yii2-symfonymailer": "~2.0.3",
 		"laminas/laminas-code": "^4.14",
 		"symfony/yaml": "^7.1",
 		"kartik-v/yii2-markdown": "dev-master",
+		"2amigos/yii2-usuario": "dev-v2.0.0-dev",
 		"p2made/p2y2-things": "dev-5.0-dev",
 		"p2made/p2y2-sb-admin": "dev-5.0-dev"
 	},
