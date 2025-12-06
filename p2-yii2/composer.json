@@ -22,6 +22,7 @@
 		"laminas/laminas-code": "^4.14",
 		"symfony/yaml": "^7.1",
 		"kartik-v/yii2-markdown": "dev-master",
+		"kartik-v/yii2-widget-select2": "@dev",
 		"2amigos/yii2-usuario": "dev-v2.0.0-dev",
 		"p2made/p2y2-things": "dev-5.0-dev",
 		"p2made/p2y2-sb-admin": "dev-5.0-dev"

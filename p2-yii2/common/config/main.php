@@ -3,13 +3,8 @@
  * app/common/config/main.php
  */
 
-$bootstrapVersion = '5.3.4';
-$bootstrapCssIntegrity = 'sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC';
-$bootstrapJsIntegrity = 'sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu';
 $jqueryVersion = '3.7.1';
 $jqueryIntegrity = 'sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs';
-$bootstrapIconsVersion = '1.11.3';
-$bootstrapIconsIntegrity = 'sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD';
 
 return [
 	'charset' => 'utf-8',
@@ -29,26 +24,13 @@ return [
 			//'appendTimestamp' => true, // useful while developing custom assets
 			'bundles' => [
 				'yii\bootstrap5\BootstrapAsset' => [
-					'sourcePath' => null,
-					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@' . $bootstrapVersion . '/dist/',
-					'css' => [
-						'css/bootstrap.min.css',
-					],
-					'cssOptions' => [
-						'integrity' => $bootstrapCssIntegrity,
-						'crossorigin' => 'anonymous',
-					],
+					'class' => p2m\assets\P2BootstrapAsset::class,
 				],
 				'yii\bootstrap5\BootstrapPluginAsset' => [
-					'sourcePath' => null,
-					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap@' . $bootstrapVersion . '/dist/',
-					'js' => [
-						'js/bootstrap.bundle.min.js',
-					],
-					'jsOptions' => [
-						'integrity' => $bootstrapJsIntegrity,
-						'crossorigin' => 'anonymous',
-					],
+					'class' => p2m\assets\P2BootstrapPluginAsset::class,
+				],
+				'yii\bootstrap5\BootstrapIconAsset' => [
+					'class' => p2m\assets\P2BootstrapIconsAsset::class,
 				],
 				'yii\web\JqueryAsset' => [
 					'sourcePath' => null,
@@ -61,20 +43,7 @@ return [
 						'crossorigin' => 'anonymous',
 					],
 				],
-				'yii\bootstrap5\BootstrapIconAsset' => [
-					'sourcePath' => null,
-					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap-icons@' . $bootstrapIconsVersion . '/font/',
-					'css' => [
-						'bootstrap-icons.css',
-					],
-					'cssOptions' => [
-						'integrity' => $bootstrapIconsIntegrity,
-						'crossorigin' => 'anonymous',
-					],
-				],
-				//'yii\jui\JuiAsset' => [
-				//	'sourcePath' => null, 'css' => [], 'js' => [],
-				//],
+				//'yii\jui\JuiAsset' => [],
 			],
 		],
 		'urlManager' => [
@@ -84,9 +53,9 @@ return [
 			'enableStrictParsing' => false,
 		],
 		'authManager' => [
-			'class' => yii\rbac\DbManager::class,
+			'class' => Da\User\Component\AuthDbManagerComponent::class,
 			// optional:
-			'defaultRoles' => ['guest', 'user'],
+			'defaultRoles' => ['konok', 'musafir'],
 		],
 		/**
 		'request' => [
