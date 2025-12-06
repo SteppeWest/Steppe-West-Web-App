@@ -8,6 +8,8 @@ $bootstrapCssIntegrity = 'sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC7
 $bootstrapJsIntegrity = 'sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu';
 $jqueryVersion = '3.7.1';
 $jqueryIntegrity = 'sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs';
+$bootstrapIconsVersion = '1.11.3';
+$bootstrapIconsIntegrity = 'sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD';
 
 return [
 	'charset' => 'utf-8',
@@ -56,6 +58,17 @@ return [
 					],
 					'jsOptions' => [
 						'integrity' => $jqueryIntegrity,
+						'crossorigin' => 'anonymous',
+					],
+				],
+				'yii\bootstrap5\BootstrapIconAsset' => [
+					'sourcePath' => null,
+					'baseUrl' => '//cdn.jsdelivr.net/npm/bootstrap-icons@' . $bootstrapIconsVersion . '/font/',
+					'css' => [
+						'bootstrap-icons.css',
+					],
+					'cssOptions' => [
+						'integrity' => $bootstrapIconsIntegrity,
 						'crossorigin' => 'anonymous',
 					],
 				],

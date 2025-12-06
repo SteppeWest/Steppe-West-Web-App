@@ -13,13 +13,21 @@ return [
 	'id' => 'app-frontend',
 	'name' => 'Steppe West', // Set the application name here
 	'basePath' => dirname(__DIR__),
-	'bootstrap' => ['log'],
 	'controllerNamespace' => 'frontend\controllers',
+	'bootstrap' => ['log'],
+	'modules' => [
+		'user' => [
+			'class' => Da\User\Module::class,
+			'administrators' => ['admin'], // or whatever username you’ll create in the migration
+		],
+	],
 	'components' => [
 		'urlManager' => [
 			'rules' => [
+				'' => 'site/index',   // root now uses default frontend views
+
 				// Root URL, defaults to 'intro' in LetterController
-				'' => 'letter/letter/view',
+				//'' => 'letter/letter/view',
 
 				// Specific slugs (e.g., intro, invite, faq) without or with language code
 				'<slug:intro|invite|faq>' => 'letter/letter/view',
@@ -49,10 +57,8 @@ return [
 		'request' => [
 			'csrfParam' => '_csrf-frontend',
 		],
-		'user' => [
-			'identityClass' => 'common\models\User',
-			'enableAutoLogin' => true,
-			'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+		'authManager' => [
+			'class' => Da\User\Component\AuthDbManagerComponent::class,
 		],
 		'session' => [
 			// this is the name of the session cookie used for login on the frontend
