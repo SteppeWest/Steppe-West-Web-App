@@ -9,7 +9,7 @@
  */
 
 use yii\bootstrap5\Html;
-use common\assets\SwMetaAsset;
+use common\assets\SwCommonAsset;
 use backend\assets\SBAdminAsset;
 
 // Always register SB Admin here – all backend pages using this layout get it.
@@ -27,8 +27,8 @@ $fullTitle = $pageTitle . ' – ' . $appName;
 $metaAssetUrl = $this->params['metaAssetUrl'] ?? null;
 
 if ($metaAssetUrl === null) {
-	// Fallback: register SwMetaAsset here if controller didn't do it
-	$metaAsset    = \common\assets\SwMetaAsset::register($this);
+	// Fallback: register SwCommonAsset here if controller didn't do it
+	$metaAsset    = \common\assets\SwCommonAsset::register($this);
 	$metaAssetUrl = $metaAsset->baseUrl;
 	$this->params['metaAssetUrl'] = $metaAssetUrl;
 }

@@ -44,7 +44,7 @@ class SBAdminAsset extends \yii\web\AssetBundle
 	];
 
 	public $depends = [
-		'common\assets\SwMetaAsset',
+		'common\assets\SwCommonAsset',
 		'p2m\assets\P2BootstrapAsset',
 		'p2m\assets\P2BootstrapIconsAsset',
 	];

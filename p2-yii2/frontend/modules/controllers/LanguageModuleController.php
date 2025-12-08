@@ -14,7 +14,7 @@ use Yii;
 use yii\web\Controller;
 use yii\helpers\Html;
 use Symfony\Component\Yaml\Yaml;
-use common\assets\SwMetaAsset;
+use common\assets\SwCommonAsset;
 use common\widgets\SwFlagSelector;
 use common\widgets\SwSubstitution;
 use common\models\Language;
@@ -63,7 +63,7 @@ class LanguageModuleController extends Controller
 		$this->view->params['footer'] = $this->processFooterContent($lang->footer_content);
 
 		// Register the meta asset
-		$metaAsset = SwMetaAsset::register($this->view);
+		$metaAsset = SwCommonAsset::register($this->view);
 		$this->view->params['metaAssetUrl'] = $metaAsset->baseUrl;
 
 		// Create the language menu

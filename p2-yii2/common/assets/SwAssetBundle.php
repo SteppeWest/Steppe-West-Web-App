@@ -1,9 +1,9 @@
 <?php
 /**
- * P2AssetBundle.php
+ * SwAssetBundle.php
  *
  * @author Pedro Plowman
- * @copyright Copyright (c) 2024 Steppe West
+ * @copyright Copyright (c) 2025 Steppe West
  * @link https://steppewest.com/
  * @license MIT
  */
@@ -19,46 +19,36 @@
  */
 
 /**
- * @class \common\assets\P2AssetBundle
+ * @class \common\assets\SwAssetBundle
  *
  * Load this asset with...
- * common\assets\P2AssetBundle::register($this);
+ * common\assets\SwAssetBundle::register($this);
  *
- * use common\assets\P2AssetBundle;
- * P2AssetBundle::register($this);
+ * use common\assets\SwAssetBundle;
+ * SwAssetBundle::register($this);
  *
  * or specify as a dependency with...
- *     'common\assets\P2AssetBundle',
+ *     'common\assets\SwAssetBundle',
  */
 
 namespace common\assets;
 
 use yii\web\AssetBundle;
 
-class P2AssetBundle extends AssetBundle
+class SwAssetBundle extends AssetBundle
 {
-	public $sourcePath = '@common/assets/lib';
-
-	public $depends = [
-		'yii\web\YiiAsset',
-		'yii\bootstrap5\BootstrapAsset',
-		'yii\bootstrap5\BootstrapPluginAsset',
-		'common\assets\P2BootstrapIconsAsset',
-		'yii\web\JqueryAsset',
-	];
-
-/**
 	// @var string
 	public $basePath // = '@webroot';
 
 	// @var string
-	public $sourcePath // = '@app/assets/lib';
+	public $sourcePath = '@static/common';
 
 	// @var string
 	public $baseUrl // = '@web';
 
 	// @var array
 	public $css = [
+		//'css/filename.min.css',
 	];
 
 	// @var array
@@ -68,6 +58,7 @@ class P2AssetBundle extends AssetBundle
 
 	// @var array
 	public $js = [
+		//'js/filename.min.js',
 	];
 
 	// @var array
@@ -77,15 +68,11 @@ class P2AssetBundle extends AssetBundle
 
 	// @var array
 	public $depends = [
+		'p2m\assets\P2BootstrapAsset',
+		'p2m\assets\P2BootstrapIconsAsset',
 	];
 
 	// @var array
 	public $publishOptions = [
 	];
-
-	P2AppAsset
-	P2AssetBundle
-
- */
-
 }

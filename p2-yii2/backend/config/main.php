@@ -71,9 +71,3 @@ return [
 	//'defaultRoute' => 'user/admin',
 	'defaultRoute' => 'site/index',
 ];
-
-
-
-
-'rules' => [
-],
