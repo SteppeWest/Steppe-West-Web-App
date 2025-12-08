@@ -8,14 +8,15 @@ $params = array_merge(
 
 return [
 	'id' => 'app-backend',
-	'name' => 'Steppe West', // Set the application name here
+	'name' => 'Steppe West HQ', // Set the application name here
 	'basePath' => dirname(__DIR__),
 	'controllerNamespace' => 'backend\controllers',
 	'bootstrap' => ['log'],
 	'modules' => [
 		'user' => [
 			'class' => Da\User\Module::class,
-			'administrators' => ['pedro'],       // your super username
+			'viewPath' => '@backend/views',
+			'administrators' => ['chinggis'],       // your super username
 			'enableRegistration' => false,       // backend: no public register
 			'classMap' => [
 				'User' => common\models\User::class,
@@ -25,6 +26,15 @@ return [
 	'components' => [
 		'request' => [
 			'csrfParam' => '_csrf-backend',
+		],
+		'urlManager' => [
+			'rules' => [
+				'' => 'site/index',   // root of backend = SiteController::actionIndex()
+
+				// your other rules here, e.g.:
+				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+			],
 		],
 		'authManager' => [
 			'class' => Da\User\Component\AuthDbManagerComponent::class,
@@ -38,7 +48,7 @@ return [
 		],
 		'session' => [
 			// this is the name of the session cookie used for login on the backend
-			'name' => 'advanced-backend',
+			'name' => 'steppe-west-hq',
 		],
 		'log' => [
 			'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -53,16 +63,17 @@ return [
 			'errorAction' => 'site/error',
 		],
 		/**
-		'urlManager' => [
-			'enablePrettyUrl' => true,
-			'showScriptName' => false,
-			'rules' => [
-			],
-		],
 		 */
 	],
 	'params' => $params,
 
 	// optional but handy:
-	'defaultRoute' => 'user/admin',
+	//'defaultRoute' => 'user/admin',
+	'defaultRoute' => 'site/index',
 ];
+
+
+
+
+'rules' => [
+],

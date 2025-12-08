@@ -31,7 +31,7 @@ $this->params['asset'] = $asset;
 	<?= $this->render('@backend/views/partials/head.php') ?>
 </head>
 <body class="sb-nav-fixed">
-	<?php $this->beginBody() ?>
+<?php $this->beginBody() ?>
 
 <header>
 	<?php
@@ -87,3 +87,11 @@ $this->params['asset'] = $asset;
 </body>
 </html>
 <?php $this->endPage(); ?>
+
+<body>
+	<?= $this->beginBody() ?>
+	<?= $this->render('@app/modules/letter/layouts/header.php') ?>
+	<?= $content ?>
+	<?= $this->render('@app/modules/letter/layouts/footer.php') ?>
+	<?= $this->endBody() ?>
+</body>
