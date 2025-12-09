@@ -71,3 +71,15 @@ return [
 	//'defaultRoute' => 'user/admin',
 	'defaultRoute' => 'site/index',
 ];
+
+	/**
+	'components' => [
+		'user' => [
+			'identityClass' => 'common\models\User', // whatever you currently use
+			'enableAutoLogin' => true,
+			'loginUrl' => ['site/login'],          // 👈 important
+			// other user settings...
+		],
+		// ...
+	],
+	 */

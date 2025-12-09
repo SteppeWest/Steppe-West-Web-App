@@ -8,20 +8,24 @@
  * @license MIT
  */
 
+use yii\bootstrap5\Html;
+use common\helpers\SwAssetHelper;
+
+// Progressively remove these as use of them moves to partials
 use common\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
-use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
+SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_MAIN);
+
 /** @var \yii\web\View $this */
 /** @var string $content */
-/** @var frontend\assets\SwLetterAsset $asset */
 
 /**
-// Store variables in $this->params to make them available in partials
-$this->params['page'] = $page;
-$this->params['asset'] = $asset;
+	// Store variables in $this->params to make them available in partials
+		$this->params['page'] = $page;
+		$this->params['asset'] = $asset;
  */
 ?>
 <?php $this->beginPage() ?>
@@ -34,8 +38,7 @@ $this->params['asset'] = $asset;
 	<?php $this->beginBody() ?>
 
 <header>
-	<?php
-	NavBar::begin([
+	<?php NavBar::begin([
 		'brandLabel' => Yii::$app->name,
 		'brandUrl' => Yii::$app->homeUrl,
 		'options' => [
@@ -62,8 +65,7 @@ $this->params['asset'] = $asset;
 			)
 			. Html::endForm();
 	}
-	NavBar::end();
-	?>
+	NavBar::end(); ?>
 </header>
 
 <main role="main" class="flex-shrink-0">

@@ -19,7 +19,7 @@ use yii\bootstrap5\ActiveForm;
  * @var \Da\User\Module         $module
  */
 
-$this->title = Yii::t('usuario', 'Sign in');
+$this->title = Yii::t('usuario', 'Sign in (usuario)');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
