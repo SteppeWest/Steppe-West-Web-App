@@ -22,9 +22,6 @@ namespace common\helpers;
 use Yii;
 use yii\web\View;
 use common\assets\SwCommonAsset;
-use backend\assets\SwLoginAsset;
-// TODO: replace with whatever bundle you use for the main backend SB Admin views
-use backend\assets\SBAdminAsset;
 
 class SwAssetHelper
 {
@@ -41,12 +38,8 @@ class SwAssetHelper
 	/** @var \yii\web\AssetBundle|null */
 	private static $commonAsset = null;
 
-	/**
-	 * Layout-specific asset bundles, keyed by layout name.
-	 *
-	 * @var \yii\web\AssetBundle[]
-	 */
-	private static $layoutAsset = [];
+	/** @var \yii\web\AssetBundle|null */
+	private static $layoutAsset = null;
 
 	/**
 	 * Ensure endpoint is detected and cached.
@@ -75,7 +68,6 @@ class SwAssetHelper
 	 * Register assets for the current endpoint and given layout.
 	 *
 	 * @param string|null $layout 'main' (default), 'auth', 'error', etc.
-	 * @param View|null   $view   Explicit view if needed (defaults to Yii::$app->view)
 	 */
 	public static function registerAssets(string $layout = null): void
 	{
@@ -95,30 +87,17 @@ class SwAssetHelper
 		}
 
 		// If we already have a layout asset for this layout, nothing more to do
-		if (isset(self::$layoutAsset[$layout]))
+		if (self::$layoutAsset !== null)
 		{
 			return;
 		}
 
-		// Backend layouts
-		if (self::$endpoint === self::ENDPOINT_BACKEND)
-		{
-			if ($layout === self::LAYOUT_AUTH || $layout === self::LAYOUT_ERROR)
-			{
-				self::$layoutAsset[$layout] = SwLoginAsset::register($view);
-				return;
-			}
+		$map = Yii::$app->params['swAssetMap'] ?? [];
 
-			// Default backend layout (SB Admin style)
-			self::$layoutAsset[$layout] = SBAdminAsset::register($view);
-			return;
-		}
-
-		// Frontend layouts (placeholder – wire up when you're ready)
-		if (self::$endpoint === self::ENDPOINT_FRONTEND)
+		if (isset($map[self::$endpoint][$layout]))
 		{
-			// Example later:
-			// self::$layoutAsset[$layout] = \frontend\assets\AppAsset::register($view);
+			$class = $map[self::$endpoint][$layout];
+			self::$layoutAsset[$layout] = $class::register($view);
 			return;
 		}
 	}
@@ -144,14 +123,9 @@ class SwAssetHelper
 			return '';
 		}
 
-		if ($layout === null)
+		if (self::$layoutAsset !== null && !empty(self::$layoutAsset->baseUrl))
 		{
-			$layout = self::LAYOUT_MAIN;
-		}
-
-		if (isset(self::$layoutAsset[$layout]) && !empty(self::$layoutAsset[$layout]->baseUrl))
-		{
-			return self::$layoutAsset[$layout]->baseUrl;
+			return self::$layoutAsset->baseUrl;
 		}
 
 		// Fallback – at worst use common if available, or empty string

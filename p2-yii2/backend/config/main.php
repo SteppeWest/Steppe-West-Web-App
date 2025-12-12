@@ -75,6 +75,19 @@ return [
 	/**
 	'components' => [
 		'user' => [
+			'class' => yii\web\User::class,
+			'identityClass' => Da\User\Model\User::class,
+			'enableAutoLogin' => true,
+			'loginUrl' => ['/user/security/login'],
+			'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+		],
+		// ...
+	],
+	 */
+
+	/**
+	'components' => [
+		'user' => [
 			'identityClass' => 'common\models\User', // whatever you currently use
 			'enableAutoLogin' => true,
 			'loginUrl' => ['site/login'],          // 👈 important

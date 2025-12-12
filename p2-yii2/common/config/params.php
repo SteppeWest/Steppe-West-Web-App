@@ -9,6 +9,18 @@ return [
 	'senderName' => 'Steppe West Mailer',
 	'user.passwordResetTokenExpire' => 3600, // remove
 	'user.passwordMinLength' => 8, // remove
+	'swAssetMap' => [
+		'backend' => [
+			'main'  => backend\assets\SBAdminAsset::class,
+			'auth'  => backend\assets\SwAuthAsset::class,
+			'error' => backend\assets\SwErrorAsset::class,
+		],
+		'frontend' => [
+			//'main'  => frontend\assets\SwAppAsset::class,
+			//'auth'  => frontend\assets\SwAuthAsset::class,
+			//'error' => frontend\assets\SwErrorAsset::class,
+		],
+	],
 	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky} {Reddit}',
 	'swDefaultLanguage' => 'en',
 	'swActiveLanguages' => [

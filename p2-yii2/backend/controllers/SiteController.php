@@ -3,10 +3,10 @@
 namespace backend\controllers;
 
 use Yii;
+use common\controllers\SwBaseController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Response;
-use common\controllers\SwBaseController;
 use common\models\LoginForm;
 use backend\assets\SBAdminAsset;
 
@@ -89,14 +89,15 @@ class SiteController extends SwBaseController
 			return $this->goHome();
 		}
 
-		$this->layout = 'blank';
-
 		$model = new LoginForm();
 		if ($model->load(Yii::$app->request->post()) && $model->login()) {
 			return $this->goBack();
 		}
 
 		$model->password = '';
+
+		// Use the minimal auth layout
+		$this->layout = 'auth';
 
 		return $this->render('login', [
 			'model' => $model,
@@ -114,11 +115,17 @@ class SiteController extends SwBaseController
 
 		return $this->goHome();
 	}
-}
 
-/*
-public function actionLogin()
-{
-		return $this->redirect(['/user/security/login']);
+	/**
+	 * Error action.
+	 */
+	public function actionError()
+	{
+		// Same minimal layout for error pages
+		$this->layout = 'auth';
+
+		return $this->render('error', [
+			'exception' => Yii::$app->errorHandler->exception,
+		]);
+	}
 }
-*/

@@ -11,7 +11,7 @@
 use yii\bootstrap5\Html;
 use common\helpers\SwAssetHelper;
 
-SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_AUTH);
+SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_ERROR);
 
 /** @var \yii\web\View $this */
 /** @var string $content */
@@ -28,25 +28,12 @@ SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_AUTH);
 <head>
 	<?= $this->render('@backend/views/partials/head.php') ?>
 </head>
-<body data-bs-theme="dark">
+<body>
 <!-- <body class="bg-dark"> -->
 	<?php $this->beginBody(); ?>
-	<div id="steppe-west-hq-auth" class="container-fluid ps-md-0">
-		<div class="row g-0">
-			<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-			<div class="col-md-8 col-lg-6">
-				<div class="login d-flex align-items-center py-5">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-9 col-lg-8 mx-auto">
-								<?= $content ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+	<?= $content ?>
+
 	<?php $this->endBody(); ?>
 </body>
 </html>
