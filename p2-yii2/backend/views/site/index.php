@@ -22,6 +22,7 @@ ChartBarDemoAsset::register($this);
 DatatablesSimpleDemoAsset::register($this);
 
 $this->title = 'Dashboard';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div id="page-content">
 	<div class="row">
