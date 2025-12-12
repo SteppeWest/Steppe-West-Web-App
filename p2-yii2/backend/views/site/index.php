@@ -8,22 +8,20 @@ use p2m\assets\P2SimpleDatatablesAsset;
 P2ChartJsAsset::register($this);
 P2SimpleDatatablesAsset::register($this);
 
-/*
 // demos
-use p2m\sbAdmin\demo\ChartAreaDemoAsset;
-use p2m\sbAdmin\demo\ChartBarDemoAsset;
-//use p2m\sbAdmin\demo\ChartPieDemoAsset;
-//use p2m\sbAdmin\demo\DatatablesDemoAsset;
-use p2m\sbAdmin\demo\DatatablesSimpleDemoAsset;
+use p2m\admin\sbadmin\demo\ChartAreaDemoAsset;
+use p2m\admin\sbadmin\demo\ChartBarDemoAsset;
+//use p2m\admin\sbadmin\demo\ChartPieDemoAsset;
+//use p2m\admin\sbadmin\demo\DatatablesDemoAsset;
+use p2m\admin\sbadmin\demo\DatatablesSimpleDemoAsset;
 
 ChartAreaDemoAsset::register($this);
 ChartBarDemoAsset::register($this);
 //ChartPieDemoAsset::register($this);
 //DatatablesDemoAsset::register($this);
 DatatablesSimpleDemoAsset::register($this);
-*/
 
-$this->title = 'My Yii Application';
+$this->title = 'Dashboard';
 ?>
 <div id="page-content">
 	<div class="row">

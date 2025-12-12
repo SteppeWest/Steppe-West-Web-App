@@ -25,6 +25,8 @@ SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_MAIN);
 		$this->params['page'] = $page;
 		$this->params['asset'] = $asset;
  */
+
+$pageTitle = $this->title ?: 'Dashboard';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -40,6 +42,7 @@ SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_MAIN);
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">
+					<h1 class="mt-4"><?= $pageTitle ?></h1>
 					<?= Breadcrumbs::widget([
 						'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 					]) ?>

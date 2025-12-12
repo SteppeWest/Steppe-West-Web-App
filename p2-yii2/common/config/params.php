@@ -11,7 +11,7 @@ return [
 	'user.passwordMinLength' => 8, // remove
 	'swAssetMap' => [
 		'backend' => [
-			'main'  => backend\assets\SBAdminAsset::class,
+			'main'  => p2m\admin\sbadmin\assets\P2SBAdminAsset::class,
 			'auth'  => backend\assets\SwAuthAsset::class,
 			'error' => backend\assets\SwErrorAsset::class,
 		],

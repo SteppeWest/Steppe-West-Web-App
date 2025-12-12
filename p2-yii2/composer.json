@@ -24,7 +24,7 @@
 		"kartik-v/yii2-markdown": "dev-master",
 		"2amigos/yii2-usuario": "dev-v2.0.0-dev",
 		"p2made/p2y2-things": "dev-5.0-dev",
-		"p2made/p2y2-sb-admin": "dev-5.0-dev"
+		"p2made/p2y2-admin": "dev-5.0-dev"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "~2.1.0",
