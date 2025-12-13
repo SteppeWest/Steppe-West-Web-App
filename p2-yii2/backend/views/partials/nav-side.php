@@ -9,75 +9,104 @@
  */
 
 use yii\bootstrap5\Html;
+use yii\helpers\Url;
+use p2m\helpers\BI;
 
 /* @var $this yii\web\View */
+
+$controller = Yii::$app->controller->id;
+$action     = Yii::$app->controller->action->id;
+
+$currentRoute = $controller . '/' . $action;
+
+$mkLink = function (string $label, array|string $route, string $icon = null, bool $active = false) {
+	$iconHtml = $icon ? '<div class="sb-nav-link-icon">' . BI::i($icon) . '</div>' : '';
+	return Html::a(
+		$iconHtml . Html::encode($label),
+		$route,
+		['class' => 'nav-link' . ($active ? ' active' : '')]
+	);
+};
+
+$mkToggle = function (string $label, string $targetId, string $icon = null, bool $expanded = false) {
+	$iconHtml = $icon ? '<div class="sb-nav-link-icon">' . BI::i($icon) . '</div>' : '';
+	return Html::a(
+		$iconHtml
+		. Html::encode($label)
+		. '<div class="sb-sidenav-collapse-arrow">' . BI::i('chevron-down') . '</div>',
+		'#',
+		[
+			'class' => 'nav-link collapsed',
+			'data-bs-toggle' => 'collapse',
+			'data-bs-target' => '#' . $targetId,
+			'aria-expanded' => $expanded ? 'true' : 'false',
+			'aria-controls' => $targetId,
+		]
+	);
+};
+
+// Decide which collapses should be open based on current route
+$uiOpen      = in_array($controller, ['layout', 'pages'], true);
+$addonsOpen  = in_array($controller, ['charts', 'tables'], true);
 ?>
 <div id="layoutSidenav_nav">
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 		<div class="sb-sidenav-menu">
 			<div class="nav">
+
+				<!-- Core -->
 				<div class="sb-sidenav-menu-heading">Core</div>
-				<a class="nav-link" href="index.php">
-					<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-					Dashboard
-				</a>
+
+				<?= $mkLink('Dashboard', ['/site/index'], 'speedometer2', $controller === 'site' && $action === 'index') ?>
+
+				<!-- You can start adding real admin items now -->
+				<div class="sb-sidenav-menu-heading">Users</div>
+
+				<?= $mkLink('Manage Users', ['/user/admin/index'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
+				<?= $mkLink('Roles', ['/role/index'], 'person-badge', $controller === 'role') ?>
+				<?= $mkLink('Permissions', ['/permission/index'], 'key', $controller === 'permission') ?>
+
+				<!-- Interface -->
 				<div class="sb-sidenav-menu-heading">Interface</div>
-				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-					<div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-					Layouts
-					<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-				</a>
-				<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+
+				<?= $mkToggle('Layouts', 'collapseLayouts', 'columns-gap', $uiOpen) ?>
+
+				<div class="collapse<?= $uiOpen ? ' show' : '' ?>"
+				     id="collapseLayouts"
+				     aria-labelledby="headingLayouts"
+				     data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="layout-static.php">Static Navigation</a>
-						<a class="nav-link" href="layout-sidenav-light.php">Light Sidenav</a>
+						<?= Html::a('Static Navigation', '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a('Light Sidenav', '#!', ['class' => 'nav-link']) ?>
 					</nav>
 				</div>
-				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-					<div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-					Pages
-					<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-				</a>
-				<div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+
+				<?= $mkToggle('Pages', 'collapsePages', 'file-earmark-text', $uiOpen) ?>
+
+				<div class="collapse<?= $uiOpen ? ' show' : '' ?>"
+				     id="collapsePages"
+				     aria-labelledby="headingPages"
+				     data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-							Authentication
-							<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-						</a>
-						<div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="login.php">Login</a>
-								<a class="nav-link" href="register.php">Register</a>
-								<a class="nav-link" href="password.php">Forgot Password</a>
-							</nav>
-						</div>
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-							Error
-							<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-						</a>
-						<div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="401.php">401 Page</a>
-								<a class="nav-link" href="404.php">404 Page</a>
-								<a class="nav-link" href="500.php">500 Page</a>
-							</nav>
-						</div>
+
+						<!-- Nested (4th-level links) example -->
+						<?= Html::a('Authentication (placeholder)', '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a('Error (placeholder)', '#!', ['class' => 'nav-link']) ?>
+
 					</nav>
 				</div>
+
+				<!-- Addons -->
 				<div class="sb-sidenav-menu-heading">Addons</div>
-				<a class="nav-link" href="charts.php">
-					<div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-					Charts
-				</a>
-				<a class="nav-link" href="tables.php">
-					<div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-					Tables
-				</a>
+
+				<?= $mkLink('Charts', '#!', 'bar-chart-line', $controller === 'charts') ?>
+				<?= $mkLink('Tables', '#!', 'table', $controller === 'tables') ?>
+
 			</div>
 		</div>
 		<div class="sb-sidenav-footer">
 			<div class="small">Logged in as:</div>
-			Start Bootstrap
+			<?= Html::encode(Yii::$app->user->identity->username) ?>
 		</div>
 	</nav>
 </div>
