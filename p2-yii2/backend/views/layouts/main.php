@@ -11,10 +11,6 @@
 use yii\bootstrap5\Html;
 use common\helpers\SwAssetHelper;
 
-// Progressively remove these as use of them moves to partials
-use common\widgets\Alert;
-use yii\bootstrap5\Breadcrumbs;
-
 SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_MAIN);
 
 /** @var \yii\web\View $this */
@@ -25,8 +21,6 @@ SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_MAIN);
 		$this->params['page'] = $page;
 		$this->params['asset'] = $asset;
  */
-
-$pageTitle = $this->title ?: 'Dashboard';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -42,11 +36,6 @@ $pageTitle = $this->title ?: 'Dashboard';
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">
-					<h1 class="mt-4"><?= $pageTitle ?></h1>
-					<?= Breadcrumbs::widget([
-						'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-					]) ?>
-					<?= Alert::widget() ?>
 					<?= $content ?>
 				</div>
 			</main>

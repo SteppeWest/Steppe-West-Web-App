@@ -10,9 +10,13 @@
  * Adapted from 2amigos/yii2-usuario
  */
 
-use yii\grid\GridView;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\Breadcrumbs;
 use yii\widgets\Pjax;
+use common\widgets\Alert;
+use p2m\helpers\BI;
+use p2m\assets\P2SimpleDatatablesAsset;
+use yii\grid\GridView;
 
 /**
  * @var yii\web\View $this
@@ -21,12 +25,23 @@ use yii\widgets\Pjax;
  * @var Da\User\Module $module
  */
 
+P2SimpleDatatablesAsset::register($this);
+
 $this->title = Yii::t('usuario', 'Manage users');
 $this->params['breadcrumbs'][] = $this->title;
-\yii\bootstrap5\BootstrapIconAsset::register($this);
 ?>
-
-<?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+	<?= Html::a(
+		BI::i('plus-circle') . ' Add User',
+		['create'],
+		['class' => 'btn btn-primary']
+	) ?>
+</div>
+<?= Breadcrumbs::widget([
+	'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+]) ?>
+<?= Alert::widget() ?>
 
 <?php Pjax::begin() ?>
 <div class="table-responsive">
@@ -192,5 +207,3 @@ $this->params['breadcrumbs'][] = $this->title;
 ]); ?>
 </div>
 <?php Pjax::end() ?>
-
-<?php $this->endContent() ?>

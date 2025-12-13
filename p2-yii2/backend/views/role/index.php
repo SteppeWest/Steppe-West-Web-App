@@ -10,23 +10,42 @@
  * Adapted from 2amigos/yii2-usuario
  */
 
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\Breadcrumbs;
 use yii\helpers\Url;
+use yii\widgets\Pjax;
+use common\widgets\Alert;
+use p2m\helpers\BI;
+use p2m\assets\P2SimpleDatatablesAsset;
+use yii\grid\GridView;
+use yii\grid\ActionColumn;
 
 /**
- * @var \yii\data\DataProviderInterface $dataProvider
- * @var \Da\User\Search\RoleSearch $searchModel
  * @var yii\web\View $this
- * @var \Da\User\Module $module
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var Da\User\Search\UserSearch $searchModel
+ * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('usuario', 'Roles');
+P2SimpleDatatablesAsset::register($this);
+
+$this->title = Yii::t('usuario', 'Manage roles');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+	<?= Html::a(
+		BI::i('plus-circle') . ' Add Role',
+		['create'],
+		['class' => 'btn btn-primary']
+	) ?>
+</div>
+<?= Breadcrumbs::widget([
+	'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+]) ?>
+<?= Alert::widget() ?>
 
-<?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>
+<?php Pjax::begin() ?>
 <div class="table-responsive">
 <?= GridView::widget(
 	[
@@ -69,4 +88,4 @@ $this->params['breadcrumbs'][] = $this->title;
 	]
 ) ?>
 </div>
-<?php $this->endContent() ?>
+<?php Pjax::end() ?>

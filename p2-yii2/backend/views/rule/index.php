@@ -3,6 +3,8 @@
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Url;
+use p2m\assets\P2SimpleDatatablesAsset;
+use p2m\helpers\BI;
 
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider
@@ -10,6 +12,8 @@ use yii\helpers\Url;
  * @var yii\web\View $this
  * @var \Da\User\Module $module
  */
+
+P2SimpleDatatablesAsset::register($this);
 
 $this->title = Yii::t('usuario', 'Rules');
 $this->params['breadcrumbs'][] = $this->title;

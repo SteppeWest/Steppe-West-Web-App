@@ -62,9 +62,10 @@ $addonsOpen  = in_array($controller, ['charts', 'tables'], true);
 				<!-- You can start adding real admin items now -->
 				<div class="sb-sidenav-menu-heading">Users</div>
 
-				<?= $mkLink('Manage Users', ['/user/admin/index'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
-				<?= $mkLink('Roles', ['/role/index'], 'person-badge', $controller === 'role') ?>
-				<?= $mkLink('Permissions', ['/permission/index'], 'key', $controller === 'permission') ?>
+				<?= $mkLink('Manage Users', ['/user/admin'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
+				<?= $mkLink('Roles', ['/user/role'], 'person-badge', $controller === 'role') ?>
+				<?= $mkLink('Permissions', ['/user/permission'], 'key', $controller === 'permission') ?>
+				<?= $mkLink('Rules', ['/user/rule'], 'key', $controller === 'rule') ?>
 
 				<!-- Interface -->
 				<div class="sb-sidenav-menu-heading">Interface</div>
