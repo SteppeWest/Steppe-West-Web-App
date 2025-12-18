@@ -122,7 +122,7 @@ class SiteController extends SwBaseController
 	public function actionError()
 	{
 		// Same minimal layout for error pages
-		$this->layout = 'auth';
+		$this->layout = 'error';
 
 		return $this->render('error', [
 			'exception' => Yii::$app->errorHandler->exception,
