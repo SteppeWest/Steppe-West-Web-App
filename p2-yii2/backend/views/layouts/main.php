@@ -11,7 +11,11 @@
 use yii\bootstrap5\Html;
 use common\helpers\SwAssetHelper;
 
-SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_MAIN);
+use p2m\demo\assets\ThingsDemoMetaAsset;
+use p2m\admin\assets\P2SBAdminAsset;
+
+$this->params['metaAssetUrl'] = ThingsDemoMetaAsset::register($this)->baseUrl;
+$this->params['themeAssetUrl'] = P2SBAdminAsset::register($this)->baseUrl;
 
 /** @var \yii\web\View $this */
 /** @var string $content */

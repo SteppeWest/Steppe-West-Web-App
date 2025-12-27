@@ -28,21 +28,15 @@ use yii\web\AssetBundle;
 class SwErrorAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/backend';
+	public $sourcePath = '@static/backend/auth';
 
 	// @var array
 	public $css = [
-		'css/login.min.css',
-	];
-
-	// @var array
-	public $cssOptions = [
-		'crossorigin' => 'anonymous',
+		'css/auth.min.css',
 	];
 
 	// @var array
 	public $depends = [
-		'p2m\assets\P2BootstrapAsset',
-		'p2m\assets\P2BootstrapIconsAsset',
+		'p2m\assets\P2CoreAsset',
 	];
 }

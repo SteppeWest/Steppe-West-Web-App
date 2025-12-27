@@ -3,9 +3,6 @@
  * app/common/config/main.php
  */
 
-$jqueryVersion = '3.7.1';
-$jqueryIntegrity = 'sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs';
-
 return [
 	'charset' => 'utf-8',
 	'aliases' => [
@@ -15,7 +12,7 @@ return [
 	'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
 	'bootstrap' => [
 		'log',
-		\p2m\components\P2UrlManagerBootstrap::class,
+		//\p2m\components\P2UrlManagerBootstrap::class,
 	],
 	'components' => [
 		'assetManager' => [
@@ -24,26 +21,17 @@ return [
 			//'appendTimestamp' => true, // useful while developing custom assets
 			'bundles' => [
 				'yii\bootstrap5\BootstrapAsset' => [
-					'class' => p2m\assets\P2BootstrapAsset::class,
+					'class' => 'p2m\assets\base\P2BootstrapCdnAsset',
 				],
 				'yii\bootstrap5\BootstrapPluginAsset' => [
-					'class' => p2m\assets\P2BootstrapPluginAsset::class,
+					'class' => 'p2m\assets\base\P2BootstrapPluginCdnAsset',
 				],
 				'yii\bootstrap5\BootstrapIconAsset' => [
-					'class' => p2m\assets\P2BootstrapIconsAsset::class,
+					'class' => 'p2m\assets\base\P2BootstrapIconsCdnAsset',
 				],
 				'yii\web\JqueryAsset' => [
-					'sourcePath' => null,
-					'baseUrl' => '//code.jquery.com/',
-					'js' => [
-						'jquery-' . $jqueryVersion . '.min.js',
-					],
-					'jsOptions' => [
-						'integrity' => $jqueryIntegrity,
-						'crossorigin' => 'anonymous',
-					],
+					'class' => 'p2m\assets\base\P2JqueryCdnAsset',
 				],
-				//'yii\jui\JuiAsset' => [],
 			],
 		],
 		'urlManager' => [

@@ -31,11 +31,7 @@ class LinksAsset extends \yii\web\AssetBundle
 		'css/sw-links.min.css',
 	];
 
-	public $cssOptions = [
-		'crossorigin' => 'anonymous',
-	];
-
 	public $depends = [
-		'common\assets\SwCommonAsset',
+		'p2m\assets\P2CoreAsset',
 	];
 }

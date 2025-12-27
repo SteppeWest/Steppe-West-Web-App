@@ -28,7 +28,7 @@ use yii\web\AssetBundle;
 class SwAuthAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/backend';
+	public $sourcePath = '@static/backend/auth';
 
 	// @var array
 	public $css = [
@@ -36,13 +36,7 @@ class SwAuthAsset extends AssetBundle
 	];
 
 	// @var array
-	public $cssOptions = [
-		'crossorigin' => 'anonymous',
-	];
-
-	// @var array
 	public $depends = [
-		'p2m\assets\P2BootstrapAsset',
-		'p2m\assets\P2BootstrapIconsAsset',
+		'p2m\assets\P2CoreAsset',
 	];
 }

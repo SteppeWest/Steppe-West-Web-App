@@ -68,8 +68,7 @@ class SwAssetBundle extends AssetBundle
 
 	// @var array
 	public $depends = [
-		'p2m\assets\P2BootstrapAsset',
-		'p2m\assets\P2BootstrapIconsAsset',
+		'p2m\assets\P2CoreAsset',
 	];
 
 	// @var array
