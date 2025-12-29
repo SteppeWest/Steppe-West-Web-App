@@ -9,9 +9,11 @@
  */
 
 use yii\bootstrap5\Html;
-use common\helpers\SwAssetHelper;
+use common\assets\SwMetaAsset;
+use backend\assets\SwAuthAsset;
 
-SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_AUTH);
+$this->params['metaAssetUrl'] = SwMetaAsset::register($this)->baseUrl;
+$this->params['themeAssetUrl'] = SwAuthAsset::register($this)->baseUrl;
 
 /** @var \yii\web\View $this */
 /** @var string $content */

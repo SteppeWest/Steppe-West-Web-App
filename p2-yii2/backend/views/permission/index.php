@@ -24,7 +24,6 @@ use p2m\assets\P2SimpleDatatablesAsset;
 P2SimpleDatatablesAsset::register($this);
 
 $this->title = Yii::t('usuario', 'Permissions');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>

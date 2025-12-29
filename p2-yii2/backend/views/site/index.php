@@ -4,6 +4,7 @@
 
 use p2m\assets\P2ChartJsAsset;
 use p2m\assets\P2SimpleDatatablesAsset;
+use common\widgets\Alert;
 
 P2ChartJsAsset::register($this);
 P2SimpleDatatablesAsset::register($this);
@@ -22,8 +23,11 @@ ChartBarDemoAsset::register($this);
 DatatablesSimpleDemoAsset::register($this);
 
 $this->title = 'Dashboard';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+</div>
+<?= Alert::widget() ?>
 <div id="page-content">
 	<div class="row">
 		<div class="col-xl-3 col-md-6">

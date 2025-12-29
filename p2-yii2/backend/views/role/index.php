@@ -11,7 +11,6 @@
  */
 
 use yii\bootstrap5\Html;
-use yii\bootstrap5\Breadcrumbs;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
 use common\widgets\Alert;
@@ -30,7 +29,6 @@ use yii\grid\ActionColumn;
 P2SimpleDatatablesAsset::register($this);
 
 $this->title = Yii::t('usuario', 'Manage roles');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
@@ -40,11 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		['class' => 'btn btn-primary']
 	) ?>
 </div>
-<?= Breadcrumbs::widget([
-	'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-]) ?>
 <?= Alert::widget() ?>
-
 <?php Pjax::begin() ?>
 <div class="table-responsive">
 <?= GridView::widget(

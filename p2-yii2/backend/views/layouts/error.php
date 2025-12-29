@@ -9,9 +9,11 @@
  */
 
 use yii\bootstrap5\Html;
-use common\helpers\SwAssetHelper;
+use common\assets\SwMetaAsset;
+use p2m\admin\assets\P2SBAdminAsset;
 
-SwAssetHelper::registerAssets(SwAssetHelper::LAYOUT_ERROR);
+$this->params['metaAssetUrl'] = SwMetaAsset::register($this)->baseUrl;
+$this->params['themeAssetUrl'] = P2SBAdminAsset::register($this)->baseUrl;
 
 /** @var \yii\web\View $this */
 /** @var string $content */
