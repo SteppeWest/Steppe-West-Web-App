@@ -29,4 +29,18 @@ class SwCommonAsset extends AssetBundle
 {
 	// @var string
 	public $sourcePath = '@static/common';
+
+	// @var array
+	/**
+	public $css = [
+		'css/sw-common.min.css',
+	];
+	 */
+
+	/**
+	// @var array
+	public $js = [
+		'js/sw-common.min.js',
+	];
+	 */
 }

@@ -37,11 +37,11 @@ class SiteController extends SwBaseController
 				'class' => AccessControl::class,
 				'rules' => [
 					[
-						'actions' => ['login', 'error'],
+						'actions' => ['login', 'error', 'set-language'],
 						'allow' => true,
 					],
 					[
-						'actions' => ['logout', 'index'],
+						'actions' => ['logout', 'index', 'set-language'],
 						'allow' => true,
 						'roles' => ['@'],
 					],
@@ -128,4 +128,32 @@ class SiteController extends SwBaseController
 			'exception' => Yii::$app->errorHandler->exception,
 		]);
 	}
+
+	public function actionSetLanguage($lang)
+	{
+		$allowed = ['en', 'ru', 'kk', 'ky', 'tg', 'uz'];
+
+		if (in_array($lang, $allowed, true)) {
+			Yii::$app->language = $lang;
+
+			Yii::$app->response->cookies->add(new \yii\web\Cookie([
+				'name' => 'userLanguage',
+				'value' => $lang,
+				'expire' => time() + 86400 * 365, // 1 year
+				'httpOnly' => true,
+				'sameSite' => \yii\web\Cookie::SAME_SITE_LAX,
+			]));
+		}
+
+		return $this->goBack(Yii::$app->request->referrer ?: ['/site/index']);
+	}
+
+
+
+
+
+
+
+
+
 }

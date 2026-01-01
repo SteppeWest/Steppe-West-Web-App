@@ -10,10 +10,10 @@
 
 use yii\bootstrap5\Html;
 use common\assets\SwMetaAsset;
-use p2m\admin\assets\P2SBAdminAsset;
+use backend\assets\SwAuthAsset;
 
 $this->params['metaAssetUrl'] = SwMetaAsset::register($this)->baseUrl;
-$this->params['themeAssetUrl'] = P2SBAdminAsset::register($this)->baseUrl;
+$this->params['themeAssetUrl'] = SwAuthAsset::register($this)->baseUrl;
 
 /** @var \yii\web\View $this */
 /** @var string $content */

@@ -21,8 +21,45 @@ return [
 			//'error' => frontend\assets\SwErrorAsset::class,
 		],
 	],
-	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky} {Reddit}',
+	'swSocialAccounts' =>
+		'{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky} {Reddit}',
+	'swSocials' => [
+		'Substack',
+		'Facebook',
+		'Instagram',
+		'YouTube',
+		'TikTok',
+		'Threads',
+		'Bluesky',
+		'Reddit',
+	],
 	'swDefaultLanguage' => 'en',
+	'swUiLanguages' => [
+		'en' => [
+			'label' => 'English',
+			'flag'  => 'gb',
+		],
+		'ru' => [
+			'label' => 'Русский',
+			'flag'  => 'ru',
+		],
+		'kk' => [
+			'label' => 'Қазақша',
+			'flag'  => 'kz',
+		],
+		'ky' => [
+			'label' => 'Кыргызча',
+			'flag'  => 'kg',
+		],
+		'tg' => [
+			'label' => 'Тоҷикӣ',
+			'flag'  => 'tj',
+		],
+		'uz' => [
+			'label' => "Oʻzbekcha",
+			'flag'  => 'uz',
+		],
+	],
 	'swActiveLanguages' => [
 		'az',
 		'en',

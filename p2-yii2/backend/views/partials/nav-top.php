@@ -11,16 +11,56 @@
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\BI;
+use p2m\helpers\FI;
 
 /* @var $this yii\web\View */
+
+/**
+$languages = [
+	'en' => [
+		'label' => 'English',
+		'flag'  => 'gb',
+	],
+	'ru' => [
+		'label' => 'Русский',
+		'flag'  => 'ru',
+	],
+	'kk' => [
+		'label' => 'Қазақша',
+		'flag'  => 'kz',
+	],
+	'ky' => [
+		'label' => 'Кыргызча',
+		'flag'  => 'kg',
+	],
+	'tg' => [
+		'label' => 'Тоҷикӣ',
+		'flag'  => 'tj',
+	],
+	'uz' => [
+		'label' => "Oʻzbekcha",
+		'flag'  => 'uz',
+	],
+];
+ */
+
+$languages = Yii::$app->params['swUiLanguages'];
+
+$currentLang = Yii::$app->language;
+$metaAssetUrl  = $this->params['metaAssetUrl'];
 ?>
 <div id="top-navigation">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" href="<?= Url::to(['/site/index']) ?>">
-			<?= Html::encode(Yii::$app->name) ?>
+			<?= Html::img(
+				$metaAssetUrl . '/img/flags-banner-180w.png',
+				[
+					'alt' => Yii::$app->name,
+					'class' => 'sb-topnav-brand-img',
+				]
+			) ?>
 		</a>
-
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 				id="sidebarToggle"
@@ -34,8 +74,8 @@ use p2m\helpers\BI;
 			<div class="input-group">
 				<input class="form-control"
 					type="search"
-					placeholder="Search (coming soon)..."
-					aria-label="Search (coming soon)..."
+					placeholder="Search..."
+					aria-label="Search..."
 					aria-describedby="btnNavbarSearch"
 					disabled>
 				<button class="btn btn-primary" id="btnNavbarSearch" type="button" disabled>
@@ -56,19 +96,44 @@ use p2m\helpers\BI;
 					<?= BI::i('person-circle')->size(4) ?>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+					<li>
+						<a class="dropdown-item" data-bs-toggle="collapse" href="#langMenu" role="button" aria-expanded="false" aria-controls="langMenu">
+							<?= BI::i('translate') . ' ' . Html::encode(Yii::t('admin.nav', 'Language')) ?>
+						</a>
+						<div class="collapse" id="langMenu">
+							<ul class="list-unstyled mb-0">
+								<?php
+									foreach ($languages as $code => $meta) {
+										echo Html::a(
+											'<span>' . FI::i($meta['flag']) . ' ' . Html::encode($meta['label']) . '</span>' .
+											($code === $currentLang ? BI::i('check') : ''),
+											['/site/set-language', 'lang' => $code],
+											[
+												'class' => 'dropdown-item ps-4 d-flex justify-content-between align-items-center',
+												'encode' => false,
+											]
+										);
+									}
+								?>
+							</ul>
+						</div>
+					</li>
+
+					<li><hr class="dropdown-divider"></li>
 					<li>
 						<a class="dropdown-item" href="#!">
-							Settings (coming soon)
+							<?= BI::i('gear') . ' ' . Yii::t('admin.nav', 'Settings') ?>
 						</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#!">
-							Activity Log (coming soon)
+							<?= BI::i('activity') . ' ' . Yii::t('admin.nav', 'Activity Log') ?>
 						</a>
 					</li>
 					<li><hr class="dropdown-divider"></li>
 					<li>
-						<?= Html::a('Logout', ['/user/security/logout'], [ // /user/security/logout or /site/logout
+						<?= Html::a(Yii::t('admin.nav', 'Logout'), ['/user/security/logout'], [ // /user/security/logout or /site/logout
 							'class' => 'dropdown-item',
 							'data-method' => 'post',
 						]) ?>

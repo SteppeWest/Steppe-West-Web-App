@@ -11,16 +11,24 @@
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\BI;
+use p2m\helpers\FI;
 
 /* @var $this yii\web\View */
+
+$metaAssetUrl  = $this->params['metaAssetUrl'];
 ?>
 <div id="top-navigation">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" href="<?= Url::to(['/site/index']) ?>">
-			<?= Html::encode(Yii::$app->name) ?>
+			<?= Html::img(
+				$metaAssetUrl . '/img/flags-banner-180w.png',
+				[
+					'alt' => Yii::$app->name,
+					'class' => 'sb-topnav-brand-img',
+				]
+			) ?>
 		</a>
-
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 				id="sidebarToggle"
@@ -56,6 +64,28 @@ use p2m\helpers\BI;
 					<?= BI::i('person-circle')->size(4) ?>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+					<li class="dropdown-header">
+						<?= BI::i('translate') . ' ' . Yii::t('admin.nav', 'Language') ?>
+					</li>
+
+					<li>
+						<?= Html::a(
+							FI::i('gb') . ' ' . 'English',
+							['/site/set-language', 'lang' => 'en'],
+							['class' => 'dropdown-item']
+						) ?>
+					</li>
+
+					<li>
+						<?= Html::a(
+							FI::i('ru') . ' ' . 'Русский',
+							['/site/set-language', 'lang' => 'ru'],
+							['class' => 'dropdown-item']
+						) ?>
+					</li>
+
+					<li><hr class="dropdown-divider"></li>
 					<li>
 						<a class="dropdown-item" href="#!">
 							Settings (coming soon)
