@@ -3,8 +3,8 @@
 return [
 	'sourcePath' => dirname(__DIR__, 2) . '/backend',
 	'messagePath' => dirname(__DIR__, 2) . '/backend/messages',
-	'languages' => ['ru'],
-	//'languages' => ['ru', 'kk', 'ky', 'tg', 'uz'],
+	//'languages' => ['ru'],
+	'languages' => ['en', 'ru', 'kk', 'ky', 'tg', 'uz'],
 	'translator' => 'Yii::t',
 	'sort' => true,
 	'overwrite' => true,

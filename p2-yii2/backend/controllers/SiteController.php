@@ -147,13 +147,4 @@ class SiteController extends SwBaseController
 
 		return $this->goBack(Yii::$app->request->referrer ?: ['/site/index']);
 	}
-
-
-
-
-
-
-
-
-
 }

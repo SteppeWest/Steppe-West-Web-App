@@ -100,7 +100,7 @@ $metaAssetUrl  = $this->params['metaAssetUrl'];
 					<li>
 						<?= Html::a('Logout', ['/user/security/logout'], [ // /user/security/logout or /site/logout
 							'class' => 'dropdown-item',
-							'data-method' => 'post',
+							'data' => ['method' => 'post'],
 						]) ?>
 					</li>
 				</ul>

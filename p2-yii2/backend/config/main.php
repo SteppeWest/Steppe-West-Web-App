@@ -56,6 +56,7 @@ return [
 						'admin' => 'admin.php',
 						'admin.nav' => 'admin.nav.php',
 						'admin.dashboard' => 'admin.dashboard.php',
+						'admin.user' => `admin.user.php`,
 						'admin.users' => 'admin.users.php',
 						'admin.roles' => 'admin.roles.php',
 						'admin.permissions' => 'admin.permissions.php',

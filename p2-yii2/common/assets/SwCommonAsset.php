@@ -37,10 +37,9 @@ class SwCommonAsset extends AssetBundle
 	];
 	 */
 
-	/**
 	// @var array
 	public $js = [
 		'js/sw-common.min.js',
 	];
-	 */
 }
+

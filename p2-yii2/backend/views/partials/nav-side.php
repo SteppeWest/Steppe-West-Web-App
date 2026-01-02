@@ -9,7 +9,6 @@
  */
 
 use yii\bootstrap5\Html;
-use yii\helpers\Url;
 use p2m\helpers\BI;
 
 /* @var $this yii\web\View */
@@ -22,9 +21,12 @@ $currentRoute = $controller . '/' . $action;
 $mkLink = function (string $label, array|string $route, string $icon = null, bool $active = false) {
 	$iconHtml = $icon ? '<div class="sb-nav-link-icon">' . BI::i($icon) . '</div>' : '';
 	return Html::a(
-		$iconHtml . Html::encode($label),
+		$iconHtml . $label,
 		$route,
-		['class' => 'nav-link' . ($active ? ' active' : '')]
+		[
+			'class' => 'nav-link' . ($active ? ' active' : ''),
+			'encode' => false,
+		]
 	);
 };
 
@@ -32,7 +34,7 @@ $mkToggle = function (string $label, string $targetId, string $icon = null, bool
 	$iconHtml = $icon ? '<div class="sb-nav-link-icon">' . BI::i($icon) . '</div>' : '';
 	return Html::a(
 		$iconHtml
-		. Html::encode($label)
+		. $label
 		. '<div class="sb-sidenav-collapse-arrow">' . BI::i('chevron-down') . '</div>',
 		'#',
 		[
@@ -41,6 +43,8 @@ $mkToggle = function (string $label, string $targetId, string $icon = null, bool
 			'data-bs-target' => '#' . $targetId,
 			'aria-expanded' => $expanded ? 'true' : 'false',
 			'aria-controls' => $targetId,
+			'aria-label' => $label,
+			'encode' => false,
 		]
 	);
 };
@@ -55,59 +59,55 @@ $addonsOpen  = in_array($controller, ['charts', 'tables'], true);
 			<div class="nav">
 
 				<!-- Core -->
-				<div class="sb-sidenav-menu-heading">Core</div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Core') ?></div>
 
-				<?= $mkLink('Dashboard', ['/site/index'], 'speedometer2', $controller === 'site' && $action === 'index') ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Dashboard'), ['/site/index'], 'speedometer2', $controller === 'site' && $action === 'index') ?>
 
-				<!-- You can start adding real admin items now -->
-				<div class="sb-sidenav-menu-heading">Users</div>
+				<!-- Users -->
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Users') ?></div>
 
-				<?= $mkLink('Manage Users', ['/user/admin'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
-				<?= $mkLink('Roles', ['/user/role'], 'person-badge', $controller === 'role') ?>
-				<?= $mkLink('Permissions', ['/user/permission'], 'key', $controller === 'permission') ?>
-				<?= $mkLink('Rules', ['/user/rule'], 'key', $controller === 'rule') ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Manage Users'), ['/user/admin'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Roles'), ['/user/role'], 'person-badge', $controller === 'role') ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Permissions'), ['/user/permission'], 'key', $controller === 'permission') ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Rules'), ['/user/rule'], 'key', $controller === 'rule') ?>
 
 				<!-- Interface -->
-				<div class="sb-sidenav-menu-heading">Interface</div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Interface') ?></div>
 
-				<?= $mkToggle('Layouts', 'collapseLayouts', 'columns-gap', $uiOpen) ?>
+				<?= $mkToggle(Yii::t('admin.nav', 'Layouts'), 'collapseLayouts', 'columns-gap', $uiOpen) ?>
 
 				<div class="collapse<?= $uiOpen ? ' show' : '' ?>"
 				     id="collapseLayouts"
-				     aria-labelledby="headingLayouts"
 				     data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<?= Html::a('Static Navigation', '#!', ['class' => 'nav-link']) ?>
-						<?= Html::a('Light Sidenav', '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('admin.nav', 'Static Navigation'), '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('admin.nav', 'Light Sidenav'), '#!', ['class' => 'nav-link']) ?>
 					</nav>
 				</div>
 
-				<?= $mkToggle('Pages', 'collapsePages', 'file-earmark-text', $uiOpen) ?>
+				<?= $mkToggle(Yii::t('admin.nav', 'Pages'), 'collapsePages', 'file-earmark-text', $uiOpen) ?>
 
 				<div class="collapse<?= $uiOpen ? ' show' : '' ?>"
 				     id="collapsePages"
-				     aria-labelledby="headingPages"
 				     data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-
-						<!-- Nested (4th-level links) example -->
-						<?= Html::a('Authentication (placeholder)', '#!', ['class' => 'nav-link']) ?>
-						<?= Html::a('Error (placeholder)', '#!', ['class' => 'nav-link']) ?>
-
+						<?= Html::a(Yii::t('admin.nav', 'Authentication'), '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('admin.nav', 'Error'), '#!', ['class' => 'nav-link']) ?>
 					</nav>
 				</div>
 
 				<!-- Addons -->
-				<div class="sb-sidenav-menu-heading">Addons</div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Addons') ?></div>
 
-				<?= $mkLink('Charts', '#!', 'bar-chart-line', $controller === 'charts') ?>
-				<?= $mkLink('Tables', '#!', 'table', $controller === 'tables') ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Charts'), '#!', 'bar-chart-line', $controller === 'charts') ?>
+				<?= $mkLink(Yii::t('admin.nav', 'Tables'), '#!', 'table', $controller === 'tables') ?>
 
 			</div>
 		</div>
+
 		<div class="sb-sidenav-footer">
-			<div class="small">Logged in as:</div>
-			<?= Html::encode(Yii::$app->user->identity->username) ?>
+			<div class="small"><?= Yii::t('admin.nav', 'Logged in as:') ?></div>
+			<?= Yii::$app->user->isGuest ? 'konok' : Html::encode(Yii::$app->user->identity->username) ?>
 		</div>
 	</nav>
 </div>

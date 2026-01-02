@@ -25,34 +25,31 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('usuario', 'Manage users');
-$this->params['breadcrumbs'][] = $this->title;
-?>
+$this->title = Yii::t('admin.nav', 'Manage Users');
+$this->params['breadcrumbs'][] = $this->title;?>
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= Html::encode($this->title) ?></h1>
 
 	<?= Html::a(
-		BI::i('plus-circle') . ' Add User',
+		BI::i('plus-circle') . ' ' . Yii::t('admin.users', 'Add User'),
 		['create'],
 		['class' => 'btn btn-primary']
 	) ?>
 </div>
 
-<?= Breadcrumbs::widget([
-	'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-]) ?>
+<?= $this->render('/partials/breadcrumbs') ?>
 <?= Alert::widget() ?>
 
 <div class="table-responsive">
 	<table class="table table-bordered" id="usersTable">
 		<thead>
 			<tr>
-				<th>Username</th>
-				<th>Email</th>
-				<th>Confirmed</th>
-				<th>Blocked</th>
-				<th>Created</th>
-				<th style="width: 160px;">Actions</th>
+				<th><?= Yii::t('admin.users', 'Username') ?></th>
+				<th><?= Yii::t('admin.users', 'Email') ?></th>
+				<th><?= Yii::t('admin.users', 'Confirmed') ?></th>
+				<th><?= Yii::t('admin.users', 'Blocked') ?></th>
+				<th><?= Yii::t('admin.users', 'Created') ?></th>
+				<th><?= Yii::t('admin', 'Actions') ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -60,17 +57,17 @@ $this->params['breadcrumbs'][] = $this->title;
 			<tr>
 				<td><?= Html::encode($user->username) ?></td>
 				<td><?= Html::encode($user->email) ?></td>
-				<td><?= $user->confirmed_at ? 'Yes' : 'No' ?></td>
-				<td><?= $user->blocked_at ? 'Yes' : 'No' ?></td>
+				<td><?= $user->confirmed_at ? Yii::t('admin', 'Yes') : Yii::t('admin', 'No') ?></td>
+				<td><?= $user->blocked_at ? Yii::t('admin', 'Yes') : Yii::t('admin', 'No') ?></td>
 				<td><?= Yii::$app->formatter->asDate($user->created_at) ?></td>
 				<td>
 					<div class="btn-group btn-group-sm">
-						<?= Html::a('View', ['profile/show', 'id' => $user->id], ['class' => 'btn btn-outline-secondary']) ?>
-						<?= Html::a('Update', ['update', 'id' => $user->id], ['class' => 'btn btn-outline-primary']) ?>
-						<?= Html::a('Delete', ['delete', 'id' => $user->id], [
+						<?= Html::a(Yii::t('admin.users', 'View'), ['profile/show', 'id' => $user->id], ['class' => 'btn btn-outline-secondary']) ?>
+						<?= Html::a(Yii::t('admin.users', 'Update'), ['update', 'id' => $user->id], ['class' => 'btn btn-outline-primary']) ?>
+						<?= Html::a(Yii::t('admin.users', 'Delete'), ['delete', 'id' => $user->id], [
 							'class' => 'btn btn-outline-danger',
 							'data' => [
-								'confirm' => 'Are you sure?',
+								'confirm' => Yii::t('admin', 'Are you sure?'),
 								'method' => 'post',
 							],
 						]) ?>
