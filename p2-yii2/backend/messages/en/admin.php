@@ -18,10 +18,13 @@
  */
 return [
     'Actions' => 'Actions',
+    'Are you sure?' => 'Are you sure?',
     'Cancel' => '@@Cancel@@',
     'Create' => '@@Create@@',
     'Delete' => '@@Delete@@',
+    'No' => 'No',
     'Save' => '@@Save@@',
     'Search' => 'Search',
     'Update' => '@@Update@@',
+    'Yes' => 'Yes',
 ];

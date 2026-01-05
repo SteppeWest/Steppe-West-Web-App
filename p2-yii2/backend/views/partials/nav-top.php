@@ -36,7 +36,7 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 				id="sidebarToggle"
-				aria-label="<?= Yii::t('admin.nav', 'Toggle navigation') ?>"
+				aria-label="<?= Yii::t('admin.a11y', 'Toggle Navigation') ?>"
 				type="button">
 			<?= BI::i('list')->size(3) ?>
 		</button>
@@ -65,7 +65,7 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 				   data-bs-toggle="dropdown"
 				   data-bs-auto-close="outside"
 				   aria-expanded="false"
-				   aria-label="<?= Yii::t('admin.nav', 'User menu') ?>">
+				   aria-label="<?= Yii::t('admin.a11y', 'User Menu') ?>">
 					<?= BI::i('person-circle')->size(4) ?>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -73,7 +73,7 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 					<li>
 						<a class="dropdown-item" data-bs-toggle="collapse"
 						   href="#langMenu" role="button" type="button"
-						   aria-label="<?= Yii::t('admin.nav', 'Select language') ?>"
+						   aria-label="<?= Yii::t('admin.a11y', 'Select Language') ?>"
 						   aria-expanded="false" aria-controls="langMenu">
 							<?= BI::i('translate') . ' ' . Yii::t('admin.nav', 'Language') ?>
 						</a>

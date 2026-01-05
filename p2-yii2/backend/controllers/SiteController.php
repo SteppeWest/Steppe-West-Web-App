@@ -136,6 +136,8 @@ class SiteController extends SwBaseController
 		if (in_array($lang, $allowed, true)) {
 			Yii::$app->language = $lang;
 
+			Yii::$app->session->set('userLanguage', $lang);
+
 			Yii::$app->response->cookies->add(new \yii\web\Cookie([
 				'name' => 'userLanguage',
 				'value' => $lang,

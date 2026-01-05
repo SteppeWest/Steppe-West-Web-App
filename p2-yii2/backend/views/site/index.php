@@ -29,12 +29,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 	<div class="row">
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-primary text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.dashboard', 'Primary Card') ?></div>
+				<div class="card-body"><?= Yii::t('admin.demo', 'Primary Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.dashboard', 'View Details') ?>">
-						<?= Yii::t('admin.dashboard', 'View Details') ?>
+					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
+						<?= Yii::t('admin.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -45,12 +45,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-warning text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.dashboard', 'Warning Card') ?></div>
+				<div class="card-body"><?= Yii::t('admin.demo', 'Warning Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.dashboard', 'View Details') ?>">
-						<?= Yii::t('admin.dashboard', 'View Details') ?>
+					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
+						<?= Yii::t('admin.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -61,12 +61,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-success text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.dashboard', 'Success Card') ?></div>
+				<div class="card-body"><?= Yii::t('admin.demo', 'Success Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.dashboard', 'View Details') ?>">
-						<?= Yii::t('admin.dashboard', 'View Details') ?>
+					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
+						<?= Yii::t('admin.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -77,12 +77,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-danger text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.dashboard', 'Danger Card') ?></div>
+				<div class="card-body"><?= Yii::t('admin.demo', 'Danger Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.dashboard', 'View Details') ?>">
-						<?= Yii::t('admin.dashboard', 'View Details') ?>
+					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
+						<?= Yii::t('admin.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -97,13 +97,13 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 			<div class="card mb-4">
 				<div class="card-header">
 					<?= BI::i('graph-up') ?>
-					<span class="ms-1"><?= Yii::t('admin.dashboard', 'Area Chart Example') ?></span>
+					<span class="ms-1"><?= Yii::t('admin.demo', 'Area Chart Example') ?></span>
 				</div>
 				<div class="card-body">
 					<canvas id="myAreaChart"
 					        width="100%"
 					        height="40"
-					        aria-label="<?= Yii::t('admin.dashboard', 'Area chart') ?>"
+					        aria-label="<?= Yii::t('admin.demo', 'Area Chart') ?>"
 					        role="img"></canvas>
 				</div>
 			</div>
@@ -113,13 +113,13 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 			<div class="card mb-4">
 				<div class="card-header">
 					<?= BI::i('bar-chart') ?>
-					<span class="ms-1"><?= Yii::t('admin.dashboard', 'Bar Chart Example') ?></span>
+					<span class="ms-1"><?= Yii::t('admin.demo', 'Bar Chart Example') ?></span>
 				</div>
 				<div class="card-body">
 					<canvas id="myBarChart"
 					        width="100%"
 					        height="40"
-					        aria-label="<?= Yii::t('admin.dashboard', 'Bar chart') ?>"
+					        aria-label="<?= Yii::t('admin.demo', 'Bar Chart') ?>"
 					        role="img"></canvas>
 				</div>
 			</div>
@@ -129,28 +129,28 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 	<div class="card mb-4">
 		<div class="card-header">
 			<?= BI::i('table') ?>
-			<span class="ms-1"><?= Yii::t('admin.dashboard', 'DataTable Example') ?></span>
+			<span class="ms-1"><?= Yii::t('admin.demo', 'DataTable Example') ?></span>
 		</div>
 		<div class="card-body">
-			<table id="datatablesSimple" aria-label="<?= Yii::t('admin.dashboard', 'Example data table') ?>">
+			<table id="datatablesSimple" aria-label="<?= Yii::t('admin.demo', 'Example Data Table') ?>">
 				<thead>
 					<tr>
-						<th><?= Yii::t('admin.dashboard', 'Name') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Position') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Office') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Age') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Start date') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Salary') ?></th>
+						<th><?= Yii::t('admin', 'Name') ?></th>
+						<th><?= Yii::t('admin', 'Position') ?></th>
+						<th><?= Yii::t('admin', 'Office') ?></th>
+						<th><?= Yii::t('admin', 'Age') ?></th>
+						<th><?= Yii::t('admin', 'Start Date') ?></th>
+						<th><?= Yii::t('admin', 'Salary') ?></th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
-						<th><?= Yii::t('admin.dashboard', 'Name') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Position') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Office') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Age') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Start date') ?></th>
-						<th><?= Yii::t('admin.dashboard', 'Salary') ?></th>
+						<th><?= Yii::t('admin', 'Name') ?></th>
+						<th><?= Yii::t('admin', 'Position') ?></th>
+						<th><?= Yii::t('admin', 'Office') ?></th>
+						<th><?= Yii::t('admin', 'Age') ?></th>
+						<th><?= Yii::t('admin', 'Start Date') ?></th>
+						<th><?= Yii::t('admin', 'Salary') ?></th>
 					</tr>
 				</tfoot>
 				<tbody>

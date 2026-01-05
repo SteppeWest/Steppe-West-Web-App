@@ -45,6 +45,15 @@ return [
 			// optional:
 			'defaultRoles' => ['konok', 'musafir'],
 		],
+		'formatter' => [
+			'class' => yii\i18n\Formatter::class,
+			// ISO 8601 date
+			'dateFormat' => 'php:Y-m-d',
+			// If you later render datetimes, this is the ISO-ish default:
+			'datetimeFormat' => 'php:Y-m-d H:i:s',
+			// Optional: if you ever use asTime()
+			'timeFormat' => 'php:H:i:s',
+		],
 		/**
 		'request' => [
 			'enableCsrfCookie' => false,

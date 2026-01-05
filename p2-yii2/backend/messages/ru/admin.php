@@ -17,11 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Actions' => '@@Действия@@',
+    'Actions' => 'Действия',
+    'Are you sure?' => 'Вы уверены?',
     'Cancel' => '@@Отмена@@',
     'Create' => '@@Создать@@',
     'Delete' => '@@Удалить@@',
+    'No' => 'Нет',
     'Save' => '@@Сохранить@@',
     'Search' => 'Поиск',
     'Update' => '@@Обновить@@',
+    'Yes' => 'Да',
 ];

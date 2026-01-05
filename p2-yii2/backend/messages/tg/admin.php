@@ -17,11 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Actions' => '@@Амалиётҳо@@',
+    'Actions' => 'Амалиётҳо',
+    'Are you sure?' => 'Оё мутмаин ҳастед?',
     'Cancel' => '@@Бекор кардан@@',
     'Create' => '@@Эҷод кардан@@',
     'Delete' => '@@Нест кардан@@',
+    'No' => 'Не',
     'Save' => '@@Захира кардан@@',
     'Search' => 'Ҷустуҷӯ',
     'Update' => '@@Навсозӣ@@',
+    'Yes' => 'Ҳа',
 ];

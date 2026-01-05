@@ -8,9 +8,21 @@ $params = array_merge(
 
 return [
 	'id' => 'app-backend',
-	'name' => 'Steppe West HQ', // Set the application name here
+	'name' => 'Steppe West HQ',
 	'basePath' => dirname(__DIR__),
 	'controllerNamespace' => 'backend\controllers',
+	'on beforeRequest' => function () {
+		$session = Yii::$app->session;
+
+		// Prefer cookie, fall back to session, else default
+		$lang = Yii::$app->request->cookies->getValue('userLanguage')
+			?? ($session->has('userLanguage') ? $session->get('userLanguage') : null)
+			?? Yii::$app->sourceLanguage;
+
+		if ($lang) {
+			Yii::$app->language = $lang;
+		}
+	},
 	'bootstrap' => ['log'],
 	'modules' => [
 		'user' => [
@@ -20,6 +32,12 @@ return [
 			'enableRegistration' => false,       // backend: no public register
 			'classMap' => [
 				'User' => common\models\User::class,
+			],
+			'controllerMap' => [
+				'role' => backend\controllers\SwRoleController::class,
+				// later:
+				// 'permission' => backend\controllers\SwPermissionController::class,
+				// 'rule' => backend\controllers\SwRuleController::class,
 			],
 		],
 	],
@@ -96,8 +114,6 @@ return [
 	],
 	'params' => $params,
 
-	// optional but handy:
-	//'defaultRoute' => 'user/admin',
 	'defaultRoute' => 'site/index',
 ];
 
