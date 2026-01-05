@@ -10,63 +10,91 @@
  * Adapted from 2amigos/yii2-usuario
  */
 
-/**
- * @var \yii\data\ActiveDataProvider $dataProvider
- * @var yii\web\View $this
- * @var \Da\User\Search\PermissionSearch $searchModel
- * @var \Da\User\Module $module
- */
+use yii\bootstrap5\Html;
+use yii\bootstrap5\Breadcrumbs;
+use common\widgets\Alert;
+use p2m\helpers\BI;
+use p2m\assets\P2DataTablesResponsiveAsset;
+
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Url;
-use p2m\assets\P2SimpleDatatablesAsset;
 
-P2SimpleDatatablesAsset::register($this);
+P2DataTablesResponsiveAsset::register($this);
 
-$this->title = Yii::t('usuario', 'Permissions');
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var Da\User\Search\UserSearch $searchModel
+ * @var Da\User\Module $module
+ */
+
+$this->title = Yii::t('admin.permissions', 'Manage Permissions');
+$this->params['breadcrumbs'][] = $this->title;
+
+$iconUpdate = BI::i('pencil-square')
+	->title(Yii::t('admin.a11y', 'Update Permission'))
+	->ariaLabel(Yii::t('admin.a11y', 'Update Permission'))
+	->focusable();
+
+$iconDelete = BI::i('trash')
+	->title(Yii::t('admin.a11y', 'Delete Permission'))
+	->ariaLabel(Yii::t('admin.a11y', 'Delete Permission'))
+	->focusable();
 ?>
-
-<?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>
-<div class="table-responsive">
-<?= GridView::widget(
-	[
-		'dataProvider' => $dataProvider,
-		'filterModel' => $searchModel,
-		'layout' => "{items}\n{pager}",
-		'columns' => [
-			[
-				'attribute' => 'name',
-				'header' => Yii::t('usuario', 'Name'),
-				'options' => [
-					'style' => 'width: 20%',
-				],
-			],
-			[
-				'attribute' => 'description',
-				'header' => Yii::t('usuario', 'Description'),
-				'options' => [
-					'style' => 'width: 55%',
-				],
-			],
-			[
-				'attribute' => 'rule_name',
-				'header' => Yii::t('usuario', 'Rule name'),
-				'options' => [
-					'style' => 'width: 20%',
-				],
-			],
-			[
-				'class' => ActionColumn::class,
-				'template' => '{update} {delete}',
-				'urlCreator' => function ($action, $model) {
-					return Url::to(['/user/permission/' . $action, 'name' => $model['name']]);
-				},
-				'options' => [
-					'style' => 'width: 5%',
-				],
-			],
-		],
-	]
-) ?>
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+	<?= Html::a(
+		BI::i('plus-circle') . ' ' . Yii::t('admin.permissions', 'Add Permission'),
+		['create'],
+		['class' => 'btn btn-primary']
+	) ?>
 </div>
-<?php $this->endContent() ?>
+
+<?= $this->render('/partials/breadcrumbs') ?>
+<?= Alert::widget() ?>
+
+<div class="table-responsive">
+	<table class="table table-bordered" id="permissionsTable">
+		<thead>
+			<tr>
+				<th><?= Yii::t('admin', 'Name') ?></th>
+				<th><?= Yii::t('admin', 'Description') ?></th>
+				<th><?= Yii::t('admin.rules', 'Rule Name') ?></th>
+				<th><?= Yii::t('admin', 'Actions') ?></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($dataProvider->getModels() as $permission): ?>
+			<tr>
+				<td><?= Html::encode($permission->name) ?></td>
+				<td><?= Html::encode($permission->description) ?></td>
+				<td><?= Html::encode($permission->rule_name) ?></td>
+				<td>
+					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('admin.a11y', 'Permissions Actions') ?>">
+						<!-- Update -->
+						<?= Html::a(
+							$iconUpdate,
+							['update', 'name' => $permission->name],
+							['class' => 'btn btn-primary']
+						) ?>
+
+						<!-- Delete -->
+						<?= Html::a(
+							$iconDelete,
+							['delete', 'name' => $permission->name],
+							[
+								'class' => 'btn btn-danger',
+								'data' => [
+									'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
+									'method' => 'post',
+								],
+							]
+						) ?>
+					</div>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>

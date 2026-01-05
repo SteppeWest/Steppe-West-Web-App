@@ -22,12 +22,12 @@ P2DataTablesResponsiveAsset::register($this);
 $this->title = Yii::t('admin.roles', 'Manage Roles');
 $this->params['breadcrumbs'][] = $this->title;
 
-$updateIcon = BI::i('pencil-square')
+$iconUpdate = BI::i('pencil-square')
 	->l(Yii::t('admin.a11y', 'Edit Role'))
 	->t(Yii::t('admin.a11y', 'Edit Role'))
 	->f();
 
-$deleteIcon = BI::i('trash')
+$iconDelete = BI::i('trash')
 	->ariaLabel(Yii::t('admin.a11y', 'Delete Role'))
 	->title(Yii::t('admin.a11y', 'Delete Role'))
 	->focusable();
@@ -52,7 +52,7 @@ $deleteIcon = BI::i('trash')
 			<tr>
 				<th><?= Yii::t('admin', 'Name') ?></th>
 				<th><?= Yii::t('admin', 'Description') ?></th>
-				<th><?= Yii::t('admin.roles', 'Rule Name') ?></th>
+				<th><?= Yii::t('admin.rules', 'Rule Name') ?></th>
 				<th><?= Yii::t('admin', 'Actions') ?></th>
 			</tr>
 		</thead>
@@ -64,18 +64,21 @@ $deleteIcon = BI::i('trash')
 				<td><?= Html::encode($role->rule_name) ?></td>
 				<td>
 					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('admin.a11y', 'Role Actions') ?>">
+						<!-- Update -->
 						<?= Html::a(
-							$updateIcon,
+							$iconUpdate,
 							['update', 'name' => $role->name],
 							['class' => 'btn btn-primary']
 						) ?>
+
+						<!-- Delete -->
 						<?= Html::a(
-							$deleteIcon,
+							$iconDelete,
 							['delete', 'name' => $role->name],
 							[
 								'class' => 'btn btn-danger',
 								'data' => [
-									'confirm' => Yii::t('admin', 'Are you sure?'),
+									'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
 									'method' => 'post',
 								],
 							]

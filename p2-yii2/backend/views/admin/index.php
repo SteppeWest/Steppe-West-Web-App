@@ -38,7 +38,7 @@ $iconView = BI::i('eye')
 	->ariaLabel(Yii::t('admin.a11y', 'View User'))
 	->focusable();
 
-$iconEdit = BI::i('pencil-square')
+$iconUpdate = BI::i('pencil-square')
 	->title(Yii::t('admin.a11y', 'Update User'))
 	->ariaLabel(Yii::t('admin.a11y', 'Update User'))
 	->focusable();
@@ -133,7 +133,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 
 						<!-- Update -->
 						<?= Html::a(
-							$iconEdit,
+							$iconUpdate,
 							['update', 'id' => $user->id],
 							[
 								'class' => 'btn btn-primary',
@@ -178,7 +178,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 									'class' => 'btn btn-danger',
 									'aria-label' => Yii::t('admin.a11y', 'Delete User'),
 									'data' => [
-										'confirm' => Yii::t('admin', 'Are you sure?'),
+										'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
 										'method' => 'post',
 									],
 								]
