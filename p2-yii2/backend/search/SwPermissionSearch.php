@@ -1,6 +1,6 @@
 <?php
 /**
- * @backend/search/SwRoleSearch.php
+ * @backend/search/SwPermissionSearch.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -14,11 +14,11 @@ use yii\base\Model;
 use yii\data\ArrayDataProvider;
 use common\search\RbacItemSearch;
 
-final class SwRoleSearch extends Model
+final class SwPermissionSearch extends Model
 {
 	public function search($params = []): ArrayDataProvider
 	{
 		// Whatever method name you used; adjust accordingly.
-		return (new RbacItemSearch())->searchRoles($params);
+		return (new RbacItemSearch())->searchPermissions($params);
 	}
 }

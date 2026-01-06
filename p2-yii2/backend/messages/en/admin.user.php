@@ -1,5 +1,5 @@
 <?php
-// admin.users
+// admin.user
 
 return [
 	'Users' => 'Users',

@@ -1,4 +1,13 @@
 <?php
+/**
+ * @common/models/view/RbacItemView.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
+
 namespace common\models\view;
 
 final class RbacItemView

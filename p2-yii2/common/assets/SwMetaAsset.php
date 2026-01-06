@@ -23,6 +23,7 @@ SwMetaAsset::register($this);
  * or specify as a dependency with...
 
 		'common\assets\SwMetaAsset',
+
  */
 
 namespace common\assets;
@@ -32,5 +33,10 @@ use yii\web\AssetBundle;
 class SwMetaAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/sw-meta';
+	public $sourcePath = '@static/common/meta';
+
+	// @var array
+	public $depends = [
+		'common\assets\SwCommonAsset',
+	];
 }

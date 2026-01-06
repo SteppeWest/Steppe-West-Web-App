@@ -16,10 +16,6 @@ use common\widgets\Alert;
 use p2m\helpers\BI;
 use p2m\assets\P2DataTablesResponsiveAsset;
 
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
-use yii\helpers\Url;
-
 P2DataTablesResponsiveAsset::register($this);
 
 /**
@@ -29,23 +25,23 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('admin.permissions', 'Manage Permissions');
+$this->title = Yii::t('admin.rbac', 'Manage Permissions');
 $this->params['breadcrumbs'][] = $this->title;
 
 $iconUpdate = BI::i('pencil-square')
-	->title(Yii::t('admin.a11y', 'Update Permission'))
-	->ariaLabel(Yii::t('admin.a11y', 'Update Permission'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Update Permission'))
+	->t(Yii::t('admin.a11y', 'Update Permission'))
+	->f();
 
 $iconDelete = BI::i('trash')
-	->title(Yii::t('admin.a11y', 'Delete Permission'))
-	->ariaLabel(Yii::t('admin.a11y', 'Delete Permission'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Delete Permission'))
+	->t(Yii::t('admin.a11y', 'Delete Permission'))
+	->f();
 ?>
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
 	<?= Html::a(
-		BI::i('plus-circle') . ' ' . Yii::t('admin.permissions', 'Add Permission'),
+		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add Permission'),
 		['create'],
 		['class' => 'btn btn-primary']
 	) ?>
@@ -60,7 +56,7 @@ $iconDelete = BI::i('trash')
 			<tr>
 				<th><?= Yii::t('admin', 'Name') ?></th>
 				<th><?= Yii::t('admin', 'Description') ?></th>
-				<th><?= Yii::t('admin.rules', 'Rule Name') ?></th>
+				<th><?= Yii::t('admin.rbac', 'Rule Name') ?></th>
 				<th><?= Yii::t('admin', 'Actions') ?></th>
 			</tr>
 		</thead>

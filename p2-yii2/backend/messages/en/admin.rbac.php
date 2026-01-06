@@ -17,15 +17,15 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-	'Activity Log' => 'Сабти фаъолиятҳо',
-	'Addons' => 'Иловаҳо',
-	'Core' => 'Асосӣ',
-	'Dashboard' => 'Панели идоракунӣ',
-	'Language' => 'Забон',
-	'Logout' => 'Баромадан',
-	'Permissions' => 'Иҷозатҳо',
-	'Roles' => 'Нақшҳо',
-	'Rules' => 'Қоидаҳо',
-	'Settings' => 'Танзимот',
-	'Users' => 'Корбарон',
+	'Add Permission' => 'Add Permission',
+	'Add Role' => 'Add Role',
+	'Add Rule' => 'Add Rule',
+	'Add User' => 'Add User',
+	'Blocked' => 'Blocked',
+	'Confirmed' => 'Confirmed',
+	'Manage Permissions' => 'Manage Permissions',
+	'Manage Roles' => 'Manage Roles',
+	'Manage Rules' => 'Manage Rules',
+	'Manage Users' => 'Manage Users',
+	'Rule Name' => 'Rule Name',
 ];

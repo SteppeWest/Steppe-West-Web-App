@@ -104,19 +104,4 @@ class m251228_063524_sw_seed_dummy_users extends Migration
 		$this->delete('sw_profile', ['user_id' => $userIds]);
 		$this->delete('sw_user', ['id' => $userIds]);
 	}
-
-	/*
-	// Use up()/down() to run migration code without a transaction.
-	public function up()
-	{
-
-	}
-
-	public function down()
-	{
-		echo "m251228_063524_sw_seed_dummy_users cannot be reverted.\n";
-
-		return false;
-	}
-	*/
 }

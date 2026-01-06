@@ -1,81 +1,99 @@
 <?php
-
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
-use yii\helpers\Url;
-use p2m\assets\P2SimpleDatatablesAsset;
-use p2m\helpers\BI;
-
 /**
- * @var \yii\data\ActiveDataProvider $dataProvider
- * @var \Da\User\Search\RuleSearch $searchModel
- * @var yii\web\View $this
- * @var \Da\User\Module $module
+ * @backend/views/rule/index.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ *
+ * Adapted from 2amigos/yii2-usuario
  */
 
-P2SimpleDatatablesAsset::register($this);
+use yii\bootstrap5\Html;
+use common\widgets\Alert;
+use p2m\helpers\BI;
+use p2m\assets\P2DataTablesResponsiveAsset;
 
-$this->title = Yii::t('usuario', 'Rules');
+P2DataTablesResponsiveAsset::register($this);
+
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var Da\User\Search\RuleSearch $searchModel
+ * @var Da\User\Module $module
+ */
+
+$this->title = Yii::t('admin.rbac', 'Manage Rules');
 $this->params['breadcrumbs'][] = $this->title;
 
+$iconUpdate = BI::i('pencil-square')
+	->l(Yii::t('admin.a11y', 'Edit Rule'))
+	->t(Yii::t('admin.a11y', 'Edit Rule'))
+	->f();
+
+$iconDelete = BI::i('trash')
+	->l(Yii::t('admin.a11y', 'Delete Rule'))
+	->t(Yii::t('admin.a11y', 'Delete Rule'))
+	->f();
 ?>
 
-<?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>
-<div class="table-responsive">
-<?= GridView::widget(
-	[
-		'dataProvider' => $dataProvider,
-		'filterModel' => $searchModel,
-		'layout' => "{items}\n{pager}",
-		'columns' => [
-			[
-				'attribute' => 'name',
-				'label' => Yii::t('usuario', 'Name'),
-				'options' => [
-					'style' => 'width: 20%'
-				],
-			],
-			[
-				'attribute' => 'className',
-				'label' => Yii::t('usuario', 'Class'),
-				'value' => function ($row) {
-					$rule = unserialize($row['data']);
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
 
-					return get_class($rule);
-				},
-				'options' => [
-					'style' => 'width: 20%'
-				],
-			],
-			[
-				'attribute' => 'created_at',
-				'label' => Yii::t('usuario', 'Created at'),
-				'format' => 'datetime',
-				'options' => [
-					'style' => 'width: 20%'
-				],
-			],
-			[
-				'attribute' => 'updated_at',
-				'label' => Yii::t('usuario', 'Updated at'),
-				'format' => 'datetime',
-				'options' => [
-					'style' => 'width: 20%'
-				],
-			],
-			[
-				'class' => ActionColumn::class,
-				'template' => '{update} {delete}',
-				'urlCreator' => function ($action, $model) {
-					return Url::to(['/user/rule/' . $action, 'name' => $model['name']]);
-				},
-				'options' => [
-					'style' => 'width: 5%'
-				],
-			]
-		],
-	]
-) ?>
+	<?= Html::a(
+		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add Rule'),
+		['create'],
+		['class' => 'btn btn-primary', 'encode' => false]
+	) ?>
 </div>
 
-<?php $this->endContent() ?>
+<?= $this->render('/partials/breadcrumbs') ?>
+<?= Alert::widget() ?>
+
+<div class="table-responsive">
+	<table class="table table-bordered" id="rulesTable">
+		<thead>
+			<tr>
+				<th><?= Yii::t('admin', 'Name') ?></th>
+				<th><?= Yii::t('admin', 'Class') ?></th>
+				<th><?= Yii::t('admin', 'Created') ?></th>
+				<th><?= Yii::t('admin', 'Updated') ?></th>
+				<th><?= Yii::t('admin', 'Actions') ?></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($dataProvider->getModels() as $rule): ?>
+			<tr>
+				<td><?= Html::encode($rule->name) ?></td>
+				<td><?= Html::encode($rule->className) ?></td>
+				<td><?= Yii::$app->formatter->asDate($rule->created_at) ?></td>
+				<td><?= Yii::$app->formatter->asDate($rule->updated_at) ?></td>
+				<td>
+					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('admin.a11y', 'Rule Actions') ?>">
+						<!-- Update -->
+						<?= Html::a(
+							$iconUpdate,
+							['update', 'name' => $rule->name],
+							['class' => 'btn btn-primary']
+						) ?>
+
+						<!-- Delete -->
+						<?= Html::a(
+							$iconDelete,
+							['delete', 'name' => $rule->name],
+							[
+								'class' => 'btn btn-danger',
+								'data' => [
+									'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
+									'method' => 'post',
+								],
+							]
+						) ?>
+					</div>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>

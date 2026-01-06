@@ -1,51 +1,22 @@
 <?php
-
-/*
- * This file is part of the 2amigos/yii2-usuario project.
+/**
+ * @backend/controllers/SwPermissionController.php
  *
- * (c) 2amigOS! <http://2amigos.us/>
- *
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
  */
 
-namespace Da\User\Controller;
+namespace backend\controllers;
 
-use Da\User\Model\Permission;
-use Da\User\Search\PermissionSearch;
-use yii\web\NotFoundHttpException;
+use Da\User\Controller\PermissionController as UsuarioPermissionController;
+use backend\search\SwPermissionSearch;
 
-class PermissionController extends AbstractAuthItemController
+final class SwPermissionController extends UsuarioPermissionController
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	protected function getModelClass()
-	{
-		return Permission::class;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
 	protected function getSearchModelClass()
 	{
-		return PermissionSearch::class;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @throws NotFoundHttpException
-	 */
-	protected function getItem($name)
-	{
-		$authItem = $this->authHelper->getPermission($name);
-
-		if ($authItem !== null) {
-			return $authItem;
-		}
-
-		throw new NotFoundHttpException();
+		return SwPermissionSearch::class;
 	}
 }

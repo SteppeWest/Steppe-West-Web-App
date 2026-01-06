@@ -12,13 +12,18 @@
  * @class \common\assets\SwCommonAsset
  *
  * Load this asset with...
- * common\assets\SwCommonAsset::register($this);
- *
- * use common\assets\SwCommonAsset;
- * SwCommonAsset::register($this);
- *
+
+common\assets\SwCommonAsset::register($this);
+
+ * or...
+
+use common\assets\SwCommonAsset;
+SwCommonAsset::register($this);
+
  * or specify as a dependency with...
- *     'common\assets\SwCommonAsset',
+
+		'common\assets\SwCommonAsset',
+
  */
 
 namespace common\assets;
@@ -28,7 +33,7 @@ use yii\web\AssetBundle;
 class SwCommonAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/common';
+	public $sourcePath = '@static/common/sw';
 
 	// @var array
 	/**

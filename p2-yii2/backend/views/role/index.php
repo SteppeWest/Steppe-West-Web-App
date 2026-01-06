@@ -2,6 +2,11 @@
 /**
  * @backend/views/role/index.php
  *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ *
  * Adapted from 2amigos/yii2-usuario
  */
 
@@ -19,7 +24,7 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('admin.roles', 'Manage Roles');
+$this->title = Yii::t('admin.rbac', 'Manage Roles');
 $this->params['breadcrumbs'][] = $this->title;
 
 $iconUpdate = BI::i('pencil-square')
@@ -28,16 +33,16 @@ $iconUpdate = BI::i('pencil-square')
 	->f();
 
 $iconDelete = BI::i('trash')
-	->ariaLabel(Yii::t('admin.a11y', 'Delete Role'))
-	->title(Yii::t('admin.a11y', 'Delete Role'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Delete Role'))
+	->t(Yii::t('admin.a11y', 'Delete Role'))
+	->f();
 ?>
 
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
 
 	<?= Html::a(
-		BI::i('plus-circle') . ' ' . Yii::t('admin.roles', 'Add Role'),
+		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add Role'),
 		['create'],
 		['class' => 'btn btn-primary', 'encode' => false]
 	) ?>
@@ -52,7 +57,7 @@ $iconDelete = BI::i('trash')
 			<tr>
 				<th><?= Yii::t('admin', 'Name') ?></th>
 				<th><?= Yii::t('admin', 'Description') ?></th>
-				<th><?= Yii::t('admin.rules', 'Rule Name') ?></th>
+				<th><?= Yii::t('admin.rbac', 'Rule Name') ?></th>
 				<th><?= Yii::t('admin', 'Actions') ?></th>
 			</tr>
 		</thead>

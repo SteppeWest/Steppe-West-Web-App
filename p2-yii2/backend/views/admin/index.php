@@ -25,47 +25,72 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('admin.users', 'Manage Users');
+$this->title = Yii::t('admin.rbac', 'Manage Users');
 $this->params['breadcrumbs'][] = $this->title;
 
 $iconSwitch = BI::i('person-bounding-box')
-	->title(Yii::t('admin.a11y', 'Switch Identity'))
-	->ariaLabel(Yii::t('admin.a11y', 'Switch Identity'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Switch Identity'))
+	->t(Yii::t('admin.a11y', 'Switch Identity'))
+	->f();
 
 $iconView = BI::i('eye')
-	->title(Yii::t('admin.a11y', 'View User'))
-	->ariaLabel(Yii::t('admin.a11y', 'View User'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'View User'))
+	->t(Yii::t('admin.a11y', 'View User'))
+	->f();
 
 $iconUpdate = BI::i('pencil-square')
-	->title(Yii::t('admin.a11y', 'Update User'))
-	->ariaLabel(Yii::t('admin.a11y', 'Update User'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Update User'))
+	->t(Yii::t('admin.a11y', 'Update User'))
+	->f();
 
 $iconReset = BI::i('lightning-charge')
-	->title(Yii::t('admin.a11y', 'Reset Password'))
-	->ariaLabel(Yii::t('admin.a11y', 'Reset Password'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Reset Password'))
+	->t(Yii::t('admin.a11y', 'Reset Password'))
+	->f();
 
 $iconBlock = BI::i('slash-circle')
-	->title(Yii::t('admin.a11y', 'Block User'))
-	->ariaLabel(Yii::t('admin.a11y', 'Block User'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Block User'))
+	->t(Yii::t('admin.a11y', 'Block User'))
+	->f();
 
 $iconDelete = BI::i('trash')
-	->title(Yii::t('admin.a11y', 'Delete User'))
-	->ariaLabel(Yii::t('admin.a11y', 'Delete User'))
-	->focusable();
+	->l(Yii::t('admin.a11y', 'Delete User'))
+	->t(Yii::t('admin.a11y', 'Delete User'))
+	->f();
 
-$disabledIcon = function ($icon, string $label, string $btnClass) {
+$iconConfirmed = function (bool $status) {
+	$icon = '';
+	$title = '';
+	$color = '';
+
+	if ($status) {
+		$icon = 'check';
+		$title = Yii::t('admin.a11y', 'User confirmed');
+		$color = P2Icons::SUCCESS;
+	}
+	else {
+		$icon = 'x';
+		$title = Yii::t('admin.a11y', 'User not confirmed');
+		$color = P2Icons::DANGER;
+	}
+
+	return BI::i($icon)->l($title)->t($title)->c($color);
+
+	/**
+		'Blocked'
+		'Not Blocked'
+	 */
+
+
+};
+
+$disabledIcon = function ($icon, string $btnClass) {
 	return Html::tag(
 		'span',
 		$icon->h(), // icon is decorative here
 		[
 			'class' => $btnClass . ' disabled',
 			'aria-disabled' => 'true',
-			'title' => $label,
 		]
 	);
 };
@@ -73,7 +98,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
 	<?= Html::a(
-		BI::i('plus-circle') . ' ' . Yii::t('admin.users', 'Add User'),
+		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add User'),
 		['create'],
 		['class' => 'btn btn-primary']
 	) ?>
@@ -83,13 +108,14 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 <?= Alert::widget() ?>
 
 <div class="table-responsive">
-	<table class="table table-bordered" id="usersTable">
+	<table class="table table-bordered display"
+		id="usersTable" data-p2-datatables="1">
 		<thead>
 			<tr>
 				<th><?= Yii::t('admin', 'Username') ?></th>
 				<th><?= Yii::t('admin', 'Email') ?></th>
-				<th><?= Yii::t('admin.users', 'Confirmed') ?></th>
-				<th><?= Yii::t('admin.users', 'Blocked') ?></th>
+				<th><?= Yii::t('admin.rbac', 'Confirmed') ?></th>
+				<th><?= Yii::t('admin.rbac', 'Blocked') ?></th>
 				<th><?= Yii::t('admin', 'Created') ?></th>
 				<th><?= Yii::t('admin', 'Actions') ?></th>
 			</tr>
@@ -110,7 +136,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 
 						<!-- Switch identity -->
 						<?= $isSelf
-							? $disabledIcon($iconSwitch, Yii::t('admin.a11y', 'Switch Identity'), 'btn btn-secondary')
+							? $disabledIcon($iconSwitch, 'btn btn-secondary')
 							: Html::a(
 								$iconSwitch,
 								['switch-identity', 'id' => $user->id],
@@ -190,5 +216,18 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
+		<!-- empty table footer as contingency -->
+		<!--
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			<tr>
+		</tfoot>
+		-->
 	</table>
 </div>

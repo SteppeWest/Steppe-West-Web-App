@@ -34,10 +34,9 @@ return [
 				'User' => common\models\User::class,
 			],
 			'controllerMap' => [
-				'role' => backend\controllers\SwRoleController::class,
-				// later:
-				// 'permission' => backend\controllers\SwPermissionController::class,
-				// 'rule' => backend\controllers\SwRuleController::class,
+				'role'       => backend\controllers\SwRoleController::class,
+				'permission' => backend\controllers\SwPermissionController::class,
+				'rule'       => backend\controllers\SwRuleController::class,
 			],
 		],
 	],

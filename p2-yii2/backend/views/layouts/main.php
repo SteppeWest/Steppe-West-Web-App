@@ -28,13 +28,13 @@ $this->params['themeAssetUrl'] = P2SBAdminAsset::register($this)->baseUrl;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<?= $this->render('@backend/views/partials/head.php') ?>
+	<?= $this->render('/partials/head.php') ?>
 </head>
 <body id="steppe-west-hq" class="sb-nav-fixed">
 	<?php $this->beginBody() ?>
-	<?= $this->render('@backend/views/partials/nav-top.php') ?>
+	<?= $this->render('/partials/nav-top.php') ?>
 	<div id="layoutSidenav">
-		<?= $this->render('@backend/views/partials/nav-side.php') ?>
+		<?= $this->render('/partials/nav-side.php') ?>
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">

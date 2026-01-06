@@ -1,4 +1,12 @@
 <?php
+/**
+ * @backend/controllers/SwRoleController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace backend\controllers;
 
