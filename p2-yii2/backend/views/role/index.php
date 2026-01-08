@@ -52,13 +52,17 @@ $iconDelete = BI::i('trash')
 <?= Alert::widget() ?>
 
 <div class="table-responsive">
-	<table class="table table-bordered" id="rolesTable">
+	<table class="table table-bordered display"
+		id="rolesTable" data-p2-datatables="1"
+		data-p2-datatables-options='{"searching":false,"pageLength":25}'>
 		<thead>
 			<tr>
 				<th><?= Yii::t('admin', 'Name') ?></th>
 				<th><?= Yii::t('admin', 'Description') ?></th>
 				<th><?= Yii::t('admin.rbac', 'Rule Name') ?></th>
-				<th><?= Yii::t('admin', 'Actions') ?></th>
+				<th class="text-center" data-orderable="false">
+					<?= Yii::t('admin', 'Actions') ?>
+				</th>
 			</tr>
 		</thead>
 		<tbody>

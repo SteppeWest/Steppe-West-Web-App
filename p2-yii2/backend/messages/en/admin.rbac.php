@@ -28,4 +28,7 @@ return [
 	'Manage Rules' => 'Manage Rules',
 	'Manage Users' => 'Manage Users',
 	'Rule Name' => 'Rule Name',
+	'Status' => 'Status',
+	'User Profile' => 'User Profile',
+	'View' => 'View',
 ];

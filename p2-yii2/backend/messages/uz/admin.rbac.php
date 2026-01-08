@@ -28,7 +28,7 @@ return [
 	'Manage Rules' => 'Qoidalarni boshqarish',
 	'Manage Users' => 'Foydalanuvchilarni boshqarish',
 	'Rule Name' => 'Qoida nomi',
-	'Status' => '@@Holat@@',
-	'User Profile' => '@@Foydalanuvchi profili@@',
-	'View' => '@@Ko‘rish@@',
+	'Status' => 'Holat',
+	'User Profile' => 'Foydalanuvchi profili',
+	'View' => 'Ko‘rish',
 ];

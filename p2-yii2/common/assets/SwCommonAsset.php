@@ -36,15 +36,18 @@ class SwCommonAsset extends AssetBundle
 	public $sourcePath = '@static/common/sw';
 
 	// @var array
-	/**
 	public $css = [
 		'css/sw-common.min.css',
 	];
-	 */
 
 	// @var array
 	public $js = [
 		'js/sw-common.min.js',
+	];
+
+	// @var array
+	public $depends = [
+		'p2m\assets\P2CoreAsset',
 	];
 }
 

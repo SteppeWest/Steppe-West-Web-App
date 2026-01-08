@@ -26,6 +26,5 @@ return [
 	'Permissions' => 'Ruxsatlar',
 	'Roles' => 'Rollar',
 	'Rules' => 'Qoidalar',
-	'Settings' => 'Sozlamalar',
 	'Users' => 'Foydalanuvchilar',
 ];

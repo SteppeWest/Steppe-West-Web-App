@@ -28,15 +28,31 @@ return [
 		'user' => [
 			'class' => Da\User\Module::class,
 			'viewPath' => '@backend/views',
-			'administrators' => ['chinggis'],       // your super username
-			'enableRegistration' => false,       // backend: no public register
+			'administrators' => ['chinggis'],  // your super username
+			'enableRegistration' => false,     // backend: no public register
 			'classMap' => [
-				'User' => common\models\User::class,
+				'User'                 => common\models\SwUser::class,
+				'Profile'              => common\models\SwProfile::class,
+				'Token'                => common\models\SwToken::class,
+				'SessionHistory'       => common\models\SwSessionHistory::class,
+				'SocialNetworkAccount' => common\models\SwSocialNetworkAccount::class,
+				// RBAC-ish models (if usuario instantiates them via module)
+				//'Role'                 => common\models\SwRole::class,
+				//'Permission'           => common\models\SwPermission::class,
+				//'Rule'                 => common\models\SwRule::class,
+				//'Assignment'           => common\models\SwAssignment::class,
+				//'AbstractAuthItem'     => common\models\SwAbstractAuthItem::class,
 			],
 			'controllerMap' => [
-				'role'       => backend\controllers\SwRoleController::class,
-				'permission' => backend\controllers\SwPermissionController::class,
-				'rule'       => backend\controllers\SwRuleController::class,
+				'admin'        => backend\controllers\SwAdminController::class,
+				'permission'   => backend\controllers\SwPermissionController::class,
+				'profile'      => backend\controllers\SwProfileController::class,
+				'recovery'     => backend\controllers\SwRecoveryController::class,
+				'registration' => backend\controllers\SwRegistrationController::class,
+				'role'         => backend\controllers\SwRoleController::class,
+				'rule'         => backend\controllers\SwRuleController::class,
+				'security'     => backend\controllers\SwSecurityController::class,
+				'settings'     => backend\controllers\SwSettingsController::class,
 			],
 		],
 	],

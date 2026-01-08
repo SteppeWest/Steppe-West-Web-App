@@ -1,12 +1,20 @@
 <?php
+/**
+ * @common/models/SwUser.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
-use Da\User\Model\User as BaseUser;
 use yii\web\IdentityInterface;
+use Da\User\Model\User as UsuarioUser;
 
 /**
  * User model
@@ -23,20 +31,11 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property string $password write-only password
  */
-class User extends BaseUser
+class SwUser extends UsuarioUser
 {
 	const STATUS_DELETED = 0;
 	const STATUS_INACTIVE = 9;
 	const STATUS_ACTIVE = 10;
-
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public static function tableName()
-	{
-		return '{{%user}}';
-	}
 
 	/**
 	 * {@inheritdoc}
@@ -47,6 +46,25 @@ class User extends BaseUser
 			TimestampBehavior::class,
 		];
 	}
+
+	/**
+	public function behaviors()
+	{
+		$behaviors = [
+			TimestampBehavior::class,
+		];
+
+		if ($this->module->enableGdprCompliance) {
+			$behaviors['GDPR'] = [
+				'class' => TimestampBehavior::class,
+				'createdAtAttribute' => 'gdpr_consent_date',
+				'updatedAtAttribute' => false
+			];
+		}
+
+		return $behaviors;
+	}
+	 */
 
 	/**
 	 * {@inheritdoc}
@@ -62,18 +80,101 @@ class User extends BaseUser
 	/**
 	 * {@inheritdoc}
 	 */
+	public function attributeLabels()
+	{
+		return array_merge(parent::attributeLabels(), [
+			'username'            => Yii::t('admin', 'Username'),
+			'email'               => Yii::t('admin', 'Email'),
+
+			// Account / security related
+			'password'            => Yii::t('admin.settings', 'Password'),
+			'unconfirmed_email'   => Yii::t('admin.settings', 'New Email'),
+
+			// Audit / system fields (admin-wide)
+			'registration_ip'     => Yii::t('admin', 'Registration IP'),
+			'created_at'          => Yii::t('admin', 'Created'),
+			'confirmed_at'        => Yii::t('admin.rbac', 'Confirmed'),
+			'last_login_at'       => Yii::t('admin', 'Last Login'),
+			'last_login_ip'       => Yii::t('admin', 'Last Login IP'),
+
+			// Optional / advanced (can be hidden in UI)
+			'password_changed_at' => Yii::t('admin.settings', 'Password Changed'),
+			'password_age'        => Yii::t('admin.settings', 'Password Age'),
+		]);
+	}
+
+	/**
+	public function rules()
+	{
+		return [
+			// username rules
+			'usernameRequired' => ['username', 'required', 'on' => ['register', 'create', 'connect', 'update']],
+			'usernameMatch' => ['username', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@\+]+$/'],
+			'usernameLength' => ['username', 'string', 'min' => 3, 'max' => 255],
+			'usernameTrim' => ['username', 'trim'],
+			'usernameUnique' => [
+				'username',
+				'unique',
+				'message' => Yii::t('usuario', 'This username has already been taken'),
+			],
+
+			// email rules
+			'emailRequired' => ['email', 'required', 'on' => ['register', 'connect', 'create', 'update']],
+			'emailPattern' => ['email', 'email'],
+			'emailLength' => ['email', 'string', 'max' => 255],
+			'emailUnique' => [
+				'email',
+				'unique',
+				'message' => Yii::t('usuario', 'This email address has already been taken'),
+			],
+			'emailTrim' => ['email', 'trim', 'skipOnEmpty' => true],
+
+			// password rules
+			'passwordTrim' => ['password', 'trim'],
+			'passwordRequired' => ['password', 'required', 'on' => ['register']],
+			'passwordLength' => ['password', 'string', 'min' => 6, 'max' => 72, 'on' => ['register', 'create']],
+
+			// two factor auth rules
+			'twoFactorSecretTrim' => ['auth_tf_key', 'trim'],
+			'twoFactorSecretLength' => ['auth_tf_key', 'string', 'max' => 16],
+			'twoFactorEnabledNumber' => ['auth_tf_enabled', 'boolean'],
+			'twoFactorTypeLength' => ['auth_tf_type', 'string', 'max' => 20],
+			'twoFactorMobilePhoneLength' => ['auth_tf_mobile_phone', 'string', 'max' => 20],
+		];
+	}
+	 */
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public static function findIdentity($id)
 	{
 		return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
 	}
 
 	/**
+	public static function findIdentity($id)
+	{
+		return static::findOne($id);
+	}
+	 */
+
+	/**
 	 * {@inheritdoc}
+	 *
+	 * @throws NotSupportedException
 	 */
 	public static function findIdentityByAccessToken($token, $type = null)
 	{
 		throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
 	}
+
+	/**
+	public static function findIdentityByAccessToken($token, $type = null)
+	{
+		throw new NotSupportedException('Method "' . __CLASS__ . '::' . __METHOD__ . '" is not implemented.');
+	}
+	 */
 
 	/**
 	 * Finds user by username
@@ -143,6 +244,13 @@ class User extends BaseUser
 	}
 
 	/**
+	public function getId()
+	{
+		return $this->getAttribute('id');
+	}
+	 */
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function getAuthKey()
@@ -151,12 +259,26 @@ class User extends BaseUser
 	}
 
 	/**
+	public function getAuthKey()
+	{
+		return $this->getAttribute('auth_key');
+	}
+	 */
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function validateAuthKey($authKey)
 	{
 		return $this->getAuthKey() === $authKey;
 	}
+
+	/**
+	public function validateAuthKey($authKey)
+	{
+		return $this->getAttribute('auth_key') === $authKey;
+	}
+	 */
 
 	/**
 	 * Validates password

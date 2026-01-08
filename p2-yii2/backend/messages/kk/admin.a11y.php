@@ -34,6 +34,11 @@ return [
 	'Update Permission' => 'Рұқсатты жаңарту',
 	'Update User' => 'Пайдаланушыны жаңарту',
 	'User Actions' => 'Пайдаланушы әрекеттері',
+	'User avatar' => 'Пайдаланушы аватары',
+	'User confirmed' => 'Пайдаланушы расталған',
+	'User is blocked' => 'Пайдаланушы бұғатталған',
+	'User is not blocked' => 'Пайдаланушы бұғатталмаған',
 	'User Menu' => 'Пайдаланушы мәзірі',
+	'User not confirmed' => 'Пайдаланушы расталмаған',
 	'View User' => 'Пайдаланушыны қарау',
 ];

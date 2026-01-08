@@ -34,6 +34,11 @@ return [
 	'Update Permission' => 'Навсозии иҷозат',
 	'Update User' => 'Навсозии корбар',
 	'User Actions' => 'Амалиёти корбар',
+	'User avatar' => 'Аватари корбар',
+	'User confirmed' => 'Корбар тасдиқ шудааст',
+	'User is blocked' => 'Корбар баста шудааст',
+	'User is not blocked' => 'Корбар баста нашудааст',
 	'User Menu' => 'Менюи корбар',
+	'User not confirmed' => 'Корбар тасдиқ нашудааст',
 	'View User' => 'Дидани корбар',
 ];

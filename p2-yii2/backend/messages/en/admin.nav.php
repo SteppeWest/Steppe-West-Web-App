@@ -26,7 +26,5 @@ return [
 	'Permissions' => 'Permissions',
 	'Roles' => 'Roles',
 	'Rules' => 'Rules',
-	'Settings' => 'Settings',
-	'User menu' => '@@User menu@@',
 	'Users' => 'Users',
 ];

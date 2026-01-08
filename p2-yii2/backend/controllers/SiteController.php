@@ -1,12 +1,21 @@
 <?php
+/**
+ * @backend/controllers/SiteController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace backend\controllers;
 
 use Yii;
-use common\controllers\SwBaseController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\ErrorAction;
 use yii\web\Response;
+use common\controllers\SwBaseController;
 use common\models\LoginForm;
 use backend\assets\SBAdminAsset;
 
@@ -15,6 +24,8 @@ use backend\assets\SBAdminAsset;
  */
 class SiteController extends SwBaseController
 {
+	public $layout = 'main';
+
 	/**
 	 * {@inheritdoc}
 	 */
@@ -22,6 +33,13 @@ class SiteController extends SwBaseController
 	{
 		if (!parent::beforeAction($action)) {
 			return false;
+		}
+
+		if ($action->id === 'error') {
+			$this->layout = 'alternate';
+		}
+		else {
+			$this->layout = 'main';
 		}
 
 		return true;
@@ -63,7 +81,8 @@ class SiteController extends SwBaseController
 	{
 		return [
 			'error' => [
-				'class' => \yii\web\ErrorAction::class,
+				'class' => ErrorAction::class,
+				'layout' => 'alternate', // uses @backend/views/layouts/error.php
 			],
 		];
 	}
@@ -75,6 +94,7 @@ class SiteController extends SwBaseController
 	 */
 	public function actionIndex()
 	{
+		$this->layout = 'main';
 		return $this->render('index');
 	}
 
@@ -97,7 +117,7 @@ class SiteController extends SwBaseController
 		$model->password = '';
 
 		// Use the minimal auth layout
-		$this->layout = 'auth';
+		$this->layout = 'alternate';
 
 		return $this->render('login', [
 			'model' => $model,

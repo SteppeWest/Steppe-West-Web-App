@@ -26,6 +26,5 @@ return [
 	'Permissions' => 'Иҷозатҳо',
 	'Roles' => 'Нақшҳо',
 	'Rules' => 'Қоидаҳо',
-	'Settings' => 'Танзимот',
 	'Users' => 'Корбарон',
 ];

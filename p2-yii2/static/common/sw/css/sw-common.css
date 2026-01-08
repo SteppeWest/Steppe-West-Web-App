@@ -1,0 +1,28 @@
+/* Strong form labels in admin settings */
+#sw-user-settings .col-form-label {
+	font-weight: 600; /* lighter than <strong> default */
+	white-space: nowrap;
+}
+.sw-profile-dl > div {
+	display: grid;
+	grid-template-columns: 1.25rem 10rem 1fr;
+	column-gap: 0.5rem;
+	align-items: start;
+	margin-bottom: 0.5rem;
+}
+
+.sw-profile-dl dt {
+	font-weight: 600;
+	margin: 0;
+	white-space: nowrap;
+}
+
+.sw-profile-dl dd {
+	margin: 0;
+}
+.nav-link.active {
+	cursor: default;
+}
+
+/*
+*/

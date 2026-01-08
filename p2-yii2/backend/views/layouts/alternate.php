@@ -10,10 +10,10 @@
 
 use yii\bootstrap5\Html;
 use common\assets\SwMetaAsset;
-use backend\assets\SwAuthAsset;
+use common\assets\SwAlternateAsset;
 
-$this->params['metaAssetUrl'] = SwMetaAsset::register($this)->baseUrl;
-$this->params['themeAssetUrl'] = SwAuthAsset::register($this)->baseUrl;
+$this->params['metaAssetUrl']  = SwMetaAsset::register($this)->baseUrl;
+$this->params['themeAssetUrl'] = SwAlternateAsset::register($this)->baseUrl;
 
 /** @var \yii\web\View $this */
 /** @var string $content */
@@ -28,27 +28,12 @@ $this->params['themeAssetUrl'] = SwAuthAsset::register($this)->baseUrl;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-	<?= $this->render('@backend/views/partials/head.php') ?>
+	<?= $this->render('/partials/head.php') ?>
 </head>
 <body data-bs-theme="dark">
 <!-- <body class="bg-dark"> -->
 	<?php $this->beginBody(); ?>
-	<div id="steppe-west-hq-auth" class="container-fluid ps-md-0">
-		<div class="row g-0">
-			<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-			<div class="col-md-8 col-lg-6">
-				<div class="login d-flex align-items-center py-5">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-9 col-lg-8 mx-auto">
-								<?= $content ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		<?= $content ?>
 	<?php $this->endBody(); ?>
 </body>
 </html>

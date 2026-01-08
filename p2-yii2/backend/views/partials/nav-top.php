@@ -41,8 +41,21 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 			<?= BI::i('list')->size(3) ?>
 		</button>
 		<!-- Navbar Search (placeholder for future search widget) -->
-		<?= $this->render('/partials/nav-search.php') ?>
+		<form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+			action="#" role="search">
+			<div class="input-group">
+				<input class="form-control"
+					type="search"
+					placeholder="<?= $searchPlaceholder ?>"
+					aria-label="<?= $searchAriaLabel ?>"
+					aria-describedby="btnNavbarSearch"
+					disabled>
+				<button class="btn btn-primary" id="btnNavbarSearch" type="button" disabled>
+					<?= BI::i('search') ?>
+				</button>
+			</div>
+		</form>
 		<!-- Navbar: user menu -->
-		<?= $this->render('/partials/nav-user.php') ?>
+		<?= $this->render('/partials/nav-top-user.php') ?>
 	</nav>
 </div>

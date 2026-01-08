@@ -34,6 +34,11 @@ return [
 	'Update Permission' => 'Update Permission',
 	'Update User' => 'Update User',
 	'User Actions' => 'User Actions',
+	'User avatar' => 'User avatar',
+	'User confirmed' => 'User confirmed',
+	'User is blocked' => 'User is blocked',
+	'User is not blocked' => 'User is not blocked',
 	'User Menu' => 'User Menu',
+	'User not confirmed' => 'User not confirmed',
 	'View User' => 'View User',
 ];

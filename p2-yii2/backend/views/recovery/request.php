@@ -20,7 +20,7 @@ use yii\bootstrap5\ActiveForm;
  */
 
 // Ensure we use the auth layout even if controller forgot (belt + braces)
-$this->context->layout = 'auth';
+$this->context->layout = 'alternate';
 
 $this->title = Yii::t('usuario', 'Recover your password');
 $this->params['breadcrumbs'][] = $this->title;

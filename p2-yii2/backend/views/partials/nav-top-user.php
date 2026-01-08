@@ -1,6 +1,6 @@
 <?php
 /**
- * @backend/views/partials/nav-user.php
+ * @backend/views/partials/nav-top-user.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -12,19 +12,22 @@ use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\BI;
 use p2m\helpers\FI;
+use common\helpers\SwUserGravatarHelper;
 
 /* @var $this yii\web\View */
 
 $metaAssetUrl      = $this->params['metaAssetUrl'];
 $languages         = Yii::$app->params['swUiLanguages'];
 $currentLang       = Yii::$app->language;
-$searchPlaceholder = Yii::t('admin', 'Search') . '...';
-$searchAriaLabel   = Yii::t('admin', 'Search');
+$user = Yii::$app->user->identity;
+
+// only use gravatar if a dedicated gravatar_email is set
+$gravatarEmail = $user->profile->gravatar_email ?? null;
 ?>
 <!-- Navbar: user menu -->
 <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle"
+		<a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center"
 		   id="navbarDropdown"
 		   href="#"
 		   role="button"
@@ -32,7 +35,15 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 		   data-bs-auto-close="outside"
 		   aria-expanded="false"
 		   aria-label="<?= Yii::t('admin.a11y', 'User Menu') ?>">
-			<?= BI::i('person-circle')->size(4) ?>
+			<?php if ($gravatarEmail): ?>
+				<?= SwUserGravatarHelper::imgByEmail($gravatarEmail, [
+					'class' => 'rounded-circle',
+					'style' => 'width: 32px; height: 32px; object-fit: cover;',
+					'alt' => Yii::t('admin.a11y', 'User avatar'),
+				], 64) ?>
+			<?php else: ?>
+				<?= BI::i('person-circle')->size(4) ?>
+			<?php endif; ?>
 		</a>
 		<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
@@ -65,9 +76,26 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 
 			<li><hr class="dropdown-divider"></li>
 			<li>
-				<a class="dropdown-item" href="#!" aria-label="<?= Yii::t('admin.nav', 'Settings') ?>">
-					<?= BI::i('gear') . ' ' . Yii::t('admin.nav', 'Settings') ?>
-				</a>
+				<?= Html::a(
+					BI::i('person') . ' ' . Yii::t('admin.settings', 'Profile'),
+					['/user/profile'],
+					[
+						'class' => 'dropdown-item',
+						'encode' => false,
+						'aria-label' => Yii::t('admin.settings', 'Profile'),
+					]
+				) ?>
+			</li>
+			<li>
+				<?= Html::a(
+					BI::i('gear') . ' ' . Yii::t('admin', 'Settings'),
+					['/user/settings'],
+					[
+						'class' => 'dropdown-item',
+						'encode' => false,
+						'aria-label' => Yii::t('admin', 'Settings'),
+					]
+				) ?>
 			</li>
 			<li>
 				<a class="dropdown-item" href="#!" aria-label="<?= Yii::t('admin.nav', 'Activity Log') ?>">

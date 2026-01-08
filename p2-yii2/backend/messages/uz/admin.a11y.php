@@ -34,6 +34,11 @@ return [
 	'Update Permission' => 'Ruxsatni yangilash',
 	'Update User' => 'Foydalanuvchini yangilash',
 	'User Actions' => 'Foydalanuvchi amallari',
+	'User avatar' => 'Foydalanuvchi avatari',
+	'User confirmed' => 'Foydalanuvchi tasdiqlangan',
+	'User is blocked' => 'Foydalanuvchi bloklangan',
+	'User is not blocked' => 'Foydalanuvchi bloklanmagan',
 	'User Menu' => 'Foydalanuvchi menyusi',
+	'User not confirmed' => 'Foydalanuvchi tasdiqlanmagan',
 	'View User' => 'Foydalanuvchini ko‘rish',
 ];

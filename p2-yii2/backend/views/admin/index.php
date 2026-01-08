@@ -59,38 +59,41 @@ $iconDelete = BI::i('trash')
 	->f();
 
 $iconConfirmed = function (bool $status) {
-	$icon = '';
-	$title = '';
-	$color = '';
-
 	if ($status) {
-		$icon = 'check';
-		$title = Yii::t('admin.a11y', 'User confirmed');
-		$color = P2Icons::SUCCESS;
-	}
-	else {
-		$icon = 'x';
-		$title = Yii::t('admin.a11y', 'User not confirmed');
-		$color = P2Icons::DANGER;
+		$msg = Yii::t('admin.a11y', 'User confirmed');
+		return BI::i('check-circle') // 'check-circle' or 'check'
+			->l($msg)->t($msg)
+			->c(BI::SUCCESS)->s(5);
 	}
 
-	return BI::i($icon)->l($title)->t($title)->c($color);
-
-	/**
-		'Blocked'
-		'Not Blocked'
-	 */
-
-
+	$msg = Yii::t('admin.a11y', 'User not confirmed');
+	return BI::i('x-circle') // 'x-circle' or 'x'
+		->l($msg)->t($msg)
+		->c(BI::DANGER)->s(5);
 };
 
-$disabledIcon = function ($icon, string $btnClass) {
+$iconBlocked = function (bool $status) {
+	if ($status) {
+		$msg = Yii::t('admin.a11y', 'User is blocked');
+		return BI::i('lock') // 'slash-circle' or 'lock'
+			->l($msg)->t($msg)
+			->c(BI::DANGER)->s(5);
+	}
+
+	$msg = Yii::t('admin.a11y', 'User is not blocked');
+	return BI::i('unlock') // 'unlock' or 'shield-check'
+		->l($msg)->t($msg)
+		->c(BI::SUCCESS)->s(5);
+};
+
+$disabledIcon = function ($icon, string $label, string $btnClass) {
 	return Html::tag(
 		'span',
 		$icon->h(), // icon is decorative here
 		[
 			'class' => $btnClass . ' disabled',
 			'aria-disabled' => 'true',
+			'title' => $label,
 		]
 	);
 };
@@ -108,25 +111,38 @@ $disabledIcon = function ($icon, string $btnClass) {
 <?= Alert::widget() ?>
 
 <div class="table-responsive">
-	<table class="table table-bordered display"
-		id="usersTable" data-p2-datatables="1">
+	<table class="table table-bordered"
+		id="usersTable" data-p2-datatables="1"
+		data-p2-datatables-options='{"searching":false,"pageLength":25}'>
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th><?= Yii::t('admin', 'Username') ?></th>
 				<th><?= Yii::t('admin', 'Email') ?></th>
-				<th><?= Yii::t('admin.rbac', 'Confirmed') ?></th>
-				<th><?= Yii::t('admin.rbac', 'Blocked') ?></th>
+				<th class="text-center"><?= Yii::t('admin.rbac', 'Confirmed') ?></th>
+				<th class="text-center"><?= Yii::t('admin.rbac', 'Blocked') ?></th>
 				<th><?= Yii::t('admin', 'Created') ?></th>
-				<th><?= Yii::t('admin', 'Actions') ?></th>
+				<th class="text-center" data-orderable="false">
+					<?= Yii::t('admin', 'Actions') ?>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php foreach ($dataProvider->getModels() as $user): ?>
+			<?php
+				$confirmed = (bool)$user->confirmed_at;
+				$blocked   = (bool)$user->blocked_at;
+			?>
 			<tr>
+				<td><?= Html::encode($user->id) ?></td>
 				<td><?= Html::encode($user->username) ?></td>
 				<td><?= Html::encode($user->email) ?></td>
-				<td><?= $user->confirmed_at ? Yii::t('admin', 'Yes') : Yii::t('admin', 'No') ?></td>
-				<td><?= $user->blocked_at ? Yii::t('admin', 'Yes') : Yii::t('admin', 'No') ?></td>
+				<td class="text-center" data-order="<?= (int)$confirmed ?>"><!-- use (int)!$confirmed to flip sorting order -->
+					<?= $iconConfirmed($confirmed) ?>
+				</td>
+				<td class="text-center" data-order="<?= (int)!$blocked ?>"><!-- use (int)$blocked to flip sorting order -->
+					<?= $iconBlocked($blocked) ?>
+				</td>
 				<td><?= Yii::$app->formatter->asDate($user->created_at) ?></td>
 				<td>
 					<div class="btn-group btn-group-sm" role="group"
@@ -136,7 +152,7 @@ $disabledIcon = function ($icon, string $btnClass) {
 
 						<!-- Switch identity -->
 						<?= $isSelf
-							? $disabledIcon($iconSwitch, 'btn btn-secondary')
+							? $disabledIcon($iconSwitch, Yii::t('admin.a11y', 'Switch Identity'), 'btn btn-secondary')
 							: Html::a(
 								$iconSwitch,
 								['switch-identity', 'id' => $user->id],
