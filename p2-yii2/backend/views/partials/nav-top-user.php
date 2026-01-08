@@ -104,16 +104,22 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 			</li>
 			<li><hr class="dropdown-divider"></li>
 			<li>
-				<?= Html::a(
-					BI::i('box-arrow-left') . ' ' . Yii::t('admin.nav', 'Logout'),
-					['/user/security/logout'],
-					[
-						'class' => 'dropdown-item',
-						'encode' => false,
-						'aria-label' => Yii::t('admin.nav', 'Logout'),
-						'data' => ['method' => 'post'],
-					]
-				) ?>
+				<?php
+					echo Html::beginForm(['/user/security/logout'], 'post', [
+						'class' => 'm-0', // keep it tidy in dropdown
+					]);
+
+					echo Html::submitButton(
+						BI::i('box-arrow-left') . ' ' . Yii::t('admin.nav', 'Logout'),
+						[
+							'class' => 'dropdown-item',
+							'encode' => false,
+							'aria-label' => Yii::t('admin.nav', 'Logout'),
+						]
+					);
+
+					echo Html::endForm();
+				?>
 			</li>
 		</ul>
 	</li>

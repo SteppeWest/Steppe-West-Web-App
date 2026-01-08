@@ -1,6 +1,6 @@
 <?php
 /**
- * @backend/views/layouts/alternate.php
+ * @backend/views/layouts/error.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -31,9 +31,24 @@ $this->params['themeAssetUrl'] = SwAlternateAsset::register($this)->baseUrl;
 	<?= $this->render('_head.php') ?>
 </head>
 <body data-bs-theme="dark">
-<!-- <body class="bg-dark"> -->
 	<?php $this->beginBody(); ?>
-		<?= $content ?>
+		<div id="steppe-west-hq-error" class="container-fluid ps-md-0">
+			<div class="row g-0">
+				<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+				<div class="col-md-8 col-lg-6">
+					<div class="login d-flex align-items-center py-5">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-9 col-lg-8 mx-auto">
+									<!-- SITE CONTENT -->
+									<?= $content ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	<?php $this->endBody(); ?>
 </body>
 </html>

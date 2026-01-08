@@ -28,7 +28,7 @@ $this->params['themeAssetUrl'] = P2SBAdminAsset::register($this)->baseUrl;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<?= $this->render('/partials/head.php') ?>
+	<?= $this->render('_head.php') ?>
 </head>
 <body id="steppe-west-hq" class="sb-nav-fixed">
 	<?php $this->beginBody() ?>
