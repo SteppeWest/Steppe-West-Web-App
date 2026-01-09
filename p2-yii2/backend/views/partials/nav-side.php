@@ -106,7 +106,7 @@ $addonsOpen  = in_array($controller, ['charts', 'tables'], true);
 		</div>
 
 		<div class="sb-sidenav-footer">
-			<div class="small"><?= Yii::t('admin', 'Logged in as:') ?></div>
+			<div class="small"><?= Yii::t('sw', 'Logged in as:') ?></div>
 			<?= Yii::$app->user->isGuest ? 'konok' : Html::encode(Yii::$app->user->identity->username) ?>
 		</div>
 	</nav>

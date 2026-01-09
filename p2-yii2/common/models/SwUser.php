@@ -83,19 +83,19 @@ class SwUser extends UsuarioUser
 	public function attributeLabels()
 	{
 		return array_merge(parent::attributeLabels(), [
-			'username'            => Yii::t('admin', 'Username'),
-			'email'               => Yii::t('admin', 'Email'),
+			'username'            => Yii::t('sw', 'Username'),
+			'email'               => Yii::t('sw', 'Email'),
 
 			// Account / security related
 			'password'            => Yii::t('sw', 'Password'),
 			'unconfirmed_email'   => Yii::t('sw', 'New Email'),
 
 			// Audit / system fields (admin-wide)
-			'registration_ip'     => Yii::t('admin', 'Registration IP'),
-			'created_at'          => Yii::t('admin', 'Created'),
+			'registration_ip'     => Yii::t('sw', 'Registration IP'),
+			'created_at'          => Yii::t('sw', 'Created'),
 			'confirmed_at'        => Yii::t('sw', 'Confirmed'),
-			'last_login_at'       => Yii::t('admin', 'Last Login'),
-			'last_login_ip'       => Yii::t('admin', 'Last Login IP'),
+			'last_login_at'       => Yii::t('sw', 'Last Login'),
+			'last_login_ip'       => Yii::t('sw', 'Last Login IP'),
 
 			// Optional / advanced (can be hidden in UI)
 			'password_changed_at' => Yii::t('sw', 'Password Changed'),

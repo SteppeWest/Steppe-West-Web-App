@@ -79,7 +79,7 @@ $module = Yii::$app->getModule('user');
 					<div class="offset-sm-2 col-lg-10">
 						<div class="d-grid">
 							<?= Html::submitButton(
-								Yii::t('admin', 'Save'),
+								Yii::t('sw', 'Save'),
 								['class' => 'btn btn-success']
 							) ?>
 						</div>

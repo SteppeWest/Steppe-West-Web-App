@@ -143,22 +143,22 @@ $this->title = Yii::t('sw', 'Dashboard');
 			<table id="datatablesSimple" aria-label="<?= Yii::t('sw.demo', 'Example Data Table') ?>">
 				<thead>
 					<tr>
-						<th><?= Yii::t('admin', 'Name') ?></th>
-						<th><?= Yii::t('admin', 'Position') ?></th>
-						<th><?= Yii::t('admin', 'Office') ?></th>
-						<th><?= Yii::t('admin', 'Age') ?></th>
-						<th><?= Yii::t('admin', 'Start Date') ?></th>
-						<th><?= Yii::t('admin', 'Salary') ?></th>
+						<th><?= Yii::t('sw', 'Name') ?></th>
+						<th><?= Yii::t('sw', 'Position') ?></th>
+						<th><?= Yii::t('sw', 'Office') ?></th>
+						<th><?= Yii::t('sw', 'Age') ?></th>
+						<th><?= Yii::t('sw', 'Start Date') ?></th>
+						<th><?= Yii::t('sw', 'Salary') ?></th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
-						<th><?= Yii::t('admin', 'Name') ?></th>
-						<th><?= Yii::t('admin', 'Position') ?></th>
-						<th><?= Yii::t('admin', 'Office') ?></th>
-						<th><?= Yii::t('admin', 'Age') ?></th>
-						<th><?= Yii::t('admin', 'Start Date') ?></th>
-						<th><?= Yii::t('admin', 'Salary') ?></th>
+						<th><?= Yii::t('sw', 'Name') ?></th>
+						<th><?= Yii::t('sw', 'Position') ?></th>
+						<th><?= Yii::t('sw', 'Office') ?></th>
+						<th><?= Yii::t('sw', 'Age') ?></th>
+						<th><?= Yii::t('sw', 'Start Date') ?></th>
+						<th><?= Yii::t('sw', 'Salary') ?></th>
 					</tr>
 				</tfoot>
 				<tbody>

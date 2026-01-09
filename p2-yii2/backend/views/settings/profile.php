@@ -29,19 +29,19 @@ $timezoneHelper = $model->make(TimezoneHelper::class);
 
 /**
 $attributeLabels = [
-	'username'            => Yii::t('admin', 'Username'),
-	'email'               => Yii::t('admin', 'Email'),
+	'username'            => Yii::t('sw', 'Username'),
+	'email'               => Yii::t('sw', 'Email'),
 
 	// Account / security related
 	'password'            => Yii::t('sw', 'Password'),
 	'unconfirmed_email'   => Yii::t('sw', 'New Email'),
 
 	// Audit / system fields (admin-wide)
-	'registration_ip'     => Yii::t('admin', 'Registration IP'),
-	'created_at'          => Yii::t('admin', 'Created'),
+	'registration_ip'     => Yii::t('sw', 'Registration IP'),
+	'created_at'          => Yii::t('sw', 'Created'),
 	'confirmed_at'        => Yii::t('sw', 'Confirmed'),
-	'last_login_at'       => Yii::t('admin', 'Last Login'),
-	'last_login_ip'       => Yii::t('admin', 'Last Login IP'),
+	'last_login_at'       => Yii::t('sw', 'Last Login'),
+	'last_login_ip'       => Yii::t('sw', 'Last Login IP'),
 
 	// Optional / advanced (can be hidden in UI)
 	'password_changed_at' => Yii::t('sw', 'Password Changed'),
@@ -54,7 +54,7 @@ $attributeLabels = [
 	'created_at' => Yii::t('sw', 'Started'),
 	'updated_at' => Yii::t('sw', 'Last Activity'),
 
-	'name'           => Yii::t('admin',          'Name'),
+	'name'           => Yii::t('sw',          'Name'),
 	'public_email'   => Yii::t('sw', 'Public Email'),
 	'website'        => Yii::t('sw', 'Website'),
 	'location'       => Yii::t('sw', 'Location'),
@@ -130,7 +130,7 @@ $attributeLabels = [
 					<div class="offset-sm-2 col-lg-10">
 						<div class="d-grid">
 							<?= Html::submitButton(
-								Yii::t('admin', 'Save'),
+								Yii::t('sw', 'Save'),
 								['class' => 'btn btn-success']
 							) ?>
 						</div>

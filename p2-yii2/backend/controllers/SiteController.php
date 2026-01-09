@@ -167,6 +167,7 @@ class SiteController extends SwBaseController
 			]));
 		}
 
-		return $this->goBack(Yii::$app->request->referrer ?: ['/site/index']);
+		//return $this->goBack(Yii::$app->request->referrer ?: ['/site/index']);
+		return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
 	}
 }

@@ -57,12 +57,12 @@ $iconDelete = BI::i('trash')
 		data-p2-datatables-options='{"searching":false,"pageLength":25}'>
 		<thead>
 			<tr>
-				<th><?= Yii::t('admin', 'Name') ?></th>
-				<th><?= Yii::t('admin', 'Class') ?></th>
-				<th><?= Yii::t('admin', 'Created') ?></th>
-				<th><?= Yii::t('admin', 'Updated') ?></th>
+				<th><?= Yii::t('sw', 'Name') ?></th>
+				<th><?= Yii::t('sw', 'Class') ?></th>
+				<th><?= Yii::t('sw', 'Created') ?></th>
+				<th><?= Yii::t('sw', 'Updated') ?></th>
 				<th class="text-center" data-orderable="false">
-					<?= Yii::t('admin', 'Actions') ?>
+					<?= Yii::t('sw', 'Actions') ?>
 				</th>
 			</tr>
 		</thead>
@@ -89,7 +89,7 @@ $iconDelete = BI::i('trash')
 							[
 								'class' => 'btn btn-danger',
 								'data' => [
-									'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
+									'confirm' => Yii::t('sw', 'Are you sure you want to delete this item?'),
 									'method' => 'post',
 								],
 							]

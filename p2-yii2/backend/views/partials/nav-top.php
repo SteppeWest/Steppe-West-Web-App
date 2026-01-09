@@ -18,8 +18,8 @@ use p2m\helpers\FI;
 $metaAssetUrl      = $this->params['metaAssetUrl'];
 $languages         = Yii::$app->params['swUiLanguages'];
 $currentLang       = Yii::$app->language;
-$searchPlaceholder = Yii::t('admin', 'Search') . '...';
-$searchAriaLabel   = Yii::t('admin', 'Search');
+$searchPlaceholder = Yii::t('sw', 'Search') . '...';
+$searchAriaLabel   = Yii::t('sw', 'Search');
 ?>
 <div id="top-navigation">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

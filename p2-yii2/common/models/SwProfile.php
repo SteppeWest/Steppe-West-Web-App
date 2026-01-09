@@ -18,7 +18,7 @@ class SwProfile extends UsuarioProfile
 	public function attributeLabels(): array
 	{
 		return array_merge(parent::attributeLabels(), [
-			'name'           => Yii::t('admin',          'Name'),
+			'name'           => Yii::t('sw',          'Name'),
 			'public_email'   => Yii::t('sw', 'Public Email'),
 			'website'        => Yii::t('sw', 'Website'),
 			'location'       => Yii::t('sw', 'Location'),

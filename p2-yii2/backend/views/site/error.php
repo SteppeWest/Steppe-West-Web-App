@@ -24,7 +24,7 @@ $backUrl = Yii::$app->user->isGuest
 	: Url::to(['/site/index']); // your SB Admin-wrapped dashboard
 
 $backLabel = Yii::$app->user->isGuest
-	? Yii::t('admin', 'Back to Login')
+	? Yii::t('sw', 'Back to Login')
 	: Yii::t('sw', 'Dashboard');
 ?>
 <div class="card shadow-sm site-error">

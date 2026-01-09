@@ -14,6 +14,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap5\ActiveForm;
 use Da\User\Widget\ConnectWidget;
+use common\helpers\SwLanguageUiHelper;
+use p2m\helpers\FI;
 
 /**
  * @var yii\web\View            $this
@@ -35,75 +37,96 @@ $this->params['breadcrumbs'] = []; // ensure no crumbs on auth pages, if relevan
 <?= $this->render('/shared/_alert', ['module' => Yii::$app->getModule('user')]) ?>
 
 <div class="site-login" role="main" aria-label="<?= Html::encode($pageTitle) ?>">
-	<h1 class="fs-2 mb-3"><?= Html::encode($this->title) ?></h1>
 
-	<?php $form = ActiveForm::begin([
-		'id' => $model->formName(),
-		'enableAjaxValidation'   => true,
-		'enableClientValidation' => false,
-		'validateOnBlur'         => false,
-		'validateOnType'         => false,
-		'validateOnChange'       => false,
-	]); ?>
-
-	<?= $form->field($model, 'login', [
-		'inputOptions' => [
-			'autofocus'    => true,
-			'class'        => 'form-control',
-			'tabindex'     => 1,
-			'autocomplete' => 'username',
-			'aria-label'   => Yii::t('sw', 'Username or Email'),
-		],
-	])->label(Yii::t('sw', 'Username or Email')) ?>
-
-	<?php
-		$forgotUrl = Url::to(['/user/recovery/request']);
-		$forgotLink = $module->allowPasswordRecovery
-			? Html::a(
-				Yii::t('sw', 'Forgot password?'),
-				$forgotUrl,
-				['tabindex' => 5]
-			)
-			: '';
-	?>
-
-	<?= $form->field($model, 'password', [
-		'inputOptions' => [
-			'class'        => 'form-control',
-			'tabindex'     => 2,
-			'autocomplete' => 'current-password',
-			'aria-label'   => Yii::t('sw', 'Password'),
-		],
-	])->passwordInput()
-	  ->label(Yii::t('sw', 'Password'))
-	  ->hint($forgotLink, ['class' => 'form-text']) ?>
-
-	<?= $form->field($model, 'rememberMe')->checkbox([
-		'tabindex' => 4,
-		'label' => Yii::t('sw', 'Remember me next time'),
+	<?= SwLanguageUiHelper::buttonGroup([
+		'languages' => Yii::$app->params['swUiLanguages'],
 	]) ?>
 
-	<?= Html::submitButton(Yii::t('sw', 'Login'), [
-		'class' => 'btn btn-primary btn-login text-uppercase fw-bold mb-2 w-100',
-		'tabindex' => 3,
-		'aria-label' => Yii::t('sw.a11y', 'Submit login form'),
-	]) ?>
+	<div class="card shadow-sm">
 
-	<?php ActiveForm::end(); ?>
+		<div class="card-header">
+			<h1 class="fs-3 mb-1 text-center">
+				<?= Html::encode($this->title) ?>
+			</h1>
+		</div>
 
-	<hr class="my-4">
+		<div class="card-body">
 
-	<?php if ($module->enableEmailConfirmation): ?>
-		<p class="text-center mb-3">
-			<?= Html::a(
-				Yii::t('sw', 'Didn’t receive a confirmation message?'),
-				['/user/registration/resend'],
-				['aria-label' => Yii::t('sw.a11y', 'Resend confirmation email')]
-			) ?>
-		</p>
-	<?php endif; ?>
+			<?= $this->render('/shared/_alert', ['module' => Yii::$app->getModule('user')]) ?>
 
-	<?= ConnectWidget::widget([
-		'baseAuthUrl' => ['/user/security/auth'],
-	]) ?>
+			<!-- your form goes here -->
+			<?php $form = ActiveForm::begin([
+				'id' => $model->formName(),
+				'enableAjaxValidation'   => true,
+				'enableClientValidation' => false,
+				'validateOnBlur'         => false,
+				'validateOnType'         => false,
+				'validateOnChange'       => false,
+			]); ?>
+
+			<?= $form->field($model, 'login', [
+				'inputOptions' => [
+					'autofocus'    => true,
+					'class'        => 'form-control',
+					'tabindex'     => 1,
+					'autocomplete' => 'username',
+					'aria-label'   => Yii::t('sw', 'Username or Email'),
+				],
+			])->label(Yii::t('sw', 'Username or Email')) ?>
+
+			<?php
+				$forgotUrl = Url::to(['/user/recovery/request']);
+				$forgotLink = $module->allowPasswordRecovery
+					? Html::a(
+						Yii::t('sw', 'Forgot password?'),
+						$forgotUrl,
+						['tabindex' => 5]
+					)
+					: '';
+			?>
+
+			<?= $form->field($model, 'password', [
+				'inputOptions' => [
+					'class'        => 'form-control',
+					'tabindex'     => 2,
+					'autocomplete' => 'current-password',
+					'aria-label'   => Yii::t('sw', 'Password'),
+				],
+			])->passwordInput()
+			  ->label(Yii::t('sw', 'Password'))
+			  ->hint($forgotLink, ['class' => 'form-text']) ?>
+
+			<?= $form->field($model, 'rememberMe')->checkbox([
+				'tabindex' => 4,
+				'label' => Yii::t('sw', 'Remember me next time'),
+			]) ?>
+
+			<?= Html::submitButton(Yii::t('sw', 'Login'), [
+				'class' => 'btn btn-primary btn-login text-uppercase fw-bold mb-2 w-100',
+				'tabindex' => 3,
+				'aria-label' => Yii::t('sw.a11y', 'Submit login form'),
+			]) ?>
+
+			<?php ActiveForm::end(); ?>
+
+			<hr class="my-4">
+
+			<?php if ($module->enableEmailConfirmation): ?>
+				<p class="text-center mb-3">
+					<?= Html::a(
+						Yii::t('sw', 'Didn’t receive a confirmation message?'),
+						['/user/registration/resend'],
+						['aria-label' => Yii::t('sw.a11y', 'Resend confirmation email')]
+					) ?>
+				</p>
+			<?php endif; ?>
+
+			<?= ConnectWidget::widget([
+				'baseAuthUrl' => ['/user/security/auth'],
+			]) ?>
+
+		</div>
+	</div>
 </div>
+
+

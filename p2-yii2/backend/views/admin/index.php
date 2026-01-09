@@ -117,13 +117,13 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th><?= Yii::t('admin', 'Username') ?></th>
-				<th><?= Yii::t('admin', 'Email') ?></th>
+				<th><?= Yii::t('sw', 'Username') ?></th>
+				<th><?= Yii::t('sw', 'Email') ?></th>
 				<th class="text-center"><?= Yii::t('sw', 'Confirmed') ?></th>
 				<th class="text-center"><?= Yii::t('sw', 'Blocked') ?></th>
-				<th><?= Yii::t('admin', 'Created') ?></th>
+				<th><?= Yii::t('sw', 'Created') ?></th>
 				<th class="text-center" data-orderable="false">
-					<?= Yii::t('admin', 'Actions') ?>
+					<?= Yii::t('sw', 'Actions') ?>
 				</th>
 			</tr>
 		</thead>
@@ -203,7 +203,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 									'class' => 'btn btn-danger',
 									'aria-label' => Yii::t('sw.a11y', 'Block User'),
 									'data' => [
-										'confirm' => Yii::t('admin', 'Are you sure?'),
+										'confirm' => Yii::t('sw', 'Are you sure?'),
 										'method' => 'post',
 									],
 								]
@@ -220,7 +220,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 									'class' => 'btn btn-danger',
 									'aria-label' => Yii::t('sw.a11y', 'Delete User'),
 									'data' => [
-										'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
+										'confirm' => Yii::t('sw', 'Are you sure you want to delete this item?'),
 										'method' => 'post',
 									],
 								]

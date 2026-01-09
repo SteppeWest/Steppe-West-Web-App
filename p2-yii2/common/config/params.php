@@ -35,52 +35,6 @@ return [
 	],
 	'swDefaultLanguage' => 'en',
 	'swUiLanguages' => [
-		'en' => [
-			'label' => 'English',
-			'flag'  => 'gb',
-		],
-		'ru' => [
-			'label' => 'Русский',
-			'flag'  => 'ru',
-		],
-		'kk' => [
-			'label' => 'Қазақша',
-			'flag'  => 'kz',
-		],
-		'ky' => [
-			'label' => 'Кыргызча',
-			'flag'  => 'kg',
-		],
-		'tg' => [
-			'label' => 'Тоҷикӣ',
-			'flag'  => 'tj',
-		],
-		'uz' => [
-			'label' => "Oʻzbekcha",
-			'flag'  => 'uz',
-		],
-	],
-	'swActiveLanguages' => [
-		'az',
-		'en',
-		'kk',
-		'ky',
-		'mn',
-		'ru',
-		'tg',
-		'tk',
-		'uz',
-		'tr',
-	],
-	'swLanguageMap' => [
-		'EN' => 'en',
-		'RU' => 'ru',
-		'KZ' => 'kk',
-		'KG' => 'ky',
-		'TJ' => 'tg',
-		'TM' => 'tk',
-		'UZ' => 'uz',
-		'AZ' => 'az',
-		'MN' => 'mn',
+		'en', 'ru', 'kk', 'ky', 'tg', 'uz'
 	],
 ];

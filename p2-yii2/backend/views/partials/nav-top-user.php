@@ -12,6 +12,7 @@ use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\BI;
 use p2m\helpers\FI;
+use common\helpers\SwLanguageUiHelper;
 use common\helpers\SwUserGravatarHelper;
 
 /* @var $this yii\web\View */
@@ -46,34 +47,11 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 			<?php endif; ?>
 		</a>
 		<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
 			<li>
-				<a class="dropdown-item" data-bs-toggle="collapse"
-				   href="#langMenu" role="button" type="button"
-				   aria-label="<?= Yii::t('sw.a11y', 'Select Language') ?>"
-				   aria-expanded="false" aria-controls="langMenu">
-					<?= BI::i('translate') . ' ' . Yii::t('sw', 'Language') ?>
-				</a>
-				<div class="collapse" id="langMenu">
-					<ul class="list-unstyled mb-0">
-						<?php
-							foreach ($languages as $code => $meta) {
-								echo Html::a(
-									'<span>' . FI::i($meta['flag']) . ' ' . $meta['label'] . '</span>' .
-									($code === $currentLang ? BI::i('check') : ''),
-									['/site/set-language', 'lang' => $code],
-									[
-										'class' => 'dropdown-item ps-4 d-flex justify-content-between align-items-center',
-										'encode' => false,
-										'data-sw-lang' => '1',
-									],
-								);
-							}
-						?>
-					</ul>
-				</div>
+				<?= SwLanguageUiHelper::dropdownCollapse([
+					'languages' => Yii::$app->params['swUiLanguages'],
+				]) ?>
 			</li>
-
 			<li><hr class="dropdown-divider"></li>
 			<li>
 				<?= Html::a(
@@ -88,12 +66,12 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 			</li>
 			<li>
 				<?= Html::a(
-					BI::i('gear') . ' ' . Yii::t('admin', 'Settings'),
+					BI::i('gear') . ' ' . Yii::t('sw', 'Settings'),
 					['/user/settings'],
 					[
 						'class' => 'dropdown-item',
 						'encode' => false,
-						'aria-label' => Yii::t('admin', 'Settings'),
+						'aria-label' => Yii::t('sw', 'Settings'),
 					]
 				) ?>
 			</li>
