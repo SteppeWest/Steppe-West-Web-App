@@ -38,8 +38,7 @@ final class SwUserGravatarHelper
 
 		$defaults = [
 			'class' => 'img-fluid rounded-circle',
-			'alt' => Yii::t(
-				'admin.a11y',
+			'alt' => Yii::t('sw.a11y',
 				'Profile photo of {username}',
 				['username' => $user->username]
 			),
@@ -54,7 +53,7 @@ final class SwUserGravatarHelper
 	public static function imgByEmail(string $email, array $options = [], int $size = 64): string
 	{
 		$defaults = [
-			'alt' => Yii::t('admin.a11y', 'User avatar'),
+			'alt' => Yii::t('sw.a11y', 'User avatar'),
 		];
 		return \yii\helpers\Html::img(self::gravatarUrl($email, $size), array_merge($defaults, $options));
 	}

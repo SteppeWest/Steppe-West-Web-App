@@ -27,7 +27,7 @@ ChartAreaDemoAsset::register($this);
 ChartBarDemoAsset::register($this);
 DatatablesSimpleDemoAsset::register($this);
 
-$this->title = Yii::t('admin.nav', 'Dashboard');
+$this->title = Yii::t('sw', 'Dashboard');
 ?>
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
@@ -37,12 +37,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 	<div class="row">
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-primary text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.demo', 'Primary Card') ?></div>
+				<div class="card-body"><?= Yii::t('sw.demo', 'Primary Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
-						<?= Yii::t('admin.demo', 'View Details') ?>
+					   aria-label="<?= Yii::t('sw.demo', 'View Details') ?>">
+						<?= Yii::t('sw.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -53,12 +53,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-warning text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.demo', 'Warning Card') ?></div>
+				<div class="card-body"><?= Yii::t('sw.demo', 'Warning Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
-						<?= Yii::t('admin.demo', 'View Details') ?>
+					   aria-label="<?= Yii::t('sw.demo', 'View Details') ?>">
+						<?= Yii::t('sw.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -69,12 +69,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-success text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.demo', 'Success Card') ?></div>
+				<div class="card-body"><?= Yii::t('sw.demo', 'Success Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
-						<?= Yii::t('admin.demo', 'View Details') ?>
+					   aria-label="<?= Yii::t('sw.demo', 'View Details') ?>">
+						<?= Yii::t('sw.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -85,12 +85,12 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-danger text-white mb-4">
-				<div class="card-body"><?= Yii::t('admin.demo', 'Danger Card') ?></div>
+				<div class="card-body"><?= Yii::t('sw.demo', 'Danger Card') ?></div>
 				<div class="card-footer d-flex align-items-center justify-content-between">
 					<a class="small text-white stretched-link"
 					   href="#"
-					   aria-label="<?= Yii::t('admin.demo', 'View Details') ?>">
-						<?= Yii::t('admin.demo', 'View Details') ?>
+					   aria-label="<?= Yii::t('sw.demo', 'View Details') ?>">
+						<?= Yii::t('sw.demo', 'View Details') ?>
 					</a>
 					<div class="small text-white">
 						<?= BI::i('chevron-right') ?>
@@ -105,13 +105,13 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 			<div class="card mb-4">
 				<div class="card-header">
 					<?= BI::i('graph-up') ?>
-					<span class="ms-1"><?= Yii::t('admin.demo', 'Area Chart Example') ?></span>
+					<span class="ms-1"><?= Yii::t('sw.demo', 'Area Chart Example') ?></span>
 				</div>
 				<div class="card-body">
 					<canvas id="myAreaChart"
 					        width="100%"
 					        height="40"
-					        aria-label="<?= Yii::t('admin.demo', 'Area Chart') ?>"
+					        aria-label="<?= Yii::t('sw.demo', 'Area Chart') ?>"
 					        role="img"></canvas>
 				</div>
 			</div>
@@ -121,13 +121,13 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 			<div class="card mb-4">
 				<div class="card-header">
 					<?= BI::i('bar-chart') ?>
-					<span class="ms-1"><?= Yii::t('admin.demo', 'Bar Chart Example') ?></span>
+					<span class="ms-1"><?= Yii::t('sw.demo', 'Bar Chart Example') ?></span>
 				</div>
 				<div class="card-body">
 					<canvas id="myBarChart"
 					        width="100%"
 					        height="40"
-					        aria-label="<?= Yii::t('admin.demo', 'Bar Chart') ?>"
+					        aria-label="<?= Yii::t('sw.demo', 'Bar Chart') ?>"
 					        role="img"></canvas>
 				</div>
 			</div>
@@ -137,10 +137,10 @@ $this->title = Yii::t('admin.nav', 'Dashboard');
 	<div class="card mb-4">
 		<div class="card-header">
 			<?= BI::i('table') ?>
-			<span class="ms-1"><?= Yii::t('admin.demo', 'DataTable Example') ?></span>
+			<span class="ms-1"><?= Yii::t('sw.demo', 'DataTable Example') ?></span>
 		</div>
 		<div class="card-body">
-			<table id="datatablesSimple" aria-label="<?= Yii::t('admin.demo', 'Example Data Table') ?>">
+			<table id="datatablesSimple" aria-label="<?= Yii::t('sw.demo', 'Example Data Table') ?>">
 				<thead>
 					<tr>
 						<th><?= Yii::t('admin', 'Name') ?></th>

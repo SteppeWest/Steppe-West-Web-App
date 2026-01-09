@@ -24,17 +24,17 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('admin.rbac', 'Manage Rules');
+$this->title = Yii::t('sw', 'Manage Rules');
 $this->params['breadcrumbs'][] = $this->title;
 
 $iconUpdate = BI::i('pencil-square')
-	->l(Yii::t('admin.a11y', 'Edit Rule'))
-	->t(Yii::t('admin.a11y', 'Edit Rule'))
+	->l(Yii::t('sw.a11y', 'Edit Rule'))
+	->t(Yii::t('sw.a11y', 'Edit Rule'))
 	->f();
 
 $iconDelete = BI::i('trash')
-	->l(Yii::t('admin.a11y', 'Delete Rule'))
-	->t(Yii::t('admin.a11y', 'Delete Rule'))
+	->l(Yii::t('sw.a11y', 'Delete Rule'))
+	->t(Yii::t('sw.a11y', 'Delete Rule'))
 	->f();
 ?>
 
@@ -42,7 +42,7 @@ $iconDelete = BI::i('trash')
 	<h1 class="mt-4"><?= $this->title ?></h1>
 
 	<?= Html::a(
-		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add Rule'),
+		BI::i('plus-circle') . ' ' . Yii::t('sw', 'Add Rule'),
 		['create'],
 		['class' => 'btn btn-primary', 'encode' => false]
 	) ?>
@@ -74,7 +74,7 @@ $iconDelete = BI::i('trash')
 				<td><?= Yii::$app->formatter->asDate($rule->created_at) ?></td>
 				<td><?= Yii::$app->formatter->asDate($rule->updated_at) ?></td>
 				<td>
-					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('admin.a11y', 'Rule Actions') ?>">
+					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('sw.a11y', 'Rule Actions') ?>">
 						<!-- Update -->
 						<?= Html::a(
 							$iconUpdate,

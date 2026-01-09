@@ -36,7 +36,7 @@ $searchAriaLabel   = Yii::t('admin', 'Search');
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 				id="sidebarToggle"
-				aria-label="<?= Yii::t('admin.a11y', 'Toggle Navigation') ?>"
+				aria-label="<?= Yii::t('sw.a11y', 'Toggle Navigation') ?>"
 				type="button">
 			<?= BI::i('list')->size(3) ?>
 		</button>

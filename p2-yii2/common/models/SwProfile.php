@@ -19,19 +19,19 @@ class SwProfile extends UsuarioProfile
 	{
 		return array_merge(parent::attributeLabels(), [
 			'name'           => Yii::t('admin',          'Name'),
-			'public_email'   => Yii::t('admin.settings', 'Public Email'),
-			'website'        => Yii::t('admin.settings', 'Website'),
-			'location'       => Yii::t('admin.settings', 'Location'),
-			'timezone'       => Yii::t('admin.settings', 'Timezone'),
-			'gravatar_email' => Yii::t('admin.settings', 'Gravatar Email'),
-			'bio'            => Yii::t('admin.settings', 'Bio'),
+			'public_email'   => Yii::t('sw', 'Public Email'),
+			'website'        => Yii::t('sw', 'Website'),
+			'location'       => Yii::t('sw', 'Location'),
+			'timezone'       => Yii::t('sw', 'Timezone'),
+			'gravatar_email' => Yii::t('sw', 'Gravatar Email'),
+			'bio'            => Yii::t('sw', 'Bio'),
 		]);
 	}
 
 	public function attributeHints(): array
 	{
 		return array_merge(parent::attributeHints(), [
-			'gravatar_email' => Yii::t('admin.settings', 'Change your avatar at Gravatar.com'),
+			'gravatar_email' => Yii::t('sw', 'Change your avatar at Gravatar.com'),
 		]);
 	}
 }

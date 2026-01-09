@@ -23,7 +23,7 @@ use p2m\helpers\BI;
  * @var TimezoneHelper         $timezoneHelper
  */
 
-$this->title = Yii::t('admin.settings', 'Profile Settings');
+$this->title = Yii::t('sw', 'Profile Settings');
 $this->params['breadcrumbs'][] = $this->title;
 $timezoneHelper = $model->make(TimezoneHelper::class);
 
@@ -33,34 +33,34 @@ $attributeLabels = [
 	'email'               => Yii::t('admin', 'Email'),
 
 	// Account / security related
-	'password'            => Yii::t('admin.settings', 'Password'),
-	'unconfirmed_email'   => Yii::t('admin.settings', 'New Email'),
+	'password'            => Yii::t('sw', 'Password'),
+	'unconfirmed_email'   => Yii::t('sw', 'New Email'),
 
 	// Audit / system fields (admin-wide)
 	'registration_ip'     => Yii::t('admin', 'Registration IP'),
 	'created_at'          => Yii::t('admin', 'Created'),
-	'confirmed_at'        => Yii::t('admin.rbac', 'Confirmed'),
+	'confirmed_at'        => Yii::t('sw', 'Confirmed'),
 	'last_login_at'       => Yii::t('admin', 'Last Login'),
 	'last_login_ip'       => Yii::t('admin', 'Last Login IP'),
 
 	// Optional / advanced (can be hidden in UI)
-	'password_changed_at' => Yii::t('admin.settings', 'Password Changed'),
-	'password_age'        => Yii::t('admin.settings', 'Password Age'),
+	'password_changed_at' => Yii::t('sw', 'Password Changed'),
+	'password_age'        => Yii::t('sw', 'Password Age'),
 
-	'user_id'    => Yii::t('admin.audit', 'User'),
-	'session_id' => Yii::t('admin.audit', 'Session'),
-	'user_agent' => Yii::t('admin.audit', 'User Agent'),
-	'ip'         => Yii::t('admin.audit', 'IP Address'),
-	'created_at' => Yii::t('admin.audit', 'Started'),
-	'updated_at' => Yii::t('admin.audit', 'Last Activity'),
+	'user_id'    => Yii::t('sw', 'User'),
+	'session_id' => Yii::t('sw', 'Session'),
+	'user_agent' => Yii::t('sw', 'User Agent'),
+	'ip'         => Yii::t('sw', 'IP Address'),
+	'created_at' => Yii::t('sw', 'Started'),
+	'updated_at' => Yii::t('sw', 'Last Activity'),
 
 	'name'           => Yii::t('admin',          'Name'),
-	'public_email'   => Yii::t('admin.settings', 'Public Email'),
-	'website'        => Yii::t('admin.settings', 'Website'),
-	'location'       => Yii::t('admin.settings', 'Location'),
-	'timezone'       => Yii::t('admin.settings', 'Timezone'),
-	'gravatar_email' => Yii::t('admin.settings', 'Gravatar Email'),
-	'bio'            => Yii::t('admin.settings', 'Bio'),
+	'public_email'   => Yii::t('sw', 'Public Email'),
+	'website'        => Yii::t('sw', 'Website'),
+	'location'       => Yii::t('sw', 'Location'),
+	'timezone'       => Yii::t('sw', 'Timezone'),
+	'gravatar_email' => Yii::t('sw', 'Gravatar Email'),
+	'bio'            => Yii::t('sw', 'Bio'),
 ];
  */
 ?>
@@ -118,7 +118,7 @@ $attributeLabels = [
 					->field($model, 'gravatar_email')
 					->hint(
 						Html::a(
-							Yii::t('admin.settings', 'Change your avatar at Gravatar.com'),
+							Yii::t('sw', 'Change your avatar at Gravatar.com'),
 							'https://gravatar.com',
 							['target' => '_blank']
 						)

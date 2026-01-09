@@ -18,7 +18,7 @@ use p2m\helpers\BI;
  * @var \Da\User\Model\Profile $profile
  */
 
-$this->title = Yii::t('admin.settings', 'User Profile');
+$this->title = Yii::t('sw', 'User Profile');
 $this->params['breadcrumbs'][] = $this->title;
 $userTitle = empty($profile->name) ? Html::encode($profile->user->username) : Html::encode($profile->name);
 $email = $profile->public_email;
@@ -41,11 +41,11 @@ $email = $profile->public_email;
 			</div>
 			<div class="col-md-9" id="sw-user-profile">
 				<h4><?= $userTitle ?></h4>
-				<section aria-label="<?= Yii::t('admin.a11y', 'User Details') ?>">
+				<section aria-label="<?= Yii::t('sw.a11y', 'User Details') ?>">
 					<dl class="sw-profile-dl">
 						<div class="sw-profile-row">
 							<?= BI::i('geo-alt-fill') ?>
-							<dt><?= Yii::t('admin.profile', 'Location') ?></dt>
+							<dt><?= Yii::t('sw', 'Location') ?></dt>
 							<dd>
 								<?php if ($profile->location): ?>
 									<?= Html::encode($profile->location) ?>
@@ -55,7 +55,7 @@ $email = $profile->public_email;
 
 						<div class="sw-profile-row">
 							<?= BI::i('globe') ?>
-							<dt><?= Yii::t('admin.profile', 'Website') ?></dt>
+							<dt><?= Yii::t('sw', 'Website') ?></dt>
 							<dd>
 								<?php if ($profile->website): ?>
 									<?= Html::a(
@@ -69,7 +69,7 @@ $email = $profile->public_email;
 
 						<div class="sw-profile-row">
 							<?= BI::i('envelope') ?>
-							<dt><?= Yii::t('admin.profile', 'Public Email') ?></dt>
+							<dt><?= Yii::t('sw', 'Public Email') ?></dt>
 							<dd>
 								<?php if ($profile->public_email): ?>
 									<?= Html::a(
@@ -81,14 +81,14 @@ $email = $profile->public_email;
 						</div>
 						<div class="sw-profile-row">
 							<?= BI::i('stopwatch') ?>
-							<dt><?= Yii::t('admin.profile', 'Joined') ?></dt>
+							<dt><?= Yii::t('sw', 'Joined') ?></dt>
 							<dd><?= Yii::$app->formatter->asDate($profile->user->created_at) ?></dd>
 						</div>
 					</dl>
 				</section>
 
 				<section aria-labelledby="profile-bio-heading">
-					<h5 id="profile-bio-heading"><?= Yii::t('admin.profile', 'Bio') ?></h5>
+					<h5 id="profile-bio-heading"><?= Yii::t('sw', 'Bio') ?></h5>
 					<?php if (!empty($profile->bio)): ?>
 						<?php foreach (preg_split("/\R{2,}/", trim($profile->bio)) as $para): ?>
 							<p class="mb-2"><?= nl2br(Html::encode($para)) ?></p>

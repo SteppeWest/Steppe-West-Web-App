@@ -66,7 +66,7 @@ $metaAssetUrl  = $this->params['metaAssetUrl'];
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
 					<li class="dropdown-header">
-						<?= BI::i('translate') . ' ' . Yii::t('admin.nav', 'Language') ?>
+						<?= BI::i('translate') . ' ' . Yii::t('sw', 'Language') ?>
 					</li>
 
 					<li>

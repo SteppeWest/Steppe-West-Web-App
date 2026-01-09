@@ -59,48 +59,48 @@ $addonsOpen  = in_array($controller, ['charts', 'tables'], true);
 			<div class="nav">
 
 				<!-- Core -->
-				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Core') ?></div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('sw', 'Core') ?></div>
 
-				<?= $mkLink(Yii::t('admin.nav', 'Dashboard'), ['/site/index'], 'speedometer2', $controller === 'site' && $action === 'index') ?>
+				<?= $mkLink(Yii::t('sw', 'Dashboard'), ['/site/index'], 'speedometer2', $controller === 'site' && $action === 'index') ?>
 
 				<!-- Users -->
-				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Users') ?></div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('sw', 'Users') ?></div>
 
-				<?= $mkLink(Yii::t('admin.nav', 'Users'), ['/user/admin'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
-				<?= $mkLink(Yii::t('admin.nav', 'Roles'), ['/user/role'], 'person-badge', $controller === 'role') ?>
-				<?= $mkLink(Yii::t('admin.nav', 'Permissions'), ['/user/permission'], 'key', $controller === 'permission') ?>
-				<?= $mkLink(Yii::t('admin.nav', 'Rules'), ['/user/rule'], 'key', $controller === 'rule') ?>
+				<?= $mkLink(Yii::t('sw', 'Users'), ['/user/admin'], 'people', $controller === 'admin' && str_starts_with(Yii::$app->controller->module->id ?? '', 'user')) ?>
+				<?= $mkLink(Yii::t('sw', 'Roles'), ['/user/role'], 'person-badge', $controller === 'role') ?>
+				<?= $mkLink(Yii::t('sw', 'Permissions'), ['/user/permission'], 'key', $controller === 'permission') ?>
+				<?= $mkLink(Yii::t('sw', 'Rules'), ['/user/rule'], 'key', $controller === 'rule') ?>
 
 				<!-- Interface -->
-				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.demo', 'Interface') ?></div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('sw.demo', 'Interface') ?></div>
 
-				<?= $mkToggle(Yii::t('admin.demo', 'Layouts'), 'collapseLayouts', 'columns-gap', $uiOpen) ?>
+				<?= $mkToggle(Yii::t('sw.demo', 'Layouts'), 'collapseLayouts', 'columns-gap', $uiOpen) ?>
 
 				<div class="collapse<?= $uiOpen ? ' show' : '' ?>"
 				     id="collapseLayouts"
 				     data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<?= Html::a(Yii::t('admin.demo', 'Static Navigation'), '#!', ['class' => 'nav-link']) ?>
-						<?= Html::a(Yii::t('admin.demo', 'Light Sidenav'), '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('sw.demo', 'Static Navigation'), '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('sw.demo', 'Light Sidenav'), '#!', ['class' => 'nav-link']) ?>
 					</nav>
 				</div>
 
-				<?= $mkToggle(Yii::t('admin.demo', 'Pages'), 'collapsePages', 'file-earmark-text', $uiOpen) ?>
+				<?= $mkToggle(Yii::t('sw.demo', 'Pages'), 'collapsePages', 'file-earmark-text', $uiOpen) ?>
 
 				<div class="collapse<?= $uiOpen ? ' show' : '' ?>"
 				     id="collapsePages"
 				     data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-						<?= Html::a(Yii::t('admin.demo', 'Authentication'), '#!', ['class' => 'nav-link']) ?>
-						<?= Html::a(Yii::t('admin.demo', 'Error'), '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('sw.demo', 'Authentication'), '#!', ['class' => 'nav-link']) ?>
+						<?= Html::a(Yii::t('sw.demo', 'Error'), '#!', ['class' => 'nav-link']) ?>
 					</nav>
 				</div>
 
 				<!-- Addons -->
-				<div class="sb-sidenav-menu-heading"><?= Yii::t('admin.nav', 'Addons') ?></div>
+				<div class="sb-sidenav-menu-heading"><?= Yii::t('sw', 'Addons') ?></div>
 
-				<?= $mkLink(Yii::t('admin.demo', 'Charts'), '#!', 'bar-chart-line', $controller === 'charts') ?>
-				<?= $mkLink(Yii::t('admin.demo', 'Tables'), '#!', 'table', $controller === 'tables') ?>
+				<?= $mkLink(Yii::t('sw.demo', 'Charts'), '#!', 'bar-chart-line', $controller === 'charts') ?>
+				<?= $mkLink(Yii::t('sw.demo', 'Tables'), '#!', 'table', $controller === 'tables') ?>
 
 			</div>
 		</div>

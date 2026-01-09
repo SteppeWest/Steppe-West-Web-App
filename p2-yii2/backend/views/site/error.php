@@ -17,7 +17,7 @@ use yii\bootstrap5\Html;
 $exception = Yii::$app->errorHandler->exception;
 $code = $exception ? $exception->statusCode ?? 500 : 500;
 
-$this->title = Yii::t('admin.error', 'Error {code}', ['code' => $code]);
+$this->title = Yii::t('sw', 'Error {code}', ['code' => $code]);
 
 $backUrl = Yii::$app->user->isGuest
 	? Url::to(['/user/security/login'])
@@ -25,7 +25,7 @@ $backUrl = Yii::$app->user->isGuest
 
 $backLabel = Yii::$app->user->isGuest
 	? Yii::t('admin', 'Back to Login')
-	: Yii::t('admin.nav', 'Dashboard');
+	: Yii::t('sw', 'Dashboard');
 ?>
 <div class="card shadow-sm site-error">
 	<div class="card-header">
@@ -35,7 +35,7 @@ $backLabel = Yii::$app->user->isGuest
 	<div class="card-body">
 		<div role="alert" aria-live="polite">
 			<p class="mb-2">
-				<?= Html::encode($exception?->getMessage() ?: Yii::t('admin.error', 'An unexpected error occurred.')) ?>
+				<?= Html::encode($exception?->getMessage() ?: Yii::t('sw', 'An unexpected error occurred.')) ?>
 			</p>
 
 			<?php if (YII_DEBUG && $exception): ?>

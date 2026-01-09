@@ -54,6 +54,49 @@ return [
 			// Optional: if you ever use asTime()
 			'timeFormat' => 'php:H:i:s',
 		],
+		'mailer' => [
+			'class' => \yii\symfonymailer\Mailer::class,
+			'viewPath' => '@common/mail',
+			'useFileTransport' => true,
+			'fileTransportPath' => '@runtime/mail', // default, but explicit is nice
+		],
+		'i18n' => [
+			'translations' => [
+				'sw*' => [
+					'class' => \yii\i18n\PhpMessageSource::class,
+					'basePath' => '@common/i18n/messages',
+					'sourceLanguage' => 'en',
+					'fileMap' => [
+						'sw' => 'sw.php',
+						'sw.a11y' => 'sw.a11y.php',
+						'sw.auth' => 'sw.auth.php',
+						'sw.settings' => 'sw.settings.php',
+						'sw.profile' => 'sw.profile.php',
+						'sw.user' => 'sw.user.php',
+
+						'sw.backend' => 'sw.backend.php',
+						'sw.backend.nav' => 'sw.backend.nav.php',
+						'sw.backend.admin' => 'sw.backend.admin.php',
+						'sw.backend.rbac' => 'sw.backend.rbac.php',
+						'sw.backend.audit' => 'sw.backend.audit.php',
+						'sw.backend.demo' => 'sw.backend.demo.php',
+
+						'sw.frontend' => 'sw.frontend.php',
+						'sw.tests' => 'sw.tests.php',
+					],
+				],
+				/**
+				'usuario' => [
+					'class' => yii\i18n\PhpMessageSource::class,
+					'basePath' => '@backend/messages',
+					'sourceLanguage' => 'en',
+					'fileMap' => [
+						'usuario' => 'usuario.php',
+					],
+				],
+				 */
+			],
+		],
 		/**
 		'request' => [
 			'enableCsrfCookie' => false,

@@ -30,6 +30,7 @@ return [
 			'viewPath' => '@backend/views',
 			'administrators' => ['chinggis'],  // your super username
 			'enableRegistration' => false,     // backend: no public register
+			'enableAutoLogin' => true,
 			'classMap' => [
 				'User'                 => common\models\SwUser::class,
 				'Profile'              => common\models\SwProfile::class,
@@ -78,35 +79,6 @@ return [
 			'enableAutoLogin' => true,
 			'loginUrl' => ['/user/security/login'],
 			'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-		],
-		'i18n' => [
-			'translations' => [
-				'admin*' => [
-					'class' => yii\i18n\PhpMessageSource::class,
-					'basePath' => '@backend/messages',
-					'sourceLanguage' => 'en',
-					'fileMap' => [
-						'admin' => 'admin.php',
-						'admin.nav' => 'admin.nav.php',
-						'admin.dashboard' => 'admin.dashboard.php',
-						'admin.user' => `admin.user.php`,
-						'admin.users' => 'admin.users.php',
-						'admin.roles' => 'admin.roles.php',
-						'admin.permissions' => 'admin.permissions.php',
-						'admin.rules' => 'admin.rules.php',
-						'admin.settings' => 'admin.settings.php',
-						'admin.errors' => 'admin.errors.php',
-					],
-				],
-				'usuario*' => [
-					'class' => yii\i18n\PhpMessageSource::class,
-					'basePath' => '@backend/messages',
-					'sourceLanguage' => 'en',
-					'fileMap' => [
-						'usuario' => 'usuario.php',
-					],
-				],
-			],
 		],
 		'session' => [
 			// this is the name of the session cookie used for login on the backend

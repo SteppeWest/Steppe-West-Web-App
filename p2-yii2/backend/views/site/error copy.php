@@ -16,7 +16,7 @@ use yii\bootstrap5\Html;
 $exception = Yii::$app->errorHandler->exception;
 $code = $exception ? $exception->statusCode ?? 500 : 500;
 
-$this->title = Yii::t('admin.error', 'Error {code}', ['code' => $code]);
+$this->title = Yii::t('sw', 'Error {code}', ['code' => $code]);
 ?>
 <div id="steppe-west-hq-error" class="container-fluid ps-md-0">
 	<div class="row g-0">

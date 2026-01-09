@@ -6,11 +6,6 @@
 	"type": "project",
 	"license": "BSD-3-Clause",
 	"support": {
-		"issues": "https://github.com/yiisoft/yii2/issues?state=open",
-		"forum": "https://www.yiiframework.com/forum/",
-		"wiki": "https://www.yiiframework.com/wiki/",
-		"irc": "ircs://irc.libera.chat:6697/yii",
-		"source": "https://github.com/yiisoft/yii2"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable" : true,
@@ -22,8 +17,8 @@
 		"laminas/laminas-code": "^4.14",
 		"symfony/yaml": "^7.1",
 		"kartik-v/yii2-markdown": "dev-master",
-		"2amigos/yii2-usuario": "dev-v2.0.0-dev",
 		"p2made/p2y2-things": "dev-5.0-dev",
+		"p2made/p2y2-rbac-users": "dev-0.1-dev",
 		"p2made/p2y2-admin": "dev-5.0-dev"
 	},
 	"require-dev": {
@@ -43,9 +38,7 @@
 		"psr-4": {
 			"common\\tests\\": ["common/tests/", "common/tests/_support"],
 			"backend\\tests\\": ["backend/tests/", "backend/tests/_support"],
-			"frontend\\tests\\": ["frontend/tests/", "frontend/tests/_support"],
-			"language\\tests\\": ["language/tests/", "language/tests/_support"],
-			"links\\tests\\": ["links/tests/", "links/tests/_support"]
+			"frontend\\tests\\": ["frontend/tests/", "frontend/tests/_support"]
 		}
 	},
 	"config": {
@@ -61,6 +54,34 @@
 		{
 			"type": "composer",
 			"url": "https://asset-packagist.org"
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-things",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-things-demo",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-rbac-users",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-admin",
+			"options": {
+				"symlink": true
+			}
 		}
 	]
 }

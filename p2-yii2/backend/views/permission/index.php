@@ -25,23 +25,23 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('admin.rbac', 'Manage Permissions');
+$this->title = Yii::t('sw', 'Manage Permissions');
 $this->params['breadcrumbs'][] = $this->title;
 
 $iconUpdate = BI::i('pencil-square')
-	->l(Yii::t('admin.a11y', 'Update Permission'))
-	->t(Yii::t('admin.a11y', 'Update Permission'))
+	->l(Yii::t('sw.a11y', 'Update Permission'))
+	->t(Yii::t('sw.a11y', 'Update Permission'))
 	->f();
 
 $iconDelete = BI::i('trash')
-	->l(Yii::t('admin.a11y', 'Delete Permission'))
-	->t(Yii::t('admin.a11y', 'Delete Permission'))
+	->l(Yii::t('sw.a11y', 'Delete Permission'))
+	->t(Yii::t('sw.a11y', 'Delete Permission'))
 	->f();
 ?>
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
 	<?= Html::a(
-		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add Permission'),
+		BI::i('plus-circle') . ' ' . Yii::t('sw', 'Add Permission'),
 		['create'],
 		['class' => 'btn btn-primary']
 	) ?>
@@ -58,7 +58,7 @@ $iconDelete = BI::i('trash')
 			<tr>
 				<th><?= Yii::t('admin', 'Name') ?></th>
 				<th><?= Yii::t('admin', 'Description') ?></th>
-				<th><?= Yii::t('admin.rbac', 'Rule Name') ?></th>
+				<th><?= Yii::t('sw', 'Rule Name') ?></th>
 				<th class="text-center" data-orderable="false">
 					<?= Yii::t('admin', 'Actions') ?>
 				</th>
@@ -71,7 +71,7 @@ $iconDelete = BI::i('trash')
 				<td><?= Html::encode($permission->description) ?></td>
 				<td><?= Html::encode($permission->rule_name) ?></td>
 				<td>
-					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('admin.a11y', 'Permissions Actions') ?>">
+					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('sw.a11y', 'Permissions Actions') ?>">
 						<!-- Update -->
 						<?= Html::a(
 							$iconUpdate,

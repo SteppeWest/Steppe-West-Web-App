@@ -25,48 +25,48 @@ P2DataTablesResponsiveAsset::register($this);
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('admin.rbac', 'Manage Users');
+$this->title = Yii::t('sw', 'Manage Users');
 $this->params['breadcrumbs'][] = $this->title;
 
 $iconSwitch = BI::i('person-bounding-box')
-	->l(Yii::t('admin.a11y', 'Switch Identity'))
-	->t(Yii::t('admin.a11y', 'Switch Identity'))
+	->l(Yii::t('sw.a11y', 'Switch Identity'))
+	->t(Yii::t('sw.a11y', 'Switch Identity'))
 	->f();
 
 $iconView = BI::i('eye')
-	->l(Yii::t('admin.a11y', 'View User'))
-	->t(Yii::t('admin.a11y', 'View User'))
+	->l(Yii::t('sw.a11y', 'View User'))
+	->t(Yii::t('sw.a11y', 'View User'))
 	->f();
 
 $iconUpdate = BI::i('pencil-square')
-	->l(Yii::t('admin.a11y', 'Update User'))
-	->t(Yii::t('admin.a11y', 'Update User'))
+	->l(Yii::t('sw.a11y', 'Update User'))
+	->t(Yii::t('sw.a11y', 'Update User'))
 	->f();
 
 $iconReset = BI::i('lightning-charge')
-	->l(Yii::t('admin.a11y', 'Reset Password'))
-	->t(Yii::t('admin.a11y', 'Reset Password'))
+	->l(Yii::t('sw.a11y', 'Reset Password'))
+	->t(Yii::t('sw.a11y', 'Reset Password'))
 	->f();
 
 $iconBlock = BI::i('slash-circle')
-	->l(Yii::t('admin.a11y', 'Block User'))
-	->t(Yii::t('admin.a11y', 'Block User'))
+	->l(Yii::t('sw.a11y', 'Block User'))
+	->t(Yii::t('sw.a11y', 'Block User'))
 	->f();
 
 $iconDelete = BI::i('trash')
-	->l(Yii::t('admin.a11y', 'Delete User'))
-	->t(Yii::t('admin.a11y', 'Delete User'))
+	->l(Yii::t('sw.a11y', 'Delete User'))
+	->t(Yii::t('sw.a11y', 'Delete User'))
 	->f();
 
 $iconConfirmed = function (bool $status) {
 	if ($status) {
-		$msg = Yii::t('admin.a11y', 'User confirmed');
+		$msg = Yii::t('sw.a11y', 'User confirmed');
 		return BI::i('check-circle') // 'check-circle' or 'check'
 			->l($msg)->t($msg)
 			->c(BI::SUCCESS)->s(5);
 	}
 
-	$msg = Yii::t('admin.a11y', 'User not confirmed');
+	$msg = Yii::t('sw.a11y', 'User not confirmed');
 	return BI::i('x-circle') // 'x-circle' or 'x'
 		->l($msg)->t($msg)
 		->c(BI::DANGER)->s(5);
@@ -74,13 +74,13 @@ $iconConfirmed = function (bool $status) {
 
 $iconBlocked = function (bool $status) {
 	if ($status) {
-		$msg = Yii::t('admin.a11y', 'User is blocked');
+		$msg = Yii::t('sw.a11y', 'User is blocked');
 		return BI::i('lock') // 'slash-circle' or 'lock'
 			->l($msg)->t($msg)
 			->c(BI::DANGER)->s(5);
 	}
 
-	$msg = Yii::t('admin.a11y', 'User is not blocked');
+	$msg = Yii::t('sw.a11y', 'User is not blocked');
 	return BI::i('unlock') // 'unlock' or 'shield-check'
 		->l($msg)->t($msg)
 		->c(BI::SUCCESS)->s(5);
@@ -101,7 +101,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 <div class="d-flex align-items-center justify-content-between mb-4">
 	<h1 class="mt-4"><?= $this->title ?></h1>
 	<?= Html::a(
-		BI::i('plus-circle') . ' ' . Yii::t('admin.rbac', 'Add User'),
+		BI::i('plus-circle') . ' ' . Yii::t('sw', 'Add User'),
 		['create'],
 		['class' => 'btn btn-primary']
 	) ?>
@@ -119,8 +119,8 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 				<th>ID</th>
 				<th><?= Yii::t('admin', 'Username') ?></th>
 				<th><?= Yii::t('admin', 'Email') ?></th>
-				<th class="text-center"><?= Yii::t('admin.rbac', 'Confirmed') ?></th>
-				<th class="text-center"><?= Yii::t('admin.rbac', 'Blocked') ?></th>
+				<th class="text-center"><?= Yii::t('sw', 'Confirmed') ?></th>
+				<th class="text-center"><?= Yii::t('sw', 'Blocked') ?></th>
 				<th><?= Yii::t('admin', 'Created') ?></th>
 				<th class="text-center" data-orderable="false">
 					<?= Yii::t('admin', 'Actions') ?>
@@ -146,19 +146,19 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 				<td><?= Yii::$app->formatter->asDate($user->created_at) ?></td>
 				<td>
 					<div class="btn-group btn-group-sm" role="group"
-					     aria-label="<?= Yii::t('admin.a11y', 'User Actions') ?>">
+					     aria-label="<?= Yii::t('sw.a11y', 'User Actions') ?>">
 
 						<?php $isSelf = Yii::$app->user->id === $user->id; ?>
 
 						<!-- Switch identity -->
 						<?= $isSelf
-							? $disabledIcon($iconSwitch, Yii::t('admin.a11y', 'Switch Identity'), 'btn btn-secondary')
+							? $disabledIcon($iconSwitch, Yii::t('sw.a11y', 'Switch Identity'), 'btn btn-secondary')
 							: Html::a(
 								$iconSwitch,
 								['switch-identity', 'id' => $user->id],
 								[
 									'class' => 'btn btn-secondary',
-									'aria-label' => Yii::t('admin.a11y', 'Switch Identity'),
+									'aria-label' => Yii::t('sw.a11y', 'Switch Identity'),
 								]
 							)
 						?>
@@ -169,7 +169,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 							['profile/show', 'id' => $user->id],
 							[
 								'class' => 'btn btn-secondary',
-								'aria-label' => Yii::t('admin.a11y', 'View User'),
+								'aria-label' => Yii::t('sw.a11y', 'View User'),
 							]
 						) ?>
 
@@ -179,7 +179,7 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 							['update', 'id' => $user->id],
 							[
 								'class' => 'btn btn-primary',
-								'aria-label' => Yii::t('admin.a11y', 'Update User'),
+								'aria-label' => Yii::t('sw.a11y', 'Update User'),
 							]
 						) ?>
 
@@ -189,19 +189,19 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 							['password-reset', 'id' => $user->id],
 							[
 								'class' => 'btn btn-warning',
-								'aria-label' => Yii::t('admin.a11y', 'Reset Password'),
+								'aria-label' => Yii::t('sw.a11y', 'Reset Password'),
 							]
 						) ?>
 
 						<!-- Block -->
 						<?= $isSelf
-							? $disabledIcon($iconBlock, Yii::t('admin.a11y', 'Block User'), 'btn btn-danger')
+							? $disabledIcon($iconBlock, Yii::t('sw.a11y', 'Block User'), 'btn btn-danger')
 							: Html::a(
 								$iconBlock,
 								['block', 'id' => $user->id],
 								[
 									'class' => 'btn btn-danger',
-									'aria-label' => Yii::t('admin.a11y', 'Block User'),
+									'aria-label' => Yii::t('sw.a11y', 'Block User'),
 									'data' => [
 										'confirm' => Yii::t('admin', 'Are you sure?'),
 										'method' => 'post',
@@ -212,13 +212,13 @@ $disabledIcon = function ($icon, string $label, string $btnClass) {
 
 						<!-- Delete -->
 						<?= $isSelf
-							? $disabledIcon($iconDelete, Yii::t('admin.a11y', 'Delete User'), 'btn btn-danger')
+							? $disabledIcon($iconDelete, Yii::t('sw.a11y', 'Delete User'), 'btn btn-danger')
 							: Html::a(
 								$iconDelete,
 								['delete', 'id' => $user->id],
 								[
 									'class' => 'btn btn-danger',
-									'aria-label' => Yii::t('admin.a11y', 'Delete User'),
+									'aria-label' => Yii::t('sw.a11y', 'Delete User'),
 									'data' => [
 										'confirm' => Yii::t('admin', 'Are you sure you want to delete this item?'),
 										'method' => 'post',

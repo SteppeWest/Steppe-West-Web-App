@@ -14,7 +14,7 @@ use yii\bootstrap5\Breadcrumbs;
 
 echo Breadcrumbs::widget([
 	'homeLink' => [
-		'label' => Yii::t('admin.nav', 'Dashboard'),
+		'label' => Yii::t('sw', 'Dashboard'),
 		'url'   => Yii::$app->homeUrl,
 	],
 	'links' => $this->params['breadcrumbs'] ?? [],

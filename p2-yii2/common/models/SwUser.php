@@ -87,19 +87,19 @@ class SwUser extends UsuarioUser
 			'email'               => Yii::t('admin', 'Email'),
 
 			// Account / security related
-			'password'            => Yii::t('admin.settings', 'Password'),
-			'unconfirmed_email'   => Yii::t('admin.settings', 'New Email'),
+			'password'            => Yii::t('sw', 'Password'),
+			'unconfirmed_email'   => Yii::t('sw', 'New Email'),
 
 			// Audit / system fields (admin-wide)
 			'registration_ip'     => Yii::t('admin', 'Registration IP'),
 			'created_at'          => Yii::t('admin', 'Created'),
-			'confirmed_at'        => Yii::t('admin.rbac', 'Confirmed'),
+			'confirmed_at'        => Yii::t('sw', 'Confirmed'),
 			'last_login_at'       => Yii::t('admin', 'Last Login'),
 			'last_login_ip'       => Yii::t('admin', 'Last Login IP'),
 
 			// Optional / advanced (can be hidden in UI)
-			'password_changed_at' => Yii::t('admin.settings', 'Password Changed'),
-			'password_age'        => Yii::t('admin.settings', 'Password Age'),
+			'password_changed_at' => Yii::t('sw', 'Password Changed'),
+			'password_age'        => Yii::t('sw', 'Password Age'),
 		]);
 	}
 

@@ -22,7 +22,7 @@ use p2m\helpers\BI;
  * @var \Da\User\Form\SettingsForm $model
  */
 
-$this->title = Yii::t('admin.settings', 'Account Settings');
+$this->title = Yii::t('sw', 'Account Settings');
 $this->params['breadcrumbs'][] = $this->title;
 
 /** @var \Da\User\Module $module */
@@ -92,11 +92,11 @@ $module = Yii::$app->getModule('user');
 				<?php if ($module->enableTwoFactorAuthentication): ?>
 					<div class="card  mt-4">
 						<div class="card-header">
-							<h3 class="m-0"><?= Yii::t('admin.settings', 'Two Factor Authentication (2FA)') ?></h3>
+							<h3 class="m-0"><?= Yii::t('sw', 'Two Factor Authentication (2FA)') ?></h3>
 						</div>
 						<div class="card-body">
 							<p>
-								<?= Yii::t('admin.settings', 'Two factor authentication protects you in case of stolen credentials') ?>.
+								<?= Yii::t('sw', 'Two factor authentication protects you in case of stolen credentials') ?>.
 							</p>
 							<?php if ($model->getUser()!==  null && !$model->getUser()->auth_tf_enabled):
 								$validators = $module->twoFactorAuthenticationValidators;
@@ -126,10 +126,10 @@ $module = Yii::$app->getModule('user');
 								<?php
 								Modal::begin([
 									'id' => 'tfmodal',
-									'title' =>Yii::t('admin.settings', 'Two Factor Authentication (2FA)'),
+									'title' =>Yii::t('sw', 'Two Factor Authentication (2FA)'),
 									'toggleButton' => [
 										'id' => 'enable_tf_btn',
-										'label' => Yii::t('admin.settings', 'Enable two factor authentication'),
+										'label' => Yii::t('sw', 'Enable two factor authentication'),
 										'class' => 'btn btn-light',
 									],
 								]);
@@ -145,24 +145,24 @@ $module = Yii::$app->getModule('user');
 											$message = '';
 											switch ($method) {
 												case 'email':
-													$message = Yii::t('admin.settings', 'The email address set is: "{0}".', [ $model->getUser()->email] );
+													$message = Yii::t('sw', 'The email address set is: "{0}".', [ $model->getUser()->email] );
 													break;
 												case 'sms':
-													$message = Yii::t('admin.settings', 'The phone number set is: "{0}".', [ $model->getUser()->auth_tf_mobile_phone]);
+													$message = Yii::t('sw', 'The phone number set is: "{0}".', [ $model->getUser()->auth_tf_mobile_phone]);
 													break;
 											}
 										?>
-										<?= Yii::t('admin.settings', 'Your two factor authentication method is based on "{0}".', [$method]) . ' account.php' . $message ?>
+										<?= Yii::t('sw', 'Your two factor authentication method is based on "{0}".', [$method]) . ' account.php' . $message ?>
 									</p>
 									<div class="text-right">
 									<?= Html::a(
-										Yii::t('admin.settings', 'Disable two factor authentication'),
+										Yii::t('sw', 'Disable two factor authentication'),
 										['two-factor-disable', 'id' => $model->getUser()->id],
 										[
 											'id' => 'disable_tf_btn',
 											'class' => 'btn btn-light ',
 											'data-method' => 'post',
-											'data-confirm' => Yii::t('admin.settings', 'This will disable two factor authentication. Are you sure?'),
+											'data-confirm' => Yii::t('sw', 'This will disable two factor authentication. Are you sure?'),
 										]
 									) ?>
 								   </div>
@@ -174,22 +174,22 @@ $module = Yii::$app->getModule('user');
 				<?php if ($model->module->allowAccountDelete): ?>
 					<div class="card bg-danger mt-4">
 						<div class="card-header">
-							<h3 class="m-0"><?= Yii::t('admin.settings', 'Delete account') ?></h3>
+							<h3 class="m-0"><?= Yii::t('sw', 'Delete account') ?></h3>
 						</div>
 						<div class="card-body">
 							<p>
-								<?= Yii::t('admin.settings', 'Once you delete your account, there is no going back') ?>.
-								<?= Yii::t('admin.settings', 'It will be deleted forever') ?>.
-								<?= Yii::t('admin.settings', 'Please be certain') ?>.
+								<?= Yii::t('sw', 'Once you delete your account, there is no going back') ?>.
+								<?= Yii::t('sw', 'It will be deleted forever') ?>.
+								<?= Yii::t('sw', 'Please be certain') ?>.
 							</p>
 							<div class="text-right">
 								<?= Html::a(
-									Yii::t('admin.settings', 'Delete account'),
+									Yii::t('sw', 'Delete account'),
 									['delete'],
 									[
 										'class' => 'btn btn-light',
 										'data-method' => 'post',
-										'data-confirm' => Yii::t('admin.settings', 'Are you sure? There is no going back'),
+										'data-confirm' => Yii::t('sw', 'Are you sure? There is no going back'),
 									]
 								) ?>
 							</div>

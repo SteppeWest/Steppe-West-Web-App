@@ -34,12 +34,12 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 		   data-bs-toggle="dropdown"
 		   data-bs-auto-close="outside"
 		   aria-expanded="false"
-		   aria-label="<?= Yii::t('admin.a11y', 'User Menu') ?>">
+		   aria-label="<?= Yii::t('sw.a11y', 'User Menu') ?>">
 			<?php if ($gravatarEmail): ?>
 				<?= SwUserGravatarHelper::imgByEmail($gravatarEmail, [
 					'class' => 'rounded-circle',
 					'style' => 'width: 32px; height: 32px; object-fit: cover;',
-					'alt' => Yii::t('admin.a11y', 'User avatar'),
+					'alt' => Yii::t('sw.a11y', 'User avatar'),
 				], 64) ?>
 			<?php else: ?>
 				<?= BI::i('person-circle')->size(4) ?>
@@ -50,9 +50,9 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 			<li>
 				<a class="dropdown-item" data-bs-toggle="collapse"
 				   href="#langMenu" role="button" type="button"
-				   aria-label="<?= Yii::t('admin.a11y', 'Select Language') ?>"
+				   aria-label="<?= Yii::t('sw.a11y', 'Select Language') ?>"
 				   aria-expanded="false" aria-controls="langMenu">
-					<?= BI::i('translate') . ' ' . Yii::t('admin.nav', 'Language') ?>
+					<?= BI::i('translate') . ' ' . Yii::t('sw', 'Language') ?>
 				</a>
 				<div class="collapse" id="langMenu">
 					<ul class="list-unstyled mb-0">
@@ -77,12 +77,12 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 			<li><hr class="dropdown-divider"></li>
 			<li>
 				<?= Html::a(
-					BI::i('person') . ' ' . Yii::t('admin.settings', 'Profile'),
+					BI::i('person') . ' ' . Yii::t('sw', 'Profile'),
 					['/user/profile'],
 					[
 						'class' => 'dropdown-item',
 						'encode' => false,
-						'aria-label' => Yii::t('admin.settings', 'Profile'),
+						'aria-label' => Yii::t('sw', 'Profile'),
 					]
 				) ?>
 			</li>
@@ -98,8 +98,8 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 				) ?>
 			</li>
 			<li>
-				<a class="dropdown-item" href="#!" aria-label="<?= Yii::t('admin.nav', 'Activity Log') ?>">
-					<?= BI::i('activity') . ' ' . Yii::t('admin.nav', 'Activity Log') ?>
+				<a class="dropdown-item" href="#!" aria-label="<?= Yii::t('sw', 'Activity Log') ?>">
+					<?= BI::i('activity') . ' ' . Yii::t('sw', 'Activity Log') ?>
 				</a>
 			</li>
 			<li><hr class="dropdown-divider"></li>
@@ -110,11 +110,11 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 					]);
 
 					echo Html::submitButton(
-						BI::i('box-arrow-left') . ' ' . Yii::t('admin.nav', 'Logout'),
+						BI::i('box-arrow-left') . ' ' . Yii::t('sw', 'Logout'),
 						[
 							'class' => 'dropdown-item',
 							'encode' => false,
-							'aria-label' => Yii::t('admin.nav', 'Logout'),
+							'aria-label' => Yii::t('sw', 'Logout'),
 						]
 					);
 

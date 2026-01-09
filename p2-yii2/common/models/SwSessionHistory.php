@@ -21,12 +21,12 @@ class SwSessionHistory extends UsuarioSessionHistory
 	public function attributeLabels()
 	{
 		return array_merge(parent::attributeLabels(), [
-			'user_id'    => Yii::t('admin.audit', 'User'),
-			'session_id' => Yii::t('admin.audit', 'Session'),
-			'user_agent' => Yii::t('admin.audit', 'User Agent'),
-			'ip'         => Yii::t('admin.audit', 'IP Address'),
-			'created_at' => Yii::t('admin.audit', 'Started'),
-			'updated_at' => Yii::t('admin.audit', 'Last Activity'),
+			'user_id'    => Yii::t('sw', 'User'),
+			'session_id' => Yii::t('sw', 'Session'),
+			'user_agent' => Yii::t('sw', 'User Agent'),
+			'ip'         => Yii::t('sw', 'IP Address'),
+			'created_at' => Yii::t('sw', 'Started'),
+			'updated_at' => Yii::t('sw', 'Last Activity'),
 		]);
 	}
 }

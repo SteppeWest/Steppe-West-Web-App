@@ -14,24 +14,24 @@ $currentRoute = Yii::$app->requestedRoute;
 
 $items = [
 	[
-		'label' => Yii::t('admin.settings', 'Profile'),
+		'label' => Yii::t('sw', 'Profile'),
 		'url'   => ['/user/profile'],
 		'route' => 'user/profile/show',
 	],
 	[
-		'label' => Yii::t('admin.settings', 'Profile Settings'),
+		'label' => Yii::t('sw', 'Profile Settings'),
 		'url'   => ['/user/settings/profile'],
 		'route' => 'user/settings/profile',
 	],
 	[
-		'label' => Yii::t('admin.settings', 'Account Settings'),
+		'label' => Yii::t('sw', 'Account Settings'),
 		'url'   => ['/user/settings/account'],
 		'route' => 'user/settings/account',
 	],
 ];
 ?>
 
-<nav aria-label="<?= Yii::t('admin.a11y', 'User Settings Navigation') ?>">
+<nav aria-label="<?= Yii::t('sw.a11y', 'User Settings Navigation') ?>">
 	<ul class="nav nav-pills card-header-pills">
 		<?php foreach ($items as $item): ?>
 			<?php $isActive = ($currentRoute === $item['route']); ?>
