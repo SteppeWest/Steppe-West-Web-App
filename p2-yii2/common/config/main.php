@@ -83,9 +83,6 @@ return [
 
 						'sw.frontend' => 'sw.frontend.php',
 						'sw.tests' => 'sw.tests.php',
-
-						'p2m.rbac' => 'p2m.rbac.php',
-						'p2m.rbac.a11y' => 'p2m.rbac.a11y.php',
 					],
 				],
 				'p2m.rbac*' => [

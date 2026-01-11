@@ -12,14 +12,14 @@ use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\BI;
 use p2m\helpers\FI;
+use p2m\rbac\helpers\P2GravatarHelper;
 use common\helpers\SwLanguageUiHelper;
-use common\helpers\SwUserGravatarHelper;
 
 /* @var $this yii\web\View */
 
-$metaAssetUrl      = $this->params['metaAssetUrl'];
-$languages         = Yii::$app->params['swUiLanguages'];
-$currentLang       = Yii::$app->language;
+$metaAssetUrl = $this->params['metaAssetUrl'];
+$languages    = Yii::$app->params['swUiLanguages'];
+$currentLang  = Yii::$app->language;
 $user = Yii::$app->user->identity;
 
 // only use gravatar if a dedicated gravatar_email is set
@@ -37,10 +37,9 @@ $gravatarEmail = $user->profile->gravatar_email ?? null;
 		   aria-expanded="false"
 		   aria-label="<?= Yii::t('sw.a11y', 'User Menu') ?>">
 			<?php if ($gravatarEmail): ?>
-				<?= SwUserGravatarHelper::imgByEmail($gravatarEmail, [
+				<?= P2GravatarHelper::imgByEmail($gravatarEmail, [
 					'class' => 'rounded-circle',
 					'style' => 'width: 32px; height: 32px; object-fit: cover;',
-					'alt' => Yii::t('sw.a11y', 'User avatar'),
 				], 64) ?>
 			<?php else: ?>
 				<?= BI::i('person-circle')->size(4) ?>
