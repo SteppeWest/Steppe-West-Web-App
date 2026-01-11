@@ -83,18 +83,20 @@ return [
 
 						'sw.frontend' => 'sw.frontend.php',
 						'sw.tests' => 'sw.tests.php',
+
+						'p2m.rbac' => 'p2m.rbac.php',
+						'p2m.rbac.a11y' => 'p2m.rbac.a11y.php',
 					],
 				],
-				/**
-				'usuario' => [
-					'class' => yii\i18n\PhpMessageSource::class,
-					'basePath' => '@backend/messages',
+				'p2m.rbac*' => [
+					'class' => \yii\i18n\PhpMessageSource::class,
+					'basePath' => '@common/i18n/messages',
 					'sourceLanguage' => 'en',
 					'fileMap' => [
-						'usuario' => 'usuario.php',
+						'p2m.rbac' => 'p2m.rbac.php',
+						'p2m.rbac.a11y' => 'p2m.rbac.a11y.php',
 					],
 				],
-				 */
 			],
 		],
 		/**
