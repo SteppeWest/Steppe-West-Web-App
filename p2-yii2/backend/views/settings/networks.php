@@ -10,7 +10,7 @@
  */
 
 use Da\User\Widget\ConnectWidget;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
 /**
  * @var yii\web\View           $this

@@ -10,7 +10,7 @@
 
 namespace frontend\modules;
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use Symfony\Component\Yaml\Yaml;
 use common\widgets\SwSubstitution;
 

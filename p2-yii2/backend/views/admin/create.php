@@ -12,7 +12,7 @@
 
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Nav;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
 /**
  * @var yii\web\View        $this

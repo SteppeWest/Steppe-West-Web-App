@@ -11,7 +11,7 @@
  */
 
 use Da\User\Widget\SessionStatusWidget;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use Da\User\Model\SessionHistory;

@@ -11,7 +11,7 @@
  */
 
 use yii\bootstrap5\Modal;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use yii\bootstrap5\ActiveForm;
 use p2m\helpers\BI;

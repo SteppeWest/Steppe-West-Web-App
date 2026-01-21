@@ -8,7 +8,7 @@
  * @license MIT
  */
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use p2m\rbac\helpers\P2GravatarHelper;
 
 /** @var \yii\web\View $this */

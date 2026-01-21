@@ -8,7 +8,7 @@
  * @license MIT
  */
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
 $currentRoute = Yii::$app->requestedRoute;
 

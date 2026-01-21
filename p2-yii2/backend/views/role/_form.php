@@ -17,7 +17,7 @@
 
 use Da\User\Helper\AuthHelper;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
 $unassignedItems = Yii::$container->get(AuthHelper::class)->getUnassignedItems($model);

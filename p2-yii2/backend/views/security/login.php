@@ -10,7 +10,7 @@
  * Adapted from 2amigos/yii2-usuario
  */
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use yii\bootstrap5\ActiveForm;
 use Da\User\Widget\ConnectWidget;

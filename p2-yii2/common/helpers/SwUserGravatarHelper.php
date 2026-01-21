@@ -10,7 +10,7 @@
 
 namespace common\helpers;
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use Yii;
 
 final class SwUserGravatarHelper

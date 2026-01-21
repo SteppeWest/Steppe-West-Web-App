@@ -2,7 +2,7 @@
 namespace common\helpers;
 
 use Yii;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\FI;
 use p2m\helpers\BI;

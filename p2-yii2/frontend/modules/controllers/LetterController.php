@@ -12,7 +12,7 @@ namespace frontend\modules\controllers;
 
 use Yii;
 use yii\base\Theme;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use common\widgets\SwSubstitution;
 use common\widgets\SwYaml;
 use common\models\LanguagePage;

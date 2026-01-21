@@ -12,7 +12,7 @@ namespace frontend\modules\controllers;
 
 use Yii;
 use yii\web\Controller;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use Symfony\Component\Yaml\Yaml;
 use common\assets\SwCommonAsset;
 use common\widgets\SwFlagSelector;
