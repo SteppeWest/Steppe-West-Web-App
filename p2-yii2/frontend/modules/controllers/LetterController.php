@@ -43,7 +43,7 @@ class LetterController extends LanguageModuleController
 	 * Renders the view for the module
 	 * @return string
 	 */
-	public function actionView($slug = 'intro', $lc = null)
+	public function actionView(string $slug = 'intro', ?string $lc = null)
 	{
 		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
 

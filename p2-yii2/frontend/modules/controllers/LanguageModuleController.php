@@ -38,9 +38,9 @@ class LanguageModuleController extends Controller
 	 * Renders the view for the module
 	 * @return string
 	 */
-	public function actionView($slug = 'intro', $lc = null)
+	public function actionView(string $slug, string $lc)
 	{
-		$this->view->params['lc'] = $lc;
+		$this->view->params['lc']   = $lc;
 		$this->view->params['slug'] = $slug;
 
 		// Retrieve the language page based on slug and language code
@@ -90,12 +90,13 @@ $this->params['langMenu']
 			->all();
 
 		// Get current URL segments
-		$path = Yii::$app->request->pathInfo;
-		$path = trim($path, '/');
+		$path     = Yii::$app->request->pathInfo;
+		$path     = trim($path, '/');
 		$segments = explode('/', $path);
 
-		$menuItems = [];
-		$menuUrlBase = Yii::$app->homeUrl;
+		$menuItems   = [];
+		$menuUrlBase = rtrim(Yii::$app->homeUrl, '/') . '/';
+
 		if ($slug && $slug !== 'intro') {
 			$menuUrlBase .= $slug . '/';
 		}
@@ -114,8 +115,8 @@ $this->params['langMenu']
 
 			// Add to menu items
 			$menuItems[] = [
-				'label' => $label,
-				'url' => $newUrl,
+				'label'  => $label,
+				'url'    => $newUrl,
 				'active' => $isActive, // Set active if this is the current language
 			];
 		}
@@ -168,4 +169,3 @@ $this->params['langMenu']
 
 /*
  */
-

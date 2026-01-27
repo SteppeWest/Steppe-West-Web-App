@@ -4,7 +4,7 @@
  */
 return [
 	'swLetterLanguages' => [
-		'az', 'en', 'kk', 'ky', 'mn', 'ru', 'tg', 'tk', 'uz', 'tr'
+		'az', 'en', 'kk', 'ky', 'mn', 'ru', 'tg', 'tk', 'tr', 'uz'
 	],
 	'swLanguageMap' => [
 		'EN' => 'en',
