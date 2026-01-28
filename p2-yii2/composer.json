@@ -14,12 +14,14 @@
 		"yiisoft/yii2": "~2.0.53",
 		"yiisoft/yii2-bootstrap5": "dev-master",
 		"yiisoft/yii2-symfonymailer": "~2.0.3",
-		"laminas/laminas-code": "^4.14",
 		"symfony/yaml": "^7.1",
+		"laminas/laminas-code": "^4.14",
 		"kartik-v/yii2-markdown": "dev-master",
 		"p2made/p2y2-things": "dev-5.0-dev",
-		"p2made/p2y2-rbac-users": "dev-0.1-dev",
-		"p2made/p2y2-admin": "dev-5.0-dev"
+		"p2made/p2y2-admin": "dev-5.0-dev",
+		"p2made/p2y2-rbac-users": "dev-5.0-dev",
+		"p2made/p2y2-themes": "dev-5.0-dev",
+		"p2made/p2y2-things-demo": "dev-5.0-dev"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "~2.1.0",
@@ -52,8 +54,46 @@
 	},
 	"repositories": [
 		{
-			"type": "composer",
-			"url": "https://asset-packagist.org"
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-admin",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-fullcalendar",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-gii-collection",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-kartik-collection",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-rbac-users",
+			"options": {
+				"symlink": true
+			}
+		},
+		{
+			"type": "path",
+			"url": "../../../Developer/Web/p2made/p2y2-themes",
+			"options": {
+				"symlink": true
+			}
 		},
 		{
 			"type": "path",
@@ -70,18 +110,8 @@
 			}
 		},
 		{
-			"type": "path",
-			"url": "../../../Developer/Web/p2made/p2y2-rbac-users",
-			"options": {
-				"symlink": true
-			}
-		},
-		{
-			"type": "path",
-			"url": "../../../Developer/Web/p2made/p2y2-admin",
-			"options": {
-				"symlink": true
-			}
+			"type": "composer",
+			"url": "https://asset-packagist.org"
 		}
 	]
 }
