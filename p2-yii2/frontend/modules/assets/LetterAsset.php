@@ -31,11 +31,7 @@ class LetterAsset extends \yii\web\AssetBundle
 		'css/sw-letter.min.css',
 	];
 
-	public $cssOptions = [
-		'crossorigin' => 'anonymous',
-	];
-
 	public $depends = [
-		'common\assets\SwMetaAsset',
+		'p2m\assets\P2CoreAsset',
 	];
 }

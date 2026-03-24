@@ -24,14 +24,28 @@ return [
 	'components' => [
 		'urlManager' => [
 			'rules' => [
-				'' => 'site/index',   // root now uses default frontend views
+				// Home == intro (English)
+				'' => 'letter/view',
+
+				// /lc  -> intro in that language
+				'<lc:[a-z]{2,3}>' => 'letter/view',
+
+				// /slug -> English for that slug
+				'<slug:(?:intro|invite)>' => 'letter/view',
+
+				// /slug/lc -> language-specific
+				'<slug:(?:intro|invite)>/<lc:[a-z]{2,3}>' => 'letter/view',
+			],
+			'rules' => [
+				//'' => 'site/index',   // root now uses default frontend views
 
 				// Root URL, defaults to 'intro' in LetterController
-				//'' => 'letter/letter/view',
+				'' => '/letter/letter/view',
 
 				// Specific slugs (e.g., intro, invite, faq) without or with language code
-				'<slug:intro|invite|faq>' => 'letter/letter/view',
-				'<slug:intro|invite|faq>/<lc:[a-z]{2,3}>' => 'letter/letter/view',
+				'<slug:(?:intro|invite|faq)>' => 'letter/letter/view',
+				'<slug:(?:intro|invite|faq)>/<lc:[a-z]{2,3}>' => 'letter/letter/view',
+
 
 				// Language code only (e.g., domain.tld/en) routes to the view action
 				'<lc:[a-z]{2,3}>' => 'letter/letter/view',

@@ -1,0 +1,23 @@
+<?php
+return [
+    'Area Chart' => 'Аймақтық диаграмма үлгісі',
+    'Area Chart Example' => 'Аймақтық диаграмма',
+    'Authentication' => 'Аутентификация',
+    'Bar Chart' => 'Бағанды диаграмма үлгісі',
+    'Bar Chart Example' => 'Бағанды диаграмма',
+    'Charts' => 'Диаграммалар',
+    'Danger Card' => 'Қауіп картасы',
+    'DataTable Example' => 'Деректер кестесінің үлгісі',
+    'Error' => 'Қате',
+    'Example Data Table' => 'Үлгі деректер кестесі',
+    'Interface' => 'Интерфейс',
+    'Layouts' => 'Макеттер',
+    'Light Sidenav' => 'Жарық бүйірлік мәзір',
+    'Pages' => 'Беттер',
+    'Primary Card' => 'Негізгі карта',
+    'Static Navigation' => 'Тұрақты навигация',
+    'Success Card' => 'Сәттілік картасы',
+    'Tables' => 'Кестелер',
+    'View Details' => 'Толығырақ',
+    'Warning Card' => 'Ескерту картасы',
+];

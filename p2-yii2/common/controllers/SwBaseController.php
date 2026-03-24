@@ -17,8 +17,9 @@
 
 namespace common\controllers;
 
+use Yii;
 use yii\web\Controller;
-use common\assets\SwMetaAsset;
+use common\assets\SwCommonAsset;
 
 class SwBaseController extends Controller
 {
@@ -29,8 +30,13 @@ class SwBaseController extends Controller
 		}
 
 		// Register the meta asset once per request
-		$metaAsset = SwMetaAsset::register($this->view);
+		$metaAsset = SwCommonAsset::register($this->view);
 		$this->view->params['metaAssetUrl'] = $metaAsset->baseUrl;
+
+		$cookieLang = Yii::$app->request->cookies->getValue('userLanguage');
+		if ($cookieLang) {
+			Yii::$app->language = $cookieLang;
+		}
 
 		return true;
 	}

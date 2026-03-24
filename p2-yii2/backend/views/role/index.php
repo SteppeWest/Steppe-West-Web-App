@@ -10,63 +10,92 @@
  * Adapted from 2amigos/yii2-usuario
  */
 
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
-use yii\helpers\Url;
+use yii\bootstrap5\Html;
+use common\widgets\Alert;
+use p2m\helpers\BI;
+use p2m\assets\P2DataTablesResponsiveAsset;
+
+P2DataTablesResponsiveAsset::register($this);
 
 /**
- * @var \yii\data\DataProviderInterface $dataProvider
- * @var \Da\User\Search\RoleSearch $searchModel
  * @var yii\web\View $this
- * @var \Da\User\Module $module
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var Da\User\Search\RoleSearch $searchModel
+ * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('usuario', 'Roles');
+$this->title = Yii::t('sw', 'Manage Roles');
 $this->params['breadcrumbs'][] = $this->title;
 
+$iconUpdate = BI::i('pencil-square')
+	->l(Yii::t('sw.a11y', 'Edit Role'))
+	->t(Yii::t('sw.a11y', 'Edit Role'))
+	->f();
+
+$iconDelete = BI::i('trash')
+	->l(Yii::t('sw.a11y', 'Delete Role'))
+	->t(Yii::t('sw.a11y', 'Delete Role'))
+	->f();
 ?>
 
-<?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>
-<div class="table-responsive">
-<?= GridView::widget(
-	[
-		'dataProvider' => $dataProvider,
-		'filterModel' => $searchModel,
-		'layout' => "{items}\n{pager}",
-		'columns' => [
-			[
-				'attribute' => 'name',
-				'header' => Yii::t('usuario', 'Name'),
-				'options' => [
-					'style' => 'width: 20%',
-				],
-			],
-			[
-				'attribute' => 'description',
-				'header' => Yii::t('usuario', 'Description'),
-				'options' => [
-					'style' => 'width: 55%',
-				],
-			],
-			[
-				'attribute' => 'rule_name',
-				'header' => Yii::t('usuario', 'Rule name'),
-				'options' => [
-					'style' => 'width: 20%',
-				],
-			],
-			[
-				'class' => ActionColumn::class,
-				'template' => '{update} {delete}',
-				'urlCreator' => function ($action, $model) {
-					return Url::to(['/user/role/' . $action, 'name' => $model['name']]);
-				},
-				'options' => [
-					'style' => 'width: 5%',
-				],
-			],
-		],
-	]
-) ?>
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+
+	<?= Html::a(
+		BI::i('plus-circle') . ' ' . Yii::t('sw', 'Add Role'),
+		['create'],
+		['class' => 'btn btn-primary', 'encode' => false]
+	) ?>
 </div>
-<?php $this->endContent() ?>
+
+<?= $this->render('/partials/breadcrumbs') ?>
+<?= Alert::widget() ?>
+
+<div class="table-responsive">
+	<table class="table table-bordered display"
+		id="rolesTable" data-p2-datatables="1"
+		data-p2-datatables-options='{"searching":false,"pageLength":25}'>
+		<thead>
+			<tr>
+				<th><?= Yii::t('sw', 'Name') ?></th>
+				<th><?= Yii::t('sw', 'Description') ?></th>
+				<th><?= Yii::t('sw', 'Rule Name') ?></th>
+				<th class="text-center" data-orderable="false">
+					<?= Yii::t('sw', 'Actions') ?>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($dataProvider->getModels() as $role): ?>
+			<tr>
+				<td><?= Html::encode($role->name) ?></td>
+				<td><?= Html::encode($role->description) ?></td>
+				<td><?= Html::encode($role->rule_name) ?></td>
+				<td>
+					<div class="btn-group btn-group-sm" role="group" aria-label="<?= Yii::t('sw.a11y', 'Role Actions') ?>">
+						<!-- Update -->
+						<?= Html::a(
+							$iconUpdate,
+							['update', 'name' => $role->name],
+							['class' => 'btn btn-primary']
+						) ?>
+
+						<!-- Delete -->
+						<?= Html::a(
+							$iconDelete,
+							['delete', 'name' => $role->name],
+							[
+								'class' => 'btn btn-danger',
+								'data' => [
+									'confirm' => Yii::t('sw', 'Are you sure you want to delete this item?'),
+									'method' => 'post',
+								],
+							]
+						) ?>
+					</div>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>

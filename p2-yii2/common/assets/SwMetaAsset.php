@@ -3,7 +3,7 @@
  * SwMetaAsset.php
  *
  * @author Pedro Plowman
- * @copyright Copyright (c) 2024 Steppe West
+ * @copyright Copyright (c) 2025 Steppe West
  * @link https://steppewest.com/
  * @license MIT
  */
@@ -12,13 +12,18 @@
  * @class \common\assets\SwMetaAsset
  *
  * Load this asset with...
- * common\assets\SwMetaAsset::register($this);
- *
- * use common\assets\SwMetaAsset;
- * SwMetaAsset::register($this);
- *
+
+common\assets\SwMetaAsset::register($this);
+
+ * or with...
+
+use common\assets\SwMetaAsset;
+SwMetaAsset::register($this);
+
  * or specify as a dependency with...
- *     'common\assets\SwMetaAsset',
+
+		'common\assets\SwMetaAsset',
+
  */
 
 namespace common\assets;
@@ -27,11 +32,11 @@ use yii\web\AssetBundle;
 
 class SwMetaAsset extends AssetBundle
 {
-	public $sourcePath = '@static/sw-meta';
+	// @var string
+	public $sourcePath = '@static/common/meta';
 
+	// @var array
 	public $depends = [
-		'yii\web\YiiAsset',
-		'yii\bootstrap5\BootstrapAsset',
-		'p2m\assets\P2BootstrapIconsAsset',
+		'common\assets\SwCommonAsset',
 	];
 }

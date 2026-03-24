@@ -1,10 +1,19 @@
 <?php
+/**
+ * @backend/controllers/SiteController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 namespace backend\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\ErrorAction;
 use yii\web\Response;
 use common\controllers\SwBaseController;
 use common\models\LoginForm;
@@ -15,6 +24,8 @@ use backend\assets\SBAdminAsset;
  */
 class SiteController extends SwBaseController
 {
+	public $layout = 'main';
+
 	/**
 	 * {@inheritdoc}
 	 */
@@ -22,6 +33,13 @@ class SiteController extends SwBaseController
 	{
 		if (!parent::beforeAction($action)) {
 			return false;
+		}
+
+		if ($action->id === 'error') {
+			$this->layout = 'alternate';
+		}
+		else {
+			$this->layout = 'main';
 		}
 
 		return true;
@@ -37,11 +55,11 @@ class SiteController extends SwBaseController
 				'class' => AccessControl::class,
 				'rules' => [
 					[
-						'actions' => ['login', 'error'],
+						'actions' => ['login', 'error', 'set-language'],
 						'allow' => true,
 					],
 					[
-						'actions' => ['logout', 'index'],
+						'actions' => ['logout', 'index', 'set-language'],
 						'allow' => true,
 						'roles' => ['@'],
 					],
@@ -63,7 +81,8 @@ class SiteController extends SwBaseController
 	{
 		return [
 			'error' => [
-				'class' => \yii\web\ErrorAction::class,
+				'class' => ErrorAction::class,
+				'layout' => 'alternate', // uses @backend/views/layouts/error.php
 			],
 		];
 	}
@@ -75,6 +94,7 @@ class SiteController extends SwBaseController
 	 */
 	public function actionIndex()
 	{
+		$this->layout = 'main';
 		return $this->render('index');
 	}
 
@@ -89,14 +109,15 @@ class SiteController extends SwBaseController
 			return $this->goHome();
 		}
 
-		$this->layout = 'blank';
-
 		$model = new LoginForm();
 		if ($model->load(Yii::$app->request->post()) && $model->login()) {
 			return $this->goBack();
 		}
 
 		$model->password = '';
+
+		// Use the minimal auth layout
+		$this->layout = 'alternate';
 
 		return $this->render('login', [
 			'model' => $model,
@@ -114,11 +135,39 @@ class SiteController extends SwBaseController
 
 		return $this->goHome();
 	}
-}
 
-/*
-public function actionLogin()
-{
-		return $this->redirect(['/user/security/login']);
+	/**
+	 * Error action.
+	 */
+	public function actionError()
+	{
+		// Same minimal layout for error pages
+		$this->layout = 'error';
+
+		return $this->render('error', [
+			'exception' => Yii::$app->errorHandler->exception,
+		]);
+	}
+
+	public function actionSetLanguage($lang)
+	{
+		$allowed = ['en', 'ru', 'kk', 'ky', 'tg', 'uz'];
+
+		if (in_array($lang, $allowed, true)) {
+			Yii::$app->language = $lang;
+
+			Yii::$app->session->set('userLanguage', $lang);
+
+			Yii::$app->response->cookies->add(new \yii\web\Cookie([
+				'name' => 'userLanguage',
+				'value' => $lang,
+				'expire' => time() + 86400 * 365, // 1 year
+				'httpOnly' => true,
+				'sameSite' => \yii\web\Cookie::SAME_SITE_LAX,
+			]));
+		}
+
+		//return $this->goBack(Yii::$app->request->referrer ?: ['/site/index']);
+		return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+	}
 }
-*/

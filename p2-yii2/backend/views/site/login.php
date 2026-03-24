@@ -1,4 +1,12 @@
 <?php
+/**
+ * @backend/views/site/login.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */

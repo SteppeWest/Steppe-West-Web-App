@@ -1,18 +1,20 @@
 <?php
-
-/*
- * This file is part of the 2amigos/yii2-usuario project.
+/**
+ * @backend/views/settings/account.php
  *
- * (c) 2amigOS! <http://2amigos.us/>
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
  *
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * Adapted from 2amigos/yii2-usuario
  */
 
 use yii\bootstrap5\Modal;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use yii\bootstrap5\ActiveForm;
+use p2m\helpers\BI;
 
 /**
  * @var yii\web\View               $this
@@ -20,34 +22,50 @@ use yii\bootstrap5\ActiveForm;
  * @var \Da\User\Form\SettingsForm $model
  */
 
-$this->title = Yii::t('usuario', 'Account settings');
+$this->title = Yii::t('sw', 'Account Settings');
 $this->params['breadcrumbs'][] = $this->title;
 
 /** @var \Da\User\Module $module */
 $module = Yii::$app->getModule('user');
 ?>
-<div class="clearfix"></div>
+
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+</div>
+
+<?= $this->render('/partials/breadcrumbs') ?>
 
 <?= $this->render('/shared/_alert', ['module' => Yii::$app->getModule('user')]) ?>
 
-<div class="row">
-	<div class="col-md-3">
-		<?= $this->render('/settings/_menu') ?>
+<div class="card">
+	<div class="card-header">
+		<?= $this->render('/partials/user-menu') ?>
 	</div>
-	<div class="col-md-9">
-		<div class="card">
-			<div class="card-header">
-				<h3 class="m-0"><?= Html::encode($this->title) ?></h3>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-md-3">
+				<?= $this->render('/partials/user-gravatar') ?>
 			</div>
-			<div class="card-body">
-				<?php $form = ActiveForm::begin(
-					[
-						'id' => $model->formName(),
-						'layout' => 'horizontal',
-						'enableAjaxValidation' => true,
-						'enableClientValidation' => false,
-					]
-				); ?>
+			<div class="col-md-9" id="sw-user-settings">
+				<!-- BEGIN USER FORM CONTENT -->
+
+				<?php $form = ActiveForm::begin([
+					'id' => $model->formName(),
+					'layout' => 'horizontal',
+					'enableAjaxValidation' => true,
+					'enableClientValidation' => false,
+					'validateOnBlur' => false,
+					// Label column width + nowrap
+					'fieldConfig' => [
+						'labelOptions' => [
+							'class' => 'col-sm-4 col-form-label text-sm-end sw-form-label',
+						],
+						'wrapperOptions' => [
+							'class' => 'col-sm-8',
+						],
+						'template' => "{label}\n<div class=\"col-sm-8\">{input}\n{hint}\n{error}</div>",
+					],
+				]); ?>
 
 				<?= $form->field($model, 'email') ?>
 
@@ -55,15 +73,13 @@ $module = Yii::$app->getModule('user');
 
 				<?= $form->field($model, 'new_password')->passwordInput() ?>
 
-				<hr/>
-
 				<?= $form->field($model, 'current_password')->passwordInput() ?>
 
 				<div class="form-group">
 					<div class="offset-sm-2 col-lg-10">
 						<div class="d-grid">
 							<?= Html::submitButton(
-								Yii::t('usuario', 'Save'),
+								Yii::t('sw', 'Save'),
 								['class' => 'btn btn-success']
 							) ?>
 						</div>
@@ -71,122 +87,122 @@ $module = Yii::$app->getModule('user');
 				</div>
 
 				<?php ActiveForm::end(); ?>
-			</div>
-		</div>
+				<!-- / END USER FORM CONTENT -->
 
-		<?php if ($module->enableTwoFactorAuthentication): ?>
-
-
-			<div class="card  mt-4">
-				<div class="card-header">
-					<h3 class="m-0"><?= Yii::t('usuario', 'Two Factor Authentication (2FA)') ?></h3>
-				</div>
-				<div class="card-body">
-					<p>
-						<?= Yii::t('usuario', 'Two factor authentication protects you in case of stolen credentials') ?>.
-					</p>
-					<?php if ($model->getUser()!==  null && !$model->getUser()->auth_tf_enabled):
-						$validators = $module->twoFactorAuthenticationValidators;
-						$theFirstFound = false;
-						$checked = '';
-						foreach( $validators as $name => $validator ) {
-							if($validator[ "enabled" ]){
-								// I want to check in the radio field the first validator I get
-								if(!$theFirstFound){
-									$checked = 'checked';
-									$theFirstFound = true;
-								}
-								$description = $validator[ "description" ];
-								?>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="2famethod" id="<?= $name?>" value="<?= $name?>" <?= $checked?>>
-									<label class="form-check-label" for="<?= $name?>">
-										<?= $description?>
-									</label>
-									</div>
-								<?php
-								$checked = '';
-							}
-						} ;
-					?>
-
-						<?php
-						Modal::begin([
-							'id' => 'tfmodal',
-							'title' =>Yii::t('usuario', 'Two Factor Authentication (2FA)'),
-							'toggleButton' => [
-								'id' => 'enable_tf_btn',
-								'label' => Yii::t('usuario', 'Enable two factor authentication'),
-								'class' => 'btn btn-light',
-							],
-						]);
-						?>
-						...
-						<?php Modal::end(); ?>
-
-					<?php else:
-						 ?>
+				<?php if ($module->enableTwoFactorAuthentication): ?>
+					<div class="card  mt-4">
+						<div class="card-header">
+							<h3 class="m-0"><?= Yii::t('sw', 'Two Factor Authentication (2FA)') ?></h3>
+						</div>
+						<div class="card-body">
 							<p>
-								<?php
-									$method = $model->getUser()->auth_tf_type;
-									$message = '';
-									switch ($method) {
-										case 'email':
-											$message = Yii::t('usuario', 'The email address set is: "{0}".', [ $model->getUser()->email] );
-											break;
-										case 'sms':
-											$message = Yii::t('usuario', 'The phone number set is: "{0}".', [ $model->getUser()->auth_tf_mobile_phone]);
-											break;
+								<?= Yii::t('sw', 'Two factor authentication protects you in case of stolen credentials') ?>.
+							</p>
+							<?php if ($model->getUser()!==  null && !$model->getUser()->auth_tf_enabled):
+								$validators = $module->twoFactorAuthenticationValidators;
+								$theFirstFound = false;
+								$checked = '';
+								foreach( $validators as $name => $validator ) {
+									if($validator[ "enabled" ]){
+										// I want to check in the radio field the first validator I get
+										if(!$theFirstFound){
+											$checked = 'checked';
+											$theFirstFound = true;
+										}
+										$description = $validator[ "description" ];
+										?>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="2famethod" id="<?= $name?>" value="<?= $name?>" <?= $checked?>>
+											<label class="form-check-label" for="<?= $name?>">
+												<?= $description?>
+											</label>
+											</div>
+										<?php
+										$checked = '';
 									}
+								} ;
+							?>
+
+								<?php
+								Modal::begin([
+									'id' => 'tfmodal',
+									'title' =>Yii::t('sw', 'Two Factor Authentication (2FA)'),
+									'toggleButton' => [
+										'id' => 'enable_tf_btn',
+										'label' => Yii::t('sw', 'Enable two factor authentication'),
+										'class' => 'btn btn-light',
+									],
+								]);
 								?>
-								<?= Yii::t('usuario', 'Your two factor authentication method is based on "{0}".', [$method]) . ' account.php' . $message ?>
+								...
+								<?php Modal::end(); ?>
+
+							<?php else:
+								 ?>
+									<p>
+										<?php
+											$method = $model->getUser()->auth_tf_type;
+											$message = '';
+											switch ($method) {
+												case 'email':
+													$message = Yii::t('sw', 'The email address set is: "{0}".', [ $model->getUser()->email] );
+													break;
+												case 'sms':
+													$message = Yii::t('sw', 'The phone number set is: "{0}".', [ $model->getUser()->auth_tf_mobile_phone]);
+													break;
+											}
+										?>
+										<?= Yii::t('sw', 'Your two factor authentication method is based on "{0}".', [$method]) . ' account.php' . $message ?>
+									</p>
+									<div class="text-right">
+									<?= Html::a(
+										Yii::t('sw', 'Disable two factor authentication'),
+										['two-factor-disable', 'id' => $model->getUser()->id],
+										[
+											'id' => 'disable_tf_btn',
+											'class' => 'btn btn-light ',
+											'data-method' => 'post',
+											'data-confirm' => Yii::t('sw', 'This will disable two factor authentication. Are you sure?'),
+										]
+									) ?>
+								   </div>
+							<?php
+							endif; ?>
+						</div>
+					</div>
+				<?php endif; ?>
+				<?php if ($model->module->allowAccountDelete): ?>
+					<div class="card bg-danger mt-4">
+						<div class="card-header">
+							<h3 class="m-0"><?= Yii::t('sw', 'Delete account') ?></h3>
+						</div>
+						<div class="card-body">
+							<p>
+								<?= Yii::t('sw', 'Once you delete your account, there is no going back') ?>.
+								<?= Yii::t('sw', 'It will be deleted forever') ?>.
+								<?= Yii::t('sw', 'Please be certain') ?>.
 							</p>
 							<div class="text-right">
-							<?= Html::a(
-								Yii::t('usuario', 'Disable two factor authentication'),
-								['two-factor-disable', 'id' => $model->getUser()->id],
-								[
-									'id' => 'disable_tf_btn',
-									'class' => 'btn btn-light ',
-									'data-method' => 'post',
-									'data-confirm' => Yii::t('usuario', 'This will disable two factor authentication. Are you sure?'),
-								]
-							) ?>
-						   </div>
-					<?php
-					endif; ?>
-				</div>
-			</div>
-		<?php endif; ?>
-		<?php if ($model->module->allowAccountDelete): ?>
-			<div class="card bg-danger mt-4">
-				<div class="card-header">
-					<h3 class="m-0"><?= Yii::t('usuario', 'Delete account') ?></h3>
-				</div>
-				<div class="card-body">
-					<p>
-						<?= Yii::t('usuario', 'Once you delete your account, there is no going back') ?>.
-						<?= Yii::t('usuario', 'It will be deleted forever') ?>.
-						<?= Yii::t('usuario', 'Please be certain') ?>.
-					</p>
-					<div class="text-right">
-						<?= Html::a(
-							Yii::t('usuario', 'Delete account'),
-							['delete'],
-							[
-								'class' => 'btn btn-light',
-								'data-method' => 'post',
-								'data-confirm' => Yii::t('usuario', 'Are you sure? There is no going back'),
-							]
-						) ?>
+								<?= Html::a(
+									Yii::t('sw', 'Delete account'),
+									['delete'],
+									[
+										'class' => 'btn btn-light',
+										'data-method' => 'post',
+										'data-confirm' => Yii::t('sw', 'Are you sure? There is no going back'),
+									]
+								) ?>
+							</div>
+						</div>
 					</div>
-				</div>
+				<?php endif ?>
+
 			</div>
-		<?php endif ?>
+		</div>
 	</div>
+
 </div>
 <?php if ($module->enableTwoFactorAuthentication): ?>
-
 	<?php
 	// This script should be in fact in a module as an external file
 	// consider overriding this view and include your very own approach

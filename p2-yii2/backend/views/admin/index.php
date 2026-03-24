@@ -10,9 +10,13 @@
  * Adapted from 2amigos/yii2-usuario
  */
 
-use yii\grid\GridView;
-use yii\helpers\Html;
-use yii\widgets\Pjax;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\Breadcrumbs;
+use common\widgets\Alert;
+use p2m\helpers\BI;
+use p2m\assets\P2DataTablesResponsiveAsset;
+
+P2DataTablesResponsiveAsset::register($this);
 
 /**
  * @var yii\web\View $this
@@ -21,176 +25,225 @@ use yii\widgets\Pjax;
  * @var Da\User\Module $module
  */
 
-$this->title = Yii::t('usuario', 'Manage users');
+$this->title = Yii::t('sw', 'Manage Users');
 $this->params['breadcrumbs'][] = $this->title;
-\yii\bootstrap5\BootstrapIconAsset::register($this);
+
+$iconSwitch = BI::i('person-bounding-box')
+	->l(Yii::t('sw.a11y', 'Switch Identity'))
+	->t(Yii::t('sw.a11y', 'Switch Identity'))
+	->f();
+
+$iconView = BI::i('eye')
+	->l(Yii::t('sw.a11y', 'View User'))
+	->t(Yii::t('sw.a11y', 'View User'))
+	->f();
+
+$iconUpdate = BI::i('pencil-square')
+	->l(Yii::t('sw.a11y', 'Update User'))
+	->t(Yii::t('sw.a11y', 'Update User'))
+	->f();
+
+$iconReset = BI::i('lightning-charge')
+	->l(Yii::t('sw.a11y', 'Reset Password'))
+	->t(Yii::t('sw.a11y', 'Reset Password'))
+	->f();
+
+$iconBlock = BI::i('slash-circle')
+	->l(Yii::t('sw.a11y', 'Block User'))
+	->t(Yii::t('sw.a11y', 'Block User'))
+	->f();
+
+$iconDelete = BI::i('trash')
+	->l(Yii::t('sw.a11y', 'Delete User'))
+	->t(Yii::t('sw.a11y', 'Delete User'))
+	->f();
+
+$iconConfirmed = function (bool $status) {
+	if ($status) {
+		$msg = Yii::t('sw.a11y', 'User confirmed');
+		return BI::i('check-circle') // 'check-circle' or 'check'
+			->l($msg)->t($msg)
+			->c(BI::SUCCESS)->s(5);
+	}
+
+	$msg = Yii::t('sw.a11y', 'User not confirmed');
+	return BI::i('x-circle') // 'x-circle' or 'x'
+		->l($msg)->t($msg)
+		->c(BI::DANGER)->s(5);
+};
+
+$iconBlocked = function (bool $status) {
+	if ($status) {
+		$msg = Yii::t('sw.a11y', 'User is blocked');
+		return BI::i('lock') // 'slash-circle' or 'lock'
+			->l($msg)->t($msg)
+			->c(BI::DANGER)->s(5);
+	}
+
+	$msg = Yii::t('sw.a11y', 'User is not blocked');
+	return BI::i('unlock') // 'unlock' or 'shield-check'
+		->l($msg)->t($msg)
+		->c(BI::SUCCESS)->s(5);
+};
+
+$disabledIcon = function ($icon, string $label, string $btnClass) {
+	return Html::tag(
+		'span',
+		$icon->h(), // icon is decorative here
+		[
+			'class' => $btnClass . ' disabled',
+			'aria-disabled' => 'true',
+			'title' => $label,
+		]
+	);
+};
 ?>
-
-<?php $this->beginContent($module->viewPath . '/shared/admin_layout.php') ?>
-
-<?php Pjax::begin() ?>
-<div class="table-responsive">
-<?= GridView::widget([
-	'dataProvider' => $dataProvider,
-	'filterModel' => $searchModel,
-	'layout' => "{items}\n{pager}",
-	'columns' => [
-		'username',
-		'email:email',
-		[
-			'attribute' => 'registration_ip',
-			'value' => function ($model) {
-				return $model->registration_ip == null
-					? '<span class="not-set">' . Yii::t('usuario', '(not set)') . '</span>'
-					: $model->registration_ip;
-			},
-			'format' => 'html',
-			'visible' => !$module->disableIpLogging,
-		],
-		[
-			'attribute' => 'created_at',
-			'value' => function ($model) {
-				if (extension_loaded('intl')) {
-					return Yii::t('usuario', '{0, date, MMM dd, YYYY HH:mm}', [$model->created_at]);
-				}
-
-				return date('Y-m-d G:i:s', $model->created_at);
-			},
-		],
-		[
-			'attribute' => 'last_login_at',
-			'value' => function ($model) {
-				if (!$model->last_login_at || $model->last_login_at == 0) {
-					return Yii::t('usuario', 'Never');
-				} elseif (extension_loaded('intl')) {
-					return Yii::t('usuario', '{0, date, MMM dd, YYYY HH:mm}', [$model->last_login_at]);
-				} else {
-					return date('Y-m-d G:i:s', $model->last_login_at);
-				}
-			},
-		],
-		[
-			'attribute' => 'last_login_ip',
-			'value' => function ($model) {
-				return $model->last_login_ip == null
-					? '<span class="not-set">' . Yii::t('usuario', '(not set)') . '</span>'
-					: $model->last_login_ip;
-			},
-			'format' => 'html',
-			'visible' => !$module->disableIpLogging,
-		],
-		[
-			'header' => Yii::t('usuario', 'Confirmation'),
-			'value' => function ($model) {
-				if ($model->isConfirmed) {
-					return '<div class="text-center">
-							<span class="text-success">' . Yii::t('usuario', 'Confirmed') . '</span>
-						</div>';
-				}
-
-				return Html::a(
-					Yii::t('usuario', 'Confirm'),
-					['confirm', 'id' => $model->id],
-					[
-						'class' => 'btn btn-xs btn-success btn-block',
-						'data-method' => 'post',
-						'data-confirm' => Yii::t('usuario', 'Are you sure you want to confirm this user?'),
-					]
-				);
-			},
-			'format' => 'raw',
-			'visible' => $module->enableEmailConfirmation,
-		],
-		'password_age',
-		[
-			'header' => Yii::t('usuario', 'Block status'),
-			'value' => function ($model) {
-				if ($model->isBlocked) {
-					return Html::a(
-						Yii::t('usuario', 'Unblock'),
-						['block', 'id' => $model->id],
-						[
-							'class' => 'btn btn-xs btn-success btn-block',
-							'data-method' => 'post',
-							'data-confirm' => Yii::t('usuario', 'Are you sure you want to unblock this user?'),
-						]
-					);
-				}
-
-				return Html::a(
-					Yii::t('usuario', 'Block'),
-					['block', 'id' => $model->id],
-					[
-						'class' => 'btn btn-xs btn-danger btn-block',
-						'data-method' => 'post',
-						'data-confirm' => Yii::t('usuario', 'Are you sure you want to block this user?'),
-					]
-				);
-			},
-			'format' => 'raw',
-		],
-		[
-			'class' => 'yii\grid\ActionColumn',
-			'template' => '{switch} {reset} {force-password-change} {update} {delete}',
-			'buttons' => [
-				'switch' => function ($url, $model) use ($module) {
-					if ($model->id != Yii::$app->user->id && $module->enableSwitchIdentities) {
-						return Html::a(
-							'<i class="bi-person-fill"></i>',
-							['/user/admin/switch-identity', 'id' => $model->id],
-							[
-								'title' => Yii::t('usuario', 'Impersonate this user'),
-								'data-confirm' => Yii::t(
-									'usuario',
-									'Are you sure you want to switch to this user for the rest of this Session?'
-								),
-								'data-method' => 'POST',
-							]
-						);
-					}
-
-					return null;
-				},
-				'reset' => function ($url, $model) use ($module) {
-					if($module->allowAdminPasswordRecovery) {
-						return Html::a(
-							'<i class="bi-lightning-charge-fill"></i>',
-							['/user/admin/password-reset', 'id' => $model->id],
-							[
-								'title' => Yii::t('usuario', 'Send password recovery email'),
-								'data-confirm' => Yii::t(
-									'usuario',
-									'Are you sure you wish to send a password recovery email to this user?'
-								),
-								'data-method' => 'POST',
-							]
-						);
-					}
-
-					return null;
-				},
-				'force-password-change' => function ($url, $model) use ($module) {
-					if (is_null($module->maxPasswordAge)) {
-						return null;
-					}
-					return Html::a(
-						'<i class="fas fa-stopwatch"></i>',
-						['/user/admin/force-password-change', 'id' => $model->id],
-						[
-							'title' => Yii::t('usuario', 'Force password change at next login'),
-							'data-confirm' => Yii::t(
-								'usuario',
-								'Are you sure you wish the user to change their password at next login?'
-							),
-							'data-method' => 'POST',
-						]
-					);
-				},
-			]
-		],
-	],
-]); ?>
+<div class="d-flex align-items-center justify-content-between mb-4">
+	<h1 class="mt-4"><?= $this->title ?></h1>
+	<?= Html::a(
+		BI::i('plus-circle') . ' ' . Yii::t('sw', 'Add User'),
+		['create'],
+		['class' => 'btn btn-primary']
+	) ?>
 </div>
-<?php Pjax::end() ?>
 
-<?php $this->endContent() ?>
+<?= $this->render('/partials/breadcrumbs') ?>
+<?= Alert::widget() ?>
+
+<div class="table-responsive">
+	<table class="table table-bordered"
+		id="usersTable" data-p2-datatables="1"
+		data-p2-datatables-options='{"searching":false,"pageLength":25}'>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th><?= Yii::t('sw', 'Username') ?></th>
+				<th><?= Yii::t('sw', 'Email') ?></th>
+				<th class="text-center"><?= Yii::t('sw', 'Confirmed') ?></th>
+				<th class="text-center"><?= Yii::t('sw', 'Blocked') ?></th>
+				<th><?= Yii::t('sw', 'Created') ?></th>
+				<th class="text-center" data-orderable="false">
+					<?= Yii::t('sw', 'Actions') ?>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($dataProvider->getModels() as $user): ?>
+			<?php
+				$confirmed = (bool)$user->confirmed_at;
+				$blocked   = (bool)$user->blocked_at;
+			?>
+			<tr>
+				<td><?= Html::encode($user->id) ?></td>
+				<td><?= Html::encode($user->username) ?></td>
+				<td><?= Html::encode($user->email) ?></td>
+				<td class="text-center" data-order="<?= (int)$confirmed ?>"><!-- use (int)!$confirmed to flip sorting order -->
+					<?= $iconConfirmed($confirmed) ?>
+				</td>
+				<td class="text-center" data-order="<?= (int)!$blocked ?>"><!-- use (int)$blocked to flip sorting order -->
+					<?= $iconBlocked($blocked) ?>
+				</td>
+				<td><?= Yii::$app->formatter->asDate($user->created_at) ?></td>
+				<td>
+					<div class="btn-group btn-group-sm" role="group"
+					     aria-label="<?= Yii::t('sw.a11y', 'User Actions') ?>">
+
+						<?php $isSelf = Yii::$app->user->id === $user->id; ?>
+
+						<!-- Switch identity -->
+						<?= $isSelf
+							? $disabledIcon($iconSwitch, Yii::t('sw.a11y', 'Switch Identity'), 'btn btn-secondary')
+							: Html::a(
+								$iconSwitch,
+								['switch-identity', 'id' => $user->id],
+								[
+									'class' => 'btn btn-secondary',
+									'aria-label' => Yii::t('sw.a11y', 'Switch Identity'),
+								]
+							)
+						?>
+
+						<!-- View -->
+						<?= Html::a(
+							$iconView,
+							['profile/show', 'id' => $user->id],
+							[
+								'class' => 'btn btn-secondary',
+								'aria-label' => Yii::t('sw.a11y', 'View User'),
+							]
+						) ?>
+
+						<!-- Update -->
+						<?= Html::a(
+							$iconUpdate,
+							['update', 'id' => $user->id],
+							[
+								'class' => 'btn btn-primary',
+								'aria-label' => Yii::t('sw.a11y', 'Update User'),
+							]
+						) ?>
+
+						<!-- Reset password -->
+						<?= Html::a(
+							$iconReset,
+							['password-reset', 'id' => $user->id],
+							[
+								'class' => 'btn btn-warning',
+								'aria-label' => Yii::t('sw.a11y', 'Reset Password'),
+							]
+						) ?>
+
+						<!-- Block -->
+						<?= $isSelf
+							? $disabledIcon($iconBlock, Yii::t('sw.a11y', 'Block User'), 'btn btn-danger')
+							: Html::a(
+								$iconBlock,
+								['block', 'id' => $user->id],
+								[
+									'class' => 'btn btn-danger',
+									'aria-label' => Yii::t('sw.a11y', 'Block User'),
+									'data' => [
+										'confirm' => Yii::t('sw', 'Are you sure?'),
+										'method' => 'post',
+									],
+								]
+							)
+						?>
+
+						<!-- Delete -->
+						<?= $isSelf
+							? $disabledIcon($iconDelete, Yii::t('sw.a11y', 'Delete User'), 'btn btn-danger')
+							: Html::a(
+								$iconDelete,
+								['delete', 'id' => $user->id],
+								[
+									'class' => 'btn btn-danger',
+									'aria-label' => Yii::t('sw.a11y', 'Delete User'),
+									'data' => [
+										'confirm' => Yii::t('sw', 'Are you sure you want to delete this item?'),
+										'method' => 'post',
+									],
+								]
+							)
+						?>
+
+					</div>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+		<!-- empty table footer as contingency -->
+		<!--
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			<tr>
+		</tfoot>
+		-->
+	</table>
+</div>

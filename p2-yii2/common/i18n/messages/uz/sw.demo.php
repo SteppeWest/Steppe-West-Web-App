@@ -1,0 +1,23 @@
+<?php
+return [
+    'Area Chart' => 'Maydonli diagramma namunasi',
+    'Area Chart Example' => 'Maydonli diagramma',
+    'Authentication' => 'Autentifikatsiya',
+    'Bar Chart' => 'Ustunli diagramma namunasi',
+    'Bar Chart Example' => 'Ustunli diagramma',
+    'Charts' => 'Diagrammalar',
+    'Danger Card' => 'Xavf kartasi',
+    'DataTable Example' => 'Ma’lumotlar jadvali namunasi',
+    'Error' => 'Xato',
+    'Example Data Table' => 'Namunaviy ma’lumotlar jadvali',
+    'Interface' => 'Interfeys',
+    'Layouts' => 'Makетlar',
+    'Light Sidenav' => 'Yorug‘ yon menyu',
+    'Pages' => 'Sahifalar',
+    'Primary Card' => 'Asosiy karta',
+    'Static Navigation' => 'Statik navigatsiya',
+    'Success Card' => 'Muvaffaqiyat kartasi',
+    'Tables' => 'Jadvallar',
+    'View Details' => 'Batafsil',
+    'Warning Card' => 'Ogohlantirish kartasi',
+];

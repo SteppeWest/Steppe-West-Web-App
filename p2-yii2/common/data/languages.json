@@ -1,0 +1,42 @@
+{
+	"az": {
+		"label": "Azərbaycanca",
+		"flag": "az"
+	},
+	"en": {
+		"label": "English",
+		"flag": "gb"
+	},
+	"kk": {
+		"label": "Қазақша",
+		"flag": "kz"
+	},
+	"ky": {
+		"label": "Кыргызча",
+		"flag": "kg"
+	},
+	"mn": {
+		"label": "Монгол",
+		"flag": "mn"
+	},
+	"ru": {
+		"label": "Русский",
+		"flag": "ru"
+	},
+	"tg": {
+		"label": "Тоҷикӣ",
+		"flag": "tj"
+	},
+	"tk": {
+		"label": "Türkmençe",
+		"flag": "tm"
+	},
+	"tr": {
+		"label": "Türkçe",
+		"flag": "tr"
+	},
+	"uz": {
+		"label": "Oʻzbekcha",
+		"flag": "uz"
+	}
+}

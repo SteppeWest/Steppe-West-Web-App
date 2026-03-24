@@ -11,7 +11,7 @@
  */
 
 use yii\bootstrap5\ActiveForm;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
 /** @var yii\web\View $this */
 /** @var Da\User\Model\User $user */

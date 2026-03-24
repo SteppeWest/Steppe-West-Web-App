@@ -9,7 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
 /**

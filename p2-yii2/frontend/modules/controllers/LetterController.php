@@ -12,7 +12,7 @@ namespace frontend\modules\controllers;
 
 use Yii;
 use yii\base\Theme;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use common\widgets\SwSubstitution;
 use common\widgets\SwYaml;
 use common\models\LanguagePage;
@@ -43,7 +43,7 @@ class LetterController extends LanguageModuleController
 	 * Renders the view for the module
 	 * @return string
 	 */
-	public function actionView($slug = 'intro', $lc = null)
+	public function actionView(string $slug = 'intro', ?string $lc = null)
 	{
 		$lc = $lc ?? Yii::$app->params['swDefaultLanguage'];
 

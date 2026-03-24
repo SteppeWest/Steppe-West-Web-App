@@ -1,0 +1,23 @@
+<?php
+return [
+    'Area Chart' => 'Пример областного графика',
+    'Area Chart Example' => 'Областной график',
+    'Authentication' => 'Аутентификация',
+    'Bar Chart' => 'Пример столбчатого графика',
+    'Bar Chart Example' => 'Столбчатый график',
+    'Charts' => 'Диаграммы',
+    'Danger Card' => 'Карточка: опасность',
+    'DataTable Example' => 'Пример таблицы данных',
+    'Error' => 'Ошибка',
+    'Example Data Table' => 'Пример таблицы данных',
+    'Interface' => 'Интерфейс',
+    'Layouts' => 'Макеты',
+    'Light Sidenav' => 'Светлая боковая панель',
+    'Pages' => 'Страницы',
+    'Primary Card' => 'Карточка: основная',
+    'Static Navigation' => 'Статическая навигация',
+    'Success Card' => 'Карточка: успех',
+    'Tables' => 'Таблицы',
+    'View Details' => 'Подробнее',
+    'Warning Card' => 'Карточка: предупреждение',
+];

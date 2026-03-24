@@ -19,7 +19,7 @@
 
 namespace common\widgets;
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use common\models\Substitution;
 use p2m\helpers\BI;
 use p2m\helpers\FI;
