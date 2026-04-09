@@ -21,16 +21,16 @@ return [
 			//'appendTimestamp' => true, // useful while developing custom assets
 			'bundles' => [
 				'yii\bootstrap5\BootstrapAsset' => [
-					'class' => 'p2m\assets\base\P2BootstrapCdnAsset',
+					'class' => \p2m\assets\BootstrapCdnAsset::class,
 				],
 				'yii\bootstrap5\BootstrapPluginAsset' => [
-					'class' => 'p2m\assets\base\P2BootstrapPluginCdnAsset',
+					'class' => \p2m\assets\BootstrapPluginCdnAsset::class,
 				],
 				'yii\bootstrap5\BootstrapIconAsset' => [
-					'class' => 'p2m\assets\base\P2BootstrapIconsCdnAsset',
+					'class' => \p2m\assets\BootstrapIconsCdnAsset::class,
 				],
 				'yii\web\JqueryAsset' => [
-					'class' => 'p2m\assets\base\P2JqueryCdnAsset',
+					'class' => \p2m\assets\JqueryCdnAsset::class,
 				],
 			],
 		],

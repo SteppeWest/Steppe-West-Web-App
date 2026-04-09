@@ -15,6 +15,7 @@
  * @var array $bodyContent Contains the processed content items
  * @var string|null $faqLink FAQ link generated from body content
  */
+use p2m\helpers\EI;
 
 $bodyContent = $this->params['bodyContent'];
 $faq = $this->params['faq'];
