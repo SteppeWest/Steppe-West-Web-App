@@ -170,7 +170,7 @@ $this->params['bodyContent']
 			else {
 
 				// 👇 NEW: detect block HTML (ul/ol etc.)
-				if (preg_match('/^\s*<(ul|ol)\b/i', $text)) {
+				if (preg_match('/^\s*<(ul|ol|div|blockquote|table)\b/i', $text)) {
 					$htmlContent .= $text;
 				}
 				else {
@@ -184,11 +184,13 @@ $this->params['bodyContent']
 
 	protected function replaceMarkers(string $text): string
 	{
-		return str_replace(
-			['[PR]'],
-			[EI::i(EI::_POINT_RIGHT)],
-			$text
-		);
+		$map = [
+			'[PR]' => EI::i(EI::_POINT_RIGHT),
+			// future:
+			// '[PL]' => EI::i(EI::_POINT_LEFT),
+		];
+
+		return strtr($text, $map);
 	}
 
 	protected function getCircleFolders(LetterAsset $letterAsset): array
@@ -326,4 +328,3 @@ sw-links
 frontend\modules\LinksModule
 frontend\modules\controllers\LinksController
  */
-
