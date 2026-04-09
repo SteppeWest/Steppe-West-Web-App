@@ -18,6 +18,7 @@ use common\widgets\SwYaml;
 use common\models\LanguagePage;
 use common\models\LanguageFaq;
 use frontend\modules\assets\LetterAsset;
+use p2m\helpers\EI;
 
 /**
  * Default controller for the `SwLetterModule` module
@@ -155,9 +156,11 @@ $this->params['bodyContent']
 	{
 		$htmlContent = '';
 
-		// Loop through each nested item
 		foreach ($contentItem as $key => $text) {
-			// Process each key-value pair within the nested item
+
+			// Apply marker replacements first
+			$text = $this->replaceMarkers($text);
+
 			if ($key === 'heading') {
 				$htmlContent .= Html::tag('h4', $text);
 			}
@@ -165,11 +168,27 @@ $this->params['bodyContent']
 				$htmlContent .= Html::tag('p', $text, ['class' => 'lead']);
 			}
 			else {
-				$htmlContent .= Html::tag('p', $text);
+
+				// 👇 NEW: detect block HTML (ul/ol etc.)
+				if (preg_match('/^\s*<(ul|ol)\b/i', $text)) {
+					$htmlContent .= $text;
+				}
+				else {
+					$htmlContent .= Html::tag('p', $text);
+				}
 			}
 		}
 
 		return $htmlContent;
+	}
+
+	protected function replaceMarkers(string $text): string
+	{
+		return str_replace(
+			['[PR]'],
+			[EI::i(EI::_POINT_RIGHT)],
+			$text
+		);
 	}
 
 	protected function getCircleFolders(LetterAsset $letterAsset): array
