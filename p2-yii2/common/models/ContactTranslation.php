@@ -22,4 +22,13 @@ use Yii;
  */
 class ContactTranslation extends \common\models\generated\ContactTranslation
 {
+	public function getFullName(): string
+	{
+		return trim($this->first_name . ' ' . $this->family_name);
+	}
+
+	public function getPublicName(): string
+	{
+		return $this->display_name ?: $this->getFullName();
+	}
 }

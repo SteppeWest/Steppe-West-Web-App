@@ -25,4 +25,8 @@ use Yii;
  */
 class Page extends \common\models\generated\Page
 {
+	public function getPrimaryRoute()
+	{
+		return $this->getPageRoutes()->andWhere(['is_primary' => 1]);
+	}
 }

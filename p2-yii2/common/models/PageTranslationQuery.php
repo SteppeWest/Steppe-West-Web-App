@@ -9,4 +9,13 @@ namespace common\models;
  */
 class PageTranslationQuery extends \common\models\generated\PageTranslationQuery
 {
+	public function published(): static
+	{
+		return $this->andWhere(['status' => 'published']);
+	}
+
+	public function forLanguage(int $languageId): static
+	{
+		return $this->andWhere(['language_id' => $languageId]);
+	}
 }

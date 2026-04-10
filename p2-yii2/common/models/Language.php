@@ -30,4 +30,13 @@ use Yii;
  */
 class Language extends \common\models\generated\Language
 {
+	public function getIsDefault(): bool
+	{
+		return $this->code === 'en';
+	}
+
+	public function getDisplayLabel(): string
+	{
+		return $this->ui_label ?: strtoupper($this->code);
+	}
 }
