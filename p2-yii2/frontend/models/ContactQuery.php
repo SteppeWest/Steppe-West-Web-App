@@ -9,30 +9,4 @@ namespace frontend\models;
  */
 class ContactQuery extends \common\models\ContactQuery
 {
-	/*public function active()
-	{
-		return $this->andWhere('[[status]]=1');
-	}*/
-
-	/**
-	 * {@inheritdoc}
-	 * @return Contact[]|array
-	 */
-	/**
-	public function all($db = null)
-	{
-		return parent::all($db);
-	}
-	 */
-
-	/**
-	 * {@inheritdoc}
-	 * @return Contact|array|null
-	 */
-	/**
-	public function one($db = null)
-	{
-		return parent::one($db);
-	}
-	 */
 }
