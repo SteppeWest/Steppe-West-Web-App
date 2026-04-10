@@ -11,7 +11,7 @@ class m260409_193527_seed_sw_language_table extends Migration
 			'legacy_code',
 			'menu_position',
 			'is_active',
-			'name',
+			'name_en',
 			'native_name',
 			'flag_icon',
 			'ui_label',
