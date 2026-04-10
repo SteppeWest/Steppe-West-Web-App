@@ -6,7 +6,7 @@ class m260409_193527_seed_sw_language_table extends Migration
 {
 	public function safeUp()
 	{
-		$this->batchInsert('{{%sw_language}}', [
+		$this->batchInsert('{{%language}}', [
 			'code',
 			'legacy_code',
 			'menu_position',
@@ -33,6 +33,6 @@ class m260409_193527_seed_sw_language_table extends Migration
 
 	public function safeDown()
 	{
-		$this->delete('{{%sw_language}}');
+		$this->delete('{{%language}}');
 	}
 }

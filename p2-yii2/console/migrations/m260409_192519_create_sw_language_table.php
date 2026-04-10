@@ -9,7 +9,7 @@ class m260409_192519_create_sw_language_table extends Migration
 {
 	public function safeUp()
 	{
-		$this->createTable('{{%sw_language}}', [
+		$this->createTable('{{%language}}', [
 			'id' => $this->primaryKey(),
 			'code' => $this->string(8)->notNull(),
 			'legacy_code' => $this->string(8)->null(),
@@ -27,14 +27,14 @@ class m260409_192519_create_sw_language_table extends Migration
 
 		$this->createIndex(
 			'ux_sw_language_code',
-			'{{%sw_language}}',
+			'{{%language}}',
 			'code',
 			true
 		);
 
 		$this->createIndex(
 			'ux_sw_language_legacy_code',
-			'{{%sw_language}}',
+			'{{%language}}',
 			'legacy_code',
 			true
 		);
@@ -42,6 +42,6 @@ class m260409_192519_create_sw_language_table extends Migration
 
 	public function safeDown()
 	{
-		$this->dropTable('{{%sw_language}}');
+		$this->dropTable('{{%language}}');
 	}
 }

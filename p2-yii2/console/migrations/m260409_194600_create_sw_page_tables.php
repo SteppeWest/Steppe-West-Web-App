@@ -6,7 +6,7 @@ class m260409_194600_create_sw_page_tables extends Migration
 {
 	public function safeUp()
 	{
-		$this->createTable('{{%sw_page}}', [
+		$this->createTable('{{%page}}', [
 			'id' => $this->primaryKey(),
 			'code' => $this->string(32)->notNull(),
 			'view_key' => $this->string(32)->notNull()->defaultValue('static-page'),
@@ -19,9 +19,9 @@ class m260409_194600_create_sw_page_tables extends Migration
 			'updated_by' => $this->integer()->null(),
 		]);
 
-		$this->createIndex('ux_sw_page_code', '{{%sw_page}}', 'code', true);
+		$this->createIndex('ux_sw_page_code', '{{%page}}', 'code', true);
 
-		$this->createTable('{{%sw_page_route}}', [
+		$this->createTable('{{%page_route}}', [
 			'id' => $this->primaryKey(),
 			'page_id' => $this->integer()->notNull(),
 			'slug' => $this->string(64)->notNull(),
@@ -29,20 +29,20 @@ class m260409_194600_create_sw_page_tables extends Migration
 			'is_active' => $this->boolean()->notNull()->defaultValue(true),
 		]);
 
-		$this->createIndex('ux_sw_page_route_slug', '{{%sw_page_route}}', 'slug', true);
-		$this->createIndex('ix_sw_page_route_page_id', '{{%sw_page_route}}', 'page_id');
+		$this->createIndex('ux_sw_page_route_slug', '{{%page_route}}', 'slug', true);
+		$this->createIndex('ix_sw_page_route_page_id', '{{%page_route}}', 'page_id');
 
 		$this->addForeignKey(
 			'fk_sw_page_route_page_id',
-			'{{%sw_page_route}}',
+			'{{%page_route}}',
 			'page_id',
-			'{{%sw_page}}',
+			'{{%page}}',
 			'id',
 			'CASCADE',
 			'CASCADE'
 		);
 
-		$this->createTable('{{%sw_page_translation}}', [
+		$this->createTable('{{%page_translation}}', [
 			'id' => $this->primaryKey(),
 			'page_id' => $this->integer()->notNull(),
 			'language_id' => $this->integer()->notNull(),
@@ -62,18 +62,18 @@ class m260409_194600_create_sw_page_tables extends Migration
 
 		$this->createIndex(
 			'ux_sw_page_translation_page_language',
-			'{{%sw_page_translation}}',
+			'{{%page_translation}}',
 			['page_id', 'language_id'],
 			true
 		);
 
-		$this->createIndex('ix_sw_page_translation_language_id', '{{%sw_page_translation}}', 'language_id');
+		$this->createIndex('ix_sw_page_translation_language_id', '{{%page_translation}}', 'language_id');
 
 		$this->addForeignKey(
 			'fk_sw_page_translation_page_id',
-			'{{%sw_page_translation}}',
+			'{{%page_translation}}',
 			'page_id',
-			'{{%sw_page}}',
+			'{{%page}}',
 			'id',
 			'CASCADE',
 			'CASCADE'
@@ -81,9 +81,9 @@ class m260409_194600_create_sw_page_tables extends Migration
 
 		$this->addForeignKey(
 			'fk_sw_page_translation_language_id',
-			'{{%sw_page_translation}}',
+			'{{%page_translation}}',
 			'language_id',
-			'{{%sw_language}}',
+			'{{%language}}',
 			'id',
 			'RESTRICT',
 			'CASCADE'
@@ -92,12 +92,12 @@ class m260409_194600_create_sw_page_tables extends Migration
 
 	public function safeDown()
 	{
-		$this->dropForeignKey('fk_sw_page_translation_language_id', '{{%sw_page_translation}}');
-		$this->dropForeignKey('fk_sw_page_translation_page_id', '{{%sw_page_translation}}');
-		$this->dropForeignKey('fk_sw_page_route_page_id', '{{%sw_page_route}}');
+		$this->dropForeignKey('fk_sw_page_translation_language_id', '{{%page_translation}}');
+		$this->dropForeignKey('fk_sw_page_translation_page_id', '{{%page_translation}}');
+		$this->dropForeignKey('fk_sw_page_route_page_id', '{{%page_route}}');
 
-		$this->dropTable('{{%sw_page_translation}}');
-		$this->dropTable('{{%sw_page_route}}');
-		$this->dropTable('{{%sw_page}}');
+		$this->dropTable('{{%page_translation}}');
+		$this->dropTable('{{%page_route}}');
+		$this->dropTable('{{%page}}');
 	}
 }

@@ -9,7 +9,7 @@ class m260410_080404_seed_sw_contact_tables extends Migration
 	{
 		$languageIds = (new Query())
 			->select(['id', 'code'])
-			->from('{{%sw_language}}')
+			->from('{{%language}}')
 			->indexBy('code')
 			->column();
 
@@ -23,7 +23,7 @@ class m260410_080404_seed_sw_contact_tables extends Migration
 
 		$now = time();
 
-		$this->batchInsert('{{%sw_contact}}', [
+		$this->batchInsert('{{%contact}}', [
 			'country_code',
 			'email',
 			'whatsapp_number',
@@ -40,13 +40,13 @@ class m260410_080404_seed_sw_contact_tables extends Migration
 
 		$pedroId = (new Query())
 			->select('id')
-			->from('{{%sw_contact}}')
+			->from('{{%contact}}')
 			->where(['email' => 'pedro@steppewest.com'])
 			->scalar();
 
 		$erkaiymId = (new Query())
 			->select('id')
-			->from('{{%sw_contact}}')
+			->from('{{%contact}}')
 			->where(['email' => 'erkaiym@steppewest.com'])
 			->scalar();
 
@@ -54,7 +54,7 @@ class m260410_080404_seed_sw_contact_tables extends Migration
 			throw new \RuntimeException('Failed to resolve inserted sw_contact rows.');
 		}
 
-		$this->batchInsert('{{%sw_contact_translation}}', [
+		$this->batchInsert('{{%contact_translation}}', [
 			'contact_id',
 			'language_id',
 			'first_name',
@@ -98,10 +98,10 @@ class m260410_080404_seed_sw_contact_tables extends Migration
 
 	public function safeDown()
 	{
-		$this->delete('{{%sw_contact_translation}}', [
+		$this->delete('{{%contact_translation}}', [
 			'contact_id' => (new Query())
 				->select('id')
-				->from('{{%sw_contact}}')
+				->from('{{%contact}}')
 				->where(['email' => [
 					'pedro@steppewest.com',
 					'erkaiym@steppewest.com',
@@ -109,7 +109,7 @@ class m260410_080404_seed_sw_contact_tables extends Migration
 				->column(),
 		]);
 
-		$this->delete('{{%sw_contact}}', [
+		$this->delete('{{%contact}}', [
 			'email' => [
 				'pedro@steppewest.com',
 				'erkaiym@steppewest.com',

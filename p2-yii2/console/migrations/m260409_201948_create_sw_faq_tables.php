@@ -6,7 +6,7 @@ class m260409_201948_create_sw_faq_tables extends Migration
 {
 	public function safeUp()
 	{
-		$this->createTable('{{%sw_faq_item}}', [
+		$this->createTable('{{%faq_item}}', [
 			'id' => $this->primaryKey(),
 			'page_id' => $this->integer()->notNull(),
 			'code' => $this->string(64)->null(),
@@ -16,21 +16,21 @@ class m260409_201948_create_sw_faq_tables extends Migration
 			'updated_at' => $this->integer()->null(),
 		]);
 
-		$this->createIndex('ix_sw_faq_item_page_id', '{{%sw_faq_item}}', 'page_id');
-		$this->createIndex('ix_sw_faq_item_page_sort', '{{%sw_faq_item}}', ['page_id', 'sort_order']);
-		$this->createIndex('ux_sw_faq_item_page_code', '{{%sw_faq_item}}', ['page_id', 'code'], true);
+		$this->createIndex('ix_sw_faq_item_page_id', '{{%faq_item}}', 'page_id');
+		$this->createIndex('ix_sw_faq_item_page_sort', '{{%faq_item}}', ['page_id', 'sort_order']);
+		$this->createIndex('ux_sw_faq_item_page_code', '{{%faq_item}}', ['page_id', 'code'], true);
 
 		$this->addForeignKey(
 			'fk_sw_faq_item_page_id',
-			'{{%sw_faq_item}}',
+			'{{%faq_item}}',
 			'page_id',
-			'{{%sw_page}}',
+			'{{%page}}',
 			'id',
 			'CASCADE',
 			'CASCADE'
 		);
 
-		$this->createTable('{{%sw_faq_translation}}', [
+		$this->createTable('{{%faq_translation}}', [
 			'id' => $this->primaryKey(),
 			'faq_item_id' => $this->integer()->notNull(),
 			'language_id' => $this->integer()->notNull(),
@@ -40,18 +40,18 @@ class m260409_201948_create_sw_faq_tables extends Migration
 
 		$this->createIndex(
 			'ux_sw_faq_translation_item_language',
-			'{{%sw_faq_translation}}',
+			'{{%faq_translation}}',
 			['faq_item_id', 'language_id'],
 			true
 		);
 
-		$this->createIndex('ix_sw_faq_translation_language_id', '{{%sw_faq_translation}}', 'language_id');
+		$this->createIndex('ix_sw_faq_translation_language_id', '{{%faq_translation}}', 'language_id');
 
 		$this->addForeignKey(
 			'fk_sw_faq_translation_item_id',
-			'{{%sw_faq_translation}}',
+			'{{%faq_translation}}',
 			'faq_item_id',
-			'{{%sw_faq_item}}',
+			'{{%faq_item}}',
 			'id',
 			'CASCADE',
 			'CASCADE'
@@ -59,9 +59,9 @@ class m260409_201948_create_sw_faq_tables extends Migration
 
 		$this->addForeignKey(
 			'fk_sw_faq_translation_language_id',
-			'{{%sw_faq_translation}}',
+			'{{%faq_translation}}',
 			'language_id',
-			'{{%sw_language}}',
+			'{{%language}}',
 			'id',
 			'RESTRICT',
 			'CASCADE'
@@ -70,11 +70,11 @@ class m260409_201948_create_sw_faq_tables extends Migration
 
 	public function safeDown()
 	{
-		$this->dropForeignKey('fk_sw_faq_translation_language_id', '{{%sw_faq_translation}}');
-		$this->dropForeignKey('fk_sw_faq_translation_item_id', '{{%sw_faq_translation}}');
-		$this->dropForeignKey('fk_sw_faq_item_page_id', '{{%sw_faq_item}}');
+		$this->dropForeignKey('fk_sw_faq_translation_language_id', '{{%faq_translation}}');
+		$this->dropForeignKey('fk_sw_faq_translation_item_id', '{{%faq_translation}}');
+		$this->dropForeignKey('fk_sw_faq_item_page_id', '{{%faq_item}}');
 
-		$this->dropTable('{{%sw_faq_translation}}');
-		$this->dropTable('{{%sw_faq_item}}');
+		$this->dropTable('{{%faq_translation}}');
+		$this->dropTable('{{%faq_item}}');
 	}
 }

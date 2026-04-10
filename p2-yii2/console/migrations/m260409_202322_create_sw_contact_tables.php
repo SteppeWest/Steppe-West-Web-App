@@ -6,7 +6,7 @@ class m260409_202322_create_sw_contact_tables extends Migration
 {
 	public function safeUp()
 	{
-		$this->createTable('{{%sw_contact}}', [
+		$this->createTable('{{%contact}}', [
 			'id' => $this->primaryKey(),
 			'profile_user_id' => $this->integer()->null(),
 			'country_code' => $this->string(8)->null(),
@@ -20,10 +20,10 @@ class m260409_202322_create_sw_contact_tables extends Migration
 			'updated_at' => $this->integer()->null(),
 		]);
 
-		$this->createIndex('ix_sw_contact_profile_user_id', '{{%sw_contact}}', 'profile_user_id');
-		$this->createIndex('ix_sw_contact_sort_order', '{{%sw_contact}}', 'sort_order');
+		$this->createIndex('ix_sw_contact_profile_user_id', '{{%contact}}', 'profile_user_id');
+		$this->createIndex('ix_sw_contact_sort_order', '{{%contact}}', 'sort_order');
 
-		$this->createTable('{{%sw_contact_translation}}', [
+		$this->createTable('{{%contact_translation}}', [
 			'id' => $this->primaryKey(),
 			'contact_id' => $this->integer()->notNull(),
 			'language_id' => $this->integer()->notNull(),
@@ -37,18 +37,18 @@ class m260409_202322_create_sw_contact_tables extends Migration
 
 		$this->createIndex(
 			'ux_sw_contact_translation_contact_language',
-			'{{%sw_contact_translation}}',
+			'{{%contact_translation}}',
 			['contact_id', 'language_id'],
 			true
 		);
 
-		$this->createIndex('ix_sw_contact_translation_language_id', '{{%sw_contact_translation}}', 'language_id');
+		$this->createIndex('ix_sw_contact_translation_language_id', '{{%contact_translation}}', 'language_id');
 
 		$this->addForeignKey(
 			'fk_sw_contact_translation_contact_id',
-			'{{%sw_contact_translation}}',
+			'{{%contact_translation}}',
 			'contact_id',
-			'{{%sw_contact}}',
+			'{{%contact}}',
 			'id',
 			'CASCADE',
 			'CASCADE'
@@ -56,9 +56,9 @@ class m260409_202322_create_sw_contact_tables extends Migration
 
 		$this->addForeignKey(
 			'fk_sw_contact_translation_language_id',
-			'{{%sw_contact_translation}}',
+			'{{%contact_translation}}',
 			'language_id',
-			'{{%sw_language}}',
+			'{{%language}}',
 			'id',
 			'RESTRICT',
 			'CASCADE'
@@ -67,10 +67,10 @@ class m260409_202322_create_sw_contact_tables extends Migration
 
 	public function safeDown()
 	{
-		$this->dropForeignKey('fk_sw_contact_translation_language_id', '{{%sw_contact_translation}}');
-		$this->dropForeignKey('fk_sw_contact_translation_contact_id', '{{%sw_contact_translation}}');
+		$this->dropForeignKey('fk_sw_contact_translation_language_id', '{{%contact_translation}}');
+		$this->dropForeignKey('fk_sw_contact_translation_contact_id', '{{%contact_translation}}');
 
-		$this->dropTable('{{%sw_contact_translation}}');
-		$this->dropTable('{{%sw_contact}}');
+		$this->dropTable('{{%contact_translation}}');
+		$this->dropTable('{{%contact}}');
 	}
 }
