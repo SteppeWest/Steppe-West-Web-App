@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see Page
  */
-class PageQuery extends \common\models\PageQuery
+class SwPageQuery extends \common\models\PageQuery
 {
 }

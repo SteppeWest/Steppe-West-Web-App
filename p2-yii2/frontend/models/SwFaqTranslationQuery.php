@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see FaqTranslation
  */
-class FaqTranslationQuery extends \common\models\FaqTranslationQuery
+class SwFaqTranslationQuery extends \common\models\FaqTranslationQuery
 {
 }

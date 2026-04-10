@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see Language
  */
-class LanguageQuery extends \common\models\LanguageQuery
+class SwLanguageQuery extends \common\models\LanguageQuery
 {
 }

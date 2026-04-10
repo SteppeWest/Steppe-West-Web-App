@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see PageRoute
  */
-class PageRouteQuery extends \common\models\PageRouteQuery
+class SwPageRouteQuery extends \common\models\PageRouteQuery
 {
 }

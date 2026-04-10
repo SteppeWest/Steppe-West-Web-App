@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see ContactTranslation
  */
-class ContactTranslationQuery extends \common\models\ContactTranslationQuery
+class SwContactTranslationQuery extends \common\models\ContactTranslationQuery
 {
 }

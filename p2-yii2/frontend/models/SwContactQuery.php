@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see Contact
  */
-class ContactQuery extends \common\models\ContactQuery
+class SwContactQuery extends \common\models\ContactQuery
 {
 }

@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see PageTranslation
  */
-class PageTranslationQuery extends \common\models\PageTranslationQuery
+class SwPageTranslationQuery extends \common\models\PageTranslationQuery
 {
 }

@@ -7,6 +7,6 @@ namespace frontend\models;
  *
  * @see FaqItem
  */
-class FaqItemQuery extends \common\models\FaqItemQuery
+class SwFaqItemQuery extends \common\models\FaqItemQuery
 {
 }
