@@ -16,6 +16,7 @@ Steppe West CLI (“sw”) — available commands:
   dbsync           Update remote DB with data from local DB
   compress         Minify assets & views (local only)
   expand           Un-minify assets & views (local only)
+  minify           Sync formatted copies and minify deployment PHP/CSS/JS files (local only)
 
   deploy           Deploy code to public_html via rsync/ssh
 

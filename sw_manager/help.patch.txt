@@ -1,0 +1,7 @@
+Add to sw_manager/requires.php:
+require_once __DIR__ . '/lib/MinifyManager.php';
+
+Update sw_manager/commands/help.php command list to include:
+  minify           Sync formatted copies and minify deployment PHP/CSS/JS files (local only)
+
+Optionally rename/remove compress if minify supersedes it.

@@ -7,6 +7,8 @@
 
 require_once __DIR__ . '/requires.php';
 
+putenv('PATH=/opt/homebrew/bin:/usr/local/bin:' . (getenv('PATH') ?: ''));
+
 // 1) Ensure we’re running from the project root
 chdir(__DIR__ . '/..');
 
