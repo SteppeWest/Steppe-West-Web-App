@@ -1,6 +1,6 @@
 <?php
 /**
- * SwMetaAsset.php
+ * @common/assets/SwMetaAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -9,21 +9,17 @@
  */
 
 /**
- * @class \common\assets\SwMetaAsset
+ * @class \frontend\assets\SwMetaAsset
  *
  * Load this asset with...
-
-common\assets\SwMetaAsset::register($this);
-
- * or with...
-
-use common\assets\SwMetaAsset;
-SwMetaAsset::register($this);
-
+ *
+ * common\assets\SwMetaAsset::register($this);
+ *
+ * use common\assets\SwMetaAsset;
+ * SwMetaAsset::register($this);
+ *
  * or specify as a dependency with...
-
-		'common\assets\SwMetaAsset',
-
+ *    'common\assets\SwMetaAsset',
  */
 
 namespace common\assets;

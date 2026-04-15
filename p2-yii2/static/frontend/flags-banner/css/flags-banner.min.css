@@ -1,0 +1,169 @@
+/* -----------------------------------------------------------------
+   Shared banner styling for both <img> and <i>
+   ----------------------------------------------------------------- */
+
+.sw-banner {
+	display: inline-block;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	max-width: 100%;
+}
+
+/* Background fill utilities */
+
+.sw-banner-bg-white,
+.sw-banner-bg-light,
+.sw-banner-bg-dark {
+	padding: 0.25em;
+	border-radius: 0.25em;
+}
+
+.sw-banner-bg-white {
+	background-color: #fff;
+}
+
+.sw-banner-bg-light {
+	background-color: #f8f9fa;
+}
+
+.sw-banner-bg-dark {
+	background-color: #1a1a1a;
+}
+
+/* -----------------------------------------------------------------
+   <i> usage: CSS supplies the image
+   ----------------------------------------------------------------- */
+
+/* PNG:
+   - defaults to native size
+   - scales down if container is narrower
+*/
+.sw-banner-png {
+	width: min(var(--sw-banner-w), 100%);
+	aspect-ratio: var(--sw-banner-w) / var(--sw-banner-h);
+}
+
+/* SVG:
+   - fills available space
+   - parent or extra CSS should usually control width
+*/
+.sw-banner-svg {
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--sw-banner-w) / var(--sw-banner-h);
+}
+
+.sw-banner-1-svg,
+.sw-banner-2-svg,
+.sw-banner-1-eagle-1-svg,
+.sw-banner-1-eagle-2-svg,
+.sw-banner-2-eagle-1-svg {
+	--sw-banner-w: 2500px;
+}
+
+.sw-banner-1-svg {
+	--sw-banner-h: 400px;
+	background-image: url('../svg/flags-banner-1.min.svg');
+}
+
+.sw-banner-2-svg {
+	--sw-banner-h: 800px;
+	background-image: url('../svg/flags-banner-2.min.svg');
+}
+
+.sw-banner-1-eagle-1-svg {
+	--sw-banner-h: 2000px;
+	background-image: url('../svg/flags-banner-1-eagle-1.min.svg');
+}
+
+.sw-banner-1-eagle-2-svg {
+	--sw-banner-h: 1500px;
+	background-image: url('../svg/flags-banner-1-eagle-2.min.svg');
+}
+
+.sw-banner-2-eagle-1-svg {
+	--sw-banner-h: 2000px;
+	background-image: url('../svg/flags-banner-2-eagle-1.min.svg');
+}
+
+/* -----------------------------------------------------------------
+   <img> usage helpers
+   ----------------------------------------------------------------- */
+
+img.sw-banner {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+
+.sw-banner-img-fill {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.sw-banner-img-native {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+.sw-banner-1-160 {
+	--sw-banner-w: 160px;
+	--sw-banner-h: 26px;
+	background-image: url('../png/flags-banner-1-0160x0026.png');
+}
+
+.sw-banner-1-600 {
+	--sw-banner-w: 600px;
+	--sw-banner-h: 96px;
+	background-image: url('../png/flags-banner-1-0600x0096.png');
+}
+
+.sw-banner-1-1250 {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 200px;
+	background-image: url('../png/flags-banner-1-1250x0200.png');
+}
+
+.sw-banner-2-160 {
+	--sw-banner-w: 160px;
+	--sw-banner-h: 51px;
+	background-image: url('../png/flags-banner-2-0160x0051.png');
+}
+
+.sw-banner-2-600 {
+	--sw-banner-w: 600px;
+	--sw-banner-h: 192px;
+	background-image: url('../png/flags-banner-2-0600x0192.png');
+}
+
+.sw-banner-2-1250 {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 400px;
+	background-image: url('../png/flags-banner-2-1250x0400.png');
+}
+
+/* -----------------------------------------------------------------
+   Eagle variants
+   ----------------------------------------------------------------- */
+
+.sw-banner-1-eagle-1-png {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 1000px;
+	background-image: url('../png/flags-banner-1-eagle-1-1250x1000.png');
+}
+
+.sw-banner-1-eagle-2-png {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 750px;
+	background-image: url('../png/flags-banner-1-eagle-2-1250x0750.png');
+}
+
+.sw-banner-2-eagle-1-png {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 1000px;
+	background-image: url('../png/flags-banner-2-eagle-1-1250x1000.png');
+}

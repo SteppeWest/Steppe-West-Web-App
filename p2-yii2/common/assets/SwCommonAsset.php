@@ -1,6 +1,6 @@
 <?php
 /**
- * SwCommonAsset.php
+ * @common/assets/SwCommonAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -24,6 +24,19 @@ SwCommonAsset::register($this);
 
 		'common\assets\SwCommonAsset',
 
+ */
+/**
+ * @class \frontend\assets\SwCommonAsset
+ *
+ * Load this asset with...
+ *
+ * common\assets\SwCommonAsset::register($this);
+ *
+ * use common\assets\SwCommonAsset;
+ * SwCommonAsset::register($this);
+ *
+ * or specify as a dependency with...
+ *    'common\assets\SwCommonAsset',
  */
 
 namespace common\assets;
