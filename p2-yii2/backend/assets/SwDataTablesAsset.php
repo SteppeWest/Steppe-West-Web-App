@@ -29,6 +29,8 @@ SwDataTablesAsset::register($this);
 namespace backend\assets;
 
 use yii\web\AssetBundle;
+use P2DataTablesBootstrap5Asset;
+use P2DataTablesResponsiveAsset;
 
 class SwDataTablesAsset extends AssetBundle
 {
@@ -41,7 +43,7 @@ class SwDataTablesAsset extends AssetBundle
 	];
 
 	public $depends = [
-		'p2m\assets\datatables\P2DataTablesBootstrap5Asset',
-		'p2m\assets\datatables\P2DataTablesResponsiveAsset',
+		P2DataTablesBootstrap5Asset::class,
+		P2DataTablesResponsiveAsset::class,
 	];
 }

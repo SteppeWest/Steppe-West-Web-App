@@ -25,6 +25,7 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
+use p2m\assets\P2CoreAsset;
 
 class SwErrorAsset extends AssetBundle
 {
@@ -37,6 +38,6 @@ class SwErrorAsset extends AssetBundle
 	];
 
 	public $depends = [
-		'p2m\assets\P2CoreAsset',
+		P2CoreAsset::class,
 	];
 }

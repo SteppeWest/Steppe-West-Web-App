@@ -9,7 +9,7 @@
  */
 
 /**
- * @class \frontend\assets\SwMetaAsset
+ * @class \common\assets\SwMetaAsset
  *
  * Load this asset with...
  *
@@ -25,6 +25,7 @@
 namespace common\assets;
 
 use yii\web\AssetBundle;
+use common\assets\SwCommonAsset;
 
 class SwMetaAsset extends AssetBundle
 {
@@ -33,6 +34,6 @@ class SwMetaAsset extends AssetBundle
 
 	// @var array
 	public $depends = [
-		'common\assets\SwCommonAsset',
+		SwCommonAsset::class,
 	];
 }

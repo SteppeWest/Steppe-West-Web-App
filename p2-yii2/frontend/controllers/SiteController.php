@@ -19,9 +19,10 @@ namespace frontend\controllers;
 //use frontend\models\ResendVerificationEmailForm;
 //use frontend\models\VerifyEmailForm;
 use Yii;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 //use common\models\LoginForm;
@@ -29,6 +30,8 @@ use yii\filters\AccessControl;
 //use frontend\models\ResetPasswordForm;
 //use frontend\models\SignupForm;
 //use frontend\models\ContactForm;
+use common\assets\SwMetaAsset;
+use frontend\assets\SwErrorAsset;
 
 use frontend\services\SwLanguageService;
 use frontend\services\SwPageService;
@@ -91,23 +94,9 @@ class SiteController extends Controller
 	 * @return mixed
 	 */
 
-	public function actionIndex(?string $slug = null, ?string $lc = null)
+	public function actionIndex()
 	{
-		$languageService = new SwLanguageService();
-		$pageService = new SwPageService($languageService);
-
-		$context = $pageService->resolvePageContext($slug, $lc);
-
-		if (!empty($context['redirect'])) {
-			return $this->redirect($context['redirect'], 301);
-		}
-
-		return $this->render('index', [
-			'page' => $context['page'],
-			'translation' => $context['translation'],
-			'language' => $context['language'],
-			'faqs' => $context['faqs'],
-		]);
+		return $this->render('index');
 	}
 
 	/**
@@ -128,5 +117,32 @@ class SiteController extends Controller
 	public function actionAbout()
 	{
 		return $this->render('about');
+	}
+
+	protected function prepareErrorPage(): void
+	{
+		$this->layout = 'error';
+
+		$metaAsset = SwMetaAsset::register($this->view);
+		$bannerAsset = SwFlagsBannerAsset::register($this->view);
+		SwErrorAsset::register($this->view);
+
+		$this->view->params['metaAssetUrl'] = $metaAsset->baseUrl;
+		$this->view->params['bannerAssetUrl'] = $bannerAsset->baseUrl;
+	}
+
+	public function actionError()
+	{
+		$this->prepareErrorPage();
+
+		$exception = Yii::$app->errorHandler->exception;
+
+		if ($exception === null) {
+			$exception = new NotFoundHttpException('Page not found.');
+		}
+
+		return $this->render('error', [
+			'exception' => $exception,
+		]);
 	}
 }

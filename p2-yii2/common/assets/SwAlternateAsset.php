@@ -9,7 +9,7 @@
  */
 
 /**
- * @class \frontend\assets\SwAlternateAsset
+ * @class \common\assets\SwAlternateAsset
  *
  * Load this asset with...
  *

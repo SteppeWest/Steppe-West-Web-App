@@ -19,7 +19,7 @@
  */
 
 /**
- * @class \frontend\assets\SwAssetBundle
+ * @class \common\assets\SwAssetBundle
  *
  * Load this asset with...
  *
@@ -35,6 +35,7 @@
 namespace common\assets;
 
 use yii\web\AssetBundle;
+use p2m\assets\P2CoreAsset;
 
 class SwAssetBundle extends AssetBundle
 {
@@ -69,7 +70,7 @@ class SwAssetBundle extends AssetBundle
 
 	// @var array
 	public $depends = [
-		'p2m\assets\P2CoreAsset',
+		P2CoreAsset::class,
 	];
 
 	// @var array
