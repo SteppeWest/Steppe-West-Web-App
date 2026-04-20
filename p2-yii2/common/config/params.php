@@ -23,14 +23,62 @@ return [
 	],
 	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky} {Reddit}',
 	'swSocials' => [
-		'Substack',
-		'Facebook',
-		'Instagram',
-		'YouTube',
-		'TikTok',
-		'Threads',
-		'Bluesky',
-		'Reddit',
+		'substack',
+		'facebook',
+		'tiktok',
+		'youtube',
+		'instagram',
+		'threads',
+		'bluesky',
+		'reddit',
+		'xitter',
+	],
+	'swSocialsData' => [
+		'substack'  => [
+			'label' => 'Substack',
+			'url'   => 'https://steppewest.substack.com',
+			'icon'  => 'substack',
+		],
+		'facebook'  => [
+			'label' => 'Facebook',
+			'url'   => 'https://facebook.com/SteppeWest',
+			'icon'  => 'facebook',
+		],
+		'tiktok'    => [
+			'label' => 'TikTok',
+			'url'   => 'https://tiktok.com/@steppewest',
+			'icon'  => 'tiktok',
+		],
+		'instagram' => [
+			'label' => 'Instagram',
+			'url'   => 'https://instagram.com/steppe.west',
+			'icon'  => 'instagram',
+		],
+		'youtube'   => [
+			'label' => 'YouTube',
+			'url'   => 'https://youtube.com/@SteppeWest',
+			'icon'  => 'youtube',
+		],
+		'threads'   => [
+			'label' => 'Threads',
+			'url'   => 'https://threads.net/@steppe.west',
+			'icon'  => 'threads',
+		],
+		'bluesky'   => [
+			'label' => 'Bluesky',
+			'url'   => 'https://bsky.app/profile/steppewest.bsky.social',
+			'icon'  => 'bluesky',
+		],
+		'reddit'    => [
+			'label' => 'Reddit',
+			'url'   => 'https://www.reddit.com/r/SteppeWest/',
+			'icon'  => 'reddit',
+		],
+		'xitter'    => [
+			'label' => 'X/Twitter',
+			'url'   => 'https://x.com/SteppeWest',
+			'icon'  => 'twitter-x',
+		],
 	],
 	'swSubstitutions' => [
 		'SubstackOrigin01' => [
@@ -245,6 +293,7 @@ return [
 	'swUiLanguages' => [
 		'ru', 'kk', 'ky', 'tg', 'uz'
 	],
+
 	/**
 	 * Copyright params
 	 */

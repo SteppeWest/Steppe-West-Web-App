@@ -80,12 +80,27 @@ class SiteController extends Controller
 		return [
 			'error' => [
 				'class' => \yii\web\ErrorAction::class,
+				'layout' => 'error',
 			],
 			'captcha' => [
 				'class' => \yii\captcha\CaptchaAction::class,
 				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
 			],
 		];
+	}
+
+	/**
+	 *
+	 */
+	public function beforeAction($action)
+	{
+		if ($action->id === 'error') {
+			$this->layout = 'error';
+			SwErrorAsset::register($this->view);
+		}
+		else {
+			$this->layout = 'main';
+		}
 	}
 
 	/**

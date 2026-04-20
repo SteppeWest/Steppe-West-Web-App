@@ -11,13 +11,13 @@
 /**
  * Provides substitution functionality for use across the application.
  *
- * @class \common\widgets\SwContactObfuscator
- * @package common\widgets
+ * @class \frontend\helpers\SwContactObfuscator
+ * @package frontend\helpers
  *
- * use common\widgets\SwContactObfuscator;
+ * use frontend\helpers\SwContactObfuscator;
  */
 
-namespace common\widgets;
+namespace frontend\helpers;
 
 use yii\bootstrap5\Html;
 

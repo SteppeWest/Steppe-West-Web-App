@@ -18,7 +18,7 @@ final class SwBanner extends P2AssetFactory
 {
 	protected static string $cssPrefix   = 'sw-banner';
 	protected static string $sizePrefix  = 'sw-size';
-	protected static ?int   $defaultSize = 4;
+	protected static ?int   $defaultSize = 3;
 
 	/**
 	 * 1 - banner-1
@@ -33,72 +33,72 @@ final class SwBanner extends P2AssetFactory
 			'name'  => 'banner-1',
 			'alt'   => 'Steppe West flags banner',
 			'sizes' => [
-				1 => ['width' => 3000, 'height' => 480],
-				2 => ['width' => 2500, 'height' => 400],
-				3 => ['width' => 2000, 'height' => 320],
-				4 => ['width' => 1250, 'height' => 200],
-				5 => ['width' => 600,  'height' => 96],
-				6 => ['width' => 160,  'height' => 26],
+				1 => ['width' => 1500, 'height' => 240],
+				2 => ['width' => 1000, 'height' => 400],
+				3 => ['width' => 750, 'height' => 120],
+				4 => ['width' => 500, 'height' => 80],
+				5 => ['width' => 300, 'height' => 48],
+				6 => ['width' => 160, 'height' => 26],
 			],
 		],
 		2 => [
 			'name'  => 'banner-2',
 			'alt'   => 'Steppe West flags banner',
 			'sizes' => [
-				1 => ['width' => 3000, 'height' => 960],
-				2 => ['width' => 2500, 'height' => 800],
-				3 => ['width' => 2000, 'height' => 640],
-				4 => ['width' => 1250, 'height' => 400],
-				5 => ['width' => 600,  'height' => 192],
-				6 => ['width' => 160,  'height' => 51],
+				1 => ['width' => 1500, 'height' => 480],
+				2 => ['width' => 1000, 'height' => 800],
+				3 => ['width' => 750, 'height' => 240],
+				4 => ['width' => 500, 'height' => 160],
+				5 => ['width' => 300, 'height' => 96],
+				6 => ['width' => 160, 'height' => 51],
 			],
 		],
 		3 => [
 			'name'  => 'eagle-square-1',
 			'alt'   => 'Steppe West flags banner with eagle',
 			'sizes' => [
-				1 => ['width' => 3000, 'height' => 3000],
-				2 => ['width' => 2500, 'height' => 2500],
-				3 => ['width' => 2000, 'height' => 2000],
-				4 => ['width' => 1250, 'height' => 1250],
-				5 => ['width' => 600,  'height' => 600],
-				6 => ['width' => 160,  'height' => 160],
+				1 => ['width' => 1500, 'height' => 1500],
+				2 => ['width' => 1000, 'height' => 2500],
+				3 => ['width' => 750, 'height' => 750],
+				4 => ['width' => 500, 'height' => 500],
+				5 => ['width' => 300, 'height' => 300],
+				6 => ['width' => 160, 'height' => 160],
 			],
 		],
 		4 => [
 			'name'  => 'eagle-square-2',
 			'alt'   => 'Steppe West flags banner with eagle',
 			'sizes' => [
-				1 => ['width' => 3000, 'height' => 3000],
-				2 => ['width' => 2500, 'height' => 2500],
-				3 => ['width' => 2000, 'height' => 2000],
-				4 => ['width' => 1250, 'height' => 1250],
-				5 => ['width' => 600,  'height' => 600],
-				6 => ['width' => 160,  'height' => 160],
+				1 => ['width' => 1500, 'height' => 1500],
+				2 => ['width' => 1000, 'height' => 2500],
+				3 => ['width' => 750, 'height' => 750],
+				4 => ['width' => 500, 'height' => 500],
+				5 => ['width' => 300, 'height' => 300],
+				6 => ['width' => 160, 'height' => 160],
 			],
 		],
 		5 => [
 			'name'  => 'eagle-wide-1',
 			'alt'   => 'Steppe West flags banner with eagle',
 			'sizes' => [
-				1 => ['width' => 3000, 'height' => 1800],
-				2 => ['width' => 2500, 'height' => 1500],
-				3 => ['width' => 2000, 'height' => 1200],
-				4 => ['width' => 1250, 'height' => 750],
-				5 => ['width' => 600,  'height' => 360],
-				6 => ['width' => 160,  'height' => 96],
+				1 => ['width' => 1500, 'height' => 900],
+				2 => ['width' => 1000, 'height' => 1500],
+				3 => ['width' => 750, 'height' => 450],
+				4 => ['width' => 500, 'height' => 300],
+				5 => ['width' => 300, 'height' => 180],
+				6 => ['width' => 160, 'height' => 96],
 			],
 		],
 		6 => [
 			'name'  => 'eagle-wide-2',
 			'alt'   => 'Steppe West flags banner with eagle',
 			'sizes' => [
-				1 => ['width' => 3000, 'height' => 1800],
-				2 => ['width' => 2500, 'height' => 1500],
-				3 => ['width' => 2000, 'height' => 1200],
-				4 => ['width' => 1250, 'height' => 750],
-				5 => ['width' => 600,  'height' => 360],
-				6 => ['width' => 160,  'height' => 96],
+				1 => ['width' => 1500, 'height' => 900],
+				2 => ['width' => 1000, 'height' => 1500],
+				3 => ['width' => 750, 'height' => 450],
+				4 => ['width' => 500, 'height' => 300],
+				5 => ['width' => 300, 'height' => 180],
+				6 => ['width' => 160, 'height' => 96],
 			],
 		],
 	];
@@ -110,19 +110,17 @@ final class SwBanner extends P2AssetFactory
 
 	protected static function imagePath(string $name, array $options = []): string
 	{
-		$size = $options['size'] ?? static::$defaultSize ?? 4;
+		$size = $options['size'] ?? static::$defaultSize ?? 3;
 		$size = static::sizeCheck((int) $size);
 
 		$format = $options['format'] ?? 'svg';
 
-		if ($size < 3) {
-			$format = 'svg';
-		}
-
 		$widthMap = [
-			3 => '2000',
-			4 => '1250',
-			5 => '0600',
+			1 => '1500',
+			2 => '1000',
+			3 => '0750',
+			4 => '0500',
+			5 => '0300',
 			6 => '0160',
 		];
 
@@ -137,7 +135,12 @@ final class SwBanner extends P2AssetFactory
 
 	public static function banner(array $options = []): P2Image
 	{
-		return static::svg(1, 4, $options);
+		return static::svg(1, 3, $options);
+	}
+
+	public static function b(array $options = []): P2Image
+	{
+		return static::banner($options);
 	}
 
 	public static function svg(int $version, ?int $size, array $options = []): P2Image
@@ -166,10 +169,10 @@ final class SwBanner extends P2AssetFactory
 			$version = 1;
 		}
 
-		$size = static::sizeCheck($size ?? static::$defaultSize ?? 4);
+		$size = static::sizeCheck($size ?? static::$defaultSize ?? 3);
 
 		$config = static::$banners[$version];
-		$sizeData = $config['sizes'][$size] ?? $config['sizes'][4];
+		$sizeData = $config['sizes'][$size] ?? $config['sizes'][3];
 		$name = $config['name'];
 
 		$options = array_merge(
@@ -190,6 +193,6 @@ final class SwBanner extends P2AssetFactory
 			return $size;
 		}
 
-		return static::$defaultSize ?? 4;
+		return static::$defaultSize ?? 3;
 	}
 }

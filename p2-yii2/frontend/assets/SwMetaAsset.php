@@ -1,6 +1,6 @@
 <?php
 /**
- * @common/assets/SwMetaAsset.php
+ * @frontend/assets/SwMetaAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -9,28 +9,28 @@
  */
 
 /**
- * @class \common\assets\SwMetaAsset
+ * @class \frontend\assets\SwMetaAsset
  *
  * Load this asset with...
  *
- * common\assets\SwMetaAsset::register($this);
+ * frontend\assets\SwMetaAsset::register($this);
  *
- * use common\assets\SwMetaAsset;
+ * use frontend\assets\SwMetaAsset;
  * SwMetaAsset::register($this);
  *
  * or specify as a dependency with...
- *    'common\assets\SwMetaAsset',
+ *    'frontend\assets\SwMetaAsset',
  */
 
-namespace common\assets;
+namespace frontend\assets;
 
 use yii\web\AssetBundle;
-use common\assets\SwCommonAsset;
+use frontend\assets\SwCommonAsset;
 
 class SwMetaAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/common/meta';
+	public $sourcePath = '@static/frontend/meta';
 
 	// @var array
 	public $depends = [
