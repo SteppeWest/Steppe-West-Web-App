@@ -1,6 +1,6 @@
 <?php
 /**
- * @frontend/helpers/SwBanner.php
+ * @common/helpers/SwBanner.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2026 Steppe West
@@ -8,11 +8,11 @@
  * @license MIT
  */
 
-namespace frontend\helpers;
+namespace common\helpers;
 
 use p2m\api\P2AssetFactory;
 use p2m\api\P2Image;
-use frontend\assets\SwBannerAsset;
+use common\assets\SwBannerAsset;
 
 final class SwBanner extends P2AssetFactory
 {

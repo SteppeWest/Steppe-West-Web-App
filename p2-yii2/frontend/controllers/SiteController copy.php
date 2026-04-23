@@ -142,7 +142,6 @@ class SiteController extends Controller
 		$bannerAsset = SwFlagsBannerAsset::register($this->view);
 		SwErrorAsset::register($this->view);
 
-		$this->view->params['metaAssetUrl'] = $metaAsset->baseUrl;
 		$this->view->params['bannerAssetUrl'] = $bannerAsset->baseUrl;
 	}
 

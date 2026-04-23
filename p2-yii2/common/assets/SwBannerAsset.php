@@ -1,6 +1,6 @@
 <?php
 /**
- * @frontend/assets/SwBannerAsset.php
+ * @common/assets/SwBannerAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -9,20 +9,20 @@
  */
 
 /**
- * @class \frontend\assets\SwBannerAsset
+ * @class \common\assets\SwBannerAsset
  *
  * Load this asset with...
  *
- * frontend\assets\SwBannerAsset::register($this);
+ * common\assets\SwBannerAsset::register($this);
  *
- * use frontend\assets\SwBannerAsset;
+ * use common\assets\SwBannerAsset;
  * SwBannerAsset::register($this);
  *
  * or specify as a dependency with...
- *    'frontend\assets\SwBannerAsset',
+ *    'common\assets\SwBannerAsset',
  */
 
-namespace frontend\assets;
+namespace common\assets;
 
 use yii\web\AssetBundle;
 use p2m\assets\P2CoreAsset;
@@ -30,7 +30,7 @@ use p2m\assets\P2CoreAsset;
 class SwBannerAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/frontend/flags-banner';
+	public $sourcePath = '@static/common/flags-banner';
 
 	// @var array
 	public $css = [

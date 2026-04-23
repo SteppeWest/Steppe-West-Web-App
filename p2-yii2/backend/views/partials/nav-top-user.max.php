@@ -17,7 +17,6 @@ use common\helpers\SwLanguageUiHelper;
 
 /* @var $this yii\web\View */
 
-$metaAssetUrl = $this->params['metaAssetUrl'];
 $languages    = Yii::$app->params['swUiLanguages'];
 $currentLang  = Yii::$app->language;
 $user = Yii::$app->user->identity;

@@ -2,7 +2,7 @@
 
 /** @var yii\web\View $this */
 
-use frontend\helpers\SwBanner;
+use frontend\common\SwBanner;
 use frontend\helpers\SwSocials;
 
 // _BANNER_1

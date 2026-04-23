@@ -12,10 +12,10 @@ use yii\bootstrap5\Html;
 use yii\helpers\Url;
 use p2m\helpers\BI;
 use p2m\helpers\FI;
+use frontend\common\SwBanner;
 
 /* @var $this yii\web\View */
 
-$metaAssetUrl      = $this->params['metaAssetUrl'];
 $languages         = Yii::$app->params['swUiLanguages'];
 $currentLang       = Yii::$app->language;
 $searchPlaceholder = Yii::t('sw', 'Search') . '...';
@@ -25,13 +25,7 @@ $searchAriaLabel   = Yii::t('sw', 'Search');
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" href="<?= Url::to(['/site/index']) ?>" aria-label="<?= Yii::$app->name ?>">
-			<?= Html::img(
-				$metaAssetUrl . '/img/flags-banner-180w.png',
-				[
-					'alt' => Yii::$app->name,
-					'class' => 'sb-topnav-brand-img',
-				]
-			) ?>
+			<?= SwBanner::b() ?>
 		</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"

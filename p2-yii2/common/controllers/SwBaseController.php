@@ -10,9 +10,6 @@
 
 /**
  * Base controller for Steppe West (frontend + backend).
- *
- * Ensures meta assets are always registered and metaAssetUrl
- * is available via $this->view->params['metaAssetUrl'].
  */
 
 namespace common\controllers;
@@ -28,10 +25,6 @@ class SwBaseController extends Controller
 		if (!parent::beforeAction($action)) {
 			return false;
 		}
-
-		// Register the meta asset once per request
-		$metaAsset = SwCommonAsset::register($this->view);
-		$this->view->params['metaAssetUrl'] = $metaAsset->baseUrl;
 
 		$cookieLang = Yii::$app->request->cookies->getValue('userLanguage');
 		if ($cookieLang) {

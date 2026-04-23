@@ -12,7 +12,6 @@ use yii\bootstrap5\Html;
 use common\assets\SwMetaAsset;
 use common\assets\SwAlternateAsset;
 
-$this->params['metaAssetUrl']  = SwMetaAsset::register($this)->baseUrl;
 $this->params['themeAssetUrl'] = SwAlternateAsset::register($this)->baseUrl;
 
 /** @var \yii\web\View $this */
