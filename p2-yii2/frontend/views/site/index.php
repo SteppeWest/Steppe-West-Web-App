@@ -19,6 +19,7 @@ $this->title = 'My Yii Application';
 		<div class="container-fluid py-5 text-center">
 			<h1 class="display-4">Congratulations!</h1>
 			<div><?= SwBanner::b() ?></div>
+			<div><?= SwSocials::b() ?></div>
 			<p class="fs-5 fw-light">You have successfully created your Yii-powered application.</p>
 			<p><a class="btn btn-lg btn-success" href="https://www.yiiframework.com">Get started with Yii</a></p>
 		</div>

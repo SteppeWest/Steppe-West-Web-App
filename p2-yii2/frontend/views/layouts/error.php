@@ -1,6 +1,6 @@
 <?php
 /**
- * @frontend/views/partials/error.php
+ * @frontend/views/layouts/error.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2026 Steppe West
@@ -11,20 +11,30 @@
 /** @var \yii\web\View $this */
 /** @var string $content */
 
-use common\widgets\Alert;
-use frontend\assets\AppAsset;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
+use common\widgets\Alert;
+use frontend\assets\AppAsset;
+
+use frontend\helpers\SwMeta;
+
 AppAsset::register($this);
+
+$this->beginPage();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<?= $this->render('_head_error.php') ?>
+<?php
+	SwMeta::e($this);
+	echo Html::tag('title', $options['title'] ?? 'Steppe West');
+	$this->registerCsrfMetaTags();
+	$this->head();
+?>
 </head>
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
