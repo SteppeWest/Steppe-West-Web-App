@@ -9,6 +9,7 @@
  */
 
 use yii\bootstrap5\Html;
+use frontend\helpers\SwMeta;
 
 /** @var yii\web\View $this */
 /** @var string|null  $title */
@@ -18,17 +19,12 @@ use yii\bootstrap5\Html;
 //$pageTitle = $this->title ?: '';
 //$fullTitle = $pageTitle . ' – ' . $appName;
 
-//$metaAssetUrl  = $this->params['metaAssetUrl'];
-//$errorAssetUrl = $this->params['errorAssetUrl'];
+$options = [];
 
-$this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
-$this->registerMetaTag(['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge']);
-$this->registerMetaTag([
-	'name' => 'viewport',
-	'content' => 'width=device-width,
-	initial-scale=1, shrink-to-fit=no'
-]);
-Html::tag('title', $this->title);
+
+
+SwMeta::f($this, $options);
+
+Html::tag('title', $options['title']);
 $this->registerCsrfMetaTags();
 $this->head();
-?>

@@ -11,7 +11,7 @@
 /**
  * Load this factory with...
  * use frontend\helpers\SwMeta;
- * SwMeta::function();
+ * SwMeta::f();
  */
 
 namespace frontend\helpers;

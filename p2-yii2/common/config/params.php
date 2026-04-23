@@ -18,8 +18,15 @@ return [
 		'frontend' => [
 			//'main'  => frontend\assets\SwAppAsset::class,
 			//'auth'  => frontend\assets\SwAuthAsset::class,
-			//'error' => frontend\assets\SwErrorAsset::class,
+			'error' => frontend\assets\SwErrorAsset::class,
 		],
+	],
+	'swMeta' => [
+		'locale'      => 'en_AU',
+		'viewport'    => 'width=device-width, initial-scale=1, shrink-to-fit=no',
+		'title'       => 'Steppe West',
+		'author'      => 'Pedro Plowman for Steppe West',
+		'contentType' => 'article',
 	],
 	'swSocialAccounts' => '{Substack} {Facebook} {Instagram} {YouTube} {TikTok} {Threads} {Bluesky} {Reddit}',
 	'swSocials' => [
