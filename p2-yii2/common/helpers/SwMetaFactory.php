@@ -56,11 +56,11 @@ abstract class SwMetaFactory
 	 * 10 to 19 - frontend pages
 	 * 20 to 29 - backend pages
 	 */
-	private const ERROR_PAGE   = 0;
-	private const FRONT_END    = 10;
-	private const BACK_END     = 20;
+	protected const ERROR_PAGE   = 0;
+	protected const FRONT_END    = 10;
+	protected const BACK_END     = 20;
 
-	private const TWITTER_CARD = [
+	protected const TWITTER_CARD = [
 		'name'    => 'twitter:card',
 		'content' => 'summary_large_image',
 	];
@@ -71,7 +71,7 @@ abstract class SwMetaFactory
 
 	public static function frontend(View $view, array $options = []): void
 	{
-		static::registerMetaData($view, static::FRONT_END, $options);
+		static::registerMetaData($view, self::FRONT_END, $options);
 	}
 
 	public static function f(View $view, array $options = []): void
@@ -81,7 +81,7 @@ abstract class SwMetaFactory
 
 	public static function backend(View $view): void
 	{
-		static::registerMetaData($view, static::BACK_END);
+		static::registerMetaData($view, self::BACK_END);
 	}
 
 	public static function b(View $view): void
@@ -91,7 +91,7 @@ abstract class SwMetaFactory
 
 	public static function errorPage(View $view): void
 	{
-		static::registerMetaData($view, static::ERROR_PAGE);
+		static::registerMetaData($view, self::ERROR_PAGE);
 	}
 
 	public static function e(View $view): void
@@ -108,7 +108,7 @@ abstract class SwMetaFactory
 		$options  = static::mergeOptions($options);
 		$asset    = SwMetaAsset::register($view);
 		$assetUrl = $asset->baseUrl;
-		$fullMeta = $pageType === static::FRONT_END;
+		$fullMeta = $pageType === self::FRONT_END;
 
 		/**
 		 * No special treatment required for these
@@ -146,7 +146,7 @@ abstract class SwMetaFactory
 				'property' => 'og:locale',
 				'content'  => $options['locale'] ?? 'en_AU',
 			]); // og:locale
-			$view->registerMetaTag(static::TWITTER_CARD); // twitter:card
+			$view->registerMetaTag(self::TWITTER_CARD); // twitter:card
 
 			if (static::hasStringValue($options['title'] ?? null)) {
 				$view->registerMetaTag([
