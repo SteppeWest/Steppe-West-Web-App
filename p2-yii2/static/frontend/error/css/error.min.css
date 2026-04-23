@@ -1,0 +1,12 @@
+@charset "UTF-8";
+body {
+  background: url("../img/pexels-julia-volk-5110944.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/*
+Photo by Julia Volk: https://www.pexels.com/photo/wild-camel-in-sunny-winter-day-5110944/
+  background: url("../img/pexels-julia-volk-5110944.jpg") no-repeat center center fixed;
+Photo by Imad Clicks: https://www.pexels.com/photo/camel-eating-grass-in-mountain-valley-13652197/
+  background: url("../img/pexels-imadclicks-13652197.jpg") no-repeat center center fixed;
+*/

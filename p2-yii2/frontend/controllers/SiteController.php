@@ -1,20 +1,37 @@
 <?php
+/**
+ * frontend/controllers/SiteController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2024 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
+
+/**
+ * Use this class with...
+ *
+ * use frontend\controllers\SiteController;
+ */
 
 namespace frontend\controllers;
 
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
+//use frontend\models\ResendVerificationEmailForm;
+//use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+//use common\models\LoginForm;
+//use frontend\models\PasswordResetRequestForm;
+//use frontend\models\ResetPasswordForm;
+//use frontend\models\SignupForm;
+//use frontend\models\ContactForm;
+
+use frontend\services\SwLanguageService;
+use frontend\services\SwPageService;
 
 /**
  * Site controller
@@ -72,6 +89,36 @@ class SiteController extends Controller
 	 * Displays homepage.
 	 *
 	 * @return mixed
+	public function actionIndex(?string $slug = null, ?string $lc = null)
+	{
+		$languageService = new SwLanguageService();
+		$pageService = new SwPageService();
+
+		[$slug, $lc] = $this->normaliseSegments($slug, $lc);
+
+		$legacyRedirect = $languageService->resolveLegacyRedirect($slug, $lc);
+		if ($legacyRedirect !== null) {
+			return $this->redirect($legacyRedirect, 301);
+		}
+
+		$routeContext = $pageService->resolveRouteContext($slug, $lc);
+		if ($routeContext === null) {
+			throw new NotFoundHttpException('Page not found.');
+		}
+
+		return $this->render('index', [
+			'page' => $routeContext->page,
+			'translation' => $routeContext->translation,
+			'language' => $routeContext->language,
+			'faqs' => $routeContext->faqs,
+		]);
+	}
+	 */
+
+	/**
+	 * Displays homepage.
+	 *
+	 * @return mixed
 	 */
 	public function actionIndex()
 	{
@@ -82,7 +129,6 @@ class SiteController extends Controller
 	 * Logs in a user.
 	 *
 	 * @return mixed
-	 */
 	public function actionLogin()
 	{
 		if (!Yii::$app->user->isGuest) {
@@ -100,24 +146,24 @@ class SiteController extends Controller
 			'model' => $model,
 		]);
 	}
+	 */
 
 	/**
 	 * Logs out the current user.
 	 *
 	 * @return mixed
-	 */
 	public function actionLogout()
 	{
 		Yii::$app->user->logout();
 
 		return $this->goHome();
 	}
+	 */
 
 	/**
 	 * Displays contact page.
 	 *
 	 * @return mixed
-	 */
 	public function actionContact()
 	{
 		$model = new ContactForm();
@@ -135,6 +181,7 @@ class SiteController extends Controller
 			'model' => $model,
 		]);
 	}
+	 */
 
 	/**
 	 * Displays about page.
@@ -150,7 +197,6 @@ class SiteController extends Controller
 	 * Signs user up.
 	 *
 	 * @return mixed
-	 */
 	public function actionSignup()
 	{
 		$model = new SignupForm();
@@ -163,12 +209,12 @@ class SiteController extends Controller
 			'model' => $model,
 		]);
 	}
+	 */
 
 	/**
 	 * Requests password reset.
 	 *
 	 * @return mixed
-	 */
 	public function actionRequestPasswordReset()
 	{
 		$model = new PasswordResetRequestForm();
@@ -186,6 +232,7 @@ class SiteController extends Controller
 			'model' => $model,
 		]);
 	}
+	 */
 
 	/**
 	 * Resets password.
@@ -193,7 +240,6 @@ class SiteController extends Controller
 	 * @param string $token
 	 * @return mixed
 	 * @throws BadRequestHttpException
-	 */
 	public function actionResetPassword($token)
 	{
 		try {
@@ -212,6 +258,7 @@ class SiteController extends Controller
 			'model' => $model,
 		]);
 	}
+	 */
 
 	/**
 	 * Verify email address
@@ -219,7 +266,6 @@ class SiteController extends Controller
 	 * @param string $token
 	 * @throws BadRequestHttpException
 	 * @return yii\web\Response
-	 */
 	public function actionVerifyEmail($token)
 	{
 		try {
@@ -235,12 +281,12 @@ class SiteController extends Controller
 		Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
 		return $this->goHome();
 	}
+	 */
 
 	/**
 	 * Resend verification email
 	 *
 	 * @return mixed
-	 */
 	public function actionResendVerificationEmail()
 	{
 		$model = new ResendVerificationEmailForm();
@@ -255,5 +301,180 @@ class SiteController extends Controller
 		return $this->render('resendVerificationEmail', [
 			'model' => $model
 		]);
+	}
+	 */
+}
+?>
+<?php
+/**
+ * @backend/controllers/SiteController.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2025 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
+
+namespace backend\controllers;
+
+use Yii;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\web\ErrorAction;
+use yii\web\Response;
+use common\controllers\SwBaseController;
+use common\models\LoginForm;
+use backend\assets\SBAdminAsset;
+
+/**
+ * Site controller
+ */
+class SiteController extends SwBaseController
+{
+	public $layout = 'main';
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function beforeAction($action)
+	{
+		if (!parent::beforeAction($action)) {
+			return false;
+		}
+
+		if ($action->id === 'error') {
+			$this->layout = 'alternate';
+		}
+		else {
+			$this->layout = 'main';
+		}
+
+		return true;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function behaviors()
+	{
+		return [
+			'access' => [
+				'class' => AccessControl::class,
+				'rules' => [
+					[
+						'actions' => ['login', 'error', 'set-language'],
+						'allow' => true,
+					],
+					[
+						'actions' => ['logout', 'index', 'set-language'],
+						'allow' => true,
+						'roles' => ['@'],
+					],
+				],
+			],
+			'verbs' => [
+				'class' => VerbFilter::class,
+				'actions' => [
+					'logout' => ['post'],
+				],
+			],
+		];
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function actions()
+	{
+		return [
+			'error' => [
+				'class' => ErrorAction::class,
+				'layout' => 'alternate', // uses @backend/views/layouts/error.php
+			],
+		];
+	}
+
+	/**
+	 * Displays homepage.
+	 *
+	 * @return string
+	 */
+	public function actionIndex()
+	{
+		$this->layout = 'main';
+		return $this->render('index');
+	}
+
+	/**
+	 * Login action.
+	 *
+	 * @return string|Response
+	 */
+	public function actionLogin()
+	{
+		if (!Yii::$app->user->isGuest) {
+			return $this->goHome();
+		}
+
+		$model = new LoginForm();
+		if ($model->load(Yii::$app->request->post()) && $model->login()) {
+			return $this->goBack();
+		}
+
+		$model->password = '';
+
+		// Use the minimal auth layout
+		$this->layout = 'alternate';
+
+		return $this->render('login', [
+			'model' => $model,
+		]);
+	}
+
+	/**
+	 * Logout action.
+	 *
+	 * @return Response
+	 */
+	public function actionLogout()
+	{
+		Yii::$app->user->logout();
+
+		return $this->goHome();
+	}
+
+	/**
+	 * Error action.
+	 */
+	public function actionError()
+	{
+		// Same minimal layout for error pages
+		$this->layout = 'error';
+
+		return $this->render('error', [
+			'exception' => Yii::$app->errorHandler->exception,
+		]);
+	}
+
+	public function actionSetLanguage($lang)
+	{
+		$allowed = ['en', 'ru', 'kk', 'ky', 'tg', 'uz'];
+
+		if (in_array($lang, $allowed, true)) {
+			Yii::$app->language = $lang;
+
+			Yii::$app->session->set('userLanguage', $lang);
+
+			Yii::$app->response->cookies->add(new \yii\web\Cookie([
+				'name' => 'userLanguage',
+				'value' => $lang,
+				'expire' => time() + 86400 * 365, // 1 year
+				'httpOnly' => true,
+				'sameSite' => \yii\web\Cookie::SAME_SITE_LAX,
+			]));
+		}
+
+		//return $this->goBack(Yii::$app->request->referrer ?: ['/site/index']);
+		return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
 	}
 }

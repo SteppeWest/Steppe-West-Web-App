@@ -1,0 +1,827 @@
+<?php
+return [
+	'intro' => [
+		'en' => <<<'YAML'
+---
+-
+  - heading: "What’s Steppe West All About?"
+  - "Think of us as a cultural bridge, spanning from the vast steppes of Central Asia to the shores of Australia and beyond. We delve into the vibrant world of Central Asian music, arts, cuisine, history, and more, presenting these treasures in a way that’s engaging and accessible for everyone."
+-
+  - heading: "Our Mission"
+  - "At Steppe West, we’re not just about showcasing content; we’re about fostering genuine connections and understanding between cultures. We believe that the rich tapestry of Turkic and Mongol cultures deserves a spot on the global stage, and we’re here to make that happen."
+-
+  - heading: "How We Do It"
+  - "Working closely with creators from Central Asia, we bring their stories to life across a variety of platforms. Whether it’s a soulful melody from the steppes, a mouth-watering recipe, or a captivating tale of historical significance, we make sure each piece of content is presented authentically and respectfully. And we always give credit where it’s due, linking back to the original creators."
+-
+  - heading: "Language Accessibility"
+  - "We understand that language can be a barrier, which is why we put a strong emphasis on making Central Asian content accessible to English-speaking audiences. Our translations and presentations are crafted to retain the original essence and beauty of these stories, ensuring nothing gets lost in translation."
+-
+  - heading: "Join Us on This Journey"
+  - "We’re keen on collaboration and believe that every voice adds a unique thread to our cultural tapestry. If you’re passionate about discovering and sharing the diverse wonders of Central Asia—be it music, art, food, sports, or stories—Steppe West is your platform. Your interest and engagement are what make Steppe West truly special."
+-
+  - heading: "Get Involved"
+  - "Have a question, an idea, or something you’d like to share? Don’t hesitate to get in touch — we’d love to start a conversation. Even if Steppe West isn’t quite for you right now, feel free to share it with others who might be interested."
+-
+  - heading: "Meet the Team"
+  - "Steppe West is a small but passionate team working across Australia and Central Asia. Alongside Pedro, we’re joined by Erkaiym, a Kyrgyz contributor based in Kazakhstan, who supports Steppe West through social media and outreach."
+-
+  - "Together, we work closely with creators, communities, and collaborators across the region to share stories in a way that’s respectful, engaging, and meaningful."
+  - "So, come along for the ride as we explore the wonders of Central Asia together. Steppe West is all about sharing, learning, and celebrating the beauty of our diverse world. Let’s make some magic happen!"
+  - "Cheers, Pedro"
+YAML,
+		'ru' => <<<'YAML'
+---
+-
+  - heading: "Что такое Steppe West?"
+  - "Думайте о нас как о культурном мосту, простирающемся от обширных степей Центральной Азии до берегов Австралии и за её пределы. Мы исследуем яркий мир центральноазиатской музыки, искусства, кухни, истории и многого другого, представляя эти сокровища таким образом, чтобы они были увлекательными и доступными для всех."
+-
+  - heading: "Наша миссия"
+  - "В Steppe West мы не просто демонстрируем контент; мы стремимся к созданию подлинных связей и взаимопонимания между культурами. Мы верим, что богатое многообразие тюркских и монгольских культур заслуживает места на мировой сцене, и мы здесь, чтобы это осуществить."
+-
+  - heading: "Как мы это делаем"
+  - "Тесно сотрудничая с создателями из Центральной Азии, мы оживляем их истории на различных платформах. Будь то душевная мелодия из степей, аппетитный рецепт или захватывающий рассказ о исторических событиях, мы гарантируем, что каждый элемент контента представлен аутентично и уважительно. И мы всегда отдаем должное, ссылаясь на оригинальных создателей."
+-
+  - heading: "Доступность языка"
+  - "Мы понимаем, что язык может быть барьером, поэтому мы уделяем особое внимание тому, чтобы контент из Центральной Азии был доступен англоязычной аудитории. Наши переводы и презентации созданы так, чтобы сохранить оригинальную сущность и красоту этих историй, не теряя ничего при переводе."
+-
+  - heading: "Присоединяйтесь к нам в этом путешествии"
+  - "Мы стремимся к сотрудничеству и верим, что каждый голос добавляет уникальную нить в нашу культурную ткань. Если вас увлекает идея открывать и делиться разнообразными чудесами Центральной Азии - будь то музыка, искусство, еда, спорт или истории - Steppe West это ваша платформа. Ваш интерес и участие делают Steppe West по-настоящему особенным."
+-
+  - heading: "Участвуйте"
+  - "Есть вопрос, предложение или что-то, чем хотите поделиться? Не стесняйтесь! Напишите нам, и давайте начнем разговор. Даже если Steppe West не совсем ваше, не стесняйтесь рассказать о нас другим, кому это может быть интересно."
+-
+  - heading: "Встречайте нашу команду"
+  - "Steppe West — это небольшая, но увлечённая команда, работающая между Австралией и Центральной Азией. Вместе с Педро в проекте участвует Эркайым — кыргызстанка, проживающая в Казахстане, которая помогает Steppe West в сфере социальных сетей и аутрич-работы."
+-
+  - "Вместе мы тесно сотрудничаем с авторами, сообществами и партнёрами по всему региону, чтобы рассказывать истории уважительно, интересно и со смыслом."
+  - "Присоединяйтесь к нам в этом путешествии, исследуя чудеса Центральной Азии вместе. Steppe West — это о том, чтобы делиться, учиться и праздновать красоту нашего разнообразного мира. Давайте творить магию вместе!"
+  - "С наилучшими пожеланиями, Педро"
+YAML,
+		'kk' => <<<'YAML'
+---
+-
+  - heading: "Steppe West дегеніміз не?"
+  - "Бізді мәдени көпір деп ойлаңыз, ол Орталық Азияның кең даласынан бастап Австралияның жағалауларына дейін созылады. Біз Орталық Азияның әуені, өнері, асханасы, тарихы және тағы басқа да құнды дүниелерін зерттейміз және осы байлықтарды баршаға қолжетімді және қызықты етіп көрсетеміз."
+-
+  - heading: "Біздің миссиямыз"
+  - "Steppe West-де біз тек контент көрсетумен шектелмейміз; біз мәдениеттер арасындағы шынайы байланыстар мен түсіністікті дамытуға ұмтыламыз. Біз тюрк және моңғол мәдениеттерінің байлығы әлемдік сахнаға лайық деп сенеміз және біз бұл мақсатты жүзеге асыру үшін осындамыз."
+-
+  - heading: "Біз мұны қалай жасаймыз"
+  - "Орталық Азияның шығармашылық иелерімен тығыз жұмыс жасай отырып, біз олардың оқиғаларын әртүрлі платформаларда жандандырамыз. Дала әуендері, дәмді рецепттер немесе тарихи маңыздылығы бар әңгімелер болсын, біз әрбір контент бөлігін шынайы және құрметпен ұсынамыз. Және біз әрқашан түпнұсқа авторларды атап өтеміз, оларға сілтеме жасаймыз."
+-
+  - heading: "Тіл қолжетімділігі"
+  - "Біз тілдің кедергі болатынын түсінеміз, сондықтан Орталық Азия контентін ағылшын тілінде сөйлейтін аудиторияға қолжетімді етуге үлкен мән береміз. Біздің аудармаларымыз бен таныстыруларымыз осы оқиғалардың түпнұсқалық мәні мен сұлулығын сақтау үшін жасалған, аудармада ештеңе жоғалмауын қамтамасыз етеді."
+-
+  - heading: "Бізбен бірге бұл саяхатқа қосылыңыз"
+  - "Біз ынтымақтастыққа құштармыз және әрбір дауыс біздің мәдени тінімізге ерекше жіп қосады деп сенеміз. Егер сізді Орталық Азияның әртүрлі ғажайыптарын ашу және олармен бөлісу қызықтырса - мейлі музыка, өнер, тамақ, спорт немесе оқиғалар болсын - Steppe West сіздің платформаңыз. Сіздің қызығушылығыңыз бен қатысуыңыз Steppe West-ті шынымен ерекше етеді."
+-
+  - heading: "Қатысыңыз"
+  - "Сұрағыңыз, ұсынысыңыз немесе бөлісетін нәрсеңіз бар ма? Ұялмаңыз! Бізге хабарласыңыз, және сөйлесуді бастайық. Егер Steppe West сізге арналмаған болса да, біздің миссиямызға қызығушылық танытатын басқа адамдарға айтып беріңіз."
+-
+  - heading: "Біздің команданы таныстырыңыз"
+  - "Steppe West — Австралия мен Орталық Азия арасында жұмыс істейтін шағын, бірақ ынталы команда. Педромен бірге жобаға Қазақстанда тұратын қырғыз қызы Эркайым қатысады, ол Steppe West жобасына әлеуметтік желілер мен аутрич бағыты бойынша қолдау көрсетеді."
+-
+  - "Біз өңірдегі авторлармен, қауымдастықтармен және серіктестермен тығыз жұмыс істеп, оқиғаларды құрметпен, қызықты әрі мағыналы түрде ұсынуға тырысамыз."
+  - "Бұл сапарда бізге қосылыңыз, Орталық Азияның ғажайыптарын бірге зерттейік. Steppe West — бұл бөлісу, үйрену және әртүрлі әлеміміздің сұлулығын атап өту туралы. Бірге сиқыр жасайық!"
+  - "Құрметпен, Педро"
+YAML,
+		'ky' => <<<'YAML'
+---
+-
+  - heading: "Steppe West эмне?"
+  - "Бизди маданий көпүрө катары элестетиңиздер, ал Борбордук Азиянын кең талааларынан Австралиянын жээктерине чейин созулат. Биз Борбордук Азиянын музыкасын, искусствосун, ашканасын, тарыхын жана башка көп нерселерин изилдейбиз жана бул байлыктарды бардык адамдар үчүн кызыктуу жана жеткиликтүү кылып көрсөтөбүз."
+-
+  - heading: "Биздин миссия"
+  - "Steppe West’те биз жөн гана мазмунду көрсөтүү менен чектелбестен, маданияттар арасындагы чыныгы байланыштарды жана түшүнүктү өркүндөтүүгө умтулабыз. Биз түрк жана монгол маданияттарынын байлыгы дүйнөлүк сахнага татыктуу деп ишенебиз жана бул максатты ишке ашыруу үчүн бул жердебиз."
+-
+  - heading: "Биз муну кантип жасайбыз"
+  - "Борбордук Азиянын чыгармачыл адамдары менен тыгыз иштешип, алардын окуяларын ар кандай платформаларда жандандырабыз. Талаадан чыккан жүрөктү жибиткен күүлөр, даамдуу рецепттер же тарыхый маанилүү окуялар болобу, биз ар бир мазмунду чыныгы жана урматтоо менен көрсөтөбүз. Жана биз ар дайым оригиналдуу авторлорду белгилеп, аларга шилтеме беребиз."
+-
+  - heading: "Тил жеткиликтүүлүгү"
+  - "Биз тил тоскоол болушу мүмкүн экенин түшүнөбүз, ошондуктан Борбордук Азиянын мазмунун англис тилдүү аудиторияга жеткиликтүү кылууга чоң маани беребиз. Биздин котормолорубуз жана презентациялар оригиналдуу окуялардын маңызын жана сулуулугун сактоо үчүн түзүлгөн, жана эч нерсе жоголбошун камсыз кылат."
+-
+  - heading: "Бул саякатка кошулуңуз"
+  - "Биз кызматташууга кызыкдарбыз жана ар бир үн биздин маданий кездемеге уникалдуу жип кошот деп ишенебиз. Эгер сизди Борбордук Азиянын ар түрдүү кереметтерин ачуу жана бөлүшүү кызыктырса – музыка, искусство, тамак-аш, спорт же окуялар болобу – Steppe West сиздин платформаңыз. Сиздин кызыгууңуз жана катышууңуз Steppe West’ти чындап эле өзгөчө кылат."
+-
+  - heading: "Катышыңыз"
+  - "Сурооңуз, сунушуңуз же бөлүшө турган нерсеңиз барбы? Тартынбаңыз! Бизге кайрылыңыз жана сүйлөшүүнү баштайлы. Эгер Steppe West сизге ылайык келбесе, биздин миссиябызга кызыкдар башка адамдарга айтып бериңиз."
+-
+  - heading: "Командабыз менен таанышыңыз"
+  - "Steppe West — Австралия менен Борбордук Азиянын ортосунда иш алып барган чакан, бирок ынтызар команда. Педро менен бирге долбоорго Казакстанда жашаган кыргыз кызы Эркайым катышат, ал Steppe Westке социалдык тармактар жана аутрич багыты боюнча колдоо көрсөтөт."
+-
+  - "Биз аймактагы авторлор, жамааттар жана өнөктөштөр менен тыгыз кызматташып, окуяларды урматтоо менен, кызыктуу жана маанилүү кылып жеткирүүгө аракет кылабыз."
+  - "Бул саякатта бизге кошулуңуз, Борбордук Азиянын кереметтерин бирге изилдейли. Steppe West — бул бөлүшүү, үйрөнүү жана ар түрдүү дүйнөбүздүн сулуулугун белгилөө жөнүндө. Бирге сыйкыр жаратабыз!"
+  - "Урматтоо менен, Педро"
+YAML,
+		'tg' => <<<'YAML'
+---
+-
+  - heading: "Steppe West чист?"
+  - "Моро ҳамчун пули фарҳангӣ тасаввур кунед, ки аз дашти васеи Осиёи Марказӣ то соҳилҳои Австралия ва берун аз он меравад. Мо ҷаҳони рангини мусиқӣ, санъат, ошпазӣ, таърих ва бисёр чизҳои дигари Осиёи Марказиро меомӯзем ва ин ганҷҳоро ба тавре муаррифӣ мекунем, ки барои ҳама ҷолиб ва дастрас бошад."
+-
+  - heading: "Вазифаи мо"
+  - "Дар Steppe West, мо танҳо намоиш додани мундариҷаро надорем; мо кӯшиш менамоем, ки робитаҳои воқеӣ ва фаҳмиш байни фарҳангҳоро тақвият диҳем. Мо боварӣ дорем, ки бою рангорангии фарҳангҳои туркӣ ва муғулӣ ҷойгоҳи худро дар саҳнаи ҷаҳонӣ дорад ва мо дар ин ҷо барои амалӣ кардани ин ҳадаф ҳастем."
+-
+  - heading: "Чӣ тавр мо ин корро мекунем"
+  - "Бо эҷодкорони Осиёи Марказӣ зич ҳамкорӣ намуда, мо ҳикояҳои онҳоро дар платформаҳои гуногун зинда мекунем. Новобаста аз он ки оҳанги рӯҳбаландкунанда аз даштҳо, дастурхони лазиз ё ҳикояи ҷолиби таърихӣ бошад, мо ҳар як порчаи мундариҷаро ба таври аслӣ ва бо эҳтиром пешниҳод мекунем. Ва мо ҳамеша ба эҷодкорони аслӣ эҳтиром мегузорем ва ба онҳо пайванд медиҳем."
+-
+  - heading: "Дастрасии забон"
+  - "Мо мефаҳмем, ки забон метавонад монеа шавад, аз ин рӯ мо аҳамияти махсусро ба дастрас кардани мундариҷаи Осиёи Марказӣ барои шунавандагони англисзабон медиҳем. Тарҷумаҳо ва муаррифии мо барои нигоҳ доштани моҳият ва зебоии аслии ин ҳикояҳо сохта шудаанд, то чизе дар тарҷума гум нашавад."
+-
+  - heading: "Ба мо дар ин сафар ҳамроҳ шавед"
+  - "Мо ба ҳамкорӣ шавқ дорем ва боварӣ дорем, ки ҳар як овоз ба бофтаи фарҳангии мо як риштаи беназир зам мекунад. Агар шумо хоҳиши кашф кардан ва мубодилаи мӯъҷизаҳои гуногуни Осиёи Марказиро дошта бошед – хоҳ мусиқӣ, санъат, ғизо, варзиш ё ҳикояҳо бошад – Steppe West платформаи шумост. Шавқу ҳавас ва иштироки шумо Steppe West-ро воқеан махсус месозад."
+-
+  - heading: "Шарик шавед"
+  - "Савол, пешниҳод ё чизе барои мубодила доред? Шарм надоред! Ба мо нависед ва биёед сӯҳбатро оғоз кунем. Агар Steppe West барои шумо мувофиқ набошад ҳам, лутфан ба дигарон, ки метавонанд ба рисолати мо шавқ дошта бошанд, хабар диҳед."
+-
+  - heading: "Бо дастаи мо шинос шавед"
+  - "Steppe West як гурӯҳи хурд, вале пурэнержӣ аст, ки байни Австралия ва Осиёи Марказӣ фаъолият мекунад. Дар баробари Педро, дар лоиҳа Эркайым — як қирғиздухтаре, ки дар Қазоқистон зиндагӣ мекунад, иштирок дорад ва ба Steppe West дар самти шабакаҳои иҷтимоӣ ва аутрич дастгирӣ мерасонад."
+-
+  - "Мо бо муаллифон, ҷомеаҳо ва ҳамкорон дар саросари минтақа зич ҳамкорӣ мекунем, то ҳикояҳоро бо эҳтиром, ҷолиб ва бо маъно пешниҳод намоем."
+  - "Дар ин сафар ба мо ҳамроҳ шавед ва мӯъҷизаҳои Осиёи Марказиро якҷоя омӯзем. Steppe West — ин мубодила, омӯзиш ва таҷлили зебоии ҷаҳони гуногуни мост. Биёед якҷоя мӯъҷиза эҷод кунем!"
+  - "Бо эҳтиром, Педро"
+YAML,
+		'tk' => <<<'YAML'
+---
+-
+  - heading: "Steppe West näme?"
+  - "Bizi Merkezi Aziýanyň giň sähralaryndan Awstraliýanyň kenarlaryna çenli uzalyp gidýän medeni köpri hökmünde göz öňüne getiriň. Biz Merkezi Aziýanyň sazy, sungaty, tagamlary, taryhy we beýleki köp zatlaryny öwrenýäris we bu baýlyklary hemmeler üçin gyzykly we elýeterli görnüşde hödürleýäris."
+-
+  - heading: "Biziň wezipämiz"
+  - "Steppe West-de biz diňe bir mazmuny görkezmek bilen çäklenmeýäris; biz medeniýetleriň arasynda hakyky baglanyşyk we düşünje döretmäge çalyşýarys. Biz türk we mongol medeniýetleriniň baýlygynyň dünýä sahnasynda mynasyp ýerini tapýandygyna ynanýarys we bu maksady amala aşyrmak üçin şu ýerde."
+-
+  - heading: "Biz muny nädip edýäris"
+  - "Merkezi Aziýanyň döredijileri bilen ýakyndan hyzmatdaşlykda, biz olaryň hekaýalaryny dürli platformalarda janlandyrýarys. Sähralardan gelýän duýguly owaz, tagamly reseptler ýa-da taryhyň täsirli hekaýalary bolsun, biz her bir mazmuny hakyky we hormat bilen hödürleýäris. Biz hemişe asyl döredijilere hormat goýup, olara salgylanýarys."
+-
+  - heading: "Diliň elýeterliligi"
+  - "Diliň päsgelçilik bolup biljekdigine düşünýäris, şonuň üçin Merkezi Aziýanyň mazmunyny iňlis dilinde gürleýän tomaşaçylara elýeterli etmeklige uly üns berýäris. Biziň terjimelerimiz we tanyşdyryşlarymyz bu hekaýalaryň asyl manysyny we gözelligini saklamak üçin döredilip, terjimede hiç zat ýitirilmezligini üpjün edýär."
+-
+  - heading: "Bu syýahata bize goşulyň"
+  - "Biz hyzmatdaşlyga ymtylýarys we her bir sesiň medeni dokumamyza üýtgeşik sapak goşýandygyna ynanýarys. Eger sizi Merkezi Aziýanyň dürli täsinliklerini açmak we paýlaşmak gyzyklandyrýan bolsa – saz, sungat, tagam, sport ýa-da hekaýalar bolsun – Steppe West siziň platformaňyzdyr. Siziň gyzyklanmaňyz we gatnaşmagyňyz Steppe West-i hakykatdanam aýratyn edýär."
+-
+  - heading: "Gatnaşyň"
+  - "Soragyňyz, teklibiňiz ýa-da paýlaşjak zadyňyz barmy? Ýaltanmaň! Bize ýazyň we söhbetdeşligi başlalyň. Eger Steppe West size laýyk gelmeýän bolsa, biziň wezipesimize gyzyklanma bildirip biljek beýleki adamlara habar beriň."
+-
+  - heading: "Biziň toparymyz bilen tanyşyň"
+  - "Steppe West Awstraliýa bilen Merkezi Aziýanyň arasynda işleýän kiçijik, ýöne yhlasy güýçli topar. Pedronyň ýany bilen taslama Gazagystanda ýaşaýan gyrgyz gyzy Erkaýym hem gatnaşýar, ol Steppe West-e sosial ulgamlary we aутрич ugrunda goldaw berýär."
+-
+  - "Biz sebit boýunça döredijiler, jemgyýetler we hyzmatdaşlar bilen ýakyndan hyzmatdaşlyk edip, hekaýalary hormat bilen, gyzykly we manyly görnüşde paýlaşmaga çalyşýarys."
+  - "Bu syýahata bize goşulyň we Merkezi Aziýanyň täsinliklerini bilelikde öwreneliň. Steppe West — bu paýlaşmak, öwrenmek we dürli dünýämiziň gözelligini bellemek barada. Geliň, bilelikde täsinlik döredeliň!"
+  - "Hormat bilen, Pedro"
+YAML,
+		'uz' => <<<'YAML'
+---
+-
+  - heading: "Steppe West nimani taqdim etadi?"
+  - "Bizni madaniy ko‘prik deb o‘ylang, Markaziy Osiyoning keng dashtlaridan Avstraliya sohillarigacha va undan ham nariga o‘tadi. Biz Markaziy Osiyoning musiqa, san’at, oshxona, tarix va boshqa ko‘plab sohalarini o‘rganamiz va bu xazinalarni hammaga qiziqarli va tushunarli tarzda taqdim etamiz."
+-
+  - heading: "Bizning missiyamiz"
+  - "Steppe Westda biz faqat kontent namoyish qilish bilan cheklanib qolmaymiz; biz madaniyatlar o‘rtasida haqiqiy aloqalar va tushunishni rivojlantirishga intilamiz. Turk va Mo‘g‘ul madaniyatlarining boy to‘qimasiga dunyo sahnasida joy borligiga ishonamiz va biz bu ishni amalga oshirish uchun shu yerdamiz."
+-
+  - heading: "Biz buni qanday amalga oshiramiz"
+  - "Markaziy Osiyolik ijodkorlar bilan yaqindan hamkorlik qilib, ularning hikoyalarini turli platformalar orqali hayotga tatbiq etamiz. Dashtlardan kelgan ruhli kuy, mazali retsept yoki tarixiy ahamiyatga ega bo‘lgan qiziqarli hikoya bo‘ladimi, har bir kontentni haqiqiy va hurmat bilan taqdim etamiz. Va har doim asl ijodkorga kredit beramiz, ularning ishlariga havolalar beramiz."
+-
+  - heading: "Tilga oid imkoniyatlar"
+  - "Biz til to‘siq bo‘lishi mumkinligini tushunamiz, shuning uchun Markaziy Osiyo kontentini ingliz tilida so‘zlashuvchi auditoriyalarga yetkazishga katta e’tibor qaratamiz. Bizning tarjimalarimiz va taqdimotlarimiz ushbu hikoyalarning asl mohiyatini va go‘zalligini saqlab qolishga mo‘ljallangan, hech narsa tarjimada yo‘qolib ketmasligini ta’minlaymiz."
+-
+  - heading: "Biz bilan bu sayohatga qo‘shiling"
+  - "Biz hamkorlikka katta ahamiyat beramiz va har bir ovoz bizning madaniy to‘qimamizga noyob ip qo‘shadi deb ishonamiz. Agar siz Markaziy Osiyoning musiqa, san’at, oshxona, sport yoki hikoyalari bilan qiziqsangiz va ularni ulashishni xohlasangiz, Steppe West sizning platformangizdir. Sizning qiziqishingiz va ishtirokingiz Steppe Westni haqiqatan ham maxsus qiladi."
+-
+  - heading: "Ishtirok eting"
+  - "Savolingiz, taklifingiz yoki ulashmoqchi bo‘lgan narsangiz bormi? Tortinmang! Bizga yozing va suhbatni boshlaylik. Agar Steppe West sizga mos kelmasa ham, qiziqishi mumkin bo‘lgan boshqalarga bu haqda aytib o‘tishingiz mumkin."
+-
+  - heading: "Jamoa bilan tanishing"
+  - "Steppe West — Avstraliya va Markaziy Osiyo o‘rtasida faoliyat yurituvchi kichik, lekin ishtiyoqli jamoa. Pedro bilan birga loyihada Qozog‘istonda yashovchi qirg‘iz qizi Erkaiym ham ishtirok etadi va Steppe West’ni ijtimoiy tarmoqlar hamda autrich yo‘nalishi bo‘yicha qo‘llab-quvvatlaydi."
+-
+  - "Biz mintaqa bo‘ylab ijodkorlar, jamoalar va hamkorlar bilan yaqindan hamkorlik qilib, hikoyalarni hurmat bilan, qiziqarli va mazmunli tarzda taqdim etishga intilamiz."
+  - "Shunday ekan, biz bilan birga Markaziy Osiyoning mo‘jizalarini o‘rganishga qo‘shiling. Steppe West — bu xilma-xil dunyomizning go‘zalligini ulashish, o‘rganish va nishonlash haqida. Keling, birgalikda mo‘jizalar yaratamiz!"
+  - "Hurmat bilan, Pedro"
+YAML,
+		'az' => <<<'YAML'
+---
+-
+  - heading: "Steppe West nədir?"
+  - "Bizi mədəni bir körpü kimi düşünün, Orta Asiyanın geniş çöllərindən Avstraliya sahillərinə qədər və daha da irəliyə uzanır. Biz Orta Asiyanın musiqi, incəsənət, mətbəx, tarix və daha çox sahələrini araşdırırıq və bu xəzinələri hər kəs üçün maraqlı və əlçatan bir şəkildə təqdim edirik."
+-
+  - heading: "Missiyamız"
+  - "Steppe West-də biz yalnız məzmun təqdim etməklə kifayətlənmirik; biz mədəniyyətlər arasında həqiqi əlaqələr və anlama yaratmağa çalışırıq. Türk və Monqol mədəniyyətlərinin zəngin mozaikasının dünya səhnəsində yer alması lazım olduğuna inanırıq və bu işi həyata keçirmək üçün buradayıq."
+-
+  - heading: "Bunu necə edirik"
+  - "Orta Asiyalı yaradıcılarla yaxından əməkdaşlıq edərək, onların hekayələrini müxtəlif platformalarda canlandırırıq. Çöllərdən gələn ruhlu bir melodiya, ağız sulandıran bir resept və ya tarixi əhəmiyyətli bir maraqlı hekayə olsun, hər bir məzmunu orijinal və hörmətlə təqdim edirik. Həmişə orijinal yaradıcıya kredit veririk, onların işlərinə bağlantılar təqdim edirik."
+-
+  - heading: "Dil əlçatanlığı"
+  - "Biz dilin bir maneə ola biləcəyini başa düşürük, buna görə də Orta Asiya məzmununu ingiliscə danışan auditoriyalara çatdırmağa böyük diqqət yetiririk. Tərcümələrimiz və təqdimatlarımız bu hekayələrin orijinal mahiyyətini və gözəlliyini qorumaq üçün hazırlanmışdır ki, heç bir şey tərcümədə itirilməsin."
+-
+  - heading: "Bu səyahətə bizə qoşulun"
+  - "Biz əməkdaşlığa böyük əhəmiyyət veririk və hər bir səsin mədəni mozaikamıza unikal bir ip əlavə etdiyinə inanırıq. Əgər Orta Asiyanın musiqisi, incəsənəti, mətbəxi, idmanı və ya hekayələri ilə maraqlanırsınızsa və onları paylaşmaq istəyirsinizsə, Steppe West sizin platformanızdır. Sizin marağınız və iştirakınız Steppe West-i həqiqətən xüsusi edir."
+-
+  - heading: "İştirak edin"
+  - "Sualınız, təklifiniz və ya paylaşmaq istədiyiniz bir şey varmı? Çəkinməyin! Bizə yazın və söhbətə başlayaq. Əgər Steppe West sizin üçün uyğun deyilsə belə, maraqlana biləcək başqalarına bu barədə məlumat verə bilərsiniz."
+-
+  - heading: "Komanda ilə tanış olun"
+  - "Steppe West Avstraliya ilə Orta Asiya arasında fəaliyyət göstərən kiçik, lakin həvəsli bir komandadır. Pedro ilə yanaşı, layihədə Qazaxıstanda yaşayan qırğız qızı Erkaiym da iştirak edir və Steppe West-i sosial media və autriç istiqamətində dəstəkləyir."
+-
+  - "Biz region üzrə yaradıcılar, icmalar və tərəfdaşlarla yaxından əməkdaşlıq edərək hekayələri hörmətlə, maraqlı və mənalı şəkildə paylaşmağa çalışırıq."
+  - "Beləliklə, bizimlə Orta Asiyanın möcüzələrini öyrənməyə qoşulun. Steppe West — bu müxtəlif dünyamızın gözəlliyini paylaşmaq, öyrənmək və qeyd etmək haqqındadır. Gəlin, birlikdə möcüzələr yaradaq!"
+  - "Hörmətlə, Pedro"
+YAML,
+		'mn' => <<<'YAML'
+---
+-
+  - heading: "Steppe West гэж юу вэ?"
+  - "Биднийг Төв Азийн өргөн уудам тал нутгаас Австралийн эрэг хүртэлх соёлын гүүр гэж бодоорой. Бид Төв Азийн хөгжим, урлаг, хоол, түүх болон бусад олон зүйлийг судалж, эдгээр баялагийг хүн бүрт хүртээмжтэй, сонирхолтой байдлаар танилцуулдаг."
+-
+  - heading: "Манай эрхэм зорилго"
+  - "Steppe West-т бид зүгээр л контентыг танилцуулаад зогсохгүй соёл хоорондын жинхэнэ холбоо, ойлголтыг бэхжүүлэхийг зорьж байна. Бидний хувьд Турк, Монгол угсаатны соёлын баялаг дэлхийн тайзнаа зохих байр сууриа эзлэх ёстой гэж үздэг бөгөөд үүнийг хэрэгжүүлэхийн төлөө бид энд байна."
+-
+  - heading: "Бид үүнийг хэрхэн хийдэг вэ"
+  - "Төв Азийн бүтээгчидтэй нягт хамтран ажиллаж, тэдний түүхийг янз бүрийн платформ дээр амилуулдаг. Энэ нь тал нутгийн сэтгэл хөдөлгөм аялгуу, амттай жор эсвэл түүхийн ач холбогдолтой түүхүүд ч бай, бид контентын бүх хэсгийг жинхэнэ болон хүндэтгэлтэйгээр үзүүлдэг. Мөн бид үргэлж эх зохиогчдод нь хүндэтгэл үзүүлж, тэдний линкийг оруулдаг."
+-
+  - heading: "Хэлний хүртээмж"
+  - "Бид хэлний саад бэрхшээл байж болохыг ойлгодог тул Төв Азийн контентыг англи хэлээр ярьдаг үзэгчдэд хүртээмжтэй болгоход ихээхэн ач холбогдол өгдөг. Бидний орчуулга болон танилцуулга нь эдгээр түүхийн жинхэнэ утга санаа, гоо сайхныг хадгалахын тулд бүтээгдсэн бөгөөд орчуулгад юу ч алдагдахгүй байхыг баталгаажуулдаг."
+-
+  - heading: "Энэхүү аялалд бидэнтэй нэгдээрэй"
+  - "Бид хамтран ажиллахыг эрмэлздэг бөгөөд хүн бүрийн дуу хоолой бидний соёлын бүтцэд өвөрмөц утас нэмдэг гэдэгт итгэдэг. Хэрэв та Төв Азийн олон янзын гайхамшгийг нээж, түүнтэй хуваалцах хүсэлтэй байгаа бол – хөгжим, урлаг, хоол, спорт эсвэл түүхүүд – Steppe West таны платформ юм. Таны сонирхол, оролцоо Steppe West-г үнэхээр онцгой болгодог."
+-
+  - heading: "Оролцоорой"
+  - "Асуулт, санал эсвэл хуваалцах зүйл байна уу? Бүү эргэлз! Бидэнтэй холбоо бариад ярилцлагаа эхлүүлцгээе. Хэрэв Steppe West таньд тохирохгүй байвал бидний эрхэм зорилгыг сонирхож болох бусад хүмүүст хэлээрэй."
+-
+  - heading: "Манай багтай танилцана уу"
+  - "Steppe West нь Австрали болон Төв Азийн хооронд үйл ажиллагаа явуулдаг жижигхэн боловч чин сэтгэлээсээ ажилладаг баг юм. Педротой хамт төслийн хүрээнд Казахстанд амьдарч буй киргиз бүсгүй Эркайым оролцож, Steppe West-д нийгмийн сүлжээ болон аутрич чиглэлээр дэмжлэг үзүүлдэг."
+-
+  - "Бид бүс нутгийн бүтээгчид, нийгэмлэгүүд болон хамтрагчидтай ойр хамтран ажиллаж, түүхүүдийг хүндэтгэлтэй, сонирхолтой бөгөөд утга агуулгатайгаар хүргэхийг зорьдог."
+  - "Энэхүү аялалд бидэнтэй нэгдэж, Төв Азийн гайхамшгийг хамтдаа судлацгаая. Steppe West — энэ бол бидний олон янзын дэлхийн гоо үзэсгэлэнг хуваалцах, суралцах, тэмдэглэх тухай юм. Хамтдаа гайхамшиг бүтээцгээе!"
+  - "Хүндэтгэсэн, Педро"
+YAML,
+		'tr' => <<<'YAML'
+---
+-
+  - heading: "Steppe West Nedir?"
+  - "Bizi, Orta Asya'nın geniş bozkırlarından Avustralya'nın kıyılarına ve ötesine uzanan bir kültürel köprü olarak düşünün. Orta Asya'nın canlı müzik, sanat, mutfak, tarih ve daha fazlasını içeren dünyasına dalıyor ve bu hazineleri herkesin ilgisini çekecek ve erişebilir bir şekilde sunuyoruz."
+-
+  - heading: "Misyonumuz"
+  - "Steppe West'te sadece içerik sergilemekle kalmıyoruz; kültürler arasında gerçek bağlantılar ve anlayış geliştirmeye çalışıyoruz. Türk ve Moğol kültürlerinin zengin dokusunun küresel sahnede yer almayı hak ettiğine inanıyoruz ve bunu gerçekleştirmek için buradayız."
+-
+  - heading: "Bunu Nasıl Yapıyoruz?"
+  - "Orta Asya'dan yaratıcılarla yakından çalışarak, hikayelerini çeşitli platformlarda hayata geçiriyoruz. İster bozkırlardan gelen duygusal bir melodi, ister ağız sulandıran bir tarif, isterse tarihi öneme sahip büyüleyici bir hikaye olsun, her içeriğin otantik ve saygılı bir şekilde sunulmasını sağlıyoruz. Ve her zaman hakkını teslim ediyor, orijinal yaratıcılara bağlantılar veriyoruz."
+-
+  - heading: "Dil Erişilebilirliği"
+  - "Dil engel olabileceğini anlıyoruz, bu yüzden Orta Asya içeriğini İngilizce konuşan izleyicilere erişilebilir kılmaya büyük önem veriyoruz. Çevirilerimiz ve sunumlarımız, bu hikayelerin orijinal özünü ve güzelliğini koruyacak şekilde hazırlanmış olup, hiçbir şeyin çeviride kaybolmamasını sağlar."
+-
+  - heading: "Bu Yolculuğa Katılın"
+  - "Biz işbirliğine açığız ve her sesin kültürel dokumuza benzersiz bir iplik eklediğine inanıyoruz. Orta Asya'nın çeşitli harikalarını keşfetmek ve paylaşmak konusunda tutkuluysanız—ister müzik, sanat, yiyecek, spor ya da hikayeler olsun—Steppe West sizin platformunuzdur. İlginiz ve katılımınız Steppe West'i gerçekten özel kılan şeydir."
+-
+  - heading: "Katılın"
+  - "Bir sorunuz, öneriniz ya da paylaşacak bir şeyiniz mi var? Çekinmeyin! Bize bir satır bırakın ve sohbet başlatalım. Steppe West tam size göre değilse bile, ilgilenebilecek diğer kişilere de haber vermekten çekinmeyin."
+-
+  - heading: "Takımla Tanışın"
+  - "Steppe West, Avustralya ile Orta Asya arasında faaliyet gösteren küçük ama tutkulu bir ekipten oluşur. Pedro’nun yanı sıra projede, Kazakistan’da yaşayan Kırgız Erkaiym da yer almakta ve Steppe West’i sosyal medya ve outreach alanlarında desteklemektedir."
+-
+  - "Bölgede yer alan yaratıcılar, topluluklar ve iş ortaklarıyla yakın iş birliği içinde çalışarak hikâyeleri saygılı, ilgi çekici ve anlamlı bir şekilde paylaşmayı hedefliyoruz."
+  - "Bu yolculukta bize katılın ve birlikte Orta Asya'nın harikalarını keşfedelim. Steppe West, dünyamızın güzelliklerini paylaşmak, öğrenmek ve kutlamakla ilgilidir. Hadi birlikte biraz sihir yaratalım!"
+  - "Sevgilerle, Pedro"
+YAML,
+	],
+	'invite' => [
+		'en' => <<<'YAML'
+---
+-
+  - heading: "An Invitation from Pedro"
+  - lead: "Dear friends in Central Asia,"
+  - "My name is Pedro, and I’m the curator of <strong>Steppe West</strong> — an English-language platform sharing Central Asia with the world."
+  - "I’ll keep this simple:"
+  - "[PR] <strong>Let Steppe West be your social media agent to the English-speaking world.</strong>"
+  - "[PR] <strong>Have content to share? Get in touch — we’ll bring it to a global English-speaking audience.</strong>"
+  - "We take your content — and present it to a global audience in a way that is clear, engaging, and true to your voice."
+  - "You stay the creator.<br>We help you reach the world."
+-
+  - heading: "What That Means in Practice"
+  - "Steppe West publishes and promotes content from Central Asia for English-speaking audiences."
+  - "We work with you to:"
+  - "<ul><li>Present your work in English</li><li>Add context where needed</li><li>Share it across multiple platforms</li><li>Always credit and link back to you</li></ul>"
+  - "This is not about taking content.<br>It’s about <strong>representing you — properly — to a new audience.</strong>"
+-
+  - heading: "Who We Work With"
+  - "We are actively looking to collaborate with:"
+  - "<ul><li><strong>Tour guides and tourism businesses</strong></li><li><strong>Musicians, performers, and artists</strong></li><li><strong>Small businesses exploring Western markets</strong></li><li><strong>Content creators sharing culture or daily life</strong></li><li><strong>Event organisers and festivals</strong></li></ul>"
+  - "If you have something to show — we can help you show it to the world."
+-
+  - heading: "Why Work With Steppe West"
+  - "Reaching English-speaking audiences is difficult."
+  - "<ul><li>Language is a barrier</li><li>Context is often missing</li><li>Algorithms favour native English content</li></ul>"
+  - "We solve that."
+  - "Steppe West acts as a <strong>cultural translator and publisher</strong>, helping your work connect — not just appear — in English."
+  - "[PR] <strong>You don’t need to become an English-language creator. We do that part with you.</strong>"
+-
+  - heading: "What You Can Share"
+  - "We welcome:"
+  - "<ul><li>Photos and videos</li><li>Music and performances</li><li>Stories and local knowledge</li><li>Cultural insights</li><li>Everyday life</li></ul>"
+  - "If it helps people understand your world — it belongs here."
+-
+  - heading: "Meet the Team"
+  - "Steppe West is a small, growing team across Australia and Central Asia."
+  - "Alongside me is a talented young woman from Kyrgyzstan, working directly with creators, communities, and partners across the region."
+  - "In most cases, she will be your first point of contact."
+-
+  - heading: "A Bigger Vision"
+  - "Steppe West is not just a content platform."
+  - "We are building:"
+  - "<ul><li>A global audience for Central Asia</li><li>A cultural calendar of events and festivals</li><li>Opportunities for artists and businesses to reach international markets</li></ul>"
+  - "And alongside this, I am committed to supporting <strong>girls’ education through access to technology</strong> across the region."
+-
+  - heading: "Let’s Work Together"
+  - "If you would like to:"
+  - "<ul><li>Share content</li><li>Be published in English</li><li>Reach a wider audience</li><li>Explore collaboration</li></ul>"
+  - "[PR] <strong>Get in touch.</strong>"
+  - "Even if now isn’t the right time, I would appreciate you sharing Steppe West with others."
+  - "<strong>Let’s bring your stories to the world — together.</strong>"
+  - "Warm regards,<br><strong>Pedro</strong>"
+YAML,
+		'ru' => <<<'YAML'
+---
+-
+  - heading: "Приглашение от Педро"
+  - lead: "Дорогие друзья в Центральной Азии,"
+  - "Меня зовут Педро, я куратор <strong>Steppe West</strong> — англоязычной платформы, рассказывающей миру о Центральной Азии."
+  - "Скажу просто:"
+  - "[PR] <strong>Позвольте Steppe West стать вашим агентом в социальных сетях для англоязычного мира.</strong>"
+  - "[PR] <strong>Есть контент, которым хотите поделиться? Свяжитесь с нами — мы поможем представить его глобальной англоязычной аудитории.</strong>"
+  - "Мы берём ваш контент и представляем его мировой аудитории так, чтобы он был понятным, увлекательным и сохранял ваш голос."
+  - "Вы остаетесь автором.<br>Мы помогаем вам выйти к миру."
+-
+  - heading: "Что это означает на практике"
+  - "Steppe West публикует и продвигает контент из Центральной Азии для англоязычной аудитории."
+  - "Мы работаем с вами, чтобы:"
+  - "<ul><li>представить ваш контент на английском языке</li><li>добавить необходимый контекст</li><li>распространить его на разных платформах</li><li>всегда указывать авторство и давать ссылки на вас</li></ul>"
+  - "Это не про «взять контент».<br>Это про <strong>представлять вас — правильно — новой аудитории.</strong>"
+-
+  - heading: "С кем мы работаем"
+  - "Мы открыты к сотрудничеству с:"
+  - "<ul><li>туристическими гидами и компаниями</li><li>музыкантами, исполнителями и художниками</li><li>малым бизнесом, выходящим на западные рынки</li><li>создателями контента о культуре и повседневной жизни</li><li>организаторами мероприятий и фестивалей</li></ul>"
+  - "Если у вас есть что показать — мы поможем показать это миру."
+-
+  - heading: "Почему стоит работать с Steppe West"
+  - "Выход на англоязычную аудиторию — это непросто."
+  - "<ul><li>языковой барьер</li><li>нехватка контекста</li><li>алгоритмы, ориентированные на англоязычный контент</li></ul>"
+  - "Мы решаем эту задачу."
+  - "Steppe West выступает как <strong>культурный переводчик и издатель</strong>, помогая вашему контенту не просто появляться, а действительно находить отклик."
+  - "[PR] <strong>Вам не нужно становиться англоязычным автором. Мы берём эту часть на себя — вместе с вами.</strong>"
+-
+  - heading: "Чем можно делиться"
+  - "Мы приветствуем:"
+  - "<ul><li>фотографии и видео</li><li>музыку и выступления</li><li>истории и местные знания</li><li>культурные наблюдения</li><li>повседневную жизнь</li></ul>"
+  - "Если это помогает людям понять ваш мир — этому место здесь."
+-
+  - heading: "Команда"
+  - "Steppe West — это небольшая, но растущая команда, работающая между Австралией и Центральной Азией."
+  - "Вместе со мной работает талантливая молодая женщина из Кыргызстана, напрямую взаимодействующая с авторами, сообществами и партнёрами в регионе."
+  - "Во многих случаях именно она будет вашим первым контактом."
+-
+  - heading: "Большая цель"
+  - "Steppe West — это не просто платформа с контентом."
+  - "Мы строим:"
+  - "<ul><li>глобальную аудиторию для Центральной Азии</li><li>культурный календарь событий и фестивалей</li><li>возможности для артистов и бизнеса выйти на международный уровень</li></ul>"
+  - "И параллельно я развиваю направление поддержки <strong>образования девочек через доступ к технологиям</strong> в регионе."
+-
+  - heading: "Давайте работать вместе"
+  - "Если вы хотите:"
+  - "<ul><li>делиться контентом</li><li>публиковаться на английском</li><li>выйти на более широкую аудиторию</li><li>обсудить сотрудничество</li></ul>"
+  - "[PR] <strong>Свяжитесь с нами.</strong>"
+  - "Даже если сейчас не самое подходящее время, буду благодарен, если вы расскажете о Steppe West другим."
+  - "<strong>Давайте вместе откроем ваши истории миру.</strong>"
+  - "С уважением,<br><strong>Педро</strong>"
+YAML,
+		'kk' => <<<'YAML'
+---
+-
+  - heading: "Педродан шақыру"
+  - lead: "Орталық Азиядағы достарым, сәлем!"
+  - "Менің атым Педро, мен <strong>Steppe West</strong> — Орталық Азияны әлемге таныстыратын ағылшын тіліндегі платформаның кураторымын."
+  - "Қысқаша айтсам:"
+  - "[PR] <strong>Steppe West сіздің ағылшын тілді әлемге арналған әлеуметтік медиа агентіңіз болсын.</strong>"
+  - "[PR] <strong>Бөліскіңіз келетін контент бар ма? Бізбен байланысыңыз — оны жаһандық ағылшын тілді аудиторияға жеткізуге көмектесеміз.</strong>"
+  - "Біз сіздің контентіңізді алып, оны түсінікті, тартымды және сіздің даусыңызды сақтай отырып, әлемдік аудиторияға ұсынамыз."
+  - "Сіз автор болып қала бересіз.<br>Біз сізге әлемге шығуға көмектесеміз."
+-
+  - heading: "Бұл іс жүзінде нені білдіреді"
+  - "Steppe West Орталық Азиядан шыққан контентті ағылшын тілді аудиторияға жариялап, таратады."
+  - "Біз сізбен бірге:"
+  - "<ul><li>контентіңізді ағылшын тілінде ұсыну</li><li>қажет жерде түсіндірме қосу</li><li>оны түрлі платформаларда тарату</li><li>әрқашан авторлықты көрсету және сізге сілтеме беру</li></ul>"
+  - "Бұл «контентті алу» туралы емес.<br>Бұл — <strong>сізді жаңа аудиторияға дұрыс таныстыру туралы.</strong>"
+-
+  - heading: "Біз кімдермен жұмыс істейміз"
+  - "Біз келесі серіктестермен жұмыс істеуге дайынбыз:"
+  - "<ul><li>туристік гидтер мен компаниялар</li><li>музыканттар, орындаушылар және суретшілер</li><li>Батыс нарықтарына шығатын шағын бизнес</li><li>мәдениет пен күнделікті өмірді көрсететін контент жасаушылар</li><li>іс-шаралар мен фестиваль ұйымдастырушылары</li></ul>"
+  - "Егер сізде көрсететін нәрсе болса — біз оны әлемге көрсетуге көмектесеміз."
+-
+  - heading: "Неге Steppe West-пен жұмыс істеу керек"
+  - "Ағылшын тілді аудиторияға шығу оңай емес."
+  - "<ul><li>тілдік кедергілер</li><li>контексттің жетіспеуі</li><li>алгоритмдердің ағылшын тіліндегі контентті қолдауы</li></ul>"
+  - "Біз бұл мәселені шешеміз."
+  - "Steppe West <strong>мәдени аудармашы және баспагер</strong> ретінде әрекет етеді, сіздің контентіңізді жай ғана жариялап қоймай, оны шынайы байланысқа жеткізеді."
+  - "[PR] <strong>Сізге ағылшын тіліндегі автор болудың қажеті жоқ. Бұл бөлікті біз сізбен бірге атқарамыз.</strong>"
+-
+  - heading: "Немен бөлісуге болады"
+  - "Біз мыналарды қабылдаймыз:"
+  - "<ul><li>фотосуреттер мен бейнелер</li><li>музыка мен өнер көрсетілімдері</li><li>әңгімелер мен жергілікті білім</li><li>мәдени түсініктер</li><li>күнделікті өмір</li></ul>"
+  - "Егер бұл адамдарға сіздің әлеміңізді түсінуге көмектессе — бұл жерде оның орны бар."
+-
+  - heading: "Команда"
+  - "Steppe West — Австралия мен Орталық Азияда жұмыс істейтін шағын, бірақ өсіп келе жатқан команда."
+  - "Менмен бірге Қырғызстаннан шыққан талантты жас әйел жұмыс істейді, ол аймақтағы авторлармен, қауымдастықтармен және серіктестермен тікелей байланысады."
+  - "Көп жағдайда ол сіздің алғашқы байланыс нүктеңіз болады."
+-
+  - heading: "Үлкен мақсат"
+  - "Steppe West — бұл тек контент платформасы емес."
+  - "Біз мыналарды құрып жатырмыз:"
+  - "<ul><li>Орталық Азия үшін жаһандық аудитория</li><li>мәдени іс-шаралар мен фестивальдердің күнтізбесі</li><li>әртістер мен бизнес үшін халықаралық мүмкіндіктер</li></ul>"
+  - "Сонымен қатар, мен аймақтағы <strong>қыздардың білім алуын технология арқылы қолдау</strong> бағытын дамытып келемін."
+-
+  - heading: "Бірге жұмыс істейік"
+  - "Егер сіз:"
+  - "<ul><li>контентпен бөліскіңіз келсе</li><li>ағылшын тілінде жарияланғыңыз келсе</li><li>кең аудиторияға шыққыңыз келсе</li><li>ынтымақтастықты талқылағыңыз келсе</li></ul>"
+  - "[PR] <strong>Бізбен байланысыңыз.</strong>"
+  - "Қазір қолайлы уақыт болмаса да, Steppe West туралы басқаларға айтсаңыз, ризамын."
+  - "<strong>Бірге сіздің оқиғаларыңызды әлемге танытайық.</strong>"
+  - "Құрметпен,<br><strong>Педро</strong>"
+YAML,
+		'ky' => <<<'YAML'
+---
+-
+  - heading: "Педродон чакыруу"
+  - lead: "Борбордук Азиядагы досторго салам!"
+  - "Менин атым Педро, мен <strong>Steppe West</strong> — Борбор Азияны дүйнөгө тааныткан англис тилиндеги платформанын кураторомун."
+  - "Кыскача айтсам:"
+  - "[PR] <strong>Steppe West сиздин англис тилдүү дүйнөгө багытталган социалдык медиа агентиңиз болсун.</strong>"
+  - "[PR] <strong>Бөлүшкүңүз келген контент барбы? Биз менен байланышыңыз — аны глобалдык англис тилдүү аудиторияга жеткирүүгө жардам беребиз.</strong>"
+  - "үнүңүздү сактоо менен дүйнөлүк аудиторияга сунуштайбыз."
+  - "Сиз автор бойдон каласыз.<br>Биз сизге дүйнөгө чыгууга жардам беребиз."
+-
+  - heading: "Бул иш жүзүндө эмнени билдирет"
+  - "Steppe West Борбор Азиядан чыккан контентти англис тилдүү аудиторияга жарыялап жана жайылтат."
+  - "Биз сиз менен бирге:"
+  - "<ul><li>контентиңизди англис тилинде сунуштайбыз</li><li>керектүү жерде түшүндүрмө кошобуз</li><li>аны ар кандай платформаларда жайылтабыз</li><li>дайыма авторлукту көрсөтүп, сизге шилтеме беребиз</li></ul>"
+  - "Бул «контентти алуу» жөнүндө эмес.<br>Бул — <strong>сизди жаңы аудиторияга туура тааныштыруу жөнүндө.</strong>"
+-
+  - heading: "Биз кимдер менен иштейбиз"
+  - "Биз төмөнкүлөр менен кызматташууга даярбыз:"
+  - "<ul><li>туристтик гиддер жана компаниялар</li><li>музыканттар, аткаруучулар жана артисттер</li><li>Батыш рынокторуна чыгууга умтулган чакан бизнес</li><li>маданият жана күнүмдүк жашоо тууралуу контент жаратуучулар</li><li>иш-чаралардын жана фестивалдардын уюштуруучулары</li></ul>"
+  - "Эгер сизде көрсөтө турган нерсе болсо — биз аны дүйнөгө көрсөтүүгө жардам беребиз."
+-
+  - heading: "Эмне үчүн Steppe West менен иштеш керек"
+  - "Англис тилдүү аудиторияга чыгуу оңой эмес."
+  - "<ul><li>тил тоскоолдуктары</li><li>контексттин жетишсиздиги</li><li>алгоритмдердин англис тилдүү контентти артыкчылык кылышы</li></ul>"
+  - "Биз бул маселени чечебиз."
+  - "Steppe West <strong>маданий котормочу жана жарыялоочу</strong> катары иштеп, сиздин контентиңизди жөн гана көрсөтпөстөн, чыныгы байланыш түзүүгө жардам берет."
+  - "[PR] <strong>Сизге англис тилиндеги автор болуунун кереги жок. Бул бөлүгүн биз сиз менен бирге жасайбыз.</strong>"
+-
+  - heading: "Эмнени бөлүшсө болот"
+  - "Биз төмөнкүлөрдү кабыл алабыз:"
+  - "<ul><li>сүрөттөр жана видеолор</li><li>музыка жана аткаруулар</li><li>окуялар жана жергиликтүү билим</li><li>маданий түшүнүктөр</li><li>күнүмдүк жашоо</li></ul>"
+  - "Эгер бул адамдарга сиздин дүйнөңүздү түшүнүүгө жардам берсе — бул жерде анын орду бар."
+-
+  - heading: "Команда"
+  - "Steppe West — Австралия менен Борбор Азияда иштеген чакан, бирок өсүп жаткан команда."
+  - "Мен менен бирге Кыргызстандык таланттуу жаш айым иштейт, ал аймактагы авторлор, коомчулуктар жана өнөктөштөр менен түздөн-түз байланышта болот."
+  - "Көпчүлүк учурда ал сиздин биринчи байланыш адамыңыз болот."
+-
+  - heading: "Чоң максат"
+  - "Steppe West — бул жөн гана контент платформасы эмес."
+  - "Биз төмөнкүлөрдү түзүп жатабыз:"
+  - "<ul><li>Борбор Азия үчүн глобалдык аудитория</li><li>маданий иш-чаралар жана фестивалдардын календары</li><li>артисттер жана бизнес үчүн эл аралык мүмкүнчүлүктөр</li></ul>"
+  - "Ошондой эле, мен аймакта <strong>кыздардын билим алуусун технология аркылуу колдоо</strong> багытын өнүктүрүп жатам."
+-
+  - heading: "Келгиле, бирге иштейли"
+  - "Эгер сиз:"
+  - "<ul><li>контент менен бөлүшкүңүз келсе</li><li>англис тилинде жарыялангыңыз келсе</li><li>кеңири аудиторияга чыккыңыз келсе</li><li>кызматташуу мүмкүнчүлүктөрүн талкуулагыңыз келсе</li></ul>"
+  - "[PR] <strong>Биз менен байланышыңыз.</strong>"
+  - "Азыр ылайыктуу убакыт болбосо да, Steppe West тууралуу башкаларга айтып берсеңиз, ыраазы болом."
+  - "<strong>Келгиле, сиздин окуяларыңызды дүйнөгө бирге таанытайлы.</strong>"
+  - "Урматтоо менен,<br><strong>Педро</strong>"
+YAML,
+		'tg' => <<<'YAML'
+---
+-
+  - heading: "Даъвати Педро"
+  - lead: "Дӯстони азиз дар Осиёи Марказӣ,"
+  - "Номи ман Педро аст ва ман куратори <strong>Steppe West</strong> — платформаи англисзабоне ҳастам, ки Осиёи Марказиро ба ҷаҳон муаррифӣ мекунад."
+  - "Бигзор инро содда гӯям:"
+  - "[PR] <strong>Бигзор Steppe West намояндаи шумо дар шабакаҳои иҷтимоӣ барои ҷаҳони англисзабон бошад.</strong>"
+  - "[PR] <strong>Оё шумо мундариҷае доред, ки мехоҳед мубодила кунед? Бо мо тамос гиред — мо ба шумо кӯмак мекунем онро ба аудиторияи ҷаҳонии англисзабон расонед.</strong>"
+  - "Мо мундариҷаи шуморо мегирем ва онро ба аудиторияи ҷаҳонӣ тавре пешниҳод мекунем, ки фаҳмо, ҷолиб ва содиқ ба овози шумо бошад."
+  - "Шумо ҳамчун эҷодкор боқӣ мемонед.<br>Мо ба шумо барои баромадан ба ҷаҳон кӯмак мекунем."
+-
+  - heading: "Ин дар амал чӣ маъно дорад"
+  - "Steppe West мундариҷаро аз Осиёи Марказӣ барои аудиторияи англисзабон нашр ва пешбарӣ мекунад."
+  - "Мо бо шумо кор мекунем, то:"
+  - "<ul><li>мундариҷаи шуморо ба забони англисӣ пешниҳод кунем</li><li>дар ҷойҳои лозимӣ тавзеҳ илова кунем</li><li>онро дар платформаҳои гуногун паҳн кунем</li><li>ҳамеша муаллифиятро нишон дода, ба шумо пайванд диҳем</li></ul>"
+  - "Ин дар бораи «гирифтани мундариҷа» нест.<br>Ин дар бораи <strong>муаррифии дурусти шумо ба аудиторияи нав</strong> аст."
+-
+  - heading: "Мо бо кӣ ҳамкорӣ мекунем"
+  - "Мо омодаем бо инҳо ҳамкорӣ кунем:"
+  - "<ul><li>роҳбаладон ва ширкатҳои сайёҳӣ</li><li>мусиқинавозон, ҳунармандон ва иҷрокунандагон</li><li>тиҷорати хурде, ки ба бозорҳои ғарбӣ ворид мешаванд</li><li>эҷодкорони мундариҷа дар бораи фарҳанг ва ҳаёти рӯзмарра</li><li>ташкилкунандагони чорабиниҳо ва фестивалҳо</li></ul>"
+  - "Агар шумо чизе доред, ки нишон диҳед — мо кӯмак мекунем онро ба ҷаҳон нишон диҳед."
+-
+  - heading: "Чаро бо Steppe West кор кардан лозим аст"
+  - "Баромадан ба аудиторияи англисзабон осон нест."
+  - "<ul><li>монеаи забон</li><li>набудани контекст</li><li>алгоритмҳое, ки мундариҷаи англисиро афзал медонанд</li></ul>"
+  - "Мо ин мушкилотро ҳал мекунем."
+  - "Steppe West ҳамчун <strong>тарҷумони фарҳангӣ ва ношир</strong> амал мекунад ва ба мундариҷаи шумо кӯмак мекунад на танҳо намоён шавад, балки воқеан таъсир гузорад."
+  - "[PR] <strong>Ба шумо лозим нест, ки худатон эҷодкори англисзабон шавед. Мо ин қисмро бо шумо якҷо анҷом медиҳем.</strong>"
+-
+  - heading: "Чӣ гуна мундариҷа метавон мубодила кард"
+  - "Мо қабул мекунем:"
+  - "<ul><li>аксҳо ва видеоҳо</li><li>мусиқӣ ва баромадҳо</li><li>ҳикояҳо ва донишҳои маҳаллӣ</li><li>маълумоти фарҳангӣ</li><li>ҳаёти ҳаррӯза</li></ul>"
+  - "Агар ин ба одамон барои фаҳмидани ҷаҳони шумо кӯмак кунад — он ҷоаш дар ин ҷо аст."
+-
+  - heading: "Дастаи мо"
+  - "Steppe West як дастаи хурд, вале рӯ ба рушд аст, ки байни Австралия ва Осиёи Марказӣ фаъолият мекунад."
+  - "Ҳамроҳи ман як ҷавонзани боистеъдод аз Қирғизистон кор мекунад, ки мустақиман бо эҷодкорон, ҷомеаҳо ва шарикон дар минтақа ҳамкорӣ мекунад."
+  - "Дар бисёр ҳолатҳо, маҳз ӯ нуқтаи аввалини тамоси шумо хоҳад буд."
+-
+  - heading: "Ҳадафи бузургтар"
+  - "Steppe West танҳо як платформаи мундариҷа нест."
+  - "Мо месозем:"
+  - "<ul><li>аудиторияи ҷаҳонӣ барои Осиёи Марказӣ</li><li>тақвими фарҳангии чорабиниҳо ва фестивалҳо</li><li>имкониятҳо барои ҳунармандон ва тиҷорат барои баромадан ба бозори     байналмилалӣ</li></ul>"
+  - "Ҳамзамон, ман ба рушди самти <strong>дастгирии таҳсилоти духтарон тавассути дастрасӣ ба технология</strong> машғулам."
+-
+  - heading: "Биёед ҳамкорӣ кунем"
+  - "Агар шумо мехоҳед:"
+  - "<ul><li>мундариҷа мубодила кунед</li><li>ба забони англисӣ нашр шавед</li><li>ба аудиторияи васеътар бароед</li><li>имкониятҳои ҳамкориро баррасӣ кунед</li></ul>"
+  - "[PR] <strong>Бо мо тамос гиред.</strong>"
+  - "Ҳатто агар ҳоло вақти муносиб набошад, миннатдор мешавам, агар дар бораи Steppe West ба дигарон нақл кунед."
+  - "<strong>Биёед ҳикояҳои шуморо якҷо ба ҷаҳон муаррифӣ кунем.</strong>"
+  - "Бо эҳтиром,<br><strong>Педро</strong>"
+YAML,
+		'tk' => <<<'YAML'
+---
+-
+  - heading: "Pedrodan çakylyk"
+  - lead: "Merkezi Aziýadaky gadyrly dostlar,"
+  - "Meniň adym Pedro, men <strong>Steppe West</strong> — Merkezi Aziýany dünýä tanadýan iňlis dilindäki platformanyň kuratory."
+  - "Gysgaça aýdanymda:"
+  - "[PR] <strong>Steppe West-i iňlis dilli dünýä üçin siziň sosial media agentiňiz bolsun.</strong>"
+  - "[PR] <strong>Paýlaşmak isleýän mazmunyňyz barmy? Biziň bilen habarlaşyň — ony dünýäniň iňlis dilli diňleýjilerine ýetirmäge kömek ederis.</strong>"
+  - "Biz siziň mazmunyňyzy alyp, ony düşnükli, täsirli we siziň sesiňizi saklap, dünýä diňleýjilerine ýetirýäris."
+  - "Siz dörediji bolup galýarsyňyz.<br>Biz size dünýä çykmaga kömek edýäris."
+-
+  - heading: "Bu näme aňladýar"
+  - "Steppe West Merkezi Aziýadan bolan mazmuny iňlis dilli diňleýjiler üçin çap edýär we paýlaşýar."
+  - "Biz siziň bilen bilelikde:"
+  - "<ul><li>mazmunyňyzy iňlis dilinde hödürleýäris</li><li>zerur ýerlerde düşündiriş goşýarys</li><li>ony dürli platformalarda paýlaşýarys</li><li>hemişe awtorlygy görkezýäris we size salgylanma berýäris</li></ul>"
+  - "Bu «mazmuny almak» barada däl.<br>Bu — <strong>sizi täze diňleýjilere dogry tanatmak</strong> barada."
+-
+  - heading: "Kimler bilen işleýäris"
+  - "Biz aşakdakylar bilen hyzmatdaşlyk edýäris:"
+  - "<ul><li>syýahatçylyk gollanmalary we kompaniýalary</li><li>sazandalar, ýerine ýetirijiler we sungat işgärleri</li><li>Günbatar bazarlaryna çykmak isleýän kiçi biznes</li><li>medeniýet we gündelik durmuş barada mazmun döredijiler</li><li>çäre we festiwal guramaçylary</li></ul>"
+  - "Görkezmek isleýän zadyňyz bar bolsa — biz ony dünýä görkezmäge kömek ederis."
+-
+  - heading: "Näme üçin Steppe West bilen işlemeli"
+  - "Iňlis dilli diňleýjilere çykmak aňsat däl."
+  - "<ul><li>dil päsgelçiligi</li><li>kontekstiň ýetmezçiligi</li><li>iňlis dilindäki mazmuny öňe çykarýan algoritmler</li></ul>"
+  - "Biz bu meseläni çözýäris."
+  - "Steppe West <strong>medeni terjimeçi we neşirýatçy</strong> hökmünde hereket edýär, siziň mazmunyňyzy diňe görkezmän, hakykatdan hem täsir ýetirmegine kömek edýär."
+  - "[PR] <strong>Siz iňlis dilinde dörediji bolmaly dälsiňiz. Bu bölegi biz siziň bilen bilelikde ýerine ýetirýäris.</strong>"
+-
+  - heading: "Näme paýlaşyp bolýar"
+  - "Biz aşakdakylary kabul edýäris:"
+  - "<ul><li>suratlar we wideolar</li><li>saz we çykyşlar</li><li>hekaýalar we ýerli bilim</li><li>medeni maglumatlar</li><li>gündelik durmuş</li></ul>"
+  - "Eger bu adamlara siziň dünýäňizi düşünmäge kömek edýän bolsa — onuň ýeri şu ýerde."
+-
+  - heading: "Topar"
+  - "Steppe West Awstraliýa bilen Merkezi Aziýanyň arasynda işleýän kiçi, ýöne ösýän topar."
+  - "Men bilen bilelikde Gyrgyzystandan bolan zehinli ýaş zenan işleýär, ol döredijiler, jemgyýetler we hyzmatdaşlar bilen göni aragatnaşyk edýär."
+  - "Köp ýagdaýda ol siziň ilkinji aragatnaşyk nokadyňyz bolar."
+-
+  - heading: "Uly maksat"
+  - "Steppe West diňe mazmun platformasy däl."
+  - "Biz gurýarys:"
+  - "<ul><li>Merkezi Aziýa üçin global diňleýji</li><li>medeni çäreleriň we festiwallaryň kalendary</li><li>sungat işgärleri we biznes üçin halkara mümkinçilikler</li></ul>"
+  - "Şeýle hem, men sebitde <strong>gyzlaryň bilimini tehnologiýa arkaly goldamak</strong> ugrunda işleýärin."
+-
+  - heading: "Bilelikde işleşeliň"
+  - "Eger siz:"
+  - "<ul><li>mazmun paýlaşmak isleýän bolsaňyz</li><li>iňlis dilinde çap edilmek isleýän bolsaňyz</li><li>giň diňleýjilere çykmak isleýän bolsaňyz</li><li>hyzmatdaşlyk mümkinçiliklerini ara alyp maslahatlaşmak isleýän bolsaňyz</li></ul>"
+  - "[PR] <strong>Biziň bilen habarlaşyň.</strong>"
+  - "Häzir amatly wagt bolmasa-da, Steppe West barada başgalara aýtsaňyz minnetdar bolaryn."
+  - "<strong>Geliň, siziň hekaýalaryňyzy dünýä bilelikde tanadalyň.</strong>"
+  - "Hormat bilen,<br><strong>Pedro</strong>"
+YAML,
+		'uz' => <<<'YAML'
+---
+-
+  - heading: "Pedrodan taklifnoma"
+  - lead: "O‘rta Osiyodagi aziz do‘stlar,"
+  - "Mening ismim Pedro, men <strong>Steppe West</strong> — Markaziy Osiyoni dunyoga tanishtiradigan ingliz tilidagi platformaning kuratoriman."
+  - "Qisqacha aytsam:"
+  - "[PR] <strong>Steppe West sizning ingliz tilidagi dunyoga mo’ljallangan ijtimoiy tarmoq agentingiz bo’lsin.</strong>"
+  - "[PR] <strong>Ulashmoqchi bo’lgan kontentingiz bormi? Biz bilan bog’laning — uni global ingliz tilidagi auditoriyaga yetkazishga yordam beramiz.</strong>"
+  - "Biz sizning kontentingizni olib, uni tushunarli, qiziqarli va sizning ovozingizni saqlagan holda global auditoriyaga taqdim etamiz."
+  - "Siz ijodkor bo’lib qolasiz.<br>Biz sizga dunyoga chiqishda yordam beramiz."
+-
+  - heading: "Bu amalda nimani anglatadi"
+  - "Steppe West Markaziy Osiyodan olingan kontentni ingliz tilidagi auditoriya uchun nashr etadi va targ’ib qiladi."
+  - "Biz siz bilan birga:"
+  - "<ul><li>kontentingizni ingliz tilida taqdim etamiz</li><li>kerakli joylarda izoh qo’shamiz</li><li>uni turli platformalarda tarqatamiz</li><li>har doim mualliflikni ko’rsatamiz va sizga havola beramiz</li></ul>"
+  - "Bu “kontentni olish” haqida emas.<br>Bu — <strong>sizni yangi auditoriyaga to’g’ri taqdim etish</strong> haqida."
+-
+  - heading: "Biz kimlar bilan ishlaymiz"
+  - "Biz quyidagilar bilan hamkorlik qilamiz:"
+  - "<ul><li>turistik gidlar va kompaniyalar</li><li>musiqachilar, ijrochilar va san’atkorlar</li><li>G’arb bozorlariga chiqmoqchi bo’lgan kichik biznes</li><li>madaniyat va kundalik hayot haqida kontent yaratuvchilar</li><li>tadbir va festival tashkilotchilari</li></ul>"
+  - "Agar sizda ko’rsatadigan narsa bo’lsa — biz uni dunyoga ko’rsatishga yordam beramiz."
+-
+  - heading: "Nima uchun Steppe West bilan ishlash kerak"
+  - "Ingliz tilidagi auditoriyaga chiqish oson emas."
+  - "<ul><li>til to’sig’i</li><li>kontekst yetishmasligi</li><li>ingliz tilidagi kontentni ustun qo’yadigan algoritmlar</li></ul>"
+  - "Biz bu muammoni hal qilamiz."
+  - "Steppe West <strong>madaniy tarjimon va nashriyotchi</strong> sifatida ishlaydi, sizning kontentingizni nafaqat ko’rsatadi, balki haqiqiy aloqa o’rnatishga yordam beradi."
+  - "[PR] <strong>Sizga ingliz tilida ijodkor bo’lish shart emas. Bu qismini biz siz bilan birga qilamiz.</strong>"
+-
+  - heading: "Nimalarni ulashish mumkin"
+  - "Biz quyidagilarni qabul qilamiz:"
+  - "<ul><li>fotosuratlar va videolar</li><li>musiqa va chiqishlar</li><li>hikoyalar va mahalliy bilimlar</li><li>madaniy tushunchalar</li><li>kundalik hayot</li></ul>"
+  - "Agar bu odamlar sizning dunyongizni tushunishga yordam bersa — bu yerda uning o’rni bor."
+-
+  - heading: "Jamoa"
+  - "Steppe West Avstraliya va Markaziy Osiyo o’rtasida ishlaydigan kichik, ammo o’sib borayotgan jamoa."
+  - "Men bilan birga Qirg’izistondan bo’lgan iste’dodli yosh ayol ishlaydi, u hududdagi ijodkorlar, hamjamiyatlar va hamkorlar bilan bevosita ishlaydi."
+  - "Ko’p hollarda u sizning birinchi aloqa nuqtangiz bo’ladi."
+-
+  - heading: "Katta maqsad"
+  - "Steppe West faqat kontent platformasi emas."
+  - "Biz quyidagilarni yaratmoqdamiz:"
+  - "<ul><li>Markaziy Osiyo uchun global auditoriya</li><li>madaniy tadbirlar va festivallar taqvimi</li><li>san’atkorlar va biznes uchun xalqaro imkoniyatlar</li></ul>"
+  - "Shu bilan birga, men hududda <strong>qizlar ta’limini texnologiya orqali qo’llab-quvvatlash</strong> yo’nalishini rivojlantiryapman."
+-
+  - heading: "Keling, hamkorlik qilaylik"
+  - "Agar siz:"
+  - "<ul><li>kontent ulashmoqchi bo’lsangiz</li><li>ingliz tilida nashr qilinmoqchi bo’lsangiz</li><li>kengroq auditoriyaga chiqmoqchi bo’lsangiz</li><li>hamkorlik imkoniyatlarini muhokama qilmoqchi bo’lsangiz</li></ul>"
+  - "[PR] <strong>Biz bilan bog’laning.</strong>"
+  - "Hozir mos vaqt bo’lmasa ham, Steppe West haqida boshqalarga aytsangiz minnatdor bo’laman."
+  - "<strong>Keling, sizning hikoyalaringizni dunyoga birga tanishtiraylik.</strong>"
+  - "Hurmat bilan,<br><strong>Pedro</strong>"
+YAML,
+		'az' => <<<'YAML'
+---
+-
+  - heading: "Pedrodан dəvət"
+  - lead: "Mərkəzi Asiyadakı əziz dostlar,"
+  - "Mənim adım Pedrodur və mən <strong>Steppe West</strong> — Mərkəzi Asiyanı dünyaya tanıdan ingilisdilli platformanın kuratoruyam."
+  - "Qısa desəm:"
+  - "[PR] <strong>Steppe West sizin ingilisdilli dünya üçün sosial media agentiniz olsun.</strong>"
+  - "[PR] <strong>Paylaşmaq istədiyiniz kontent varmı? Bizimlə əlaqə saxlayın — onu qlobal ingilisdilli auditoriyaya çatdırmağa kömək edəcəyik.</strong>"
+  - "Biz sizin kontentinizi götürür və onu aydın, maraqlı və sizin səsinizi qoruyaraq qlobal auditoriyaya təqdim edirik."
+  - "Siz yaradıcı olaraq qalacaqsınız.<br>Biz sizə dünyaya çıxmağa kömək edirik."
+-
+  - heading: "Bu praktik olaraq nə deməkdir"
+  - "Steppe West Mərkəzi Asiyadan olan kontenti ingilisdilli auditoriya üçün dərc edir və yayır."
+  - "Biz sizinlə birlikdə:"
+  - "<ul><li>kontentinizi ingilis dilində təqdim edirik</li><li>lazım olan yerlərdə izah əlavə edirik</li><li>onu müxtəlif platformalarda yayırıq</li><li>həmişə müəllifliyi göstərir və sizə keçid veririk</li></ul>"
+  - "Bu “kontenti götürmək” haqqında deyil.<br>Bu — <strong>sizi yeni auditoriyaya düzgün təqdim etmək</strong> haqqındadır."
+-
+  - heading: "Biz kimlərlə işləyirik"
+  - "Biz aşağıdakılarla əməkdaşlıq edirik:"
+  - "<ul><li>turizm bələdçiləri və şirkətləri</li><li>musiqiçilər, ifaçılar və sənətçilər</li><li>Qərb bazarlarına çıxmaq istəyən kiçik bizneslər</li><li>mədəniyyət və gündəlik həyat haqqında kontent yaradanlar</li><li>tədbir və festival təşkilatçıları</li></ul>"
+  - "Əgər göstərmək istədiyiniz bir şey varsa — biz onu dünyaya göstərməyə kömək edəcəyik."
+-
+  - heading: "Niyə Steppe West ilə işləməlisiniz"
+  - "İngilisdilli auditoriyaya çıxmaq asan deyil."
+  - "<ul><li>dil maneəsi</li><li>kontekst çatışmazlığı</li><li>ingilisdilli kontenti üstün tutan alqoritmlər</li></ul>"
+  - "Biz bu problemi həll edirik."
+  - "Steppe West <strong>mədəni tərcüməçi və nəşriyyatçı</strong> kimi fəaliyyət göstərir, sizin kontentinizi sadəcə göstərmir, həqiqətən əlaqə qurmasına kömək edir."
+  - "[PR] <strong>Sizin ingilisdilli yaradıcı olmağınız lazım deyil. Bu hissəni biz sizinlə birlikdə edirik.</strong>"
+-
+  - heading: "Nələri paylaşa bilərsiniz"
+  - "Biz aşağıdakıları qəbul edirik:"
+  - "<ul><li>şəkillər və videolar</li><li>musiqi və çıxışlar</li><li>hekayələr və yerli biliklər</li><li>mədəni məlumatlar</li><li>gündəlik həyat</li></ul>"
+  - "Əgər bu, insanların sizin dünyanızı anlamasına kömək edirsə — onun yeri buradadır."
+-
+  - heading: "Komanda"
+  - "Steppe West Avstraliya və Mərkəzi Asiya arasında fəaliyyət göstərən kiçik, lakin böyüyən komandadır."
+  - "Mənimlə birlikdə Qırğızıstandan olan istedadlı gənc bir qadın çalışır və o, regiondakı yaradıcılar, icmalar və tərəfdaşlarla birbaşa işləyir."
+  - "Çox hallarda o, sizin ilk əlaqə nöqtəniz olacaq."
+-
+  - heading: "Böyük məqsəd"
+  - "Steppe West sadəcə kontent platforması deyil."
+  - "Biz qururuq:"
+  - "<ul><li>Mərkəzi Asiya üçün qlobal auditoriya</li><li>mədəni tədbirlər və festivallar təqvimi</li><li>sənətçilər və biznes üçün beynəlxalq imkanlar</li></ul>"
+  - "Eyni zamanda, mən regionda <strong>qızların təhsilini texnologiya vasitəsilə dəstəkləmək</strong> istiqamətini inkişaf etdirirəm."
+-
+  - heading: "Gəlin birlikdə işləyək"
+  - "Əgər siz:"
+  - "<ul><li>kontent paylaşmaq istəyirsinizsə</li><li>ingilis dilində dərc olunmaq istəyirsinizsə</li><li>daha geniş auditoriyaya çıxmaq istəyirsinizsə</li><li>əməkdaşlıq imkanlarını müzakirə etmək istəyirsinizsə</li></ul>"
+  - "[PR] <strong>Bizimlə əlaqə saxlayın.</strong>"
+  - "İndi uyğun vaxt olmasa belə, Steppe West haqqında başqalarına danışsanız minnətdar olaram."
+  - "<strong>Gəlin hekayələrinizi dünyaya birlikdə tanıdaq.</strong>"
+  - "Hörmətlə,<br><strong>Pedro</strong>"
+YAML,
+		'mn' => <<<'YAML'
+---
+-
+  - heading: "Педрогийн урилга"
+  - lead: "Төв Азийн анд нөхдөдөө,"
+  - "Миний нэр Педро. Би <strong>Steppe West</strong> — Төв Азийг дэлхийд танилцуулдаг англи хэл дээрх платформын куратор."
+  - "Товчоор хэлбэл:"
+  - "[PR] <strong>Steppe West-ийг англи хэлтэй дэлхийд зориулсан таны сошиал медиа агент болгоорой.</strong>"
+  - "[PR] <strong>Та хуваалцахыг хүссэн контент байна уу? Бидэнтэй холбогдоорой — бид үүнийг дэлхийн англи хэлтэй аудиторт хүргэхэд тусална.</strong>"
+  - "Бид таны контентыг авч, ойлгомжтой, сонирхолтой, таны дуу хоолойг хадгалсан хэлбэрээр дэлхийн аудиторт хүргэнэ."
+  - "Та бүтээгч хэвээр үлдэнэ.<br>Бид танд дэлхийд хүрэхэд тусална."
+-
+  - heading: "Энэ нь бодит байдал дээр юу гэсэн үг вэ"
+  - "Steppe West Төв Азиас гаралтай контентыг англи хэлтэй аудиторт зориулан нийтэлж, түгээдэг."
+  - "Бид тантай хамтран:"
+  - "<ul><li>таны контентыг англи хэлээр хүргэнэ</li><li>шаардлагатай үед тайлбар нэмнэ</li><li>олон платформ дээр түгээнэ</li><li>үргэлж зохиогчийг дурдан, танд холбоос өгнө</li></ul>"
+  - "Энэ нь “контентыг авах” тухай биш.<br>Энэ нь — <strong>таныг шинэ аудиторт зөвөөр танилцуулах</strong> тухай юм."
+-
+  - heading: "Бид хэнтэй хамтран ажилладаг вэ"
+  - "Бид дараах хүмүүстэй хамтран ажиллахад нээлттэй:"
+  - "<ul><li>аялал жуулчлалын хөтөч, компаниуд</li><li>хөгжимчид, уран бүтээлчид, гүйцэтгэгчид</li><li>Барууны зах зээлд гарахыг зорьж буй жижиг бизнесүүд</li><li>соёл болон өдөр тутмын амьдралыг харуулдаг контент бүтээгчид</li><li>арга хэмжээ, фестивалийн зохион байгуулагчид</li></ul>"
+  - "Хэрэв танд харуулах зүйл байвал — бид үүнийг дэлхийд харуулахад тусална."
+-
+  - heading: "Яагаад Steppe West-тэй хамтрах ёстой вэ"
+  - "Англи хэлтэй аудиторт хүрэх нь амар биш."
+  - "<ul><li>хэлний саад</li><li>контекстийн дутагдал</li><li>англи контентыг дэмждэг алгоритмууд</li></ul>"
+  - "Бид энэ асуудлыг шийддэг."
+  - "Steppe West нь <strong>соёлын орчуулагч, нийтлэгч</strong> болж, таны контентыг зүгээр нэг харуулах бус, жинхэнэ холболт үүсгэхэд тусалдаг."
+  - "[PR] <strong>Та заавал англи хэл дээр контент бүтээгч болох шаардлагагүй. Энэ хэсгийг бид тантай хамт хийнэ.</strong>"
+-
+  - heading: "Юуг хуваалцаж болох вэ"
+  - "Бид дараахыг хүлээн авна:"
+  - "<ul><li>зураг, видео</li><li>хөгжим, тоглолт</li><li>түүх, орон нутгийн мэдлэг</li><li>соёлын ойлголтууд</li><li>өдөр тутмын амьдрал</li></ul>"
+  - "Хэрэв энэ нь хүмүүст таны ертөнцийг ойлгоход тусалдаг бол — энд байх ёстой."
+-
+  - heading: "Баг"
+  - "Steppe West нь Австрали болон Төв Азид ажилладаг жижиг боловч өсөн нэмэгдэж буй баг юм."
+  - "Надтай хамт Киргизээс гаралтай авьяаслаг залуу эмэгтэй ажилладаг бөгөөд тэр бүс нутгийн бүтээгчид, нийгэмлэгүүд, түншүүдтэй шууд хамтран ажилладаг."
+  - "Ихэнх тохиолдолд тэр таны анхны холбоо барих хүн байх болно."
+-
+  - heading: "Том зорилго"
+  - "Steppe West нь зөвхөн контент платформ биш."
+  - "Бид дараахыг бий болгож байна:"
+  - "<ul><li>Төв Азид зориулсан дэлхийн аудит</li><li>соёлын арга хэмжээ, фестивалийн календарь</li><li>уран бүтээлчид, бизнесүүдэд зориулсан олон улсын боломжууд</li></ul>"
+  - "Мөн үүний зэрэгцээ би бүс нутагт <strong>охидын боловсролыг технологийн тусламжтайгаар дэмжих</strong> чиглэлийг хөгжүүлж байна."
+-
+  - heading: "Хамтдаа ажиллая"
+  - "Хэрэв та:"
+  - "<ul><li>контент хуваалцахыг хүсвэл</li><li>англи хэл дээр нийтлүүлэхийг хүсвэл</li><li>илүү өргөн аудиторт хүрэхийг хүсвэл</li><li>хамтын ажиллагааны боломжуудыг хэлэлцэхийг хүсвэл</li></ul>"
+  - "[PR] <strong>Бидэнтэй холбогдоорой.</strong>"
+  - "Одоо тохиромжтой цаг биш байсан ч Steppe West-ийг бусдад танилцуулбал баярлана."
+  - "<strong>Таны түүхийг дэлхийд хамтдаа хүргэе.</strong>"
+  - "Хүндэтгэсэн,<br><strong>Педро</strong>"
+YAML,
+		'tr' => <<<'YAML'
+---
+-
+  - heading: "Pedro’dan Bir Davet"
+  - lead: "Orta Asya’daki Sevgili Dostlarım,"
+  - "Benim adım Pedro. <strong>Steppe West</strong> — Orta Asya’yı dünyaya tanıtan İngilizce bir platformun küratörüyüm."
+  - "Kısaca söylemek gerekirse:"
+  - "[PR] <strong>Steppe West, İngilizce konuşulan dünyaya açılan sosyal medya ajansınız olsun.</strong>"
+  - "[PR] <strong>Paylaşmak istediğiniz içerik var mı? Bizimle iletişime geçin — onu küresel İngilizce konuşan bir kitleye ulaştırmanıza yardımcı olalım.</strong>"
+  - "İçeriğinizi alır, anlaşılır, etkileyici ve sizin sesinizi koruyan bir biçimde küresel bir kitleye sunarız."
+  - "Siz içerik üreticisi olarak kalırsınız.<br>Biz, dünyaya ulaşmanıza yardımcı oluruz."
+-
+  - heading: "Bu pratikte ne anlama geliyor"
+  - "Steppe West, Orta Asya’dan gelen içerikleri İngilizce konuşan kitleler için yayınlar ve tanıtır."
+  - "Sizinle birlikte:"
+  - "<ul><li>içeriğinizi İngilizce sunarız</li><li>gerekli yerlerde bağlam ve açıklama ekleriz</li><li>farklı platformlarda paylaşırız</li><li>her zaman sizi kaynak olarak gösterir ve size bağlantı veririz</li></ul>"
+  - "Bu, “içerik almak” ile ilgili değil.<br>Bu — <strong>sizi yeni bir kitleye doğru şekilde temsil etmek</strong> ile ilgili."
+-
+  - heading: "Kimlerle çalışıyoruz"
+  - "Şu kişilerle iş birliği yapıyoruz:"
+  - "<ul><li>tur rehberleri ve turizm işletmeleri</li><li>müzisyenler, sanatçılar ve performans sanatçıları</li><li>Batı pazarlarına açılmak isteyen küçük işletmeler</li><li>kültür ve günlük yaşam hakkında içerik üretenler</li><li>etkinlik ve festival organizatörleri</li></ul>"
+  - "Eğer göstermek istediğiniz bir şey varsa — bunu dünyaya göstermeye yardımcı olabiliriz."
+-
+  - heading: "Neden Steppe West ile çalışmalısınız"
+  - "İngilizce konuşan bir kitleye ulaşmak kolay değildir."
+  - "<ul><li>dil engeli</li><li>bağlam eksikliği</li><li>İngilizce içerikleri öne çıkaran algoritmalar</li></ul>"
+  - "Biz bu sorunu çözüyoruz."
+  - "Steppe West, <strong>kültürel bir çevirmen ve yayıncı</strong> olarak hareket eder; içeriğinizin sadece görünmesini değil, gerçekten bağlantı kurmasını sağlar."
+  - "[PR] <strong>İngilizce içerik üreticisi olmanız gerekmez. Bu kısmı sizinle birlikte biz üstleniriz.</strong>"
+-
+  - heading: "Neler paylaşabilirsiniz"
+  - "Şunları memnuniyetle karşılıyoruz:"
+  - "<ul><li>fotoğraflar ve videolar</li><li>müzik ve performanslar</li><li>hikâyeler ve yerel bilgiler</li><li>kültürel içgörüler</li><li>günlük yaşam</li></ul>"
+  - "Eğer bu, insanların dünyanızı anlamasına yardımcı oluyorsa — burada yeri vardır."
+-
+  - heading: "Ekip"
+  - "Steppe West, Avustralya ve Orta Asya arasında çalışan küçük ama büyüyen bir ekiptir."
+  - "Benimle birlikte Kırgızistan’dan yetenekli genç bir kadın çalışıyor; bölgedeki içerik üreticiler, topluluklar ve iş ortaklarıyla doğrudan iletişim kuruyor."
+  - "Çoğu durumda, ilk temas noktanız o olacaktır."
+-
+  - heading: "Daha büyük bir vizyon"
+  - "Steppe West sadece bir içerik platformu değildir."
+  - "Biz:"
+  - "<ul><li>Orta Asya için küresel bir kitle</li><li>kültürel etkinlikler ve festivaller için bir takvim</li><li>sanatçılar ve işletmeler için uluslararası fırsatlar</li></ul>"
+  - "Bununla birlikte, bölgede <strong>kızların eğitimini teknoloji aracılığıyla destekleme</strong> çalışmalarını da geliştiriyorum."
+-
+  - heading: "Birlikte çalışalım"
+  - "Eğer siz:"
+  - "<ul><li>içerik paylaşmak istiyorsanız</li><li>İngilizce yayınlanmak istiyorsanız</li><li>daha geniş bir kitleye ulaşmak istiyorsanız</li><li>iş birliği fırsatlarını keşfetmek istiyorsanız</li></ul>"
+  - "[PR] <strong>Bizimle iletişime geçin.</strong>"
+  - "Şu anda doğru zaman olmasa bile, Steppe West’i başkalarıyla paylaşırsanız memnun olurum."
+  - "<strong>Hikâyelerinizi birlikte dünyaya taşıyalım.</strong>"
+  - "Sevgiler,<br><strong>Pedro</strong>"
+YAML,
+	],
+];

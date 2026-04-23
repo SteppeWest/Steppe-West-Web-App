@@ -23,7 +23,10 @@
 
 namespace frontend\modules\assets;
 
-class LetterAsset extends \yii\web\AssetBundle
+use yii\web\AssetBundle;
+use p2m\assets\P2CoreAsset;
+
+class LetterAsset extends AssetBundle
 {
 	public $sourcePath = '@static/sw-letter';
 
@@ -32,6 +35,6 @@ class LetterAsset extends \yii\web\AssetBundle
 	];
 
 	public $depends = [
-		'p2m\assets\P2CoreAsset',
+		P2CoreAsset::class,
 	];
 }

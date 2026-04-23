@@ -1,0 +1,264 @@
+/* -----------------------------------------------------------------
+   Core banner base
+   ----------------------------------------------------------------- */
+
+.sw-banner {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	box-sizing: content-box;
+}
+
+/* <i> behaves like icon container */
+i.sw-banner {
+	font-style: normal;
+	line-height: 1;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+
+/* <img> behaves normally */
+img.sw-banner {
+	height: auto;
+	max-width: 100%;
+}
+
+/* -----------------------------------------------------------------
+   Background utilities
+   ----------------------------------------------------------------- */
+
+.sw-banner-bg-white,
+.sw-banner-bg-light,
+.sw-banner-bg-dark {
+	padding: 0.25em;
+	border-radius: 0.25em;
+}
+
+.sw-banner-bg-white {
+	background-color: #fff;
+}
+
+.sw-banner-bg-light {
+	background-color: #f8f9fa;
+}
+
+.sw-banner-bg-dark {
+	background-color: #1a1a1a;
+}
+
+/* -----------------------------------------------------------------
+   Size system (SVG-first scaling)
+   ----------------------------------------------------------------- */
+
+.sw-size-1 { --sw-banner-w: 3000px; }
+.sw-size-2 { --sw-banner-w: 2500px; }
+.sw-size-3 { --sw-banner-w: 2000px; }
+.sw-size-4 { --sw-banner-w: 1250px; }
+.sw-size-5 { --sw-banner-w: 600px; }
+.sw-size-6 { --sw-banner-w: 160px; }
+
+/* -----------------------------------------------------------------
+   SVG usage (<i>)
+   - fills container width
+   ----------------------------------------------------------------- */
+
+.sw-banner-svg {
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--sw-banner-ratio);
+}
+
+/* -----------------------------------------------------------------
+   PNG usage (<i>)
+   - native size but responsive down
+   ----------------------------------------------------------------- */
+
+.sw-banner-png {
+	width: min(var(--sw-banner-w), 100%);
+	aspect-ratio: var(--sw-banner-ratio);
+}
+
+/* -----------------------------------------------------------------
+   <img> helpers
+   ----------------------------------------------------------------- */
+
+.sw-banner-img-fill {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.sw-banner-img-native {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+/* -----------------------------------------------------------------
+   Asset definitions (shared across SVG + PNG)
+   ----------------------------------------------------------------- */
+
+/* Banner */
+
+.sw-banner-banner-1 {
+	--sw-banner-ratio: 25 / 4;
+}
+
+.sw-banner-banner-2 {
+	--sw-banner-ratio: 25 / 8;
+}
+
+/* Eagle square */
+
+.sw-banner-eagle-square-1,
+.sw-banner-eagle-square-2 {
+	--sw-banner-ratio: 1 / 1;
+}
+
+/* Eagle wide */
+
+.sw-banner-eagle-wide-1,
+.sw-banner-eagle-wide-2 {
+	--sw-banner-ratio: 3 / 2;
+}
+
+/* -----------------------------------------------------------------
+   SVG sources
+   ----------------------------------------------------------------- */
+
+.sw-banner-banner-1.sw-banner-svg {
+	background-image: url('../svg/sw-banner-1-min.svg');
+}
+
+.sw-banner-banner-2.sw-banner-svg {
+	background-image: url('../svg/sw-banner-2-min.svg');
+}
+
+.sw-banner-eagle-square-1.sw-banner-svg {
+	background-image: url('../svg/sw-eagle-square-1-min.svg');
+}
+
+.sw-banner-eagle-square-2.sw-banner-svg {
+	background-image: url('../svg/sw-eagle-square-2-min.svg');
+}
+
+.sw-banner-eagle-wide-1.sw-banner-svg {
+	background-image: url('../svg/sw-eagle-wide-1-min.svg');
+}
+
+.sw-banner-eagle-wide-2.sw-banner-svg {
+	background-image: url('../svg/sw-eagle-wide-2-min.svg');
+}
+
+/* -----------------------------------------------------------------
+   PNG sources (use size classes)
+   ----------------------------------------------------------------- */
+
+/* Banner 1 */
+
+.sw-banner-banner-1.sw-banner-png.sw-size-3 {
+	background-image: url('../png/sw-banner-1-2000.png');
+}
+
+.sw-banner-banner-1.sw-banner-png.sw-size-4 {
+	background-image: url('../png/sw-banner-1-1250.png');
+}
+
+.sw-banner-banner-1.sw-banner-png.sw-size-5 {
+	background-image: url('../png/sw-banner-1-0600.png');
+}
+
+.sw-banner-banner-1.sw-banner-png.sw-size-6 {
+	background-image: url('../png/sw-banner-1-0160.png');
+}
+
+/* Banner 2 */
+
+.sw-banner-banner-2.sw-banner-png.sw-size-3 {
+	background-image: url('../png/sw-banner-2-2000.png');
+}
+
+.sw-banner-banner-2.sw-banner-png.sw-size-4 {
+	background-image: url('../png/sw-banner-2-1250.png');
+}
+
+.sw-banner-banner-2.sw-banner-png.sw-size-5 {
+	background-image: url('../png/sw-banner-2-0600.png');
+}
+
+.sw-banner-banner-2.sw-banner-png.sw-size-6 {
+	background-image: url('../png/sw-banner-2-0160.png');
+}
+
+/* Eagle square 1 */
+
+.sw-banner-eagle-square-1.sw-banner-png.sw-size-3 {
+	background-image: url('../png/sw-eagle-square-1-2000.png');
+}
+
+.sw-banner-eagle-square-1.sw-banner-png.sw-size-4 {
+	background-image: url('../png/sw-eagle-square-1-1250.png');
+}
+
+.sw-banner-eagle-square-1.sw-banner-png.sw-size-5 {
+	background-image: url('../png/sw-eagle-square-1-0600.png');
+}
+
+.sw-banner-eagle-square-1.sw-banner-png.sw-size-6 {
+	background-image: url('../png/sw-eagle-square-1-0160.png');
+}
+
+/* Eagle square 2 */
+
+.sw-banner-eagle-square-2.sw-banner-png.sw-size-3 {
+	background-image: url('../png/sw-eagle-square-2-2000.png');
+}
+
+.sw-banner-eagle-square-2.sw-banner-png.sw-size-4 {
+	background-image: url('../png/sw-eagle-square-2-1250.png');
+}
+
+.sw-banner-eagle-square-2.sw-banner-png.sw-size-5 {
+	background-image: url('../png/sw-eagle-square-2-0600.png');
+}
+
+.sw-banner-eagle-square-2.sw-banner-png.sw-size-6 {
+	background-image: url('../png/sw-eagle-square-2-0160.png');
+}
+
+/* Eagle wide 1 */
+
+.sw-banner-eagle-wide-1.sw-banner-png.sw-size-3 {
+	background-image: url('../png/sw-eagle-wide-1-2000.png');
+}
+
+.sw-banner-eagle-wide-1.sw-banner-png.sw-size-4 {
+	background-image: url('../png/sw-eagle-wide-1-1250.png');
+}
+
+.sw-banner-eagle-wide-1.sw-banner-png.sw-size-5 {
+	background-image: url('../png/sw-eagle-wide-1-0600.png');
+}
+
+.sw-banner-eagle-wide-1.sw-banner-png.sw-size-6 {
+	background-image: url('../png/sw-eagle-wide-1-0160.png');
+}
+
+/* Eagle wide 2 */
+
+.sw-banner-eagle-wide-2.sw-banner-png.sw-size-3 {
+	background-image: url('../png/sw-eagle-wide-2-2000.png');
+}
+
+.sw-banner-eagle-wide-2.sw-banner-png.sw-size-4 {
+	background-image: url('../png/sw-eagle-wide-2-1250.png');
+}
+
+.sw-banner-eagle-wide-2.sw-banner-png.sw-size-5 {
+	background-image: url('../png/sw-eagle-wide-2-0600.png');
+}
+
+.sw-banner-eagle-wide-2.sw-banner-png.sw-size-6 {
+	background-image: url('../png/sw-eagle-wide-2-0160.png');
+}

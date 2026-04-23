@@ -1,0 +1,161 @@
+/* Base */
+.sw-banner {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	vertical-align: middle;
+	flex: 0 0 auto;
+}
+
+/* PNG:
+   - defaults to native size
+   - scales down if container is narrower
+*/
+.sw-banner-png {
+	width: min(var(--sw-banner-w), 100%);
+	aspect-ratio: var(--sw-banner-w) / var(--sw-banner-h);
+}
+
+/* SVG:
+   - fills available space
+   - parent or extra CSS should usually control width
+*/
+.sw-banner-svg {
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--sw-banner-w) / var(--sw-banner-h);
+}
+
+/* Optional: if you want SVG to fill both width and height of a sized box */
+.sw-banner-svg-fill {
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+}
+
+/* -----------------------------------------------------------------
+   PNG banners
+   ----------------------------------------------------------------- */
+
+.sw-banner-1-160 {
+	--sw-banner-w: 160px;
+	--sw-banner-h: 26px;
+	background-image: url('../png/flags-banner-1-0160x0026.png');
+}
+
+.sw-banner-1-600 {
+	--sw-banner-w: 600px;
+	--sw-banner-h: 96px;
+	background-image: url('../png/flags-banner-1-0600x0096.png');
+}
+
+.sw-banner-1-1250 {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 200px;
+	background-image: url('../png/flags-banner-1-1250x0200.png');
+}
+
+.sw-banner-2-160 {
+	--sw-banner-w: 160px;
+	--sw-banner-h: 51px;
+	background-image: url('../png/flags-banner-2-0160x0051.png');
+}
+
+.sw-banner-2-600 {
+	--sw-banner-w: 600px;
+	--sw-banner-h: 192px;
+	background-image: url('../png/flags-banner-2-0600x0192.png');
+}
+
+.sw-banner-2-1250 {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 400px;
+	background-image: url('../png/flags-banner-2-1250x0400.png');
+}
+
+/* -----------------------------------------------------------------
+   SVG banners
+   ----------------------------------------------------------------- */
+
+.sw-banner-1-svg-f {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 400px;
+	background-image: url('../svg/flags-banner-1-2500x0400-f.min.svg');
+}
+
+.sw-banner-1-svg-t {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 400px;
+	background-image: url('../svg/flags-banner-1-2500x0400-t.min.svg');
+}
+
+.sw-banner-2-svg-f {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 800px;
+	background-image: url('../svg/flags-banner-2-2500x0800-f.min.svg');
+}
+
+.sw-banner-2-svg-t {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 800px;
+	background-image: url('../svg/flags-banner-2-2500x0800-t.min.svg');
+}
+
+/* -----------------------------------------------------------------
+   Eagle variants
+   ----------------------------------------------------------------- */
+
+.sw-banner-1-eagle-1-png {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 1000px;
+	background-image: url('../png/flags-banner-1-eagle-1-1250x1000.png');
+}
+
+.sw-banner-1-eagle-2-png {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 750px;
+	background-image: url('../png/flags-banner-1-eagle-2-1250x0750.png');
+}
+
+.sw-banner-2-eagle-1-png {
+	--sw-banner-w: 1250px;
+	--sw-banner-h: 1000px;
+	background-image: url('../png/flags-banner-2-eagle-1-1250x1000.png');
+}
+
+.sw-banner-1-eagle-1-svg-f {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 2000px;
+	background-image: url('../svg/flags-banner-1-eagle-1-2500x2000-f.min.svg');
+}
+
+.sw-banner-1-eagle-1-svg-t {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 2000px;
+	background-image: url('../svg/flags-banner-1-eagle-1-2500x2000-t.min.svg');
+}
+
+.sw-banner-1-eagle-2-svg-f {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 1500px;
+	background-image: url('../svg/flags-banner-1-eagle-2-2500x1500-f.min.svg');
+}
+
+.sw-banner-1-eagle-2-svg-t {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 1500px;
+	background-image: url('../svg/flags-banner-1-eagle-2-2500x1500-t.min.svg');
+}
+
+.sw-banner-2-eagle-1-svg-f {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 2000px;
+	background-image: url('../svg/flags-banner-2-eagle-1-2500x2000-f.min.svg');
+}
+
+.sw-banner-2-eagle-1-svg-t {
+	--sw-banner-w: 2500px;
+	--sw-banner-h: 2000px;
+	background-image: url('../svg/flags-banner-2-eagle-1-2500x2000-t.min.svg');
+}

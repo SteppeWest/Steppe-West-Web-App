@@ -1,6 +1,6 @@
 <?php
 /**
- * SwAssetBundle.php
+ * @common/assets/SwAssetBundle.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -22,18 +22,20 @@
  * @class \common\assets\SwAssetBundle
  *
  * Load this asset with...
+ *
  * common\assets\SwAssetBundle::register($this);
  *
  * use common\assets\SwAssetBundle;
  * SwAssetBundle::register($this);
  *
  * or specify as a dependency with...
- *     'common\assets\SwAssetBundle',
+ *    'common\assets\SwAssetBundle',
  */
 
 namespace common\assets;
 
 use yii\web\AssetBundle;
+use p2m\assets\P2CoreAsset;
 
 class SwAssetBundle extends AssetBundle
 {
@@ -68,7 +70,7 @@ class SwAssetBundle extends AssetBundle
 
 	// @var array
 	public $depends = [
-		'p2m\assets\P2CoreAsset',
+		P2CoreAsset::class,
 	];
 
 	// @var array

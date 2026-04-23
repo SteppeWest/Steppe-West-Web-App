@@ -1,4 +1,12 @@
 <?php
+/**
+ * @frontend/views/partials/main.php
+ *
+ * @author Pedro Plowman
+ * @copyright Copyright (c) 2026 Steppe West
+ * @link https://steppewest.com/
+ * @license MIT
+ */
 
 /** @var \yii\web\View $this */
 /** @var string $content */
@@ -16,11 +24,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-	<meta charset="<?= Yii::$app->charset ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<?php $this->registerCsrfMetaTags() ?>
-	<title><?= Html::encode($this->title) ?></title>
-	<?php $this->head() ?>
+	<?= $this->render('_head.php') ?>
 </head>
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
