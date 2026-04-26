@@ -11,8 +11,7 @@
 return [
 	'sourcePath'     => dirname(__DIR__, 2),       // points at project root-ish; adjust if needed
 	'messagePath'    => __DIR__ . '/messages',
-	'languages'      => ['ru', 'kk', 'ky', 'tg', 'uz'],
-	//'languages'      => ['ru', 'kk', 'ky', 'tg', 'tk', 'uz', 'az', 'mn', 'tr'],
+	'languages'      => ['ru','kk','ky','tg','tk','uz','az','mn','tr'], // message extraction targets, not page availability
 	'sourceLanguage' => 'en',
 	'translator'     => ['\Yii::t', 'Yii::t'],
 	'sort'           => true,

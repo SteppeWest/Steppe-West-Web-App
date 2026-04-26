@@ -1,10 +1,84 @@
 @charset "UTF-8";
+
 /*!
-* Start Bootstrap - The Big Picture v5.0.6 (https://startbootstrap.com/template/the-big-picture)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-the-big-picture/blob/master/LICENSE)
-*/
+ * Photo by Julia Volk:
+ * https://www.pexels.com/photo/wild-camel-in-sunny-winter-day-5110944/
+ */
+
 body {
-  background: url("https://picsum.photos/1920/1080/?blur=2") no-repeat center center fixed;
-  background-size: cover;
+	background: url("../img/pexels-julia-volk-5110944.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+@media (orientation: portrait) {
+	/*!
+	 * Photo by Imad Clicks:
+	 * https://www.pexels.com/photo/camel-eating-grass-in-mountain-valley-13652197/
+	 */
+
+	body {
+		background-image: url("../img/pexels-imadclicks-13652197.jpg");
+		background-position: center bottom;
+	}
+}
+
+.sw-error-page {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	color: #fff;
+}
+
+.sw-error-page::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.52);
+	z-index: 0;
+}
+
+.sw-error-content,
+.sw-error-brand {
+	position: relative;
+	z-index: 1;
+}
+
+.sw-error-content {
+	position: absolute;
+	top: 12vh;
+	right: 10vw;
+	max-width: 46rem;
+}
+
+.sw-error-brand {
+	position: absolute;
+	left: 50%;
+	bottom: 4vh;
+	transform: translateX(-50%);
+	width: min(78rem, 82vw);
+	text-align: center;
+}
+
+@media (orientation: portrait) {
+	.sw-error-content {
+		top: 8vh;
+		left: 10vw;
+		right: 10vw;
+		max-width: none;
+	}
+
+	.sw-error-brand {
+		width: 86vw;
+		bottom: 5vh;
+	}
+}
+
+.sw-error-credit {
+	margin-top: 0.75rem;
+	font-size: clamp(1rem, 2vw, 1.6rem);
+}
+
+.sw-error-credit a {
+	color: #fff;
+	text-decoration: none;
 }

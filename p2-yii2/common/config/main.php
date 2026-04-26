@@ -5,6 +5,7 @@
 
 return [
 	'charset' => 'utf-8',
+	'language' => 'en-AU',
 	'aliases' => [
 		'@bower' => '@vendor/bower-asset',
 		'@npm'   => '@vendor/npm-asset',
@@ -82,6 +83,7 @@ return [
 						'sw.backend.demo' => 'sw.backend.demo.php',
 
 						'sw.frontend' => 'sw.frontend.php',
+						'sw.frontend.error' => 'sw.frontend.error.php',
 						'sw.tests' => 'sw.tests.php',
 					],
 				],

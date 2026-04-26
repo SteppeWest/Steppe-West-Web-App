@@ -13,19 +13,19 @@
  *
  * Load this asset with...
  *
- * common\assets\SwErrorAsset::register($this);
+ * frontend\assets\SwErrorAsset::register($this);
  *
- * use common\assets\SwErrorAsset;
+ * use frontend\assets\SwErrorAsset;
  * SwErrorAsset::register($this);
  *
  * or specify as a dependency with...
- *    'common\assets\SwErrorAsset',
+ *    SwErrorAsset::class,
  */
 
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
-use p2m\assets\P2CoreAsset;
+use common\assets\SwCommonAsset;
 
 class SwErrorAsset extends AssetBundle
 {
@@ -38,6 +38,6 @@ class SwErrorAsset extends AssetBundle
 	];
 
 	public $depends = [
-		P2CoreAsset::class,
+		SwCommonAsset::class,
 	];
 }

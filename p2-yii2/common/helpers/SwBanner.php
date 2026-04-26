@@ -8,6 +8,11 @@
  * @license MIT
  */
 
+/**
+ * Load this factory with...
+ * use common\helpers\SwBanner;
+ */
+
 namespace common\helpers;
 
 use p2m\api\P2AssetFactory;

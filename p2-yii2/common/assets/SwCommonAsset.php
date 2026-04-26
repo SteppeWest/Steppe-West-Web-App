@@ -36,7 +36,7 @@ SwCommonAsset::register($this);
  * SwCommonAsset::register($this);
  *
  * or specify as a dependency with...
- *    'common\assets\SwCommonAsset',
+ *    SwCommonAsset::class,
  */
 
 namespace common\assets;
