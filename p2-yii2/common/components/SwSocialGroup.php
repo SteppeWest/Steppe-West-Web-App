@@ -137,4 +137,14 @@ class SwSocialGroup extends SwSocialShared
 	{
 		return $this->size($size);
 	}
+
+	/**
+	public function multiply(int $x = 1): static
+	{
+	}
+
+	public function x(int $x = 1): static
+	{
+	}
+	 */
 }

@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+/*!
+ * Landscape photo by Julia Volk:
+ * https://www.pexels.com/photo/wild-camel-in-sunny-winter-day-5110944/
+ *
+ * Portrait photo by Imad Clicks:
+ * https://www.pexels.com/photo/camel-eating-grass-in-mountain-valley-13652197/
+ */
+
+--sw-error-stage: min(1500px, 76vw);
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	background: url("../img/pexels-julia-volk-5110944.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+.sw-error-page {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	color: #fff;
+	--sw-error-stage: min(1500px, 76vw);
+}
+
+.sw-error-page::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.35);
+	z-index: 0;
+}
+
+.sw-error-stage {
+	position: relative;
+	z-index: 1;
+	width: var(--sw-error-stage);
+	min-height: 100vh;
+	margin: 0 auto;
+	padding-top: 5vh;
+	padding-bottom: 4vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
+.sw-error-title {
+	margin: 0;
+	font-size: clamp(4rem, 6.4vw, 7.5rem);
+	font-weight: 700;
+	line-height: 1.05;
+	text-shadow: 0 0.08em 0.14em rgba(0, 0, 0, 0.35);
+}
+
+.sw-error-middle {
+	align-self: center;
+}
+
+.sw-error-links {
+	font-size: clamp(1.6rem, 2.1vw, 2.4rem);
+	font-weight: 700;
+	line-height: 1.25;
+	text-shadow: 0 0.08em 0.14em rgba(0, 0, 0, 0.35);
+}
+
+.sw-error-links ul {
+	margin: 0 0 2rem;
+	padding-left: 1.5em;
+}
+
+.sw-error-links a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.sw-error-links a:hover,
+.sw-error-links a:focus {
+	text-decoration: underline;
+}
+
+.sw-error-socials {
+	font-size: clamp(3rem, 4vw, 4.75rem);
+	line-height: 1;
+}
+
+.sw-error-socials a {
+	color: #fff;
+	text-decoration: none;
+	margin-right: 0.25em;
+	text-shadow: 0 0.08em 0.14em rgba(0, 0, 0, 0.35);
+}
+
+.sw-error-bottom {
+	align-self: end;
+}
+
+.sw-error-banner {
+	text-align: center;
+}
+
+.sw-error-credit {
+	margin: 0.75rem 0 0;
+	font-size: clamp(1rem, 1.4vw, 1.4rem);
+	line-height: 1.25;
+	text-align: right;
+	text-shadow: 0 0.08em 0.14em rgba(0, 0, 0, 0.35);
+}
+
+.sw-error-credit a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.sw-error-credit a:hover,
+.sw-error-credit a:focus {
+	text-decoration: underline;
+}
+
+.sw-error-credit-portrait {
+	display: none;
+}
+
+@media (orientation: portrait) {
+	body {
+		background-image: url("../img/pexels-imadclicks-13652197.jpg");
+		background-position: center bottom;
+	}
+
+	.sw-error-page {
+		--sw-error-stage: min(1000px, 86vw);
+	}
+
+	.sw-error-stage {
+		padding-top: 6vh;
+		padding-bottom: 5vh;
+		grid-template-rows: auto auto 1fr;
+	}
+
+	.sw-error-title {
+		font-size: clamp(2.8rem, 8vw, 5rem);
+	}
+
+	.sw-error-middle {
+		align-self: start;
+		margin-top: 2.5rem;
+	}
+
+	.sw-error-links,
+	.sw-error-socials {
+		text-align: left;
+	}
+
+	.sw-error-links {
+		font-size: clamp(1.25rem, 4.2vw, 2rem);
+	}
+
+	.sw-error-socials {
+		font-size: clamp(2.5rem, 8vw, 4rem);
+	}
+
+	.sw-error-bottom {
+		align-self: end;
+	}
+
+	.sw-error-credit {
+		font-size: clamp(0.9rem, 3vw, 1.15rem);
+		text-align: center;
+	}
+
+	.sw-error-credit-landscape {
+		display: none;
+	}
+
+	.sw-error-credit-portrait {
+		display: block;
+	}
+}

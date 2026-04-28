@@ -30,7 +30,7 @@ use p2m\assets\P2CoreAsset;
 class SwBannerAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/common/flags-banner';
+	public $sourcePath = '@common/assets/lib/flags-banner';
 
 	// @var array
 	public $css = [

@@ -121,15 +121,15 @@ final class SwBanner extends P2AssetFactory
 		$format = $options['format'] ?? 'svg';
 
 		$widthMap = [
-			1 => '1500',
-			2 => '1000',
-			3 => '0750',
+			1 => '2000',
+			2 => '1500',
+			3 => '1000',
 			4 => '0500',
 			5 => '0300',
 			6 => '0160',
 		];
 
-		$width = $widthMap[$size] ?? '1250';
+		$width = $widthMap[$size] ?? '1000';
 
 		if ($format === 'svg') {
 			$width  = 'min';

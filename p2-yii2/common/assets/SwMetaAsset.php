@@ -81,7 +81,7 @@ class SwMetaAsset extends AssetBundle
 	];
 
 	// @var string
-	public $sourcePath = '@static/common/meta';
+	public $sourcePath = '@common/assets/lib/meta';
 
 	// @var array
 	public $depends = [

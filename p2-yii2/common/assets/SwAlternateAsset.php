@@ -29,7 +29,7 @@ use yii\web\AssetBundle;
 class SwAlternateAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/common/alternate';
+	public $sourcePath = '@common/assets/lib/alternate';
 
 	// @var array
 	public $css = [

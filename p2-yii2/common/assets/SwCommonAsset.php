@@ -47,7 +47,7 @@ use p2m\assets\P2CoreAsset;
 class SwCommonAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@static/common/sw';
+	public $sourcePath = '@common/assets/lib/sw';
 
 	// @var array
 	public $css = [
