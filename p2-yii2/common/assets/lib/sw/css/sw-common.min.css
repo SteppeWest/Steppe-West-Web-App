@@ -24,5 +24,35 @@
 	cursor: default;
 }
 
-/*
-*/
+.sw-socials {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 0.35em;
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+.sw-social {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 1 auto;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.sw-social i,
+.sw-social svg {
+	display: inline-block;
+	line-height: 1;
+}
+
+.sw-social-label {
+	margin-left: 0.35em;
+}
+
+.sw-error-socials .sw-socials {
+	font-size: clamp(2.5rem, 4vw, 4.75rem);
+}
+

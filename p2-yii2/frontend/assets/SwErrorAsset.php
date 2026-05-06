@@ -30,7 +30,7 @@ use common\assets\SwCommonAsset;
 class SwErrorAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@frontend/assets/lib/error';
+	public $sourcePath = '@frontend/assets/lib/error-page';
 
 	// @var array
 	public $css = [

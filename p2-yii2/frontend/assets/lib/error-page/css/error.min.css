@@ -8,8 +8,6 @@
  * https://www.pexels.com/photo/camel-eating-grass-in-mountain-valley-13652197/
  */
 
---sw-error-stage: min(1500px, 76vw);
-
 html,
 body {
 	min-height: 100%;

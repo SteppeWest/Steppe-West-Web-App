@@ -100,4 +100,8 @@ Steppe West: Stories from Central Asia, Shared with the World
 	Exploring life, culture, and stories from Central Asia — together
 An Invitation to Share Your Stories with the World
 	We publish and promote stories from Central Asia for English-speaking audiences
+
+		<div class="row">
+			<div class="col-12"><?= phpinfo() ?></div>
+		</div>
  -->
