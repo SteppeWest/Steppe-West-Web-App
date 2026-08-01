@@ -64,8 +64,8 @@ $this->title = Yii::t('sw.frontend.error', 'Steppe West 404 Lost on the Steppe')
 			<div class="col-lg-6">
 				<nav class="sw-error-links" aria-label="<?= Yii::t('sw.frontend.error', 'Suggested pages') ?>">
 					<ul>
-						<li><?= Html::a(Html::encode($homeTitle), $homeUrl, ['encode' => false]) ?></li>
-						<li><?= Html::a(Html::encode($homeTitle), $homeUrl, ['encode' => false]) ?></li>
+						<li><?= Html::a($homeTitle, ['/']) ?></li>
+						<li><?= Html::a($inviteTitle, ['/invite']) ?></li>
 					</ul>
 				</nav>
 

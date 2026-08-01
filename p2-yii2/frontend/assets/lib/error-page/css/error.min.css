@@ -1,22 +1,25 @@
 @charset "UTF-8";
 
 /*!
- * Landscape photo by Julia Volk:
+ * Photo by Julia Volk:
  * https://www.pexels.com/photo/wild-camel-in-sunny-winter-day-5110944/
- *
- * Portrait photo by Imad Clicks:
- * https://www.pexels.com/photo/camel-eating-grass-in-mountain-valley-13652197/
  */
 
-html,
 body {
-	min-height: 100%;
-}
-
-body {
-	margin: 0;
 	background: url("../img/pexels-julia-volk-5110944.jpg") no-repeat center center fixed;
 	background-size: cover;
+}
+
+@media (orientation: portrait) {
+	/*!
+	 * Photo by Imad Clicks:
+	 * https://www.pexels.com/photo/camel-eating-grass-in-mountain-valley-13652197/
+	 */
+
+	body {
+		background-image: url("../img/pexels-imadclicks-13652197.jpg");
+		background-position: center bottom;
+	}
 }
 
 .sw-error-page {
