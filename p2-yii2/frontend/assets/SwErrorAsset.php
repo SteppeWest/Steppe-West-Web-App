@@ -25,7 +25,7 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
-use common\assets\SwCommonAsset;
+use frontend\assets\SwBootstrapAsset;
 
 class SwErrorAsset extends AssetBundle
 {
@@ -38,6 +38,6 @@ class SwErrorAsset extends AssetBundle
 	];
 
 	public $depends = [
-		SwCommonAsset::class,
+		SwBootstrapAsset::class,
 	];
 }

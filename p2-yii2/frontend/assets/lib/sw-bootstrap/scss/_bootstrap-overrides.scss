@@ -1,0 +1,32 @@
+// _bootstrap-overrides.scss
+
+@use "variables" as sw;
+
+:root {
+  // General Bootstrap variables
+  --bs-body-color: #{sw.$sw-ink};
+  --bs-body-bg: #{sw.$sw-sand};
+
+  --bs-primary: #{sw.$sw-clay};
+  --bs-primary-rgb: 184, 107, 60;
+
+  --bs-secondary: #{sw.$sw-sage};
+  --bs-secondary-rgb: 111, 127, 82;
+
+  --bs-info: #{sw.$sw-sky};
+  --bs-info-rgb: 79, 127, 159;
+
+  --bs-dark: #{sw.$sw-ink};
+  --bs-dark-rgb: 47, 42, 36;
+
+  --bs-light: #{sw.$sw-sand-light};
+  --bs-light-rgb: 255, 249, 239;
+
+  --bs-link-color: #{sw.$sw-rust};
+  --bs-link-hover-color: #713d25;
+
+  --bs-border-color: #{sw.$sw-border};
+  --bs-border-radius: .85rem;
+  --bs-border-radius-sm: .55rem;
+  --bs-border-radius-lg: 1.25rem;
+}

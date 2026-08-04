@@ -1,0 +1,23 @@
+// _variables.scss
+
+$sw-sand: #f4ead8;
+$sw-sand-light: #fff9ef;
+$sw-clay: #b86b3c;
+$sw-rust: #934f2f;
+$sw-sage: #6f7f52;
+$sw-sky: #4f7f9f;
+$sw-ink: #2f2a24;
+$sw-muted: #756b5f;
+$sw-border: #d7c4a6;
+
+:root {
+  --sw-sand: #{$sw-sand};
+  --sw-sand-light: #{$sw-sand-light};
+  --sw-clay: #{$sw-clay};
+  --sw-rust: #{$sw-rust};
+  --sw-sage: #{$sw-sage};
+  --sw-sky: #{$sw-sky};
+  --sw-ink: #{$sw-ink};
+  --sw-muted: #{$sw-muted};
+  --sw-border: #{$sw-border};
+}
