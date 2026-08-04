@@ -9,7 +9,7 @@ return [
 			//'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host=localhost;dbname=u746306670_sw',
 			'username' => 'u746306670_sw',
-			'password' => '6EpWZubb0aHji5ctLFqcBQXWkJ99aG8DxXYhe326',
+			'password' => 'f3BXp3gaQxU9s2xBw7ft789TuEA8Bw6m',
 			'charset' => 'utf8',
 			'tablePrefix' => 'sw_',
 		],
