@@ -1,6 +1,6 @@
 <?php
 /**
- * @frontend/assets/SwBootstrapAsset.php
+ * @frontend/assets/SwFrontendAsset.php
  *
  * @author Pedro Plowman
  * @copyright Copyright (c) 2025 Steppe West
@@ -9,17 +9,17 @@
  */
 
 /**
- * @class \frontend\assets\SwBootstrapAsset
+ * @class \frontend\assets\SwFrontendAsset
  *
  * Load this asset with...
  *
- * frontend\assets\SwBootstrapAsset::register($this);
+ * frontend\assets\SwFrontendAsset::register($this);
  *
- * use frontend\assets\SwBootstrapAsset;
- * SwBootstrapAsset::register($this);
+ * use frontend\assets\SwFrontendAsset;
+ * SwFrontendAsset::register($this);
  *
  * or specify as a dependency with...
- *    SwBootstrapAsset::class,
+ *    SwFrontendAsset::class,
  */
 
 namespace frontend\assets;
@@ -27,14 +27,14 @@ namespace frontend\assets;
 use yii\web\AssetBundle;
 use common\assets\SwCommonAsset;
 
-class SwBootstrapAsset extends AssetBundle
+class SwFrontendAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@frontend/assets/lib/sw-bootstrap';
+	public $sourcePath = '@frontend/assets/lib/sw-frontend';
 
 	// @var array
 	public $css = [
-		'css/sw-bootstrap.css',
+		'css/sw-frontend.css',
 	];
 
 	public $depends = [

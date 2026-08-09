@@ -25,12 +25,12 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
-use frontend\assets\SwBootstrapAsset;
+use frontend\assets\SwFrontendAsset;
 
 class SwErrorAsset extends AssetBundle
 {
 	// @var string
-	public $sourcePath = '@frontend/assets/lib/error-page';
+	public $sourcePath = '@frontend/assets/lib/sw-error';
 
 	// @var array
 	public $css = [
@@ -38,6 +38,6 @@ class SwErrorAsset extends AssetBundle
 	];
 
 	public $depends = [
-		SwBootstrapAsset::class,
+		SwFrontendAsset::class,
 	];
 }
